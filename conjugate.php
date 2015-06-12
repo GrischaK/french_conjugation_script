@@ -39,7 +39,7 @@ const Modes_impersonnels= 4;
 
 
 function conjugate($verb, $tense, $person, $mood) {
-$conjugated_verb = 'aimer';
+$conjugated_verb = '"Unknown Conjugation';
 switch($person) {
 case Person::FirstPersonSingular: $conjugated_verb = "J'aime";
 break;
