@@ -1,5 +1,4 @@
 <?php
-// update 17:21 for test
 abstract class Tense 
 { 
 // simple tenses 
@@ -45,6 +44,8 @@ switch($testtestes) {
 case Person::FirstPersonSingular: $conjugated_verb = "J'aime";
 break;
 case Person::SecondPersonSingular: $conjugated_verb = "Tu aimes";
+break;
+case Person::ThirdPersonSingular: $conjugated_verb = "Il aime";
 break;
 }
 return $conjugated_verb;
