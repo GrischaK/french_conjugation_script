@@ -42,6 +42,26 @@ function word_stem($verb){
 return $verb; // or return $word_stem ?
 }
 
+function person($person) {
+$person= '"Unknown Person';
+switch($person) {
+case Person::FirstPersonSingular: $person = "Je";  // shoudl use the function_French
+break;
+case Person::SecondPersonSingular: $person = "Tu";
+break;
+case Person::ThirdPersonSingular: $person = "Il aime";
+break;
+case Person::FirstPersonPlural: $person = "Nous";  
+break;
+case Person::SecondPersonPlural: $person = "Vous";
+break;
+case Person::ThirdPersonPlural: $person = "Ils";
+break;
+}
+return $person;
+}
+
+
 function conjugate($verb, $tense, $person, $mood) {
 $conjugated_verb = '"Unknown Conjugation';
 switch($person) {
