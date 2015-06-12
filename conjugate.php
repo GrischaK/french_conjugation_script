@@ -37,6 +37,10 @@ const Modes_impersonnels= 4;
  
 }
 
+function word_stem($verb){
+  $word_stem = substr($verb, 0, - 2);
+return $verb; // or return $word_stem ?
+}
 
 function conjugate($verb, $tense, $person, $mood) {
 $conjugated_verb = '"Unknown Conjugation';
