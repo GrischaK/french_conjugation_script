@@ -43,36 +43,48 @@ return $verb; // or return $word_stem ?
 }
 
 function person($person) {
-$person= '"Unknown Person';
-switch($person) {
-case Person::FirstPersonSingular: $person = "Je";  // shoudl use the function_French
-break;
-case Person::SecondPersonSingular: $person = "Tu";
-break;
-case Person::ThirdPersonSingular: $person = "Il aime";
-break;
-case Person::FirstPersonPlural: $person = "Nous";  
-break;
-case Person::SecondPersonPlural: $person = "Vous";
-break;
-case Person::ThirdPersonPlural: $person = "Ils";
-break;
+	$person = '"Unknown Person';
+	switch ($person) {
+		case Person::FirstPersonSingular :
+			$person = "Je "; // shoudl use the function_French
+			break;
+		case Person::SecondPersonSingular :
+			$person = "Tu ";
+			break;
+		case Person::ThirdPersonSingular :
+			$person = "Il ";
+			break;
+		case Person::FirstPersonPlural :
+			$person = "Nous ";
+			break;
+		case Person::SecondPersonPlural :
+			$person = "Vous ";
+			break;
+		case Person::ThirdPersonPlural :
+			$person = "Ils ";
+			break;
+	}
+	return $person;
 }
-return $person;
+function conjugate($verb, $tense, $person, $mood) {
+	$conjugated_verb = 'Unknown Person';
+	switch ($person) {
+		case Person::FirstPersonSingular :
+			$conjugated_verb = "aime";
+			break;
+		case Person::SecondPersonSingular :
+			$conjugated_verb = "aimes";
+			break;
+		case Person::ThirdPersonSingular :
+			$conjugated_verb = "aime";
+			break;
+	}
+	return $conjugated_verb;
 }
-
-
 function conjugation_phrase($verb, $tense, $person, $mood) {
-$conjugated_verb = '"Unknown Conjugation';
-switch($person) {
-case Person::FirstPersonSingular: $conjugated_verb = "J'aime";
-break;
-case Person::SecondPersonSingular: $conjugated_verb = "Tu aimes";
-break;
-case Person::ThirdPersonSingular: $conjugated_verb = "Il aime";
-break;
-}
-return $conjugated_verb;
+	$conjugated_verb = conjugate ( $verb, $tense, $person, $mood );
+	$personal_pronoun = person ( $person );
+	return $personal_pronoun . $conjugated_verb;
 }
 
 ?>
