@@ -8,9 +8,6 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 	public function testRegularVerb($expectedResult, $verb, $tense, $person, $mood) {
 		$this->assertEquals ( $expectedResult, conjugate ( $verb, $tense, $person, $mood ) );
 	}
-	public function testWordStem($expectedResult, $verb) {
-		$this->assertEquals ( "aim", word_stem ( "aimer") );
-	}	
 	public function regularVerbProvider() {
 		return array (
 				array (
@@ -33,7 +30,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						Tense::Present,
 						Person::ThirdPersonSingular,
 						Mood::Indicative 
-				), 
+				),
 				array (
 						"aimons",
 						"aimer",
@@ -54,7 +51,23 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						Tense::Present,
 						Person::ThirdPersonPlural,
 						Mood::Indicative 
-				) 				
+				) 
+		);
+	}
+}
+class FrenchVerbWordStemTest extends PHPUnit_Framework_TestCase {
+	/**
+	 * @dataProvider regularWordStemProvider
+	 */
+	public function testWordStem($expectedResult, $verb) {
+		$this->assertEquals ( $expectedResult, word_stem ( $verb ) );
+	}
+	public function regularWordStemProvider() {
+		return array (
+				array (
+						"aim",
+						"aimer" 
+				) 
 		);
 	}
 }
