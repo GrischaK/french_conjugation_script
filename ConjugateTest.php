@@ -34,6 +34,27 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						Person::ThirdPersonSingular,
 						Mood::Indicative 
 				) 
+				array (
+						"aimons",
+						"aimer",
+						Tense::Present,
+						Person::FirstPersonPlural,
+						Mood::Indicative 
+				),
+				array (
+						"aimez",
+						"aimer",
+						Tense::Present,
+						Person::SecondPersonPlural,
+						Mood::Indicative 
+				),
+				array (
+						"aiment",
+						"aimer",
+						Tense::Present,
+						Person::ThirdPersonPlural,
+						Mood::Indicative 
+				) 				
 		);
 	}
 }
