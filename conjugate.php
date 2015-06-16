@@ -33,7 +33,7 @@ const Modes_impersonnels= 4;
 }
 function word_stem($verb){
   $word_stem = substr($verb, 0, - 2);
-return $verb; // or return $word_stem ?
+return $word_stem;
 }
 function person($person) {
 	$person = '"Unknown Person';
