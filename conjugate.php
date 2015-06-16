@@ -39,7 +39,7 @@ function person($person) {
 	$person = '"Unknown Person';
 	switch ($person) {
 		case Person::FirstPersonSingular :
-			$person = "Je "; // shoudl use the function_French
+			$person = "Je "; // should use the function_French
 			break;
 		case Person::SecondPersonSingular :
 			$person = "Tu ";
@@ -59,28 +59,33 @@ function person($person) {
 	}
 	return $person;
 }
-function conjugate($verb, $tense, $person, $mood) {
-	$conjugated_verb = 'Unknown Person';
-	switch ($person) {
+function endings($person) {
+	$endings = '"Unknown Ending';
+	switch ($endings) {
 		case Person::FirstPersonSingular :
-			$conjugated_verb = "aime";
+			$endings = "e"; 
 			break;
 		case Person::SecondPersonSingular :
-			$conjugated_verb = "aimes";
+			$endings = "es";
 			break;
 		case Person::ThirdPersonSingular :
-			$conjugated_verb = "aime";
+			$endings = "e";
 			break;
 		case Person::FirstPersonPlural :
-			$conjugated_verb = "aimons";
+			$endings = "ons";
 			break;
 		case Person::SecondPersonPlural :
-			$conjugated_verb = "aimez";
+			$endings = "ez";
 			break;
 		case Person::ThirdPersonPlural :
-			$conjugated_verb = "aiment";
-			break;			
+			$endings = "ent";
+			break;
 	}
+	return $endings;
+}
+function conjugate($verb, $tense, $person, $mood) {
+	//$conjugated_verb = 'Unknown Person';
+	$conjugated_verb = word_stem($verb).endings($person);
 	return $conjugated_verb;
 }
 function conjugation_phrase($verb, $tense, $person, $mood) {
