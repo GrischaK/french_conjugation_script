@@ -62,7 +62,7 @@ return $person;
 }
 
 
-function conjugate($verb, $tense, $person, $mood) {
+function conjugation_phrase($verb, $tense, $person, $mood) {
 $conjugated_verb = '"Unknown Conjugation';
 switch($person) {
 case Person::FirstPersonSingular: $conjugated_verb = "J'aime";
