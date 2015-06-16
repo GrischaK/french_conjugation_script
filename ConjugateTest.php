@@ -33,7 +33,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						Tense::Present,
 						Person::ThirdPersonSingular,
 						Mood::Indicative 
-				) 
+				), 
 				array (
 						"aimons",
 						"aimer",
