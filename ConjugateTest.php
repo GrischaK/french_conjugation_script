@@ -53,6 +53,50 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						Mood::Indicative 
 				) 
 		);
+return array (
+				array (
+						"donne",
+						"donner",
+						Tense::Present,
+						Person::FirstPersonSingular,
+						Mood::Indicative 
+				),
+				array (
+						"donnes",
+						"donner",
+						Tense::Present,
+						Person::SecondPersonSingular,
+						Mood::Indicative 
+				),
+				array (
+						"donne",
+						"donner",
+						Tense::Present,
+						Person::ThirdPersonSingular,
+						Mood::Indicative 
+				),
+				array (
+						"donnons",
+						"donner",
+						Tense::Present,
+						Person::FirstPersonPlural,
+						Mood::Indicative 
+				),
+				array (
+						"donnez",
+						"donner",
+						Tense::Present,
+						Person::SecondPersonPlural,
+						Mood::Indicative 
+				),
+				array (
+						"donnent",
+						"donner",
+						Tense::Present,
+						Person::ThirdPersonPlural,
+						Mood::Indicative 
+				) 
+		);		
 	}
 }
 ?>
