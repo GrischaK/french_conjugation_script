@@ -71,6 +71,15 @@ function conjugate($verb, $tense, $person, $mood) {
 		case Person::ThirdPersonSingular :
 			$conjugated_verb = "aime";
 			break;
+		case Person::FirstPersonPlural :
+			$conjugated_verb = "aimons";
+			break;
+		case Person::SecondPersonPlural :
+			$conjugated_verb = "aimez";
+			break;
+		case Person::ThirdPersonPlural :
+			$conjugated_verb = "aiment";
+			break;			
 	}
 	return $conjugated_verb;
 }
