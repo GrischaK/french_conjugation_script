@@ -8,6 +8,9 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 	public function testRegularVerb($expectedResult, $verb, $tense, $person, $mood) {
 		$this->assertEquals ( $expectedResult, conjugate ( $verb, $tense, $person, $mood ) );
 	}
+	public function testWordStem($expectedResult, $verb) {
+		$this->assertEquals ( "aim", word_stem ( "aimer") );
+	}	
 	public function regularVerbProvider() {
 		return array (
 				array (
