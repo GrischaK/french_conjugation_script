@@ -1,20 +1,37 @@
 <?php
 require 'conjugate.php';
-
 class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
-
-public function testRegularVerb() { 
-$this->assertEquals("J'aime", conjugate("aimer", Tense::Present, Person::FirstPersonSingular, Mood::Indicative) ); 
+	
+	/**
+	 * @dataProvider regularVerbProvider
+	 */
+	public function testRegularVerb($expectedResult, $verb, $tense, $person, $mood) {
+		$this->assertEquals ( $expectedResult, conjugate ( $verb, $tense, $person, $mood ) );
+	}
+	public function regularVerbProvider() {
+		return array (
+				array (
+						"aime",
+						"aimer",
+						Tense::Present,
+						Person::FirstPersonSingular,
+						Mood::Indicative 
+				),
+				array (
+						"aimes",
+						"aimer",
+						Tense::Present,
+						Person::SecondPersonSingular,
+						Mood::Indicative 
+				),
+				array (
+						"aime",
+						"aimer",
+						Tense::Present,
+						Person::ThirdPersonSingular,
+						Mood::Indicative 
+				) 
+		);
+	}
 }
-
-public function testRegularVerb2() { 
-$this->assertEquals("Tu aimes", conjugate("aimer", Tense::Present, Person::SecondPersonSingular, Mood::Indicative) ); 
-}
-
-public function testRegularVerb3() { 
-$this->assertEquals("Il aime", conjugate("aimer", Tense::Present, Person::ThirdPersonSingular, Mood::Indicative) ); 
-}
-
-}
-
 ?>
