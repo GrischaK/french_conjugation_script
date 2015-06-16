@@ -11,21 +11,21 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 	public function regularVerbProvider() {
 		return array (
 				array (
-						"J'aime",
+						"aime",
 						"aimer",
 						Tense::Present,
 						Person::FirstPersonSingular,
 						Mood::Indicative 
 				),
 				array (
-						"Tu aimes",
+						"aimes",
 						"aimer",
 						Tense::Present,
 						Person::SecondPersonSingular,
 						Mood::Indicative 
 				),
 				array (
-						"Il aime",
+						"aime",
 						"aimer",
 						Tense::Present,
 						Person::ThirdPersonSingular,
