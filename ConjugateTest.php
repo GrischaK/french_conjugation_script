@@ -51,9 +51,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						Tense::Present,
 						Person::ThirdPersonPlural,
 						Mood::Indicative 
-				) 
-		);
-return array (
+				),
 				array (
 						"donne",
 						"donner",
