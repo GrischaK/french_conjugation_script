@@ -130,7 +130,7 @@ function endings($person, $tense, $mood) {
 					) 
 			) 
 	);
-	return $ending($person, $tense, $mood);
+	return $ending [$mood][$tense][$person];
 }
 function aller($person, $tense, $mood) {
 	// $aller = 'Unknown Aller';
@@ -310,7 +310,7 @@ function auxiliaire($person, $tense, $mood) {
 			);		
 	}	
 return $auxiliaire; 
-return $conjugated_auxiliaire($person, $tense, $mood);
+return $conjugated_auxiliaire[$mood][$tense][$person];
 }		
 function conjugate($verb, $tense, $person, $mood) {
 	// $conjugated_verb = 'Unknown Person';
