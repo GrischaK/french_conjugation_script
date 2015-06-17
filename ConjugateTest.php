@@ -1,7 +1,9 @@
 <?php
 require 'conjugate.php';
+
 class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 	
+
 	/**
 	 * @dataProvider regularVerbProvider
 	 */
@@ -9,6 +11,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals ( $expectedResult, conjugate ( $verb, $person, new Tense($tense), $mood ) );
 	}						
 	public function regularVerbProvider() {
+		;
 		return array (
 				array (
 						"aime",
@@ -21,6 +24,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						"aimes",
 						"aimer",
 						'Present',
+
 						Person::SecondPersonSingular,
 						Mood::Indicatif 
 				),
@@ -76,7 +80,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 				array (
 						"donnons",
 						"donner",
-						Tense::Present,
+						'Present',
 						Person::FirstPersonPlural,
 						Mood::Indicatif 
 				),
