@@ -104,7 +104,7 @@ class AuxiliaireTest extends PHPUnit_Framework_TestCase {
 						Mood::Indicatif
 				),
 				array (
-						"avont",
+						"ont",
 						Auxiliaire::Avoir,
 						Tense::Passe_compose,
 						Person::ThirdPersonPlural,

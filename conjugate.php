@@ -321,15 +321,15 @@ function finding_auxiliaire($verb) {
 	}
 return $auxiliaire;
 }	
-function conjugate($verb, $mood, $tense, $person) {
+function conjugate($verb, $person, $tense, $mood) {
 	// $conjugated_verb = 'Unknown Person';
-	$conjugated_verb = word_stem ( $verb ) . endings ($mood,$tense,$person);
+	$conjugated_verb = word_stem ( $verb ) . endings ($person, $tense, $mood);
 	return $conjugated_verb;
 }
-function conjugation_phrase($verb, $mood, $tense, $person) {
-	$conjugated_verb = conjugate ( $verb, $mood, $tense, $person);
-	$personal_pronoun = person ( $person );
+function conjugation_phrase($verb, $person, $tense, $mood) {
+	$conjugated_verb = conjugate ( $verb, $person, $tense, $mood);
+	$personal_pronoun = person ( $person);
 	return $personal_pronoun . $conjugated_verb;
 }
-// $variable = conjugate ( "aimer", Tense::Present, Person::SecondPersonSingular, Mood::Indicative );
+$variable = conjugate ( 'aimer', Tense::Present, Person::FirstPersonSingular, Mood::Indicatif); 
 ?>
