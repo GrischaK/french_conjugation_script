@@ -1,27 +1,20 @@
 <?php
 abstract class Tense {
 	// simple tenses
-	const Indicatif_Present = 0;
-	const Indicatif_Imparfait = 1;
-	const Indicatif_Passe_simple = 2;
-	const Indicatif_Futur_simple = 3; 		// (Futur I)
-	
-	const Subjonctif_Present = 4;
-	const Subjonctif_Imparfait = 5;		
-	
-	const Conditionnel_Present = 6;	
+	const Present = 0;
+	const Imparfait = 1;
+	const Passe = 2;
+	const Futur = 3; 		// (Futur I)		
+		
 	// composite tenses
-	const Indicatif_Passe_compose = 7;
-	const Indicatif_Plus_que_parfait = 8;
-	const Indicatif_Passe_anterieur = 9;
-	const Indicatif_Futur_anterieur = 10;	// (Futur II)
-	const Indicatif_Futur_compose = 11; 	// (Futur proche)
+	const Passe_compose = 4;
+	const Plus_que_parfait = 5;
+	const Passe_anterieur = 6;
+	const Futur_anterieur = 7;	// (Futur II)
+	const Futur_compose = 8; 	// (Futur proche)
 	
-	const Subjonctif_Passe = 12;
-	const Subjonctif_Plus_que_parfait = 13;
-	
-	const Conditionnel_Premiere_Forme = 14; 
-	const Conditionnel_Deuxieme_Forme = 15;	
+	const Premiere_Forme = 9; 
+	const Deuxieme_Forme = 10;	
 }
 abstract class Person {
 	const FirstPersonSingular = 0;
@@ -75,7 +68,7 @@ function endings($person, $tense, $mood) {
 	// $ending = 'Unknown Ending';
 	$ending = array ( // Standardendungen für Verben auf -er
 			Mood::Indicatif => array (
-					Tense::Indicatif_Present => array (
+					Tense::Present => array (
 							Person::FirstPersonSingular => 'e',
 							Person::SecondPersonSingular => 'es',
 							Person::ThirdPersonSingular => 'e',
@@ -83,7 +76,7 @@ function endings($person, $tense, $mood) {
 							Person::SecondPersonPlural => 'ez',
 							Person::ThirdPersonPlural => 'ent' 
 					),
-					Tense::Indicatif_Imparfait => array (
+					Tense::Imparfait => array (
 							Person::FirstPersonSingular => 'ais',
 							Person::SecondPersonSingular => 'ais',
 							Person::ThirdPersonSingular => 'ait',
@@ -91,7 +84,7 @@ function endings($person, $tense, $mood) {
 							Person::SecondPersonPlural => 'iez',
 							Person::ThirdPersonPlural => 'aient' 
 					),
-					Tense::Indicatif_Passe_simple => array (
+					Tense::Passe => array (
 							Person::FirstPersonSingular => 'ai',
 							Person::SecondPersonSingular => 'as',
 							Person::ThirdPersonSingular => 'a',
@@ -99,7 +92,7 @@ function endings($person, $tense, $mood) {
 							Person::SecondPersonPlural => 'âtes',
 							Person::ThirdPersonPlural => 'èrent' 
 					),
-					Tense::Indicatif_Futur_simple => array (
+					Tense::Futur => array (
 							Person::FirstPersonSingular => 'erai',
 							Person::SecondPersonSingular => 'eras',
 							Person::ThirdPersonSingular => 'era',
@@ -109,7 +102,7 @@ function endings($person, $tense, $mood) {
 					) 
 			),
 			Mood::Subjonctif => array (
-					Tense::Subjonctif_Present => array (
+					Tense::Present => array (
 							Person::FirstPersonSingular => 'e',							
 							Person::SecondPersonSingular => 'es',
 							Person::ThirdPersonSingular => 'e',
@@ -117,7 +110,7 @@ function endings($person, $tense, $mood) {
 							Person::SecondPersonPlural => 'iez',
 							Person::ThirdPersonPlural => 'ent' 
 					),
-					Tense::Subjonctif_Imparfait => array (
+					Tense::Imparfait => array (
 							Person::FirstPersonSingular => 'asse',
 							Person::SecondPersonSingular => 'asses',
 							Person::ThirdPersonSingular => 'ât',
@@ -127,7 +120,7 @@ function endings($person, $tense, $mood) {
 					) 
 			),
 			Mood::Conditionnel => array (
-					Tense::Conditionnel_Present => array (
+					Tense::Present => array (
 							Person::FirstPersonSingular => 'erais',
 							Person::SecondPersonSingular => 'erais',
 							Person::ThirdPersonSingular => 'erait',
@@ -143,7 +136,7 @@ function aller($person, $tense, $mood) {
 	// $aller = 'Unknown Aller';
 	$ending = array (
 			Mood::Indicatif => array (
-					Tense::Indicatif_Futur_compose => array (
+					Tense::Futur_compose => array (
 							Person::FirstPersonSingular => 'vais',
 							Person::SecondPersonSingular => 'vas',
 							Person::ThirdPersonSingular => 'va',
@@ -170,7 +163,7 @@ function auxiliaire($person, $tense, $mood) {
 		$auxiliaire = 'être';	
 		$ending = array ( 
 			Mood::Indicatif => array (					
-					Tense::Indicatif_Passe_compose => array (
+					Tense::Passe_compose => array (
 							Person::FirstPersonSingular => 'suis',
 							Person::SecondPersonSingular => 'es',
 							Person::ThirdPersonSingular => 'est',
@@ -178,7 +171,7 @@ function auxiliaire($person, $tense, $mood) {
 							Person::SecondPersonPlural => 'êtes',
 							Person::ThirdPersonPlural => 'sont'
 					),				
-					Tense::Indicatif_Plus_que_parfait => array (
+					Tense::Plus_que_parfait => array (
 							Person::FirstPersonSingular => 'étais',
 							Person::SecondPersonSingular => 'étais',
 							Person::ThirdPersonSingular => 'était',
@@ -186,7 +179,7 @@ function auxiliaire($person, $tense, $mood) {
 							Person::SecondPersonPlural => 'étiez',
 							Person::ThirdPersonPlural => 'étaient'
 					),							
-					Tense::Indicatif_Passe_anterieur => array (
+					Tense::Passe_anterieur => array (
 							Person::FirstPersonSingular => 'fus',
 							Person::SecondPersonSingular => 'fus',
 							Person::ThirdPersonSingular => 'fut',
@@ -194,7 +187,7 @@ function auxiliaire($person, $tense, $mood) {
 							Person::SecondPersonPlural => 'fûtes',
 							Person::ThirdPersonPlural => 'furent'
 					),		
-					Tense::Indicatif_Futur_anterieur => array (
+					Tense::Futur_anterieur => array (
 							Person::FirstPersonSingular => 'serais',
 							Person::SecondPersonSingular => 'serais',
 							Person::ThirdPersonSingular => 'serait',
@@ -204,7 +197,7 @@ function auxiliaire($person, $tense, $mood) {
 					)
 			),				
 			Mood::Subjonctif => array (
-					Tense::Subjonctif_Passe => array (
+					Tense::Passe => array (
 							Person::FirstPersonSingular => 'sois',
 							Person::SecondPersonSingular => 'sois',
 							Person::ThirdPersonSingular => 'soit',
@@ -212,7 +205,7 @@ function auxiliaire($person, $tense, $mood) {
 							Person::SecondPersonPlural => 'soyez',
 							Person::ThirdPersonPlural => 'soient'
 					),		
-					Tense::Subjonctif_Plus_que_parfait => array (
+					Tense::Plus_que_parfait => array (
 							Person::FirstPersonSingular => 'fusse',
 							Person::SecondPersonSingular => 'fusses',
 							Person::ThirdPersonSingular => 'fût',
@@ -222,7 +215,7 @@ function auxiliaire($person, $tense, $mood) {
 					)
 			),
 			Mood::Conditionnel => array (								
-					Tense::Conditionnel_Premiere_Forme => array (
+					Tense::Premiere_Forme => array (
 							Person::FirstPersonSingular => 'serais',
 							Person::SecondPersonSingular => 'serais',
 							Person::ThirdPersonSingular => 'serait',
@@ -230,7 +223,7 @@ function auxiliaire($person, $tense, $mood) {
 							Person::SecondPersonPlural => 'seriez',
 							Person::ThirdPersonPlural => 'seraient'
 					),
-					Tense:: Conditionnel_Deuxieme_Forme => array (
+					Tense::Deuxieme_Forme => array (
 						    Person::FirstPersonSingular => 'fusse',
 							Person::SecondPersonSingular => 'fusses',
 							Person::ThirdPersonSingular => 'fût',
