@@ -1,7 +1,7 @@
 <?php
-class Tense {
-	
-	private $value;	
+
+abstract class Enum {
+	private $value;
 	public function __construct($value) {
 		if(is_string($value)) {
 			$this->value = Tense::getConstants()[$value];
@@ -16,10 +16,10 @@ class Tense {
 	
 	public function getValue() {
 		return $this->value;
-	}	
+	}
 	
-	static private function getConstants() {
-		$reflection = new ReflectionClass(__CLASS__);
+	static public function getConstants() {
+		$reflection = new ReflectionClass(get_called_class());
 		return $reflection->getConstants();
 	}
 	
@@ -32,7 +32,9 @@ class Tense {
 			return "Invalid value ".$this->$value;
 		}
 	}
-	
+}
+
+class Tense extends Enum {	
 	// simple tenses
 	const Present = 0;
 	const Imparfait = 1;
