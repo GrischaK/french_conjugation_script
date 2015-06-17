@@ -302,7 +302,7 @@ function conjugated_auxiliaire($auxiliaire, $person, $tense, $mood) {
 	}
 	return $conjugated_auxiliaire [$mood] [$tense] [$person];
 }	
-function finding_auxiliaire($person, $tense, $mood) {
+function finding_auxiliaire($verb) {
 	$aux_etre = array('accourir', 'advenir', 'aller', 'amuser', 'apparaitre', 'apparaître', 'arriver', 'ascendre', 'co-naitre', 'co-naître',
 			'convenir', 'débeller', 'décéder', 'démourir', 'descendre', 'disconvenir', 'devenir', 'échoir', 'entre-venir', 'entrer', 'époustoufler',
 			'intervenir', 'issir', 'mévenir', 'monter', 'mourir', 'naitre', 'naître', 'obvenir', 'paraitre', 'paraître', 'partir', 'parvenir',
