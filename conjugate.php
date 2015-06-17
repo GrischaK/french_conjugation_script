@@ -230,9 +230,10 @@ function auxiliaire($person, $tense, $mood) {
 							Person::FirstPersonPlural => 'fussions',
 							Person::SecondPersonPlural => 'fussiez',
 							Person::ThirdPersonPlural => 'fussent'
-					)					
-			)
-		)
+							)
+					)
+			);		
+	 }
 		else {  // later or in_array($verb, $verbes_pronominaux) only the pronominal version!
 			$auxiliaire = 'avoir';
 			$ending = array (
@@ -245,65 +246,65 @@ function auxiliaire($person, $tense, $mood) {
 									Person::SecondPersonPlural => 'avez',
 									Person::ThirdPersonPlural => 'ont'
 							),
-							Tense::Plus_que_parfait => array (//need change values
-									Person::FirstPersonSingular => 'étais',
-									Person::SecondPersonSingular => 'étais',
-									Person::ThirdPersonSingular => 'était',
-									Person::FirstPersonPlural => 'étiez',
-									Person::SecondPersonPlural => 'étiez',
-									Person::ThirdPersonPlural => 'étaient'
+							Tense::Plus_que_parfait => array (
+									Person::FirstPersonSingular => 'avais',
+									Person::SecondPersonSingular => 'avais',
+									Person::ThirdPersonSingular => 'avait',
+									Person::FirstPersonPlural => 'avions',
+									Person::SecondPersonPlural => 'aviez',
+									Person::ThirdPersonPlural => 'avaient'
 							),
-							Tense::Passe_anterieur => array (//need change values
-									Person::FirstPersonSingular => 'fus',
-									Person::SecondPersonSingular => 'fus',
-									Person::ThirdPersonSingular => 'fut',
-									Person::FirstPersonPlural => 'fûmes',
-									Person::SecondPersonPlural => 'fûtes',
-									Person::ThirdPersonPlural => 'furent'
+							Tense::Passe_anterieur => array (
+									Person::FirstPersonSingular => 'eus',
+									Person::SecondPersonSingular => 'eus',
+									Person::ThirdPersonSingular => 'eut',
+									Person::FirstPersonPlural => 'eûmes',
+									Person::SecondPersonPlural => 'eûtes',
+									Person::ThirdPersonPlural => 'eurent'
 							),
-							Tense::Futur_anterieur => array (//need change values
-									Person::FirstPersonSingular => 'serais',
-									Person::SecondPersonSingular => 'serais',
-									Person::ThirdPersonSingular => 'serait',
-									Person::FirstPersonPlural => 'serions',
-									Person::SecondPersonPlural => 'seriez',
-									Person::ThirdPersonPlural => 'seraient'
+							Tense::Futur_anterieur => array (
+									Person::FirstPersonSingular => 'aurai',
+									Person::SecondPersonSingular => 'auras',
+									Person::ThirdPersonSingular => 'aura',
+									Person::FirstPersonPlural => 'aurons',
+									Person::SecondPersonPlural => 'aurez',
+									Person::ThirdPersonPlural => 'auront'
 							)
 					),
 					Mood::Subjonctif => array (
-							Tense::Passe => array (//need change values
-									Person::FirstPersonSingular => 'sois',
-									Person::SecondPersonSingular => 'sois',
-									Person::ThirdPersonSingular => 'soit',
-									Person::FirstPersonPlural => 'soyons',
-									Person::SecondPersonPlural => 'soyez',
-									Person::ThirdPersonPlural => 'soient'
+							Tense::Passe => array (
+									Person::FirstPersonSingular => 'ai',
+									Person::SecondPersonSingular => 'as',
+									Person::ThirdPersonSingular => 'a',
+									Person::FirstPersonPlural => 'avons',
+									Person::SecondPersonPlural => 'avez',
+									Person::ThirdPersonPlural => 'ont'
 							),
-							Tense::Plus_que_parfait => array (//need change values
-									Person::FirstPersonSingular => 'fusse',
-									Person::SecondPersonSingular => 'fusses',
-									Person::ThirdPersonSingular => 'fût',
-									Person::FirstPersonPlural => 'fussions',
-									Person::SecondPersonPlural => 'fussiez',
-									Person::ThirdPersonPlural => 'fussent'
+							Tense::Plus_que_parfait => array (
+									Person::FirstPersonSingular => 'eusse',
+									Person::SecondPersonSingular => 'eusses',
+									Person::ThirdPersonSingular => 'eût',
+									Person::FirstPersonPlural => 'eussions',
+									Person::SecondPersonPlural => 'eussiez',
+									Person::ThirdPersonPlural => 'eussent'
 							)
 					),
 					Mood::Conditionnel => array (
-							Tense::Premiere_Forme => array (//need change values
-									Person::FirstPersonSingular => 'serais',
-									Person::SecondPersonSingular => 'serais',
-									Person::ThirdPersonSingular => 'serait',
-									Person::FirstPersonPlural => 'serions',
-									Person::SecondPersonPlural => 'seriez',
-									Person::ThirdPersonPlural => 'seraient'
+							Tense::Premiere_Forme => array (
+									Person::FirstPersonSingular => 'aurais',
+									Person::SecondPersonSingular => 'aurais',
+									Person::ThirdPersonSingular => 'aurait',
+									Person::FirstPersonPlural => 'aurions',
+									Person::SecondPersonPlural => 'auriez',
+									Person::ThirdPersonPlural => 'auraient'
 							),
-							Tense::Deuxieme_Forme => array (//need change values
-									Person::FirstPersonSingular => 'fusse',
-									Person::SecondPersonSingular => 'fusses',
-									Person::ThirdPersonSingular => 'fût',
-									Person::FirstPersonPlural => 'fussions',
-									Person::SecondPersonPlural => 'fussiez',
-									Person::ThirdPersonPlural => 'fussent'
+							Tense::Deuxieme_Forme => array (
+								Person::FirstPersonSingular => 'eusse',
+									Person::SecondPersonSingular => 'eusses',
+									Person::ThirdPersonSingular => 'eût',
+									Person::FirstPersonPlural => 'eussions',
+									Person::SecondPersonPlural => 'eussiez',
+									Person::ThirdPersonPlural => 'eussent'
 							)
 					)
 			);		
