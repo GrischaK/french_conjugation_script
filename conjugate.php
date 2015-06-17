@@ -232,7 +232,8 @@ function auxiliaire($person, $tense, $mood) {
 							Person::ThirdPersonPlural => 'fussent'
 							)
 					)
-			);		
+			);	
+	 return $conjugated_auxiliaire[$mood][$tense][$person];
 	 }
 		else {  
 			$auxiliaire = 'avoir';
@@ -308,9 +309,9 @@ function auxiliaire($person, $tense, $mood) {
 							)
 					)
 			);		
-	}	
+			 return $conjugated_auxiliaire[$mood][$tense][$person];
+	 }
 return $auxiliaire; 
-return $conjugated_auxiliaire[$mood][$tense][$person];
 }		
 function conjugate($verb, $tense, $person, $mood) {
 	// $conjugated_verb = 'Unknown Person';
