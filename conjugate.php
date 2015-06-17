@@ -149,7 +149,7 @@ function aller($person, $tense, $mood) {
 
 return $aller($person, $tense, $mood);
 }
-function auxiliaire($person, $tense, $mood) {
+function conjugated_auxiliaire($person, $tense, $mood) {
 	$aux_etre = array('accourir', 'advenir', 'aller', 'amuser', 'apparaitre', 'apparaître', 'arriver', 'ascendre', 'co-naitre', 'co-naître', 
 			'convenir', 'débeller', 'décéder', 'démourir', 'descendre', 'disconvenir', 'devenir', 'échoir', 'entre-venir', 'entrer', 'époustoufler',
 			 'intervenir', 'issir', 'mévenir', 'monter', 'mourir', 'naitre', 'naître', 'obvenir', 'paraitre', 'paraître', 'partir', 'parvenir', 
@@ -160,7 +160,6 @@ function auxiliaire($person, $tense, $mood) {
 			'se souvenir', 'sortir', 'souvenir', 'stationner', 'sur-aller', 'suradvenir', 'survenir', 'tomber', 'trépasser', 'venir'); // accourir,...,...  use both     auxiliary verbs
 	// $auxiliaire = 'Unknown Auxiliaire';
 	if (in_array($verb, $aux_etre)) {  // later or in_array($verb, $verbes_pronominaux) only the pronominal version!
-		$auxiliaire = 'être';	
 		$conjugated_auxiliaire = array ( 
 			Mood::Indicatif => array (					
 					Tense::Passe_compose => array (
@@ -236,7 +235,6 @@ function auxiliaire($person, $tense, $mood) {
 	 return $conjugated_auxiliaire[$mood][$tense][$person];
 	 }
 		else {  
-			$auxiliaire = 'avoir';
 			$conjugated_auxiliaire = array (
 					Mood::Indicatif => array (
 							Tense::Passe_compose => array (
@@ -311,8 +309,26 @@ function auxiliaire($person, $tense, $mood) {
 			);		
 			 return $conjugated_auxiliaire[$mood][$tense][$person];
 	 }
-return $auxiliaire; 
-}		
+}	
+function finding_auxiliaire($person, $tense, $mood) {
+	$aux_etre = array('accourir', 'advenir', 'aller', 'amuser', 'apparaitre', 'apparaître', 'arriver', 'ascendre', 'co-naitre', 'co-naître',
+			'convenir', 'débeller', 'décéder', 'démourir', 'descendre', 'disconvenir', 'devenir', 'échoir', 'entre-venir', 'entrer', 'époustoufler',
+			'intervenir', 'issir', 'mévenir', 'monter', 'mourir', 'naitre', 'naître', 'obvenir', 'paraitre', 'paraître', 'partir', 'parvenir',
+			'pourrir', 'prémourir', 'provenir', 'ragaillardir', 'raller', 'réadvenir', 're-aller', 'réapparaitre', 'réapparaître', 'reconvenir',
+			'redépartir', 'redescendre', 'redevenir', 'réentrer', 'réintervenir', 'remonter', 'remourir', 'renaitre', 'renaître', 'rentrer',
+			'revenir', 'reparaitre', 'reparaître', 'repartir', 'reparvenir', 'repasser', 'repourrir', 'rerentrer', 'rerester', 'ressortir',
+			'ressouvenir', 'rester', 'resurvenir', 'retomber', 'retourner', 'retrépasser', 'revenir', 's’amuser', 'se redépartir', 'se sortir',
+			'se souvenir', 'sortir', 'souvenir', 'stationner', 'sur-aller', 'suradvenir', 'survenir', 'tomber', 'trépasser', 'venir'); // accourir,...,...  use both     auxiliary verbs
+	// $auxiliaire = 'Unknown Auxiliaire';
+	if (in_array($verb, $aux_etre)) {  // later or in_array($verb, $verbes_pronominaux) only the pronominal version!
+		$auxiliaire = 'être';
+	}
+	else {
+		$auxiliaire = 'avoir';
+
+	}
+return $auxiliaire;
+}	
 function conjugate($verb, $tense, $person, $mood) {
 	// $conjugated_verb = 'Unknown Person';
 	$conjugated_verb = word_stem ( $verb ) . endings ( $person );
