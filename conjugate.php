@@ -147,7 +147,7 @@ function aller($person, $tense, $mood) {
 			)
 	);
 
-return $aller($person, $tense, $mood);
+return $aller($mood,$tense,$person );
 }
 function conjugated_auxiliaire($auxiliaire, $person, $tense, $mood) {
 	switch ($auxiliaire) {
@@ -321,13 +321,13 @@ function finding_auxiliaire($verb) {
 	}
 return $auxiliaire;
 }	
-function conjugate($verb, $tense, $person, $mood) {
+function conjugate($verb, $mood, $tense, $person) {
 	// $conjugated_verb = 'Unknown Person';
-	$conjugated_verb = word_stem ( $verb ) . endings ( $person );
+	$conjugated_verb = word_stem ( $verb ) . endings ($mood,$tense,$person);
 	return $conjugated_verb;
 }
-function conjugation_phrase($verb, $tense, $person, $mood) {
-	$conjugated_verb = conjugate ( $verb, $tense, $person, $mood );
+function conjugation_phrase($verb, $mood, $tense, $person) {
+	$conjugated_verb = conjugate ( $verb, $mood, $tense, $person);
 	$personal_pronoun = person ( $person );
 	return $personal_pronoun . $conjugated_verb;
 }
