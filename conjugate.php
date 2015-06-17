@@ -161,7 +161,7 @@ function auxiliaire($person, $tense, $mood) {
 	// $auxiliaire = 'Unknown Auxiliaire';
 	if (in_array($verb, $aux_etre)) {  // later or in_array($verb, $verbes_pronominaux) only the pronominal version!
 		$auxiliaire = 'être';	
-		$ending = array ( 
+		$conjugated_auxiliaire = array ( 
 			Mood::Indicatif => array (					
 					Tense::Passe_compose => array (
 							Person::FirstPersonSingular => 'suis',
@@ -234,9 +234,9 @@ function auxiliaire($person, $tense, $mood) {
 					)
 			);		
 	 }
-		else {  // later or in_array($verb, $verbes_pronominaux) only the pronominal version!
+		else {  
 			$auxiliaire = 'avoir';
-			$ending = array (
+			$conjugated_auxiliaire = array (
 					Mood::Indicatif => array (
 							Tense::Passe_compose => array (
 									Person::FirstPersonSingular => 'ai',
@@ -309,7 +309,8 @@ function auxiliaire($person, $tense, $mood) {
 					)
 			);		
 	}	
-return $auxiliaire;	
+return $auxiliaire; 
+return $conjugated_auxiliaire($person, $tense, $mood);
 }		
 function conjugate($verb, $tense, $person, $mood) {
 	// $conjugated_verb = 'Unknown Person';
