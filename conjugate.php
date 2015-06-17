@@ -31,7 +31,7 @@ abstract class Mood {
 	const Imperatif = 3;
 	const Modes_impersonnels = 4;
 }
-abstract class auxiliaire {
+abstract class Auxiliaire {
 	const Avoir = 0;
 	const Etre = 1;
 }
@@ -149,92 +149,83 @@ function aller($person, $tense, $mood) {
 
 return $aller($person, $tense, $mood);
 }
-function conjugated_auxiliaire($person, $tense, $mood) {
-	$aux_etre = array('accourir', 'advenir', 'aller', 'amuser', 'apparaitre', 'apparaître', 'arriver', 'ascendre', 'co-naitre', 'co-naître', 
-			'convenir', 'débeller', 'décéder', 'démourir', 'descendre', 'disconvenir', 'devenir', 'échoir', 'entre-venir', 'entrer', 'époustoufler',
-			 'intervenir', 'issir', 'mévenir', 'monter', 'mourir', 'naitre', 'naître', 'obvenir', 'paraitre', 'paraître', 'partir', 'parvenir', 
-			'pourrir', 'prémourir', 'provenir', 'ragaillardir', 'raller', 'réadvenir', 're-aller', 'réapparaitre', 'réapparaître', 'reconvenir', 
-			'redépartir', 'redescendre', 'redevenir', 'réentrer', 'réintervenir', 'remonter', 'remourir', 'renaitre', 'renaître', 'rentrer', 
-			'revenir', 'reparaitre', 'reparaître', 'repartir', 'reparvenir', 'repasser', 'repourrir', 'rerentrer', 'rerester', 'ressortir', 
-			'ressouvenir', 'rester', 'resurvenir', 'retomber', 'retourner', 'retrépasser', 'revenir', 's’amuser', 'se redépartir', 'se sortir', 
-			'se souvenir', 'sortir', 'souvenir', 'stationner', 'sur-aller', 'suradvenir', 'survenir', 'tomber', 'trépasser', 'venir'); // accourir,...,...  use both     auxiliary verbs
-	// $auxiliaire = 'Unknown Auxiliaire';
-	if (in_array($verb, $aux_etre)) {  // later or in_array($verb, $verbes_pronominaux) only the pronominal version!
-		$conjugated_auxiliaire = array ( 
-			Mood::Indicatif => array (					
-					Tense::Passe_compose => array (
-							Person::FirstPersonSingular => 'suis',
-							Person::SecondPersonSingular => 'es',
-							Person::ThirdPersonSingular => 'est',
-							Person::FirstPersonPlural => 'sommes',
-							Person::SecondPersonPlural => 'êtes',
-							Person::ThirdPersonPlural => 'sont'
-					),				
-					Tense::Plus_que_parfait => array (
-							Person::FirstPersonSingular => 'étais',
-							Person::SecondPersonSingular => 'étais',
-							Person::ThirdPersonSingular => 'était',
-							Person::FirstPersonPlural => 'étiez',
-							Person::SecondPersonPlural => 'étiez',
-							Person::ThirdPersonPlural => 'étaient'
-					),							
-					Tense::Passe_anterieur => array (
-							Person::FirstPersonSingular => 'fus',
-							Person::SecondPersonSingular => 'fus',
-							Person::ThirdPersonSingular => 'fut',
-							Person::FirstPersonPlural => 'fûmes',
-							Person::SecondPersonPlural => 'fûtes',
-							Person::ThirdPersonPlural => 'furent'
-					),		
-					Tense::Futur_anterieur => array (
-							Person::FirstPersonSingular => 'serais',
-							Person::SecondPersonSingular => 'serais',
-							Person::ThirdPersonSingular => 'serait',
-							Person::FirstPersonPlural => 'serions',
-							Person::SecondPersonPlural => 'seriez',
-							Person::ThirdPersonPlural => 'seraient'
-					)
-			),				
-			Mood::Subjonctif => array (
-					Tense::Passe => array (
-							Person::FirstPersonSingular => 'sois',
-							Person::SecondPersonSingular => 'sois',
-							Person::ThirdPersonSingular => 'soit',
-							Person::FirstPersonPlural => 'soyons',
-							Person::SecondPersonPlural => 'soyez',
-							Person::ThirdPersonPlural => 'soient'
-					),		
-					Tense::Plus_que_parfait => array (
-							Person::FirstPersonSingular => 'fusse',
-							Person::SecondPersonSingular => 'fusses',
-							Person::ThirdPersonSingular => 'fût',
-							Person::FirstPersonPlural => 'fussions',
-							Person::SecondPersonPlural => 'fussiez',
-							Person::ThirdPersonPlural => 'fussent'
-					)
-			),
-			Mood::Conditionnel => array (								
-					Tense::Premiere_Forme => array (
-							Person::FirstPersonSingular => 'serais',
-							Person::SecondPersonSingular => 'serais',
-							Person::ThirdPersonSingular => 'serait',
-							Person::FirstPersonPlural => 'serions',
-							Person::SecondPersonPlural => 'seriez',
-							Person::ThirdPersonPlural => 'seraient'
+function conjugated_auxiliaire($auxiliaire, $person, $tense, $mood) {
+	switch ($auxiliaire) {
+		case Auxiliaire::Etre :
+			$conjugated_auxiliaire = array (
+					Mood::Indicatif => array (
+							Tense::Passe_compose => array (
+									Person::FirstPersonSingular => 'suis',
+									Person::SecondPersonSingular => 'es',
+									Person::ThirdPersonSingular => 'est',
+									Person::FirstPersonPlural => 'sommes',
+									Person::SecondPersonPlural => 'êtes',
+									Person::ThirdPersonPlural => 'sont' 
+							),
+							Tense::Plus_que_parfait => array (
+									Person::FirstPersonSingular => 'étais',
+									Person::SecondPersonSingular => 'étais',
+									Person::ThirdPersonSingular => 'était',
+									Person::FirstPersonPlural => 'étiez',
+									Person::SecondPersonPlural => 'étiez',
+									Person::ThirdPersonPlural => 'étaient' 
+							),
+							Tense::Passe_anterieur => array (
+									Person::FirstPersonSingular => 'fus',
+									Person::SecondPersonSingular => 'fus',
+									Person::ThirdPersonSingular => 'fut',
+									Person::FirstPersonPlural => 'fûmes',
+									Person::SecondPersonPlural => 'fûtes',
+									Person::ThirdPersonPlural => 'furent' 
+							),
+							Tense::Futur_anterieur => array (
+									Person::FirstPersonSingular => 'serais',
+									Person::SecondPersonSingular => 'serais',
+									Person::ThirdPersonSingular => 'serait',
+									Person::FirstPersonPlural => 'serions',
+									Person::SecondPersonPlural => 'seriez',
+									Person::ThirdPersonPlural => 'seraient' 
+							) 
 					),
-					Tense::Deuxieme_Forme => array (
-						    Person::FirstPersonSingular => 'fusse',
-							Person::SecondPersonSingular => 'fusses',
-							Person::ThirdPersonSingular => 'fût',
-							Person::FirstPersonPlural => 'fussions',
-							Person::SecondPersonPlural => 'fussiez',
-							Person::ThirdPersonPlural => 'fussent'
-							)
-					)
-			);	
-	 return $conjugated_auxiliaire[$mood][$tense][$person];
-	 }
-		else {  
+					Mood::Subjonctif => array (
+							Tense::Passe => array (
+									Person::FirstPersonSingular => 'sois',
+									Person::SecondPersonSingular => 'sois',
+									Person::ThirdPersonSingular => 'soit',
+									Person::FirstPersonPlural => 'soyons',
+									Person::SecondPersonPlural => 'soyez',
+									Person::ThirdPersonPlural => 'soient' 
+							),
+							Tense::Plus_que_parfait => array (
+									Person::FirstPersonSingular => 'fusse',
+									Person::SecondPersonSingular => 'fusses',
+									Person::ThirdPersonSingular => 'fût',
+									Person::FirstPersonPlural => 'fussions',
+									Person::SecondPersonPlural => 'fussiez',
+									Person::ThirdPersonPlural => 'fussent' 
+							) 
+					),
+					Mood::Conditionnel => array (
+							Tense::Premiere_Forme => array (
+									Person::FirstPersonSingular => 'serais',
+									Person::SecondPersonSingular => 'serais',
+									Person::ThirdPersonSingular => 'serait',
+									Person::FirstPersonPlural => 'serions',
+									Person::SecondPersonPlural => 'seriez',
+									Person::ThirdPersonPlural => 'seraient' 
+							),
+							Tense::Deuxieme_Forme => array (
+									Person::FirstPersonSingular => 'fusse',
+									Person::SecondPersonSingular => 'fusses',
+									Person::ThirdPersonSingular => 'fût',
+									Person::FirstPersonPlural => 'fussions',
+									Person::SecondPersonPlural => 'fussiez',
+									Person::ThirdPersonPlural => 'fussent' 
+							) 
+					) 
+			);
+			break;
+		case Auxiliaire::Avoir :
 			$conjugated_auxiliaire = array (
 					Mood::Indicatif => array (
 							Tense::Passe_compose => array (
@@ -243,7 +234,7 @@ function conjugated_auxiliaire($person, $tense, $mood) {
 									Person::ThirdPersonSingular => 'a',
 									Person::FirstPersonPlural => 'avons',
 									Person::SecondPersonPlural => 'avez',
-									Person::ThirdPersonPlural => 'ont'
+									Person::ThirdPersonPlural => 'ont' 
 							),
 							Tense::Plus_que_parfait => array (
 									Person::FirstPersonSingular => 'avais',
@@ -251,7 +242,7 @@ function conjugated_auxiliaire($person, $tense, $mood) {
 									Person::ThirdPersonSingular => 'avait',
 									Person::FirstPersonPlural => 'avions',
 									Person::SecondPersonPlural => 'aviez',
-									Person::ThirdPersonPlural => 'avaient'
+									Person::ThirdPersonPlural => 'avaient' 
 							),
 							Tense::Passe_anterieur => array (
 									Person::FirstPersonSingular => 'eus',
@@ -259,7 +250,7 @@ function conjugated_auxiliaire($person, $tense, $mood) {
 									Person::ThirdPersonSingular => 'eut',
 									Person::FirstPersonPlural => 'eûmes',
 									Person::SecondPersonPlural => 'eûtes',
-									Person::ThirdPersonPlural => 'eurent'
+									Person::ThirdPersonPlural => 'eurent' 
 							),
 							Tense::Futur_anterieur => array (
 									Person::FirstPersonSingular => 'aurai',
@@ -267,8 +258,8 @@ function conjugated_auxiliaire($person, $tense, $mood) {
 									Person::ThirdPersonSingular => 'aura',
 									Person::FirstPersonPlural => 'aurons',
 									Person::SecondPersonPlural => 'aurez',
-									Person::ThirdPersonPlural => 'auront'
-							)
+									Person::ThirdPersonPlural => 'auront' 
+							) 
 					),
 					Mood::Subjonctif => array (
 							Tense::Passe => array (
@@ -277,7 +268,7 @@ function conjugated_auxiliaire($person, $tense, $mood) {
 									Person::ThirdPersonSingular => 'a',
 									Person::FirstPersonPlural => 'avons',
 									Person::SecondPersonPlural => 'avez',
-									Person::ThirdPersonPlural => 'ont'
+									Person::ThirdPersonPlural => 'ont' 
 							),
 							Tense::Plus_que_parfait => array (
 									Person::FirstPersonSingular => 'eusse',
@@ -285,8 +276,8 @@ function conjugated_auxiliaire($person, $tense, $mood) {
 									Person::ThirdPersonSingular => 'eût',
 									Person::FirstPersonPlural => 'eussions',
 									Person::SecondPersonPlural => 'eussiez',
-									Person::ThirdPersonPlural => 'eussent'
-							)
+									Person::ThirdPersonPlural => 'eussent' 
+							) 
 					),
 					Mood::Conditionnel => array (
 							Tense::Premiere_Forme => array (
@@ -295,20 +286,21 @@ function conjugated_auxiliaire($person, $tense, $mood) {
 									Person::ThirdPersonSingular => 'aurait',
 									Person::FirstPersonPlural => 'aurions',
 									Person::SecondPersonPlural => 'auriez',
-									Person::ThirdPersonPlural => 'auraient'
+									Person::ThirdPersonPlural => 'auraient' 
 							),
 							Tense::Deuxieme_Forme => array (
-								Person::FirstPersonSingular => 'eusse',
+									Person::FirstPersonSingular => 'eusse',
 									Person::SecondPersonSingular => 'eusses',
 									Person::ThirdPersonSingular => 'eût',
 									Person::FirstPersonPlural => 'eussions',
 									Person::SecondPersonPlural => 'eussiez',
-									Person::ThirdPersonPlural => 'eussent'
-							)
-					)
-			);		
-			 return $conjugated_auxiliaire[$mood][$tense][$person];
-	 }
+									Person::ThirdPersonPlural => 'eussent' 
+							) 
+					) 
+			);
+			break;
+	}
+	return $conjugated_auxiliaire [$mood] [$tense] [$person];
 }	
 function finding_auxiliaire($person, $tense, $mood) {
 	$aux_etre = array('accourir', 'advenir', 'aller', 'amuser', 'apparaitre', 'apparaître', 'arriver', 'ascendre', 'co-naitre', 'co-naître',
@@ -321,10 +313,10 @@ function finding_auxiliaire($person, $tense, $mood) {
 			'se souvenir', 'sortir', 'souvenir', 'stationner', 'sur-aller', 'suradvenir', 'survenir', 'tomber', 'trépasser', 'venir'); // accourir,...,...  use both     auxiliary verbs
 	// $auxiliaire = 'Unknown Auxiliaire';
 	if (in_array($verb, $aux_etre)) {  // later or in_array($verb, $verbes_pronominaux) only the pronominal version!
-		$auxiliaire = 'être';
+		$auxiliaire = Auxiliaire::Etre;
 	}
 	else {
-		$auxiliaire = 'avoir';
+		$auxiliaire = Auxiliaire::Avoir;
 
 	}
 return $auxiliaire;
