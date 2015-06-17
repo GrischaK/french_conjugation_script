@@ -6,70 +6,70 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 	 * @dataProvider regularVerbProvider
 	 */
 	public function testRegularVerb($expectedResult, $verb, $tense, $person, $mood) {
-		$this->assertEquals ( $expectedResult, conjugate ( $verb, $person, $tense, $mood ) );
+		$this->assertEquals ( $expectedResult, conjugate ( $verb, $person, new Tense($tense), $mood ) );
 	}						
 	public function regularVerbProvider() {
 		return array (
 				array (
 						"aime",
 						"aimer",
-						Tense::Present,
+						'Present',
 						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				),
 				array (
 						"aimes",
 						"aimer",
-						Tense::Present,
+						'Present',
 						Person::SecondPersonSingular,
 						Mood::Indicatif 
 				),
 				array (
 						"aime",
 						"aimer",
-						Tense::Present,
+						'Present',
 						Person::ThirdPersonSingular,
 						Mood::Indicatif 
 				),
 				array (
 						"aimons",
 						"aimer",
-						Tense::Present,
+						'Present',
 						Person::FirstPersonPlural,
 						Mood::Indicatif 
 				),
 				array (
 						"aimez",
 						"aimer",
-						Tense::Present,
+						'Present',
 						Person::SecondPersonPlural,
 						Mood::Indicatif 
 				),
 				array (
 						"aiment",
 						"aimer",
-						Tense::Present,
+						'Present',
 						Person::ThirdPersonPlural,
 						Mood::Indicatif 
 				),
 				array (
 						"donne",
 						"donner",
-						Tense::Present,
+						'Present',
 						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				),
 				array (
 						"donnes",
 						"donner",
-						Tense::Present,
+						'Present',
 						Person::SecondPersonSingular,
 						Mood::Indicatif 
 				),
 				array (
 						"donne",
 						"donner",
-						Tense::Present,
+						'Present',
 						Person::ThirdPersonSingular,
 						Mood::Indicatif 
 				),
@@ -83,14 +83,14 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 				array (
 						"donnez",
 						"donner",
-						Tense::Present,
+						'Present',
 						Person::SecondPersonPlural,
 						Mood::Indicatif 
 				),
 				array (
 						"donnent",
 						"donner",
-						Tense::Present,
+						'Present',
 						Person::ThirdPersonPlural,
 						Mood::Indicatif 
 				) 

@@ -3,7 +3,15 @@ class Tense {
 	
 	private $value;	
 	public function __construct($value) {
-		$this->value = $value;
+		if(is_string($value)) {
+			$this->value = Tense::getConstants()[$value];
+		} else {
+			if(in_array($value, Tense::getConstants())) {
+				$this->value = $value;
+			} else {
+				throw new Exception("Invalid value ".$value);
+			}
+		}
 	}
 	
 	public function getValue() {
@@ -11,7 +19,7 @@ class Tense {
 	}	
 	
 	static private function getConstants() {
-		$reflection = ReflectionClass(__CLASS__);
+		$reflection = new ReflectionClass(__CLASS__);
 		return $reflection->getConstants();
 	}
 	
