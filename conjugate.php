@@ -1,5 +1,14 @@
 <?php
-abstract class Tense {
+class Tense {
+	
+	private $value;	
+	public function __construct($value) {
+		$this->$value = $value;
+	}
+	
+	public function getValue() {
+		return $this->$value;
+	}	
 	// simple tenses
 	const Present = 0;
 	const Imparfait = 1;
@@ -16,7 +25,7 @@ abstract class Tense {
 	const Premiere_Forme = 9; 
 	const Deuxieme_Forme = 10;	
 }
-abstract class Person {
+class Person {
 	const FirstPersonSingular = 0;
 	const SecondPersonSingular = 1;
 	const ThirdPersonSingular = 2;
@@ -24,14 +33,14 @@ abstract class Person {
 	const SecondPersonPlural = 4;
 	const ThirdPersonPlural = 5;
 }
-abstract class Mood {
+class Mood {
 	const Indicatif = 0;
 	const Subjonctif = 1;
 	const Conditionnel = 2;
 	const Imperatif = 3;
 	const Modes_impersonnels = 4;
 }
-abstract class Auxiliaire {
+class Auxiliaire {
 	const Avoir = 0;
 	const Etre = 1;
 }
