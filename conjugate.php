@@ -234,6 +234,7 @@ function auxiliaire($person, $tense, $mood) {
 			)
 		);
 	}	
+return $auxiliaire;	
 }		
 function conjugate($verb, $tense, $person, $mood) {
 	// $conjugated_verb = 'Unknown Person';
