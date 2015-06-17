@@ -33,6 +33,72 @@ abstract class Enum {
 		}
 	}
 }
+abstract class Enum2 {
+	private $value;
+	public function __construct($value) {
+		if(is_string($value)) {
+			$this->value = Person::getConstants()[$value];
+		} else {
+			if(in_array($value, Person::getConstants())) {
+				$this->value = $value;
+			} else {
+				throw new Exception("Invalid value ".$value);
+			}
+		}
+	}
+
+	public function getValue() {
+		return $this->value;
+	}
+
+	static public function getConstants() {
+		$reflection = new ReflectionClass(get_called_class());
+		return $reflection->getConstants();
+	}
+
+	public function __toString() {
+		// must not throw from toString
+		try {
+			return array_flip(getConstants())[$this->$value];
+			// when the value is not in the constants
+		} catch(Exception $e) {
+			return "Invalid value ".$this->$value;
+		}
+	}
+}
+abstract class Enum3 {
+	private $value;
+	public function __construct($value) {
+		if(is_string($value)) {
+			$this->value = Mood::getConstants()[$value];
+		} else {
+			if(in_array($value, Mood::getConstants())) {
+				$this->value = $value;
+			} else {
+				throw new Exception("Invalid value ".$value);
+			}
+		}
+	}
+
+	public function getValue() {
+		return $this->value;
+	}
+
+	static public function getConstants() {
+		$reflection = new ReflectionClass(get_called_class());
+		return $reflection->getConstants();
+	}
+
+	public function __toString() {
+		// must not throw from toString
+		try {
+			return array_flip(getConstants())[$this->$value];
+			// when the value is not in the constants
+		} catch(Exception $e) {
+			return "Invalid value ".$this->$value;
+		}
+	}
+}
 
 class Tense extends Enum {	
 	// simple tenses
@@ -52,7 +118,7 @@ class Tense extends Enum {
 	const Deuxieme_Forme = 10;	
 }
 
-class Person extends Enum{
+class Person extends Enum2{
 	const FirstPersonSingular = 0;
 	const SecondPersonSingular = 1;
 	const ThirdPersonSingular = 2;
@@ -60,7 +126,7 @@ class Person extends Enum{
 	const SecondPersonPlural = 4;
 	const ThirdPersonPlural = 5;
 }
-class Mood extends Enum{
+class Mood extends Enum3{
 	const Indicatif = 0;
 	const Subjonctif = 1;
 	const Conditionnel = 2;
@@ -75,7 +141,7 @@ function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
-function person Person($person) {
+function person($person) {
 	$person = '"Unknown Person';
 // for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural  
 	switch ($person) {
@@ -359,7 +425,7 @@ return $auxiliaire;
 }	
 function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
 	// $conjugated_verb = 'Unknown Person';
-	$conjugated_verb = word_stem ( $verb ) . endings ($person, $tense, $mood);
+	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood);
 	return $conjugated_verb;
 }
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {

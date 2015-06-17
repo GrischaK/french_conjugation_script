@@ -20,12 +20,12 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'FirstPersonSingular',
 						'Indicatif' 
 				),
-				array (
+				array (				// works also
 						"aimes",
 						"aimer",
-						'Present',
-						'SecondPersonSingular',
-						'Indicatif'
+						Tense::Present,
+						Person::SecondPersonSingular,
+						Mood::Indicatif 
 				),
 				array (
 						"aime",
@@ -67,7 +67,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						"donner",
 						'Present',
 						'SecondPersonSingular',
-						'Indicatif' 
+						'Indicatif'
 				),
 				array (
 						"donne",
@@ -88,7 +88,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						"donner",
 						'Present',
 						'SecondPersonPlural',
-						'Indicatif'  
+						'Indicatif' 
 				),
 				array (
 						"donnent",
