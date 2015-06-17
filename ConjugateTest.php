@@ -8,7 +8,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 	 * @dataProvider regularVerbProvider
 	 */
 	public function testRegularVerb($expectedResult, $verb, $tense, $person, $mood) {
-		$this->assertEquals ( $expectedResult, conjugate ( $verb, $person, new Tense($tense), $mood ) );
+		$this->assertEquals ( $expectedResult, conjugate ( $verb, new Person($person), new Tense($tense), new Mood($mood) ) );
 	}						
 	public function regularVerbProvider() {
 		;
@@ -17,86 +17,85 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						"aime",
 						"aimer",
 						'Present',
-						Person::FirstPersonSingular,
-						Mood::Indicatif 
+						'FirstPersonSingular',
+						'Indicatif' 
 				),
 				array (
 						"aimes",
 						"aimer",
 						'Present',
-
-						Person::SecondPersonSingular,
-						Mood::Indicatif 
+						'SecondPersonSingular',
+						'Indicatif'
 				),
 				array (
 						"aime",
 						"aimer",
 						'Present',
-						Person::ThirdPersonSingular,
-						Mood::Indicatif 
+						'ThirdPersonSingular',
+						'Indicatif' 
 				),
 				array (
 						"aimons",
 						"aimer",
 						'Present',
-						Person::FirstPersonPlural,
-						Mood::Indicatif 
+						'FirstPersonPlural',
+						'Indicatif' 
 				),
 				array (
 						"aimez",
 						"aimer",
 						'Present',
-						Person::SecondPersonPlural,
-						Mood::Indicatif 
+						'SecondPersonPlural',
+						'Indicatif' 
 				),
 				array (
 						"aiment",
 						"aimer",
 						'Present',
-						Person::ThirdPersonPlural,
-						Mood::Indicatif 
+						'ThirdPersonPlural',
+						'Indicatif' 
 				),
 				array (
 						"donne",
 						"donner",
 						'Present',
-						Person::FirstPersonSingular,
-						Mood::Indicatif 
+						'FirstPersonSingular',
+						'Indicatif' 
 				),
 				array (
 						"donnes",
 						"donner",
 						'Present',
-						Person::SecondPersonSingular,
-						Mood::Indicatif 
+						'SecondPersonSingular',
+						'Indicatif' 
 				),
 				array (
 						"donne",
 						"donner",
 						'Present',
-						Person::ThirdPersonSingular,
-						Mood::Indicatif 
+						'ThirdPersonSingular',
+						'Indicatif' 
 				),
 				array (
 						"donnons",
 						"donner",
 						'Present',
-						Person::FirstPersonPlural,
-						Mood::Indicatif 
+						'FirstPersonPlural',
+						'Indicatif' 
 				),
 				array (
 						"donnez",
 						"donner",
 						'Present',
-						Person::SecondPersonPlural,
-						Mood::Indicatif 
+						'SecondPersonPlural',
+						'Indicatif'  
 				),
 				array (
 						"donnent",
 						"donner",
 						'Present',
-						Person::ThirdPersonPlural,
-						Mood::Indicatif 
+						'ThirdPersonPlural',
+						'Indicatif' 
 				) 
 		);		
 	}

@@ -52,7 +52,7 @@ class Tense extends Enum {
 	const Deuxieme_Forme = 10;	
 }
 
-class Person {
+class Person extends Enum{
 	const FirstPersonSingular = 0;
 	const SecondPersonSingular = 1;
 	const ThirdPersonSingular = 2;
@@ -60,7 +60,7 @@ class Person {
 	const SecondPersonPlural = 4;
 	const ThirdPersonPlural = 5;
 }
-class Mood {
+class Mood extends Enum{
 	const Indicatif = 0;
 	const Subjonctif = 1;
 	const Conditionnel = 2;
@@ -75,7 +75,7 @@ function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
-function person($person) {
+function person Person($person) {
 	$person = '"Unknown Person';
 // for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural  
 	switch ($person) {
@@ -100,7 +100,7 @@ function person($person) {
 	}
 	return $person;
 }
-function endings($person, Tense $tense, $mood) {
+function endings(Person $person, Tense $tense, Mood $mood) {
 	// $ending = 'Unknown Ending';
 	$ending = array ( // Standardendungen für Verben auf -er
 			Mood::Indicatif => array (
@@ -166,9 +166,9 @@ function endings($person, Tense $tense, $mood) {
 					) 
 			) 
 	);
-	return $ending [$mood][$tense->getValue()][$person];
+	return $ending [$mood->getValue()][$tense->getValue()][$person->getValue()];
 }
-function aller($person, Tense $tense, $mood) {
+function aller(Person $person, Tense $tense, Mood $mood) {
 	// $aller = 'Unknown Aller';
 	$ending = array (
 			Mood::Indicatif => array (
@@ -185,7 +185,7 @@ function aller($person, Tense $tense, $mood) {
 
 return $aller($mood,$tense,$person );
 }
-function conjugated_auxiliaire($auxiliaire, $person, Tense $tense, $mood) {
+function conjugated_auxiliaire($auxiliaire, Person $person, Tense $tense, Mood $mood) {
 	switch ($auxiliaire) {
 		case Auxiliaire::Etre :
 			$conjugated_auxiliaire = array (
@@ -336,7 +336,7 @@ function conjugated_auxiliaire($auxiliaire, $person, Tense $tense, $mood) {
 			);
 			break;
 	}
-	return $conjugated_auxiliaire [$mood] [$tense->getValue()] [$person];
+	return $conjugated_auxiliaire [$mood->getValue()] [$tense->getValue()] [$person->getValue()];
 }	
 function finding_auxiliaire($verb) {
 	$aux_etre = array('accourir', 'advenir', 'aller', 'amuser', 'apparaitre', 'apparaître', 'arriver', 'ascendre', 'co-naitre', 'co-naître',
@@ -357,15 +357,15 @@ function finding_auxiliaire($verb) {
 	}
 return $auxiliaire;
 }	
-function conjugate($verb, $person, Tense $tense, $mood) {
+function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
 	// $conjugated_verb = 'Unknown Person';
 	$conjugated_verb = word_stem ( $verb ) . endings ($person, $tense, $mood);
 	return $conjugated_verb;
 }
-function conjugation_phrase($verb, $person, Tense $tense, $mood) {
+function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$conjugated_verb = conjugate ( $verb, $person, $tense, $mood);
 	$personal_pronoun = person ( $person);
 	return $personal_pronoun . $conjugated_verb;
 }
-$variable = conjugate ( 'aimer', Person::FirstPersonSingular, new Tense(Tense::Present), Mood::Indicatif); 
+$variable = conjugate ( 'aimer', new Person(Person::FirstPersonSingular), new Tense(Tense::Present), new Mood(Mood::Indicatif)); 
 ?>
