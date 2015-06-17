@@ -31,84 +31,84 @@ class AuxiliaireTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Etre,
 						Tense::Passe_compose,
 						Person::FirstPersonSingular,
-						Mood::Indicative
+						Mood::Indicatif
 				),
 				array (
 						"es",
 						Auxiliaire::Etre,
 						Tense::Passe_compose,
 						Person::SecondPersonSingular,
-						Mood::Indicative
+						Mood::Indicatif
 				),
 				array (
 						"est",
 						Auxiliaire::Etre,
 						Tense::Passe_compose,
 						Person::ThirdPersonSingular,
-						Mood::Indicative
+						Mood::Indicatif
 				),
 				array (
 						"sommes",
 						Auxiliaire::Etre,
 						Tense::Passe_compose,
 						Person::FirstPersonPlural,
-						Mood::Indicative
+						Mood::Indicatif
 				),
 				array (
 						"êtes",
 						Auxiliaire::Etre,
 						Tense::Passe_compose,
 						Person::SecondPersonPlural,
-						Mood::Indicative
+						Mood::Indicatif
 				),
 				array (
 						"sont",
 						Auxiliaire::Etre,
 						Tense::Passe_compose,
 						Person::ThirdPersonPlural,
-						Mood::Indicative
+						Mood::Indicatif
 				),
 				array (
 						"ai",
 						Auxiliaire::Avoir,
 						Tense::Passe_compose,
 						Person::FirstPersonSingular,
-						Mood::Indicative
+						Mood::Indicatif
 				),
 				array (
 						"as",
 						Auxiliaire::Avoir,
 						Tense::Passe_compose,
 						Person::SecondPersonSingular,
-						Mood::Indicative
+						Mood::Indicatif
 				),
 				array (
 						"a",
 						Auxiliaire::Avoir,
 						Tense::Passe_compose,
 						Person::ThirdPersonSingular,
-						Mood::Indicative
+						Mood::Indicatif
 				),
 				array (
 						"avons",
 						Auxiliaire::Avoir,
 						Tense::Passe_compose,
 						Person::FirstPersonPlural,
-						Mood::Indicative
+						Mood::Indicatif
 				),
 				array (
 						"avez",
 						Auxiliaire::Avoir,
 						Tense::Passe_compose,
 						Person::SecondPersonPlural,
-						Mood::Indicative
+						Mood::Indicatif
 				),
 				array (
 						"avont",
 						Auxiliaire::Avoir,
 						Tense::Passe_compose,
 						Person::ThirdPersonPlural,
-						Mood::Indicative
+						Mood::Indicatif
 				)
 		);
 }

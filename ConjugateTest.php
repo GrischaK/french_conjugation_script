@@ -15,84 +15,84 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						"aimer",
 						Tense::Present,
 						Person::FirstPersonSingular,
-						Mood::Indicative 
+						Mood::Indicatif 
 				),
 				array (
 						"aimes",
 						"aimer",
 						Tense::Present,
 						Person::SecondPersonSingular,
-						Mood::Indicative 
+						Mood::Indicatif 
 				),
 				array (
 						"aime",
 						"aimer",
 						Tense::Present,
 						Person::ThirdPersonSingular,
-						Mood::Indicative 
+						Mood::Indicatif 
 				),
 				array (
 						"aimons",
 						"aimer",
 						Tense::Present,
 						Person::FirstPersonPlural,
-						Mood::Indicative 
+						Mood::Indicatif 
 				),
 				array (
 						"aimez",
 						"aimer",
 						Tense::Present,
 						Person::SecondPersonPlural,
-						Mood::Indicative 
+						Mood::Indicatif 
 				),
 				array (
 						"aiment",
 						"aimer",
 						Tense::Present,
 						Person::ThirdPersonPlural,
-						Mood::Indicative 
+						Mood::Indicatif 
 				),
 				array (
 						"donne",
 						"donner",
 						Tense::Present,
 						Person::FirstPersonSingular,
-						Mood::Indicative 
+						Mood::Indicatif 
 				),
 				array (
 						"donnes",
 						"donner",
 						Tense::Present,
 						Person::SecondPersonSingular,
-						Mood::Indicative 
+						Mood::Indicatif 
 				),
 				array (
 						"donne",
 						"donner",
 						Tense::Present,
 						Person::ThirdPersonSingular,
-						Mood::Indicative 
+						Mood::Indicatif 
 				),
 				array (
 						"donnons",
 						"donner",
 						Tense::Present,
 						Person::FirstPersonPlural,
-						Mood::Indicative 
+						Mood::Indicatif 
 				),
 				array (
 						"donnez",
 						"donner",
 						Tense::Present,
 						Person::SecondPersonPlural,
-						Mood::Indicative 
+						Mood::Indicatif 
 				),
 				array (
 						"donnent",
 						"donner",
 						Tense::Present,
 						Person::ThirdPersonPlural,
-						Mood::Indicative 
+						Mood::Indicatif 
 				) 
 		);		
 	}
