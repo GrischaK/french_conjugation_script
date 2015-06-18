@@ -20,12 +20,12 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'FirstPersonSingular',
 						'Indicatif' 
 				),
-				array (				// works also
+				array (				
 						"aimes",
 						"aimer",
-						Tense::Present,
-						Person::SecondPersonSingular,
-						Mood::Indicatif 
+						'Present',
+						'SecondPersonSingular',
+						'Indicatif' 
 				),
 				array (
 						"aime",
