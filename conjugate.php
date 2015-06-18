@@ -80,10 +80,10 @@ function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
-function personal_pronoun($person) {
-	$person = '"Unknown Person';
+function personal_pronoun(Person $person) {
+	$finding_personperson = '"Unknown Person';
 // for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural  
-$person =  array (
+$finding_person =  array (
 					Person::FirstPersonSingular => 'je ',
 					Person::SecondPersonSingular => 'tu ',
 					Person::ThirdPersonSingular => 'il ',
@@ -91,7 +91,7 @@ $person =  array (
 					Person::SecondPersonPlural => 'vous ',
 					Person::ThirdPersonPlural => 'ils ',
 			);	
-	return $person;
+return $finding_person[$person->getValue()];
 }
 function endings(Person $person, Tense $tense, Mood $mood) {
 	// $ending = 'Unknown Ending';

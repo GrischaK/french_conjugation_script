@@ -14,6 +14,22 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 					    'FirstPersonSingular',
 				),
 				array (
+						'tu ',
+						'SecondPersonSingular',
+				),
+				array (
+						'il ',
+						'ThirdPersonSingular',
+				),
+				array (
+						'nous ',
+						'FirstPersonPlural',
+				),
+				array (
+						'vous ',
+						'SecondPersonPlural',						
+				),												
+				array (
 						'ils ',
 						'ThirdPersonPlural',
 				)				
