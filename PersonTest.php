@@ -10,11 +10,11 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 	public function PersonTestProvider() {
 		return array (
 				array (
-						'Je ',
+						'je ',
 					    'FirstPersonSingular',
 				),
 				array (
-						'Ils ',
+						'ils ',
 						'ThirdPersonPlural',
 				)				
 		);
