@@ -80,29 +80,17 @@ function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
-function person($person) {
+function personal_pronoun($person) {
 	$person = '"Unknown Person';
 // for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural  
-	switch ($person) {
-		case Person::FirstPersonSingular :
-			$person = "je "; // should use the function_French
-			break;
-		case Person::SecondPersonSingular :
-			$person = "tu ";
-			break;
-		case Person::ThirdPersonSingular :
-			$person = "il ";
-			break;
-		case Person::FirstPersonPlural :
-			$person = "nous ";
-			break;
-		case Person::SecondPersonPlural :
-			$person = "vous ";
-			break;
-		case Person::ThirdPersonPlural :
-			$person = "ils ";
-			break;
-	}
+$person =  array (
+					Person::FirstPersonSingular => 'je ',
+					Person::SecondPersonSingular => 'tu ',
+					Person::ThirdPersonSingular => 'il ',
+					Person::FirstPersonPlural => 'nous ',
+					Person::SecondPersonPlural => 'vous ',
+					Person::ThirdPersonPlural => 'ils ',
+			);	
 	return $person;
 }
 function endings(Person $person, Tense $tense, Mood $mood) {
@@ -369,7 +357,7 @@ function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
 }
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$conjugated_verb = conjugate ( $verb, $person, $tense, $mood);
-	$personal_pronoun = person ( $person);
+	$personal_pronoun = personal_pronoun ( $person);
 	return $personal_pronoun . $conjugated_verb;
 }
 $variable = conjugate ( 'aimer', new Person(Person::FirstPersonSingular), new Tense(Tense::Present), new Mood(Mood::Indicatif)); 
