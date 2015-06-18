@@ -33,72 +33,6 @@ abstract class Enum {
 		}
 	}
 }
-abstract class Enum2 {
-	private $value;
-	public function __construct($value) {
-		if(is_string($value)) {
-			$this->value = Person::getConstants()[$value];
-		} else {
-			if(in_array($value, Person::getConstants())) {
-				$this->value = $value;
-			} else {
-				throw new Exception("Invalid value ".$value);
-			}
-		}
-	}
-
-	public function getValue() {
-		return $this->value;
-	}
-
-	static public function getConstants() {
-		$reflection = new ReflectionClass(get_called_class());
-		return $reflection->getConstants();
-	}
-
-	public function __toString() {
-		// must not throw from toString
-		try {
-			return array_flip(getConstants())[$this->$value];
-			// when the value is not in the constants
-		} catch(Exception $e) {
-			return "Invalid value ".$this->$value;
-		}
-	}
-}
-abstract class Enum3 {
-	private $value;
-	public function __construct($value) {
-		if(is_string($value)) {
-			$this->value = Mood::getConstants()[$value];
-		} else {
-			if(in_array($value, Mood::getConstants())) {
-				$this->value = $value;
-			} else {
-				throw new Exception("Invalid value ".$value);
-			}
-		}
-	}
-
-	public function getValue() {
-		return $this->value;
-	}
-
-	static public function getConstants() {
-		$reflection = new ReflectionClass(get_called_class());
-		return $reflection->getConstants();
-	}
-
-	public function __toString() {
-		// must not throw from toString
-		try {
-			return array_flip(getConstants())[$this->$value];
-			// when the value is not in the constants
-		} catch(Exception $e) {
-			return "Invalid value ".$this->$value;
-		}
-	}
-}
 
 class Tense extends Enum {	
 	// simple tenses
@@ -118,7 +52,7 @@ class Tense extends Enum {
 	const Deuxieme_Forme = 10;	
 }
 
-class Person extends Enum2{
+class Person extends Enum {
 	const FirstPersonSingular = 0;
 	const SecondPersonSingular = 1;
 	const ThirdPersonSingular = 2;
@@ -126,7 +60,7 @@ class Person extends Enum2{
 	const SecondPersonPlural = 4;
 	const ThirdPersonPlural = 5;
 }
-class Mood extends Enum3{
+class Mood extends Enum {
 	const Indicatif = 0;
 	const Subjonctif = 1;
 	const Conditionnel = 2;
