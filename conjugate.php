@@ -3,13 +3,18 @@
 abstract class Enum {
 	private $value;
 	public function __construct($value) {
-		if(is_string($value)) {
-			$this->value = Tense::getConstants()[$value];
+		$constants = $this->getConstants ();
+		if (is_string ( $value )) {
+			if (isset ( $constants [$value] )) {
+				$this->value = $constants [$value];
+			} else {
+				throw new Exception ( "No constant of name $value in Enum " . get_called_class () );
+			}
 		} else {
-			if(in_array($value, Tense::getConstants())) {
+			if (in_array ( $value, $constants )) {
 				$this->value = $value;
 			} else {
-				throw new Exception("Invalid value ".$value);
+				throw new Exception ( "No constant of value $value in Enum " . get_called_class () );
 			}
 		}
 	}
