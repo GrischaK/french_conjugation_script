@@ -163,20 +163,20 @@ function endings(Person $person, Tense $tense, Mood $mood) {
 }
 function aller(Person $person, Tense $tense, Mood $mood) {
 	// $aller = 'Unknown Aller';
-	$ending = array (
+	$aller_form = array (
 			Mood::Indicatif => array (
 					Tense::Futur_compose => array (
-							Person::FirstPersonSingular => 'vais',
-							Person::SecondPersonSingular => 'vas',
-							Person::ThirdPersonSingular => 'va',
-							Person::FirstPersonPlural => 'allons',
-							Person::SecondPersonPlural => 'allez',
-							Person::ThirdPersonPlural => 'vont'
+							Person::FirstPersonSingular => 'vais ',
+							Person::SecondPersonSingular => 'vas ',
+							Person::ThirdPersonSingular => 'va ',
+							Person::FirstPersonPlural => 'allons ',
+							Person::SecondPersonPlural => 'allez ',
+							Person::ThirdPersonPlural => 'vont '
 					),
 			)
 	);
 
-return $aller($mood,$tense,$person );
+return $aller_form [$mood->getValue()][$tense->getValue()][$person->getValue()];
 }
 function conjugated_auxiliaire($auxiliaire, Person $person, Tense $tense, Mood $mood) {
 	switch ($auxiliaire) {
