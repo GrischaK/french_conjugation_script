@@ -15,16 +15,16 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 		return array (
 				array (
 						'Je aime',
-						'aimer',						
+						'aimer',	
+						'FirstPersonSingular',											
 						'Present',
-						'FirstPersonSingular',
 						'Indicatif' 
 				),
 				array (
 						'Je donne',
 						'donner',
 						'Present',
-						'ThirdPersonPlural',
+						'FirstPersonSingular',
 						'Indicatif' 
 				) 
 		);		
