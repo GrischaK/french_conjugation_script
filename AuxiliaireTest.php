@@ -22,93 +22,93 @@ class AuxiliaireTest extends PHPUnit_Framework_TestCase {
 	 * @dataProvider AuxiliaireVerbProvider
 	 */
 	public function testAuxiliaireVerb($expectedResult, $auxiliaire, $tense, $person, $mood) {
-		$this->assertEquals ( $expectedResult, conjugated_auxiliaire ( $auxiliaire, $person, $tense, $mood ) );
+		$this->assertEquals ( $expectedResult, conjugated_auxiliaire ( $auxiliaire, new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
 	}
 	public function AuxiliaireVerbProvider() {
 		return array (
 				array (
 						"suis",
 						Auxiliaire::Etre,
-						Tense::Passe_compose,
-						Person::FirstPersonSingular,
-						Mood::Indicatif
+						'Passe_compose',
+						'FirstPersonSingular',
+						'Indicatif'
 				),
 				array (
 						"es",
 						Auxiliaire::Etre,
-						Tense::Passe_compose,
-						Person::SecondPersonSingular,
-						Mood::Indicatif
+						'Passe_compose',
+						'SecondPersonSingular',
+						'Indicatif'
 				),
 				array (
 						"est",
 						Auxiliaire::Etre,
-						Tense::Passe_compose,
-						Person::ThirdPersonSingular,
-						Mood::Indicatif
+						'Passe_compose',
+						'ThirdPersonSingular',
+						'Indicatif'
 				),
 				array (
 						"sommes",
 						Auxiliaire::Etre,
-						Tense::Passe_compose,
-						Person::FirstPersonPlural,
-						Mood::Indicatif
+						'Passe_compose',
+						'FirstPersonPlural',
+						'Indicatif'
 				),
 				array (
 						"êtes",
 						Auxiliaire::Etre,
-						Tense::Passe_compose,
-						Person::SecondPersonPlural,
-						Mood::Indicatif
+						'Passe_compose',
+						'SecondPersonPlural',
+						'Indicatif'
 				),
 				array (
 						"sont",
 						Auxiliaire::Etre,
-						Tense::Passe_compose,
-						Person::ThirdPersonPlural,
-						Mood::Indicatif
+						'Passe_compose',
+						'ThirdPersonPlural',
+						'Indicatif'
 				),
 				array (
 						"ai",
 						Auxiliaire::Avoir,
-						Tense::Passe_compose,
-						Person::FirstPersonSingular,
-						Mood::Indicatif
+						'Passe_compose',
+						'FirstPersonSingular',
+						'Indicatif'
 				),
 				array (
 						"as",
 						Auxiliaire::Avoir,
-						Tense::Passe_compose,
-						Person::SecondPersonSingular,
-						Mood::Indicatif
+						'Passe_compose',
+						'SecondPersonSingular',
+						'Indicatif'
 				),
 				array (
 						"a",
 						Auxiliaire::Avoir,
-						Tense::Passe_compose,
-						Person::ThirdPersonSingular,
-						Mood::Indicatif
+						'Passe_compose',
+						'ThirdPersonSingular',
+						'Indicatif'
 				),
 				array (
 						"avons",
 						Auxiliaire::Avoir,
-						Tense::Passe_compose,
-						Person::FirstPersonPlural,
-						Mood::Indicatif
+						'Passe_compose',
+						'FirstPersonPlural',
+						'Indicatif'
 				),
 				array (
 						"avez",
 						Auxiliaire::Avoir,
-						Tense::Passe_compose,
-						Person::SecondPersonPlural,
-						Mood::Indicatif
+						'Passe_compose',
+						'SecondPersonPlural',
+						'Indicatif'
 				),
 				array (
 						"ont",
 						Auxiliaire::Avoir,
-						Tense::Passe_compose,
-						Person::ThirdPersonPlural,
-						Mood::Indicatif
+						'Passe_compose',
+						'ThirdPersonPlural',
+						'Indicatif'
 				)
 		);
 }
