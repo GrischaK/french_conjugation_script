@@ -1,81 +1,10 @@
 <?php
 
-abstract class Enum {
-	private $value;
-	public function __construct($value) {
-		$constants = $this->getConstants ();
-		if (is_string ( $value )) {
-			if (isset ( $constants [$value] )) {
-				$this->value = $constants [$value];
-			} else {
-				throw new Exception ( "No constant of name $value in Enum " . get_called_class () );
-			}
-		} else {
-			if (in_array ( $value, $constants )) {
-				$this->value = $value;
-			} else {
-				throw new Exception ( "No constant of value $value in Enum " . get_called_class () );
-			}
-		}
-	}
-	
-	public function getValue() {
-		return $this->value;
-	}
-	
-	static public function getConstants() {
-		$reflection = new ReflectionClass(get_called_class());
-		return $reflection->getConstants();
-	}
-	
-	public function __toString() {
-		// must not throw from toString
-		try {
-			return array_flip(getConstants())[$this->$value];
-			// when the value is not in the constants
-		} catch(Exception $e) {
-			return "Invalid value ".$this->$value;
-		}
-	}
-}
-
-class Tense extends Enum {	
-	// simple tenses
-	const Present = 0;
-	const Imparfait = 1;
-	const Passe = 2;
-	const Futur = 3; 		// (Futur I)		
-		
-	// composite tenses
-	const Passe_compose = 4;
-	const Plus_que_parfait = 5;
-	const Passe_anterieur = 6;
-	const Futur_anterieur = 7;	// (Futur II)
-	const Futur_compose = 8; 	// (Futur proche)
-	
-	const Premiere_Forme = 9; 
-	const Deuxieme_Forme = 10;	
-}
-
-class Person extends Enum {
-	const FirstPersonSingular = 0;
-	const SecondPersonSingular = 1;
-	const ThirdPersonSingular = 2;
-	const FirstPersonPlural = 3;
-	const SecondPersonPlural = 4;
-	const ThirdPersonPlural = 5;
-}
-class Mood extends Enum {
-	const Indicatif = 0;
-	const Subjonctif = 1;
-	const Conditionnel = 2;
-	const Imperatif = 3;
-	const Modes_impersonnels = 4;
-}
-class Auxiliaire extends Enum{
-	const Avoir = 0;
-	const Etre = 1;
-}
+require_once 'Enum.php';
+require_once 'Tense.php';
+require_once 'Person.php';
+require_once 'Mood.php';
+require_once 'Auxiliaire.php';
 function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
