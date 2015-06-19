@@ -16,15 +16,15 @@ class ConjugatedAuxiliaireTest extends PHPUnit_Framework_TestCase {
 				array (
 						'suis',						
 						'Etre',
+						'FirstPersonSingular',						
 						'Present',
-						'FirstPersonSingular',
 						'Indicatif'	
 				),				
 				array (
 						'ai',
 						'Avoir',
+						'FirstPersonSingular',						
 						'Present',
-						'FirstPersonSingular',
 						'Indicatif'							
 				) 
 		);
