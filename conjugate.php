@@ -284,6 +284,11 @@ function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
 	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood);
 	return $conjugated_verb;
 }
+function conjugate_auxiliaire_passe($verb, $auxiliaire, Person $person, Tense $tense, Mood $mood) { // $verb should changed to passe-form of verb
+	// $conjugated_auxiliaire_passe = 'Unknown combination of auxiliaire & passe'; 
+	$conjugated_auxiliaire_passe = word_stem ( $verb ) . conjugated_auxiliaire($auxiliaire, $person, $tense, $mood) . $verb;
+	return $conjugated_auxiliaire_passe;               
+}
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$conjugated_verb = conjugate ( $verb, $person, $tense, $mood);
 	$personal_pronoun = personal_pronoun ( $person);
