@@ -14,12 +14,19 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 		;
 		return array (
 				array (
+						'ai aime',
+						'aimer',
+						'Passe_compose',
+						'FirstPersonSingular',
+						'Indicatif'
+				),				
+				array (
 						'aime',						
 						'aimer',
 						'Present',
 						'FirstPersonSingular',
 						'Indicatif' 
-				),
+				),	
 				array (				
 						'aimes',
 						'aimer',
