@@ -7,7 +7,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider ConjugatePhraseTest
 	 */                                          
-	public function testConjugatePhraseTest($expectedResult, $verb, $tense, $person, $mood) {
+	public function ConjugatePhraseTest($expectedResult, $verb, $tense, $person, $mood) {
 		$this->assertEquals ( $expectedResult, conjugation_phrase ( $verb, new Person($person), new Tense($tense), new Mood($mood) ) );
 	}						
 	public function ConjugatePhraseTest() {
