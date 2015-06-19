@@ -277,7 +277,7 @@ function finding_auxiliaire($verb) {
 		$auxiliaire = Auxiliaire::Avoir;
 
 	}
-return $auxiliaire;
+return new Auxiliaire($auxiliaire);
 }	
 function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
 	// $conjugated_verb = 'Unknown Person';
