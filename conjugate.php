@@ -72,7 +72,7 @@ class Mood extends Enum {
 	const Imperatif = 3;
 	const Modes_impersonnels = 4;
 }
-class Auxiliaire {
+class Auxiliaire extends Enum{
 	const Avoir = 0;
 	const Etre = 1;
 }
