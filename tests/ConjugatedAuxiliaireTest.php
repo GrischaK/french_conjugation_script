@@ -7,12 +7,11 @@ class ConjugatedAuxiliaireTest extends PHPUnit_Framework_TestCase {
 	 * @dataProvider ConjugatedAuxiliaireTestProvider
 	 */                
 			     
-	public function ConjugatedAuxiliaireTest($expectedResult, $auxiliaire, $person, $tense, $mood) {
+	public function testConjugatedAuxiliaire($expectedResult, $auxiliaire, $person, $tense, $mood) {
 	$this->assertEquals ( $expectedResult, conjugated_auxiliaire ($auxiliaire, new Person ($person), new Tense ($tense), new Mood ($mood)));
 
 	}                                                          
-	public function ConjugatedAuxiliaireTestProvider() {
-		;		
+	public function testConjugatedAuxiliaireProvider() {
 		return array (
 				array (
 						'suis',						
