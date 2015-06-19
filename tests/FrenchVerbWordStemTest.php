@@ -10,8 +10,8 @@ class FrenchVerbWordStemTest extends PHPUnit_Framework_TestCase {
 	public function regularWordStemProvider() {
 		return array (
 				array (
-						"aim",
-						"aimer"
+						'aim',
+						'aimer'
 				)
 		);
 	}

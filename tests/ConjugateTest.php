@@ -14,85 +14,84 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 		;
 		return array (
 				array (
-						"aime",
-						"aimer",
+						'aimer',
 						'Present',
 						'FirstPersonSingular',
 						'Indicatif' 
 				),
 				array (				
-						"aimes",
-						"aimer",
+						'aimes',
+						'aimer',
 						'Present',
 						'SecondPersonSingular',
 						'Indicatif' 
 				),
 				array (
-						"aime",
-						"aimer",
+						'aime',
+						'aimer',
 						'Present',
 						'ThirdPersonSingular',
 						'Indicatif' 
 				),
 				array (
-						"aimons",
-						"aimer",
+						'aimons',
+						'aimer',
 						'Present',
 						'FirstPersonPlural',
 						'Indicatif' 
 				),
 				array (
-						"aimez",
-						"aimer",
+						'aimez',
+						'aimer',
 						'Present',
 						'SecondPersonPlural',
 						'Indicatif' 
 				),
 				array (
-						"aiment",
-						"aimer",
+						'aiment',
+						'aimer',
 						'Present',
 						'ThirdPersonPlural',
 						'Indicatif' 
 				),
 				array (
-						"donne",
-						"donner",
+						'donne',
+						'donner',
 						'Present',
 						'FirstPersonSingular',
 						'Indicatif' 
 				),
 				array (
-						"donnes",
-						"donner",
+						'donnes',
+						'donner',
 						'Present',
 						'SecondPersonSingular',
 						'Indicatif'
 				),
 				array (
-						"donne",
-						"donner",
+						'donne',
+						'donner',
 						'Present',
 						'ThirdPersonSingular',
 						'Indicatif' 
 				),
 				array (
-						"donnons",
-						"donner",
+						'donnons',
+						'donner',
 						'Present',
 						'FirstPersonPlural',
 						'Indicatif' 
 				),
 				array (
-						"donnez",
-						"donner",
+						'donnez',
+						'donner',
 						'Present',
 						'SecondPersonPlural',
 						'Indicatif' 
 				),
 				array (
-						"donnent",
-						"donner",
+						'donnent',
+						'donner',
 						'Present',
 						'ThirdPersonPlural',
 						'Indicatif' 
