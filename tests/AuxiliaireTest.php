@@ -1,5 +1,5 @@
 <?php
-require 'conjugate.php';
+require_once 'conjugate.php';
 class AuxiliaireTest extends PHPUnit_Framework_TestCase {
 	
 
