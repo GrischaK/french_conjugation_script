@@ -4,7 +4,7 @@ class ConjugatedAuxiliaireTest extends PHPUnit_Framework_TestCase {
 	
 
 	/**
-	 * @dataProvider ConjugatedAuxiliaireTestProvider
+	 * @dataProvider testConjugatedAuxiliaireProvider
 	 */                
 			     
 	public function testConjugatedAuxiliaire($expectedResult, $auxiliaire, $person, $tense, $mood) {
