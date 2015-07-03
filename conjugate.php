@@ -278,7 +278,7 @@ function finding_auxiliaire($verb) {
 
 	}
 return new Auxiliaire($auxiliaire);
-
+}
 function finding_participle ($verb) {
 //  $participe_passe = 'Unknown Participe Passé';
 	$participe_passe = word_stem ( $verb ) .'é';
