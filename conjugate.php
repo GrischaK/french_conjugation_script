@@ -297,6 +297,10 @@ function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
 	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood);
 	return $conjugated_verb;
 }
+function isComposite(Tense $tense) {
+	$composite_tenses = array(Tense::Passe_compose, Tense::Plus_que_parfait, Tense::Passe_anterieur, Tense::Futur_anterieur);
+	return in_array($tense->getValue(), $composite_tenses);
+}
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$conjugated_verb = conjugate ( $verb, $person, $tense, $mood);
 	$personal_pronoun = personal_pronoun ( $person);
