@@ -1,19 +1,19 @@
 <?php
 class Tense extends Enum {
 	// simple tenses
-	const Present = 0;
-	const Imparfait = 1;
-	const Passe = 2;
-	const Futur = 3; 		// (Futur I)
+	const Present = 'present';
+	const Imparfait = 'imparfait';
+	const Passe = 'passe';
+	const Futur = 'futur'; 		// (Futur I)
 
 	// composite tenses
-	const Passe_compose = 4;
-	const Plus_que_parfait = 5;
-	const Passe_anterieur = 6;
-	const Futur_anterieur = 7;	// (Futur II)
-	const Futur_compose = 8; 	// (Futur proche)
+	const Passe_compose = 'passe_compose';
+	const Plus_que_parfait = 'plus_que_parfait';
+	const Passe_anterieur = 'passe_anterieur';
+	const Futur_anterieur = 'futur_anterieur';	// (Futur II)
+	const Futur_compose = 'futur_compose'; 	// (Futur proche)
 
-	const Premiere_Forme = 9;
-	const Deuxieme_Forme = 10;
+	const Premiere_Forme = 'premiere_Forme';
+	const Deuxieme_Forme = 'deuxieme_Forme';
 }
 ?>

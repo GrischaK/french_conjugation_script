@@ -1,6 +1,6 @@
 <?php
 class Auxiliaire extends Enum{
-	const Avoir = 0;
-	const Etre = 1;
+	const Avoir = 'avoir';
+	const Etre = 'etre';
 }
 ?>

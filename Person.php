@@ -1,10 +1,10 @@
 <?php
 class Person extends Enum {
-	const FirstPersonSingular = 0;
-	const SecondPersonSingular = 1;
-	const ThirdPersonSingular = 2;
-	const FirstPersonPlural = 3;
-	const SecondPersonPlural = 4;
-	const ThirdPersonPlural = 5;
+	const FirstPersonSingular = 'firstPersonSingular';
+	const SecondPersonSingular = 'secondPersonSingular';
+	const ThirdPersonSingular = 'thirdPersonSingular';
+	const FirstPersonPlural = 'firstPersonPlural';
+	const SecondPersonPlural = 'secondPersonPlural';
+	const ThirdPersonPlural = 'thirdPersonPlural';
 }
 ?>
