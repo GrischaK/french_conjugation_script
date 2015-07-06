@@ -10,7 +10,7 @@ function word_stem($verb) {
 	return $word_stem;
 }
 function personal_pronoun(Person $person) {
-	$finding_personperson = '"Unknown Person';
+	$finding_person = '"Unknown Person';
 // for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural  
 $finding_person =  array (
 					Person::FirstPersonSingular => 'je ',
@@ -303,8 +303,8 @@ function isComposite(Tense $tense) {
 }
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$personal_pronoun = personal_pronoun ( $person);
-	$participe_passe = finding_participle( $verb);
 	if(isComposite( $tense)) {
+	$participe_passe = finding_participle( $verb);
 	$conjugated_auxiliaire_verb = conjugated_auxiliaire(finding_auxiliaire($verb), $person, $tense, $mood);
 	return $personal_pronoun . $conjugated_auxiliaire_verb . $participe_passe;
 	}
