@@ -319,27 +319,10 @@ function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 }
 
 
-
-
-function French($word_one, $word_two) { // tauscht je/que je in j’/que j’, wenn Vokal
-	if (preg_match('~(.*)\bje$~ui', $word_one, $m) && preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags($word_two)))
-		return "{$m[1]}j’$word_two";
-	if (preg_match('~^[-]~ui', $word_two)) // wenn keine Konjugation genutzt wird (-), lösche das Personalpronomen  -> soll weg?
-		return "$word_two";
-	return "$word_one $word_two";
-}
-function FrenchSeparated($word_one, $word_two) {
-	if (preg_match('~(.*)\bje$~ui', $word_one, $m) && preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags($word_two)))
-		return "<td class=\"text-right text-muted\">{$m[1]}j’</td><td>" . $word_two . "</td>";
-	if (preg_match('~^[-]~ui', $word_two))
-		return '<td></td><td>'.$word_two.'</td>';
-	return '    <td class="text-right text-muted">' . $word_one . '</td>' . "\n" . '    <td class="text-left">' . $word_two . '</td>' . "\n";
-}
-function FrenchCompoundTenses($word_one, $word_two) {
-	if (preg_match('~(.*)\bje$~ui', $word_one, $m) && preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags($word_two)))
-		return "<td class=\"text-right text-muted\">{$m[1]}j’</td>" . $word_two;
-	else
-		return "<td class=\"text-right text-muted\">" . $word_one . "</td>" . $word_two;
+function concatenate_apostrophized($pronoun, $verb) {// tauscht je/que je in j’/que j’, wenn Vokal
+	if (preg_match('~(.*)\bje$~ui', $pronoun, $m) && preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags($verb)))
+		return "{$m[1]}j’$verb";
+	return "$pronoun $verb";	
 }
 
 
