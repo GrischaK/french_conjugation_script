@@ -19,7 +19,21 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Passe_compose',
 						'FirstPersonSingular',
 						'Indicatif'
-				),				
+				),	
+				array (
+						'je suis amusé',
+						'amuser',
+						'Passe_compose',
+						'FirstPersonSingular',
+						'Indicatif'
+				),
+				array (
+						'ils sont amusés',
+						'amuser',
+						'Passe_compose',
+						'ThirdPersonPlural',
+						'Indicatif'
+				),											
 				array (
 						'je aime',
 						'aimer',	
