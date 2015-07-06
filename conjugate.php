@@ -283,7 +283,7 @@ function isPlural(Person $person) {
 	$plural_persons = array( Person::FirstPersonPlural, Person::SecondPersonPlural, Person::ThirdPersonPlural);
 	return in_array($person->getValue(), $plural_persons);
 }                   
-function finding_participle ($verb) {
+function finding_participle ($verb, $person) {
 //  $participe_passe = 'Unknown Participe Passé';
 	$participe_passe = word_stem ( $verb ) .'é';
  	if (finding_auxiliaire($verb) === Auxiliaire::Etre && (isPlural($person)) )	{	
@@ -308,7 +308,7 @@ function isComposite(Tense $tense) {
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$personal_pronoun = personal_pronoun ( $person);
 	if(isComposite( $tense)) {
-	$participe_passe = finding_participle( $verb);
+	$participe_passe = finding_participle( $verb, $person);
 	$conjugated_auxiliaire_verb = conjugated_auxiliaire(finding_auxiliaire($verb), $person, $tense, $mood);
 	return $personal_pronoun . $conjugated_auxiliaire_verb .' '. $participe_passe;
 	}
