@@ -303,7 +303,7 @@ function isComposite(Tense $tense) {
 }
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	if(isComposite( $tense)) {
-	$conjugated_auxiliaire_verb = isComposite ($conjugated_auxiliaire);
+	$conjugated_auxiliaire_verb = conjugated_auxiliaire(finding_auxiliaire($verb), $person, $tense, $mood);
 	return $personal_pronoun . $conjugated_auxiliaire_verb . $participe_passe;
 	}
 	else {				
