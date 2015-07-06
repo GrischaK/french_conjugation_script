@@ -279,10 +279,14 @@ function finding_auxiliaire($verb) {
 	}
 return new Auxiliaire($auxiliaire);
 }
+function isPlural(Person $person) {
+	$plural_persons = array( Person::FirstPersonPlural, Person::SecondPersonPlural, Person::ThirdPersonPlural);
+	return in_array($person->getValue(), $plural_persons);
+}                   
 function finding_participle ($verb) {
 //  $participe_passe = 'Unknown Participe Passé';
 	$participe_passe = word_stem ( $verb ) .'é';
- 	if ($auxiliaire = Auxiliaire::Etre && in_array($finding_person,array(3,4,5)))	{	
+ 	if ($auxiliaire = Auxiliaire::Etre && (isPlural($person)) )	{	
 	$participe_passe .='s';
 	}
 	return $participe_passe;
