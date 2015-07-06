@@ -42,10 +42,10 @@ abstract class Enum {
 	public function __toString() {
 		// must not throw from toString
 		try {
-			return array_flip(getConstants())[$this->$value];
+			return array_flip($this->getConstants())[$this->value];
 			// when the value is not in the constants
 		} catch(Exception $e) {
-			return "Invalid value ".$this->$value;
+			return "Invalid value ".$this->value;
 		}
 	}
 }
