@@ -286,7 +286,7 @@ function isPlural(Person $person) {
 function finding_participle ($verb) {
 //  $participe_passe = 'Unknown Participe Passé';
 	$participe_passe = word_stem ( $verb ) .'é';
- 	if ($auxiliaire = Auxiliaire::Etre && (isPlural($person)) )	{	
+ 	if ($auxiliaire === Auxiliaire::Etre && (isPlural($person)) )	{	
 	$participe_passe .='s';
 	}
 	return $participe_passe;
