@@ -107,8 +107,8 @@ function aller(Person $person, Tense $tense, Mood $mood) {
 
 return $aller_form [$mood->getValue()][$tense->getValue()][$person->getValue()];
 }
-function conjugated_auxiliaire($auxiliaire, Person $person, Tense $tense, Mood $mood) {
-	switch ($auxiliaire) {
+function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood) {
+	switch ($auxiliaire->getValue()) {
 		case Auxiliaire::Etre :
 			$conjugated_auxiliaire = array (
 					Mood::Indicatif => array (
