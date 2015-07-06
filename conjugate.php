@@ -286,7 +286,7 @@ function isPlural(Person $person) {
 function finding_participle ($verb) {
 //  $participe_passe = 'Unknown Participe Passé';
 	$participe_passe = word_stem ( $verb ) .'é';
- 	if ($auxiliaire === Auxiliaire::Etre && (isPlural($person)) )	{	
+ 	if ($verb === Auxiliaire::Etre && (isPlural($person)) )	{	
 	$participe_passe .='s';
 	}
 	return $participe_passe;
@@ -310,7 +310,7 @@ function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	if(isComposite( $tense)) {
 	$participe_passe = finding_participle( $verb);
 	$conjugated_auxiliaire_verb = conjugated_auxiliaire(finding_auxiliaire($verb), $person, $tense, $mood);
-	return $personal_pronoun . $conjugated_auxiliaire_verb . $participe_passe;
+	return $personal_pronoun . $conjugated_auxiliaire_verb .' '. $participe_passe;
 	}
 	else {				
 	$conjugated_verb = conjugate ( $verb, $person, $tense, $mood);
