@@ -22,7 +22,7 @@ class AuxiliaireTest extends PHPUnit_Framework_TestCase {
 	 * @dataProvider AuxiliaireVerbProvider
 	 */
 	public function testAuxiliaireVerb($expectedResult, $auxiliaire, $tense, $person, $mood) {
-		$this->assertEquals ( $expectedResult, conjugated_auxiliaire ( new Auxiliaire ($auxiliaire), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+		$this->assertEquals ( $expectedResult, conjugated_auxiliaire ( new Auxiliaire ( $auxiliaire ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
 	}
 	public function AuxiliaireVerbProvider() {
 		return array (
