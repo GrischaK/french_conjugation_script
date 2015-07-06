@@ -302,9 +302,15 @@ function isComposite(Tense $tense) {
 	return in_array($tense->getValue(), $composite_tenses);
 }
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
+	if(isComposite( $tense)) {
+	$conjugated_auxiliaire_verb = isComposite ($conjugated_auxiliaire);
+	return $personal_pronoun . $conjugated_auxiliaire_verb . $participe_passe;
+	}
+	else {				
 	$conjugated_verb = conjugate ( $verb, $person, $tense, $mood);
 	$personal_pronoun = personal_pronoun ( $person);
 	return $personal_pronoun . $conjugated_verb;
+	}
 }
 $variable = conjugate ( 'aimer', new Person(Person::FirstPersonSingular), new Tense(Tense::Present), new Mood(Mood::Indicatif)); 
 ?>
