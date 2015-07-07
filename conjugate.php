@@ -336,8 +336,27 @@ function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
 	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood);
 	return $conjugated_verb;
 }
-function isComposite(Tense $tense) {
-	$composite_tenses = array(Tense::Passe_compose, Tense::Plus_que_parfait, Tense::Passe_anterieur, Tense::Futur_anterieur);
+function isComposite(Mood $mood, Tense $tense) {
+		
+			$composite_tenses = array(					
+					Mood::Indicatif => array (	
+										Tense::Passe_compose, 
+					 					Tense::Plus_que_parfait,
+										Tense::Passe_anterieur, 
+										Tense::Futur_anterieur
+					      				),
+					Mood::Subjonctif => array (
+										Tense::Passe,
+										Tense::Plus_que_parfait
+										),	
+					Mood::Conditionnel => array (
+							Tense::Premiere_Forme,
+							Tense::Deuxieme_Forme
+					),	
+					Mood::Imperatif => array (
+							Tense::Passe
+					)																							
+									);			
 	return in_array($tense->getValue(), $composite_tenses);
 }
 function concatenate_apostrophized($pronoun, $verb) {// tauscht je/que je in j’/que j’, wenn Vokal
