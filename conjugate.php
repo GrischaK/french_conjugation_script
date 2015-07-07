@@ -9,7 +9,7 @@ function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
-function personal_pronoun(Person $person,Mood $person) {
+function personal_pronoun(Person $person,Mood $mood) {
 	$finding_person = '"Unknown Person';
 // for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural  
 $finding_person =  array (
