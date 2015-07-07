@@ -319,6 +319,11 @@ function isComposite(Tense $tense) {
 	$composite_tenses = array(Tense::Passe_compose, Tense::Plus_que_parfait, Tense::Passe_anterieur, Tense::Futur_anterieur);
 	return in_array($tense->getValue(), $composite_tenses);
 }
+function concatenate_apostrophized($pronoun, $verb) {// tauscht je/que je in j’/que j’, wenn Vokal
+	if (preg_match('~(.*)\bje$~ui', $pronoun, $m) && preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags($verb)))
+		return "{$m[1]}j’$verb";
+	return "$pronoun $verb";
+}
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$personal_pronoun = personal_pronoun ( $person, $mood);
 	if(isComposite( $tense)) {
@@ -330,13 +335,6 @@ function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$conjugated_verb = conjugate ( $verb, $person, $tense, $mood);
 	return $personal_pronoun . $conjugated_verb;
 	}
-}
-
-
-function concatenate_apostrophized($pronoun, $verb) {// tauscht je/que je in j’/que j’, wenn Vokal
-	if (preg_match('~(.*)\bje$~ui', $pronoun, $m) && preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags($verb)))
-		return "{$m[1]}j’$verb";
-	return "$pronoun $verb";	
 }
 
 
