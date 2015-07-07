@@ -9,7 +9,7 @@ function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
-function personal_pronoun(Person $person) {
+function personal_pronoun(Person $person, Mood $mood) {
 	$finding_person = '"Unknown Person';
 // for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural  
 $finding_person =  array (
@@ -20,8 +20,22 @@ $finding_person =  array (
 					Person::SecondPersonPlural => 'vous ',
 					Person::ThirdPersonPlural => 'ils ',
 			);	
-return $finding_person[$person->getValue()];
+$subjonctif_pre_pronouns = array (
+		Person::FirstPersonSingular => 'que',
+		Person::SecondPersonSingular => 'que',
+		Person::ThirdPersonSingular => "qu'",
+		Person::FirstPersonPlural => 'que',
+		Person::SecondPersonPlural => 'que',
+		Person::ThirdPersonPlural => "qu'",
+);
+
+if($mood->getValue === Mood::Subjonctif) {
+	return $subjonctif_pre_pronouns[$person->getValue].$finding_person[$person->getValue()];
+} else {
+	return $finding_person[$person->getValue()];
 }
+}
+
 function endings(Person $person, Tense $tense, Mood $mood) {
 	// $ending = 'Unknown Ending';
 	$ending = array ( // Standardendungen für Verben auf -er
