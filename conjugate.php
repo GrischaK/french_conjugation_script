@@ -21,16 +21,16 @@ $finding_person =  array (
 					Person::ThirdPersonPlural => 'ils ',
 			);	
 $subjonctif_pre_pronouns = array (
-		Person::FirstPersonSingular => 'que',
-		Person::SecondPersonSingular => 'que',
+		Person::FirstPersonSingular => 'que ',
+		Person::SecondPersonSingular => 'que ',
 		Person::ThirdPersonSingular => "qu'",
-		Person::FirstPersonPlural => 'que',
-		Person::SecondPersonPlural => 'que',
+		Person::FirstPersonPlural => 'que ',
+		Person::SecondPersonPlural => 'que ',
 		Person::ThirdPersonPlural => "qu'",
 );
 
 if($mood->getValue() === Mood::Subjonctif) {
-	return $subjonctif_pre_pronouns[$person->getValue()].' '.$finding_person[$person->getValue()];
+	return $subjonctif_pre_pronouns[$person->getValue()].$finding_person[$person->getValue()];
 } else {
 	return $finding_person[$person->getValue()];
 }
