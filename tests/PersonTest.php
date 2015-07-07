@@ -35,7 +35,7 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 						'Indicatif',											
 				),						
 				array (
-						"qu'ils ",
+						'ils ',
 						'SecondPersonPlural',
 						'Indicatif',						
 				),
