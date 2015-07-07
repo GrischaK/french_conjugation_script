@@ -30,7 +30,7 @@ $subjonctif_pre_pronouns = array (
 );
 
 if($mood->getValue() === Mood::Subjonctif) {
-	return $subjonctif_pre_pronouns[$person->getValue()].$finding_person[$person->getValue()];
+	return $subjonctif_pre_pronouns[$person->getValue()].' '.$finding_person[$person->getValue()];
 } else {
 	return $finding_person[$person->getValue()];
 }
