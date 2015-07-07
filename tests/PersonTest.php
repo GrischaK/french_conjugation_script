@@ -10,7 +10,7 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 	public function PersonTestProvider() {
 		return array (
 				array (
-						'je ',
+						'je',
 					    'FirstPersonSingular',
 						'Indicatif',						
 				),
@@ -40,7 +40,7 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 						'Indicatif',						
 				),
 				array (
-						'que je ',
+						'que je',
 						'FirstPersonSingular',
 						'Subjonctif',						
 				),
