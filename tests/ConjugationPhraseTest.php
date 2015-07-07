@@ -47,7 +47,49 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Present',
 						'FirstPersonSingular',
 						'Subjonctif'
-				),						
+				),		
+				array ( //new test for Imperatif Present
+						'aime',
+						'aimer',
+						'Present',
+						'FirstPersonSingular',
+						'Imperatif'
+				),
+				array ( //new test for Imperatif Present
+						'aimons',
+						'aimer',
+						'Present',
+						'FirstPersonPlural',
+						'Imperatif'
+				),
+				array ( //new test for Imperatif Present
+						'aimez',
+						'aimer',
+						'Present',
+						'SecondPersonPlural',
+						'Imperatif'
+				),	
+				array ( //new test for Imperatif Passe
+						'aie aimé',
+						'aimer',
+						'Passe',
+						'FirstPersonSingular',
+						'Imperatif'
+				),
+				array ( //new test for Imperatif Passe
+						'ayons aimé',
+						'aimer',
+						'Passe',
+						'FirstPersonPlural',
+						'Imperatif'
+				),
+				array ( //new test for Imperatif Passe
+						'ayez aimé',
+						'aimer',
+						'Passe',
+						'SecondPersonPlural',
+						'Imperatif'
+				),											
 				array (
 						'je donne',
 						'donner',
