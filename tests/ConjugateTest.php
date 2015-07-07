@@ -55,42 +55,42 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'ThirdPersonPlural',
 						'Indicatif' 
 				),
-				array ( //new test for Imperatif Present
+				array ( 
 						'aime',
 						'aimer',
 						'Present',
 						'FirstPersonSingular',
 						'Imperatif'
 				),	
-				array ( //new test for Imperatif Present
+				array ( 
 						'aimons',
 						'aimer',
 						'Present',
 						'FirstPersonPlural',
 						'Imperatif'
 				),
-				array ( //new test for Imperatif Present
+				array ( 
 						'aimez',
 						'aimer',
 						'Present',
 						'SecondPersonPlural',
 						'Imperatif'
 				),	
-				array ( //new test for Imperatif Passe
+				array (
 						'aimé',
 						'aimer',
 						'Passe',
 						'FirstPersonSingular',
 						'Imperatif'
 				),
-				array ( //new test for Imperatif Passe
+				array ( 
 						'aimé',
 						'aimer',
 						'Passe',
 						'FirstPersonPlural',
 						'Imperatif'
 				),
-				array ( //new test for Imperatif Passe
+				array ( 
 						'aimé',
 						'aimer',
 						'Passe',
