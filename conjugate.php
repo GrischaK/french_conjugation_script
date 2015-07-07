@@ -98,7 +98,14 @@ function endings(Person $person, Tense $tense, Mood $mood) {
 							Person::ThirdPersonSingular => 'erait',
 							Person::FirstPersonPlural => 'erions',
 							Person::SecondPersonPlural => 'eriez',
-							Person::ThirdPersonPlural => 'raient' 
+							Person::ThirdPersonPlural => 'raient'
+					)
+			),							
+			Mood::Imperatif => array (
+					Tense::Present => array (
+							Person::FirstPersonSingular => 'e',
+							Person::FirstPersonPlural => 'ons',
+							Person::SecondPersonPlural => 'ez',
 					) 
 			) 
 	);
@@ -194,6 +201,13 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 									Person::SecondPersonPlural => 'fussiez',
 									Person::ThirdPersonPlural => 'fussent' 
 							) 
+					),
+							Mood::Imperatif => array (
+									Tense::Passe => array (
+											Person::FirstPersonSingular => 'sois',
+											Person::FirstPersonPlural => 'soyons',
+											Person::SecondPersonPlural => 'soyez',
+									)							
 					) 
 			);
 			break;
@@ -268,6 +282,13 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 									Person::SecondPersonPlural => 'eussiez',
 									Person::ThirdPersonPlural => 'eussent' 
 							) 
+					),
+					Mood::Imperatif => array (
+							Tense::Passe => array (
+									Person::FirstPersonSingular => 'ai',
+								    Person::FirstPersonPlural => 'avons',
+									Person::SecondPersonPlural => 'avez',
+									)
 					) 
 			);
 			break;
