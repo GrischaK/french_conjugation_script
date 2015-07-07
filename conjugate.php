@@ -9,7 +9,7 @@ function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
-function personal_pronoun(Person $person, Mood $mood) {
+function personal_pronoun(Person $person,Mood $mood) {
 	$finding_person = '"Unknown Person';
 // for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural  
 $finding_person =  array (
@@ -21,16 +21,16 @@ $finding_person =  array (
 					Person::ThirdPersonPlural => 'ils ',
 			);	
 $subjonctif_pre_pronouns = array (
-		Person::FirstPersonSingular => 'que',
-		Person::SecondPersonSingular => 'que',
+		Person::FirstPersonSingular => 'que ',
+		Person::SecondPersonSingular => 'que ',
 		Person::ThirdPersonSingular => "qu'",
-		Person::FirstPersonPlural => 'que',
-		Person::SecondPersonPlural => 'que',
+		Person::FirstPersonPlural => 'que ',
+		Person::SecondPersonPlural => 'que ',
 		Person::ThirdPersonPlural => "qu'",
 );
 
-if($mood->getValue === Mood::Subjonctif) {
-	return $subjonctif_pre_pronouns[$person->getValue].$finding_person[$person->getValue()];
+if($mood->getValue() === Mood::Subjonctif) {
+	return $subjonctif_pre_pronouns[$person->getValue()].$finding_person[$person->getValue()];
 } else {
 	return $finding_person[$person->getValue()];
 }
@@ -319,24 +319,22 @@ function isComposite(Tense $tense) {
 	$composite_tenses = array(Tense::Passe_compose, Tense::Plus_que_parfait, Tense::Passe_anterieur, Tense::Futur_anterieur);
 	return in_array($tense->getValue(), $composite_tenses);
 }
-function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
-	$personal_pronoun = personal_pronoun ( $person);
-	if(isComposite( $tense)) {
-	$participe_passe = finding_participle( $verb, $person);
-	$conjugated_auxiliaire_verb = conjugated_auxiliaire(finding_auxiliaire($verb), $person, $tense, $mood);
-	return $personal_pronoun . $conjugated_auxiliaire_verb .' '. $participe_passe;
-	}
-	else {				
-	$conjugated_verb = conjugate ( $verb, $person, $tense, $mood);
-	return $personal_pronoun . $conjugated_verb;
-	}
-}
-
-
 function concatenate_apostrophized($pronoun, $verb) {// tauscht je/que je in j’/que j’, wenn Vokal
 	if (preg_match('~(.*)\bje$~ui', $pronoun, $m) && preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags($verb)))
 		return "{$m[1]}j’$verb";
-	return "$pronoun $verb";	
+	return "$pronoun $verb";
+}
+function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
+	$personal_pronoun = personal_pronoun ( $person, $mood);
+	if(isComposite( $tense)) {
+	$participe_passe = finding_participle( $verb, $person);
+	$conjugated_auxiliaire_verb = conjugated_auxiliaire(finding_auxiliaire($verb), $person, $tense, $mood);
+	return concatenate_apostrophized($personal_pronoun, $conjugated_auxiliaire_verb) .' '. $participe_passe;
+	}
+	else {				
+	$conjugated_verb = conjugate ( $verb, $person, $tense, $mood);
+	return concatenate_apostrophized($personal_pronoun, $conjugated_verb);
+	}
 }
 
 

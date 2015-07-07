@@ -14,7 +14,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 		;
 		return array (
 				array (
-						'je ai aimé',
+						"j'ai aimé",
 						'aimer',
 						'Passe_compose',
 						'FirstPersonSingular',
@@ -35,14 +35,14 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Indicatif'
 				),											
 				array (
-						'je aime',
+						"j'aime",
 						'aimer',	
 						'Present',						
 						'FirstPersonSingular',											
 						'Indicatif' 
 				),	
 				array (
-						'que je aime',
+						"que j'aime",
 						'aimer',
 						'Present',
 						'FirstPersonSingular',
