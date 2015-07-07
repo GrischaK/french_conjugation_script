@@ -11,31 +11,31 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 		return array (
 				array (
 						'je',
-					    'FirstPersonSingular',
+					   'FirstPersonSingular',
 						'Indicatif',						
 				),
 				array (
-						'tu ',
+						'tu',
 						'SecondPersonSingular',
 						'Indicatif',						
 				),
 				array (
-						'il ',
+						'il',
 						'ThirdPersonSingular',
 						'Indicatif',						
 				),
 				array (
-						'nous ',
+						'nous',
 						'FirstPersonPlural',
 						'Indicatif',						
 				),
 				array (
-						'vous ',
+						'vous',
 						'SecondPersonPlural',	
 						'Indicatif',											
 				),						
 				array (
-						'ils ',
+						'ils',
 						'ThirdPersonPlural',
 						'Indicatif',						
 				),
@@ -45,27 +45,27 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 						'Subjonctif',						
 				),
 				array (
-						'que tu ',
+						'que tu',
 						'SecondPersonSingular',
 						'Subjonctif',						
 				),
 				array (
-						"qu'il ",
+						"qu'il",
 						'ThirdPersonSingular',
 						'Subjonctif',						
 				),
 				array (
-						'que nous ',
+						'que nous',
 						'FirstPersonPlural',
 						'Subjonctif',						
 				),
 				array (
-						'que vous ',
+						'que vous',
 						'SecondPersonPlural',
 						'Subjonctif',						
 				),
 				array (
-						"qu'ils ",
+						"qu'ils",
 						'ThirdPersonPlural',
 						'Subjonctif',						
 				)																					

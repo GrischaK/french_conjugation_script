@@ -13,12 +13,12 @@ function personal_pronoun(Person $person,Mood $mood) {
 	$finding_person = '"Unknown Person';
 // for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural  
 $finding_person =  array (
-					Person::FirstPersonSingular => 'je ',
-					Person::SecondPersonSingular => 'tu ',
-					Person::ThirdPersonSingular => 'il ',
-					Person::FirstPersonPlural => 'nous ',
-					Person::SecondPersonPlural => 'vous ',
-					Person::ThirdPersonPlural => 'ils ',
+					Person::FirstPersonSingular => 'je',
+					Person::SecondPersonSingular => 'tu',
+					Person::ThirdPersonSingular => 'il',
+					Person::FirstPersonPlural => 'nous',
+					Person::SecondPersonPlural => 'vous',
+					Person::ThirdPersonPlural => 'ils',
 			);	
 $subjonctif_pre_pronouns = array (
 		Person::FirstPersonSingular => 'que ',
