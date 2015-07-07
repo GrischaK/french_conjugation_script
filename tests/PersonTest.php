@@ -4,70 +4,71 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider PersonTestProvider
 	 */
-	public function testPerson($expectedResult, $mood, $person) {
-		$this->assertEquals ( $expectedResult, new Mood($mood),personal_pronoun(new Person($person)));
+	public function testPerson($expectedResult, $person, $mood) {
+		$this->assertEquals ( $expectedResult, personal_pronoun(new Person($person)), new Mood($mood));
 	}
 	public function PersonTestProvider() {
 		return array (
 				array (
 						'je ',
-						'Indicatif',
 					    'FirstPersonSingular',
+						'Indicatif',						
 				),
 				array (
 						'tu ',
-						'Indicatif',
 						'SecondPersonSingular',
+						'Indicatif',						
 				),
 				array (
 						'il ',
-						'Indicatif',
 						'ThirdPersonSingular',
+						'Indicatif',						
 				),
 				array (
 						'nous ',
-						'Indicatif',
 						'FirstPersonPlural',
+						'Indicatif',						
 				),
 				array (
 						'vous ',
-						'Indicatif',
-						'SecondPersonPlural',						
+						'SecondPersonPlural',	
+						'Indicatif',											
 				),						
 				array (
 						"qu'ils ",
-						'Indicatif',
 						'SecondPersonPlural',
+						'Indicatif',						
 				),
 				array (
 						'que je ',
-						'Subjonctif',
 						'FirstPersonSingular',
+						'Subjonctif',						
 				),
 				array (
 						'que tu ',
 						'Subjonctif',
 						'SecondPersonSingular',
+						'Subjonctif',						
 				),
 				array (
 						"qu'il ",
-						'Subjonctif',
 						'ThirdPersonSingular',
+						'Subjonctif',						
 				),
 				array (
 						'que nous ',
-						'Subjonctif',
 						'FirstPersonPlural',
+						'Subjonctif',						
 				),
 				array (
 						'que vous ',
-						'Subjonctif',
 						'SecondPersonPlural',
+						'Subjonctif',						
 				),
 				array (
 						"qu'ils",
-						'Subjonctif',
 						'ThirdPersonPlural',
+						'Subjonctif',						
 				)																					
 				
 		);
