@@ -4,8 +4,8 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider PersonTestProvider
 	 */
-	public function testPerson($expectedResult, $person, $mood) {
-		$this->assertEquals ( $expectedResult, personal_pronoun(new Person($person)));
+	public function testPerson($expectedResult, $mood, $person) {
+		$this->assertEquals ( $expectedResult, new Mood($mood),personal_pronoun(new Person($person)));
 	}
 	public function PersonTestProvider() {
 		return array (
