@@ -2,14 +2,14 @@
 require_once 'conjugate.php';
 
 class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
-	
+
 
 	/**
 	 * @dataProvider ConjugatePhraseTestProvider
-	 */                                          
+	 */
 	public function testConjugatePhrase($expectedResult, $verb, $tense, $person, $mood) {
 		$this->assertEquals ( $expectedResult, conjugation_phrase ( $verb, new Person($person), new Tense($tense), new Mood($mood) ) );
-	}						
+	}
 	public function ConjugatePhraseTestProvider() {
 		;
 		return array (
@@ -19,7 +19,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Passe_compose',
 						'FirstPersonSingular',
 						'Indicatif'
-				),	
+				),
 				array (
 						'je suis amusé',
 						'amuser',
@@ -33,22 +33,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Passe_compose',
 						'ThirdPersonPlural',
 						'Indicatif'
-				),											
-				array (
-						'j’aime',
-						'aimer',	
-						'Present',						
-						'FirstPersonSingular',											
-						'Indicatif' 
 				),	
 				array (
-						'que j’aime',
-						'aimer',
-						'Present',
-						'FirstPersonSingular',
-						'Subjonctif'
-				),		
-				array ( 
 						'aime',
 						'aimer',
 						'Present',
@@ -68,7 +54,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Present',
 						'SecondPersonPlural',
 						'Imperatif'
-				),	
+				),
 				array (
 						'aie aimé',
 						'aimer',
@@ -76,28 +62,21 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'FirstPersonSingular',
 						'Imperatif'
 				),
-				array ( 
+				array (
 						'ayons aimé',
 						'aimer',
 						'Passe',
 						'FirstPersonPlural',
 						'Imperatif'
 				),
-				array ( 
+				array (
 						'ayez aimé',
 						'aimer',
 						'Passe',
 						'SecondPersonPlural',
 						'Imperatif'
-				),											
-				array (
-						'je donne',
-						'donner',
-						'Present',
-						'FirstPersonSingular',
-						'Indicatif' 
-				) 
-		);		
+				)
+		);
 	}
 }
 ?>

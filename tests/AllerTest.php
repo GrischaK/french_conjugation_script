@@ -1,5 +1,5 @@
 <?php
-require_once '../conjugate.php';
+require_once 'conjugate.php';
 class AllerTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider AllerTestProvider

@@ -1,5 +1,5 @@
 <?php
-require_once '../conjugate.php';
+require_once 'conjugate.php';
 
 class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 	
