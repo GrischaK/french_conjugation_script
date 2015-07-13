@@ -366,7 +366,7 @@ function concatenate_apostrophized($pronoun, $verb) {// tauscht je/que je in jâ€
 }
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$personal_pronoun = personal_pronoun ( $person, $mood);
-	if(isComposite( $tense)) {
+	if(isComposite( $mood,$tense)) {
 	$participe_passe = finding_participle( $verb, $person);
 	$conjugated_auxiliaire_verb = conjugated_auxiliaire(finding_auxiliaire($verb), $person, $tense, $mood);
 	return concatenate_apostrophized($personal_pronoun, $conjugated_auxiliaire_verb) .' '. $participe_passe;
