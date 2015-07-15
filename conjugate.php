@@ -1,5 +1,4 @@
 <?php
-
 require_once 'Enum.php';
 require_once 'Tense.php';
 require_once 'Person.php';
@@ -9,33 +8,32 @@ function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
-function personal_pronoun(Person $person,Mood $mood) {
+function personal_pronoun(Person $person, Mood $mood) {
 	$finding_person = '"Unknown Person';
-// for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural  
-$finding_person =  array (
-					Person::FirstPersonSingular => 'je',
-					Person::SecondPersonSingular => 'tu',
-					Person::ThirdPersonSingular => 'il',
-					Person::FirstPersonPlural => 'nous',
-					Person::SecondPersonPlural => 'vous',
-					Person::ThirdPersonPlural => 'ils',
-			);	
-$subjonctif_pre_pronouns = array (
-		Person::FirstPersonSingular => 'que ',
-		Person::SecondPersonSingular => 'que ',
-		Person::ThirdPersonSingular => "qu'",
-		Person::FirstPersonPlural => 'que ',
-		Person::SecondPersonPlural => 'que ',
-		Person::ThirdPersonPlural => "qu'",
-);
-
-if($mood->getValue() === Mood::Subjonctif) {
-	return $subjonctif_pre_pronouns[$person->getValue()].$finding_person[$person->getValue()];
-} else {
-	return $finding_person[$person->getValue()];
+	// for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural
+	$finding_person = array (
+			Person::FirstPersonSingular => 'je',
+			Person::SecondPersonSingular => 'tu',
+			Person::ThirdPersonSingular => 'il',
+			Person::FirstPersonPlural => 'nous',
+			Person::SecondPersonPlural => 'vous',
+			Person::ThirdPersonPlural => 'ils' 
+	);
+	$subjonctif_pre_pronouns = array (
+			Person::FirstPersonSingular => 'que ',
+			Person::SecondPersonSingular => 'que ',
+			Person::ThirdPersonSingular => "qu'",
+			Person::FirstPersonPlural => 'que ',
+			Person::SecondPersonPlural => 'que ',
+			Person::ThirdPersonPlural => "qu'" 
+	);
+	
+	if ($mood->getValue () === Mood::Subjonctif) {
+		return $subjonctif_pre_pronouns [$person->getValue ()] . $finding_person [$person->getValue ()];
+	} else {
+		return $finding_person [$person->getValue ()];
+	}
 }
-}
-
 function endings(Person $person, Tense $tense, Mood $mood) {
 	// $ending = 'Unknown Ending';
 	$ending = array ( // Standardendungen für Verben auf -er
@@ -75,7 +73,7 @@ function endings(Person $person, Tense $tense, Mood $mood) {
 			),
 			Mood::Subjonctif => array (
 					Tense::Present => array (
-							Person::FirstPersonSingular => 'e',							
+							Person::FirstPersonSingular => 'e',
 							Person::SecondPersonSingular => 'es',
 							Person::ThirdPersonSingular => 'e',
 							Person::FirstPersonPlural => 'ions',
@@ -98,18 +96,18 @@ function endings(Person $person, Tense $tense, Mood $mood) {
 							Person::ThirdPersonSingular => 'erait',
 							Person::FirstPersonPlural => 'erions',
 							Person::SecondPersonPlural => 'eriez',
-							Person::ThirdPersonPlural => 'raient'
-					)
-			),							
+							Person::ThirdPersonPlural => 'raient' 
+					) 
+			),
 			Mood::Imperatif => array (
 					Tense::Present => array (
 							Person::FirstPersonSingular => 'e',
 							Person::FirstPersonPlural => 'ons',
-							Person::SecondPersonPlural => 'ez',
+							Person::SecondPersonPlural => 'ez' 
 					) 
 			) 
 	);
-	return $ending [$mood->getValue()][$tense->getValue()][$person->getValue()];
+	return $ending [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
 function aller(Person $person, Tense $tense, Mood $mood) {
 	// $aller = 'Unknown Aller';
@@ -121,15 +119,15 @@ function aller(Person $person, Tense $tense, Mood $mood) {
 							Person::ThirdPersonSingular => 'va',
 							Person::FirstPersonPlural => 'allons',
 							Person::SecondPersonPlural => 'allez',
-							Person::ThirdPersonPlural => 'vont'
-					),
-			)
+							Person::ThirdPersonPlural => 'vont' 
+					) 
+			) 
 	);
-
-return $aller_form [$mood->getValue()][$tense->getValue()][$person->getValue()];
+	
+	return $aller_form [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
-function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood) {	
-	switch ($auxiliaire->getValue()) {
+function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood) {
+	switch ($auxiliaire->getValue ()) {
 		case Auxiliaire::Etre :
 			$conjugated_auxiliaire = array (
 					Mood::Indicatif => array (
@@ -164,7 +162,7 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 									Person::FirstPersonPlural => 'serions',
 									Person::SecondPersonPlural => 'seriez',
 									Person::ThirdPersonPlural => 'seraient' 
-							), 
+							) 
 					),
 					Mood::Subjonctif => array (
 							Tense::Passe => array (
@@ -202,12 +200,12 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 									Person::ThirdPersonPlural => 'fussent' 
 							) 
 					),
-							Mood::Imperatif => array (
-									Tense::Passe => array (
-											Person::FirstPersonSingular => 'sois',
-											Person::FirstPersonPlural => 'soyons',
-											Person::SecondPersonPlural => 'soyez',
-									)							
+					Mood::Imperatif => array (
+							Tense::Passe => array (
+									Person::FirstPersonSingular => 'sois',
+									Person::FirstPersonPlural => 'soyons',
+									Person::SecondPersonPlural => 'soyez' 
+							) 
 					) 
 			);
 			break;
@@ -286,88 +284,216 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 					Mood::Imperatif => array (
 							Tense::Passe => array (
 									Person::FirstPersonSingular => 'aie',
-								    Person::FirstPersonPlural => 'ayons',
-									Person::SecondPersonPlural => 'ayez',
-									)
+									Person::FirstPersonPlural => 'ayons',
+									Person::SecondPersonPlural => 'ayez' 
+							) 
 					) 
 			);
 			break;
 	}
 	if ($tense->getValue () === Tense::Futur_compose) {
-		return aller($person, $tense, $mood);
+		return aller ( $person, $tense, $mood );
 	}
-	return $conjugated_auxiliaire [$mood->getValue()] [$tense->getValue()] [$person->getValue()];
-}	
+	return $conjugated_auxiliaire [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+}
 function finding_auxiliaire($verb) {
-	$aux_etre = array('accourir', 'advenir', 'aller', 'amuser', 'apparaitre', 'apparaître', 'arriver', 'ascendre', 'co-naitre', 'co-naître',
-			'convenir', 'débeller', 'décéder', 'démourir', 'descendre', 'disconvenir', 'devenir', 'échoir', 'entre-venir', 'entrer', 'époustoufler',
-			'intervenir', 'issir', 'mévenir', 'monter', 'mourir', 'naitre', 'naître', 'obvenir', 'paraitre', 'paraître', 'partir', 'parvenir',
-			'pourrir', 'prémourir', 'provenir', 'ragaillardir', 'raller', 'réadvenir', 're-aller', 'réapparaitre', 'réapparaître', 'reconvenir',
-			'redépartir', 'redescendre', 'redevenir', 'réentrer', 'réintervenir', 'remonter', 'remourir', 'renaitre', 'renaître', 'rentrer',
-			'revenir', 'reparaitre', 'reparaître', 'repartir', 'reparvenir', 'repasser', 'repourrir', 'rerentrer', 'rerester', 'ressortir',
-			'ressouvenir', 'rester', 'resurvenir', 'retomber', 'retourner', 'retrépasser', 'revenir', 's’amuser', 'se redépartir', 'se sortir',
-			'se souvenir', 'sortir', 'souvenir', 'stationner', 'sur-aller', 'suradvenir', 'survenir', 'tomber', 'trépasser', 'venir'); // accourir,...,...  use both     auxiliary verbs
-	// $auxiliaire = 'Unknown Auxiliaire';
-	$aux_avoir_etre = array('accourir', 'ascendre', 'convenir', 'déchoir', 'demeurer', 'descendre', 'disparaitre', 'disparaître', 'disconvenir', 
-			'éclore','enclore','entrer ','monter', 'paraitre', 'paraître', 'passer,ragaillardir, ré-apparaître', 'réapparaître', 'reconvenir', 
-			'reparaitre', 'reparaître', 'sortir', 'tomber');  // 	use both     auxiliary verbs	
-	if (in_array($verb, $aux_etre)) {  // later or in_array($verb, $verbes_pronominaux) only the pronominal version!
+	$aux_etre = array (
+			'accourir',
+			'advenir',
+			'aller',
+			'amuser',
+			'apparaitre',
+			'apparaître',
+			'arriver',
+			'ascendre',
+			'co-naitre',
+			'co-naître',
+			'convenir',
+			'débeller',
+			'décéder',
+			'démourir',
+			'descendre',
+			'disconvenir',
+			'devenir',
+			'échoir',
+			'entre-venir',
+			'entrer',
+			'époustoufler',
+			'intervenir',
+			'issir',
+			'mévenir',
+			'monter',
+			'mourir',
+			'naitre',
+			'naître',
+			'obvenir',
+			'paraitre',
+			'paraître',
+			'partir',
+			'parvenir',
+			'pourrir',
+			'prémourir',
+			'provenir',
+			'ragaillardir',
+			'raller',
+			'réadvenir',
+			're-aller',
+			'réapparaitre',
+			'réapparaître',
+			'reconvenir',
+			'redépartir',
+			'redescendre',
+			'redevenir',
+			'réentrer',
+			'réintervenir',
+			'remonter',
+			'remourir',
+			'renaitre',
+			'renaître',
+			'rentrer',
+			'revenir',
+			'reparaitre',
+			'reparaître',
+			'repartir',
+			'reparvenir',
+			'repasser',
+			'repourrir',
+			'rerentrer',
+			'rerester',
+			'ressortir',
+			'ressouvenir',
+			'rester',
+			'resurvenir',
+			'retomber',
+			'retourner',
+			'retrépasser',
+			'revenir',
+			's’amuser',
+			'se redépartir',
+			'se sortir',
+			'se souvenir',
+			'sortir',
+			'souvenir',
+			'stationner',
+			'sur-aller',
+			'suradvenir',
+			'survenir',
+			'tomber',
+			'trépasser',
+			'venir' 
+	); // accourir,...,... use both auxiliary verbs
+	                                                                                                                           // $auxiliaire = 'Unknown Auxiliaire';
+	$aux_avoir_etre = array (
+			'accourir',
+			'ascendre',
+			'convenir',
+			'déchoir',
+			'demeurer',
+			'descendre',
+			'disparaitre',
+			'disparaître',
+			'disconvenir',
+			'éclore',
+			'enclore',
+			'entrer ',
+			'monter',
+			'paraitre',
+			'paraître',
+			'passer,ragaillardir, ré-apparaître',
+			'réapparaître',
+			'reconvenir',
+			'reparaitre',
+			'reparaître',
+			'sortir',
+			'tomber' 
+	); // use both auxiliary verbs
+	if (in_array ( $verb, $aux_etre )) { // later or in_array($verb, $verbes_pronominaux) only the pronominal version!
 		$auxiliaire = Auxiliaire::Etre;
-	}
-	else {
+	} else {
 		$auxiliaire = Auxiliaire::Avoir;
-
 	}
-return new Auxiliaire($auxiliaire);
+	return new Auxiliaire ( $auxiliaire );
 }
 function isPlural(Person $person) {
-	$plural_persons = array( Person::FirstPersonPlural, Person::SecondPersonPlural, Person::ThirdPersonPlural);
-	return in_array($person->getValue(), $plural_persons);
-}                   
-function finding_participle ($verb, $person) {
-//  $participe_passe = 'Unknown Participe Passé';
-	$participe_passe = word_stem ( $verb ) .'é';
- 	if (finding_auxiliaire($verb)->getValue() === Auxiliaire::Etre && (isPlural($person)) )	{	
-	$participe_passe .='s';
+	$plural_persons = array (
+			Person::FirstPersonPlural,
+			Person::SecondPersonPlural,
+			Person::ThirdPersonPlural 
+	);
+	return in_array ( $person->getValue (), $plural_persons );
+}
+function finding_participle($verb, $person) {
+	// $participe_passe = 'Unknown Participe Passé';
+	$participe_passe = word_stem ( $verb ) . 'é';
+	if (finding_auxiliaire ( $verb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
+		$participe_passe .= 's';
 	}
 	return $participe_passe;
-}	
-function finding_participle2 ($verb) {
-		//  $participe_present = 'Unknown Participe Présent';
-	$participe_present = word_stem ( $verb ) .'ant';
-	return $participe_present;	
-}	
+}
 function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
 	// $conjugated_verb = 'Unknown Person';
-	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood);
+	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood );
 	return $conjugated_verb;
 }
 function isComposite(Mood $mood, Tense $tense) {
-		
-			$composite_tenses = array(					
-					Mood::Indicatif => array (	
-										Tense::Passe_compose, 
-					 					Tense::Plus_que_parfait,
-										Tense::Passe_anterieur, 
-							            Tense::Futur_compose,			
-										Tense::Futur_anterieur
-					      				),
-					Mood::Subjonctif => array (
-										Tense::Passe,
-										Tense::Plus_que_parfait
-										),	
-					Mood::Conditionnel => array (
-							Tense::Premiere_Forme,
-							Tense::Deuxieme_Forme
-										),	
-					Mood::Imperatif => array (
-							Tense::Passe
-										)																							
-									);			
-	return in_array($tense->getValue(), $composite_tenses[$mood->getValue()]);
+	$composite_tenses = array (
+			Mood::Indicatif => array (
+					Tense::Passe_compose,
+					Tense::Plus_que_parfait,
+					Tense::Passe_anterieur,
+					Tense::Futur_compose,
+					Tense::Futur_anterieur 
+			),
+			Mood::Subjonctif => array (
+					Tense::Passe,
+					Tense::Plus_que_parfait 
+			),
+			Mood::Conditionnel => array (
+					Tense::Premiere_Forme,
+					Tense::Deuxieme_Forme 
+			),
+			Mood::Imperatif => array (
+					Tense::Passe 
+			) 
+	);
+	return in_array ( $tense->getValue (), $composite_tenses [$mood->getValue ()] );
 }
-function concatenate_apostrophized($pronoun, $verb) {// tauscht je/que je in j’/que j’, wenn Vokal
-	if (preg_match('~(.*)\bje$~ui', $pronoun, $m) && preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags($verb)))
+function finding_participe_present($verb) { 
+                                      // $participe_present = 'Unknown Participe Présent';
+	$participe_present = word_stem ( $verb ) . 'ant';
+	return $participe_present;
+}
+function modes_impersonnels(Auxiliaire $auxiliaire, Mode $mode, Tense $tense, Mood $mood) {
+	switch ($auxiliaire->getValue ()) {
+		case Auxiliaire::Etre :
+			$conjugated_auxiliaire = array (
+					Mood::Modes_impersonnels => array (
+							Tense::Present => array (
+									Mode::Infinitif => $verb, 
+									Mode::Gerondif => 'en étant'. $participe_passe, 	
+									Mode::Participe => finding_participe_present($participe_present)	 											
+							) 
+					) 											
+			);
+			break;
+		case Auxiliaire::Avoir :
+			$conjugated_auxiliaire = array (
+					
+					Mood::Modes_impersonnels => array (
+							Tense::Passe => array (
+									Mode::Infinitif => finding_auxiliaire ( $verb ). ''. $participe_passe, 
+									Mode::Gerondif => 'en ayant'. $participe_passe, 	
+									Mode::Participe => finding_participe($participe_passe)	 
+							) 
+					) 
+			);
+			
+			break;
+	}
+	return $conjugated_auxiliaire [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+}
+function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal
+	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags ( $verb ) ))
 		return "{$m[1]}j’$verb";
 	return "$pronoun $verb";
 }
@@ -377,21 +503,20 @@ function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 		$participe_passe = finding_participle ( $verb, $person );
 		$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $verb ), $person, $tense, $mood );
 		if ($mood->getValue () === Mood::Imperatif) {
-			return $conjugated_auxiliaire_verb . ' ' . $participe_passe;	
+			return $conjugated_auxiliaire_verb . ' ' . $participe_passe;
 		}
-		if ($tense->getValue () === Tense::Futur_compose) {              
-			return $personal_pronoun . ' ' . $conjugated_auxiliaire_verb . ' ' . $verb;	
-		}		
+		if ($tense->getValue () === Tense::Futur_compose) {
+			return $personal_pronoun . ' ' . $conjugated_auxiliaire_verb . ' ' . $verb;
+		}
 		return concatenate_apostrophized ( $personal_pronoun, $conjugated_auxiliaire_verb ) . ' ' . $participe_passe;
 	} else {
 		$conjugated_verb = conjugate ( $verb, $person, $tense, $mood );
 		if ($mood->getValue () === Mood::Imperatif) {
 			return $conjugated_verb;
-		}		
+		}
 		return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb );
 	}
 }
 
-
-$variable = conjugate ( 'aimer', new Person(Person::FirstPersonSingular), new Tense(Tense::Present), new Mood(Mood::Indicatif)); 
+$variable = conjugate ( 'aimer', new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ) );
 ?>
