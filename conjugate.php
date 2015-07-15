@@ -474,7 +474,7 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 							Tense::Present => array (
 									Mode::Infinitif => $verb, 
 									Mode::Gerondif => 'en étant'. $participe_passe, 	
-									Mode::Participe => finding_participe_present($participe_present)	 											
+									Mode::Participe => $participe_present	 											
 							) 
 					) 											
 			);
@@ -486,7 +486,7 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 							Tense::Passe => array (
 									Mode::Infinitif => finding_auxiliaire ( $verb ). ''. $participe_passe, 
 									Mode::Gerondif => 'en ayant'. $participe_passe, 	
-									Mode::Participe => finding_participe($participe_passe)	 
+									Mode::Participe => $participe_passe 
 							) 
 					) 
 			);
