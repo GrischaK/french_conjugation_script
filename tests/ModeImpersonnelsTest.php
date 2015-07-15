@@ -8,7 +8,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 	 * @dataProvider modeImpersonnelsTestProvider
 	 */
 	public function testModeImpersonnels($expectedResult, $verb, $mode, $tense, $mood) {
-		$this->assertEquals ( $expectedResult, conjugate ( $verb, new Mode($mode), new Tense($tense), new Mood($mood) ) );
+		$this->assertEquals ( $expectedResult, modes_impersonnels ( $verb, new Mode($mode), new Tense($tense), new Mood($mood) ) );
 	}						
 	public function modeImpersonnelsTestProvider() {
 		;
