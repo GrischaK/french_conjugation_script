@@ -1,5 +1,5 @@
 <?php
-class ModesImpersonnels extends Enum {	
+class Mode extends Enum {	
 	// simple tenses
 	const Infinitif = 'infinitif';
 	const Gerondif = 'gerondif';
