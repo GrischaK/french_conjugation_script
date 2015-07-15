@@ -96,7 +96,14 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Present',
 						'FirstPersonSingular',
 						'Indicatif' 
-				) 
+				), 
+				array (
+						'je vais donner',
+						'donner',
+						'Futur_compose',
+						'FirstPersonSingular',
+						'Indicatif'
+				)				
 		);		
 	}
 }

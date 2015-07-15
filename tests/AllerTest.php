@@ -10,37 +10,37 @@ class AllerTest extends PHPUnit_Framework_TestCase {
 	public function AllerTestProvider() {
 		return array (
 				array (
-						'vais ',
+						'vais',
 						'FirstPersonSingular',
 						'Futur_compose',
 						'Indicatif',
 				),
 				array (
-						'vas ',
+						'vas',
 						'SecondPersonSingular',
 						'Futur_compose',
 						'Indicatif',						
 				),
 				array (
-						'va ',
+						'va',
 						'ThirdPersonSingular',
 						'Futur_compose',
 						'Indicatif',						
 				),
 				array (
-						'allons ',
+						'allons',
 						'FirstPersonPlural',
 						'Futur_compose',
 						'Indicatif',						
 				),
 				array (
-						'allez ',
+						'allez',
 						'SecondPersonPlural',
 						'Futur_compose',
 						'Indicatif',						
 				),
 				array (
-						'vont ',
+						'vont',
 						'ThirdPersonPlural',
 						'Futur_compose',
 						'Indicatif',						

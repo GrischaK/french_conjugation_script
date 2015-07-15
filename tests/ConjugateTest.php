@@ -75,27 +75,6 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'Present',
 						'SecondPersonPlural',
 						'Imperatif'
-				),	
-				array (
-						'aimé',
-						'aimer',
-						'Passe',
-						'FirstPersonSingular',
-						'Imperatif'
-				),
-				array ( 
-						'aimé',
-						'aimer',
-						'Passe',
-						'FirstPersonPlural',
-						'Imperatif'
-				),
-				array ( 
-						'aimé',
-						'aimer',
-						'Passe',
-						'SecondPersonPlural',
-						'Imperatif'
 				),														
 				array (
 						'donne',

@@ -65,7 +65,7 @@ function endings(Person $person, Tense $tense, Mood $mood) {
 							Person::ThirdPersonPlural => 'èrent' 
 					),
 					Tense::Futur => array (
-							Person::FirstPersonSingular => 'erai',
+							Person::FirstPersonSingular => 'era',
 							Person::SecondPersonSingular => 'eras',
 							Person::ThirdPersonSingular => 'era',
 							Person::FirstPersonPlural => 'erons',
@@ -116,19 +116,19 @@ function aller(Person $person, Tense $tense, Mood $mood) {
 	$aller_form = array (
 			Mood::Indicatif => array (
 					Tense::Futur_compose => array (
-							Person::FirstPersonSingular => 'vais ',
-							Person::SecondPersonSingular => 'vas ',
-							Person::ThirdPersonSingular => 'va ',
-							Person::FirstPersonPlural => 'allons ',
-							Person::SecondPersonPlural => 'allez ',
-							Person::ThirdPersonPlural => 'vont '
+							Person::FirstPersonSingular => 'vais',
+							Person::SecondPersonSingular => 'vas',
+							Person::ThirdPersonSingular => 'va',
+							Person::FirstPersonPlural => 'allons',
+							Person::SecondPersonPlural => 'allez',
+							Person::ThirdPersonPlural => 'vont'
 					),
 			)
 	);
 
 return $aller_form [$mood->getValue()][$tense->getValue()][$person->getValue()];
 }
-function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood) {
+function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood) {	
 	switch ($auxiliaire->getValue()) {
 		case Auxiliaire::Etre :
 			$conjugated_auxiliaire = array (
@@ -164,7 +164,7 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 									Person::FirstPersonPlural => 'serions',
 									Person::SecondPersonPlural => 'seriez',
 									Person::ThirdPersonPlural => 'seraient' 
-							) 
+							), 
 					),
 					Mood::Subjonctif => array (
 							Tense::Passe => array (
@@ -285,13 +285,16 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 					),
 					Mood::Imperatif => array (
 							Tense::Passe => array (
-									Person::FirstPersonSingular => 'ai',
-								    Person::FirstPersonPlural => 'avons',
-									Person::SecondPersonPlural => 'avez',
+									Person::FirstPersonSingular => 'aie',
+								    Person::FirstPersonPlural => 'ayons',
+									Person::SecondPersonPlural => 'ayez',
 									)
 					) 
 			);
 			break;
+	}
+	if ($tense->getValue () === Tense::Futur_compose) {
+		return aller($person, $tense, $mood);
 	}
 	return $conjugated_auxiliaire [$mood->getValue()] [$tense->getValue()] [$person->getValue()];
 }	
@@ -343,6 +346,7 @@ function isComposite(Mood $mood, Tense $tense) {
 										Tense::Passe_compose, 
 					 					Tense::Plus_que_parfait,
 										Tense::Passe_anterieur, 
+							            Tense::Futur_compose,			
 										Tense::Futur_anterieur
 					      				),
 					Mood::Subjonctif => array (
@@ -352,12 +356,12 @@ function isComposite(Mood $mood, Tense $tense) {
 					Mood::Conditionnel => array (
 							Tense::Premiere_Forme,
 							Tense::Deuxieme_Forme
-					),	
+										),	
 					Mood::Imperatif => array (
 							Tense::Passe
-					)																							
+										)																							
 									);			
-	return in_array($tense->getValue(), $composite_tenses);
+	return in_array($tense->getValue(), $composite_tenses[$mood->getValue()]);
 }
 function concatenate_apostrophized($pronoun, $verb) {// tauscht je/que je in j’/que j’, wenn Vokal
 	if (preg_match('~(.*)\bje$~ui', $pronoun, $m) && preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags($verb)))
@@ -365,15 +369,23 @@ function concatenate_apostrophized($pronoun, $verb) {// tauscht je/que je in j�
 	return "$pronoun $verb";
 }
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
-	$personal_pronoun = personal_pronoun ( $person, $mood);
-	if(isComposite( $mood,$tense)) {
-	$participe_passe = finding_participle( $verb, $person);
-	$conjugated_auxiliaire_verb = conjugated_auxiliaire(finding_auxiliaire($verb), $person, $tense, $mood);
-	return concatenate_apostrophized($personal_pronoun, $conjugated_auxiliaire_verb) .' '. $participe_passe;
-	}
-	else {				
-	$conjugated_verb = conjugate ( $verb, $person, $tense, $mood);
-	return concatenate_apostrophized($personal_pronoun, $conjugated_verb);
+	$personal_pronoun = personal_pronoun ( $person, $mood );
+	if (isComposite ( $mood, $tense )) {
+		$participe_passe = finding_participle ( $verb, $person );
+		$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $verb ), $person, $tense, $mood );
+		if ($mood->getValue () === Mood::Imperatif) {
+			return $conjugated_auxiliaire_verb . ' ' . $participe_passe;	
+		}
+		if ($tense->getValue () === Tense::Futur_compose) {              
+			return $personal_pronoun . ' ' . $conjugated_auxiliaire_verb . ' ' . $verb;	
+		}		
+		return concatenate_apostrophized ( $personal_pronoun, $conjugated_auxiliaire_verb ) . ' ' . $participe_passe;
+	} else {
+		$conjugated_verb = conjugate ( $verb, $person, $tense, $mood );
+		if ($mood->getValue () === Mood::Imperatif) {
+			return $conjugated_verb;
+		}		
+		return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb );
 	}
 }
 
