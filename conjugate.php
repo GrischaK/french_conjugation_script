@@ -507,7 +507,7 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 			
 			break;
 	}
-	return $modes_impersonnels [$mood->getValue ()] [$tense->getValue ()] [$mood->getValue ()];
+	return $modes_impersonnels [$mood->getValue ()] [$tense->getValue ()] [$mode->getValue ()];
 }
 function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal
 	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags ( $verb ) ))
