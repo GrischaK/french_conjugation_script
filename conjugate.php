@@ -465,6 +465,8 @@ function finding_participe_present($verb) {
 	return $participe_present;
 }
 function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense, Mood $mood) {
+	$participe_passe = finding_participle ( $verb, Person::FirstPersonSingular );	
+	$participe_present = finding_participe_present ( $verb);	
 	switch ($auxiliaire->getValue ()) {
 		case Auxiliaire::Etre :
 			$conjugated_auxiliaire = array (
