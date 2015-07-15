@@ -3,6 +3,7 @@ require_once 'Enum.php';
 require_once 'Tense.php';
 require_once 'Person.php';
 require_once 'Mood.php';
+require_once 'Mode.php';
 require_once 'Auxiliaire.php';
 function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
