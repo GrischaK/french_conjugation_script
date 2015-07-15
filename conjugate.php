@@ -465,27 +465,37 @@ function finding_participe_present($verb) {
 	return $participe_present;
 }
 function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense, Mood $mood) {
-	$participe_passe = finding_participle ( $verb, Person::FirstPersonSingular );	
-	$participe_present = finding_participe_present ( $verb);	
+	$participe_passe = finding_participle ( $verb, Person::FirstPersonSingular );
+	$participe_present = finding_participe_present ( $verb );
 	switch ($auxiliaire->getValue ()) {
 		case Auxiliaire::Etre :
 			$conjugated_auxiliaire = array (
 					Mood::Modes_impersonnels => array (
 							Tense::Present => array (
-									Mode::Infinitif => $verb, 
-									Mode::Gerondif => 'en étant'. $participe_passe, 	
-									Mode::Participe => $participe_present	 											
+									Mode::Infinitif => $verb,
+									Mode::Gerondif => 'en ' . $participe_passe,
+									Mode::Participe => $participe_present 
+							),
+							Tense::Passe => array (
+									Mode::Infinitif => finding_auxiliaire ( $verb ) . '' . $participe_passe,
+									Mode::Gerondif => 'en étant ' . $participe_passe,
+									Mode::Participe => $participe_passe 
 							) 
-					) 											
+					) 
 			);
 			break;
 		case Auxiliaire::Avoir :
 			$conjugated_auxiliaire = array (
 					
 					Mood::Modes_impersonnels => array (
+							Tense::Present => array (
+									Mode::Infinitif => $verb,
+									Mode::Gerondif => 'en ' . $participe_passe,
+									Mode::Participe => $participe_present 
+							),
 							Tense::Passe => array (
-									Mode::Infinitif => finding_auxiliaire ( $verb ). ''. $participe_passe, 
-									Mode::Gerondif => 'en ayant'. $participe_passe, 	
+									Mode::Infinitif => finding_auxiliaire ( $verb ) . '' . $participe_passe,
+									Mode::Gerondif => 'en ayant ' . $participe_passe,
 									Mode::Participe => $participe_passe 
 							) 
 					) 
