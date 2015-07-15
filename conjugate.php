@@ -472,7 +472,7 @@ function finding_participle_passe($verb) {
 function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense, Mood $mood) {
 	$participe_passe = finding_participle_passe ( $verb );
 	$participe_present = finding_participe_present ( $verb );
-	switch ($auxiliaire->getValue ()) {
+	switch ($modes_impersonnels->getValue ()) {
 		case Auxiliaire::Etre :
 			$modes_impersonnels = array (
 					Mood::Modes_impersonnels => array (
