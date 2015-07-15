@@ -464,7 +464,7 @@ function finding_participe_present($verb) {
 	$participe_present = word_stem ( $verb ) . 'ant';
 	return $participe_present;
 }
-function modes_impersonnels(Auxiliaire $auxiliaire, Mode $mode, Tense $tense, Mood $mood) {
+function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense, Mood $mood) {
 	switch ($auxiliaire->getValue ()) {
 		case Auxiliaire::Etre :
 			$conjugated_auxiliaire = array (
