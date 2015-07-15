@@ -308,6 +308,9 @@ function finding_auxiliaire($verb) {
 			'ressouvenir', 'rester', 'resurvenir', 'retomber', 'retourner', 'retrépasser', 'revenir', 's’amuser', 'se redépartir', 'se sortir',
 			'se souvenir', 'sortir', 'souvenir', 'stationner', 'sur-aller', 'suradvenir', 'survenir', 'tomber', 'trépasser', 'venir'); // accourir,...,...  use both     auxiliary verbs
 	// $auxiliaire = 'Unknown Auxiliaire';
+	$aux_avoir_etre = array('accourir', 'ascendre', 'convenir', 'déchoir', 'demeurer', 'descendre', 'disparaitre', 'disparaître', 'disconvenir', 
+			'éclore','enclore','entrer ','monter', 'paraitre', 'paraître', 'passer,ragaillardir, ré-apparaître', 'réapparaître', 'reconvenir', 
+			'reparaitre', 'reparaître', 'sortir', 'tomber');  // 	use both     auxiliary verbs	
 	if (in_array($verb, $aux_etre)) {  // later or in_array($verb, $verbes_pronominaux) only the pronominal version!
 		$auxiliaire = Auxiliaire::Etre;
 	}
