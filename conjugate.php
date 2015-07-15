@@ -464,12 +464,17 @@ function finding_participe_present($verb) {
 	$participe_present = word_stem ( $verb ) . 'ant';
 	return $participe_present;
 }
+function finding_participle_passe($verb) {
+	// $participe_passe = 'Unknown Participe Passé';
+	$participe_passe = word_stem ( $verb ) . 'é';
+	return $participe_passe;
+}
 function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense, Mood $mood) {
-	$participe_passe = finding_participle ( $verb, Person::FirstPersonSingular );
+	$participe_passe = finding_participle_passe ( $verb );
 	$participe_present = finding_participe_present ( $verb );
 	switch ($auxiliaire->getValue ()) {
 		case Auxiliaire::Etre :
-			$conjugated_auxiliaire = array (
+			$modes_impersonnels = array (
 					Mood::Modes_impersonnels => array (
 							Tense::Present => array (
 									Mode::Infinitif => $verb,
@@ -485,8 +490,7 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 			);
 			break;
 		case Auxiliaire::Avoir :
-			$conjugated_auxiliaire = array (
-					
+			$modes_impersonnels = array (				
 					Mood::Modes_impersonnels => array (
 							Tense::Present => array (
 									Mode::Infinitif => $verb,
@@ -503,7 +507,7 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 			
 			break;
 	}
-	return $conjugated_auxiliaire [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+	return $modes_impersonnels [$mood->getValue ()] [$tense->getValue ()] [$mood->getValue ()];
 }
 function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal
 	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags ( $verb ) ))
