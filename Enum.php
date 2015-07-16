@@ -6,13 +6,17 @@ abstract class Enum {
 	 * @param $value Name or value of the constant to represent
 	 */
 	public function __construct($value) {
+		if(is_a($value, get_called_class ())) {
+			$this->value = $value->value;
+			return;
+		}
 		$constants = $this->getConstants ();
 		if (is_string ( $value )) {
 			if (isset ( $constants [$value] )) {
 				$this->value = $constants [$value];
 				return;
 			} else if(!Enum::containsStringValues($constants)) {
-				throw new Exception ( "No constant of name $value in Enum " . get_called_class () );
+				throw new Exception ( "No constant of name $value in Enum " . get_called_class ());
 			}
 		}
 		if (in_array ( $value, $constants )) {
