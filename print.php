@@ -1,4 +1,4 @@
-<?
+<?php
 require_once 'conjugate.php';
 
 function print_persons($verb, Mood $mood, Tense $tense) {
