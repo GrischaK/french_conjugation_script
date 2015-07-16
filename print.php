@@ -2,9 +2,61 @@
 require_once 'conjugate.php';
 
 function print_persons($verb, Tense $tense, Mood $mood) {
-	$persons = array(Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-					 Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural);
-	foreach ( $persons as $person) {
+	$persons = array (
+			Mood::Indicatif => array (
+					Tense::Present => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+					Tense::Imparfait => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+					Tense::Passe => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+					Tense::Futur => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+					Tense::Passe_compose => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+					Tense::Plus_que_parfait => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+					Tense::Passe_anterieur => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural), 
+			),
+			Mood::Subjonctif => array (
+					Tense::Present => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+					Tense::Imparfait => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+					Tense::Passe => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+					Tense::Plus_que_parfait => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural), 
+			),
+			Mood::Conditionnel => array (
+					Tense::Present => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+					Tense::Premiere_Forme => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+					Tense::Deuxieme_Forme => array (
+						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
+						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural), 
+			),
+			Mood::Imperatif => array (
+					Tense::Present,
+					Tense::Passe 
+			) 
+	);
+	foreach ( $persons[$mood->getValue ()][$tense->getValue ()] as $person) {
 	//	print_xyz ( $verb, new Person($person) ); 
 		conjugation_phrase($verb, new Person ($person), new Tense ($tense), new Mood ($mood));
 	}
@@ -37,7 +89,7 @@ function print_tenses($verb, Mood $mood) {
 					Tense::Passe 
 			) 
 	);
-	foreach ( $tenses as $tense ) {
+	foreach ( $tenses[$mood->getValue ()] as $tense ) {
 		print_persons ( $verb, new Tense($tense),new Mood($mood) ); 
 	}	
 }
