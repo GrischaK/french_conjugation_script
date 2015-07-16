@@ -5,55 +5,133 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 	$persons = array (
 			Mood::Indicatif => array (
 					Tense::Present => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					),
 					Tense::Imparfait => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					),
 					Tense::Passe => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					),
 					Tense::Futur => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					),
 					Tense::Passe_compose => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					),
 					Tense::Plus_que_parfait => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					),
 					Tense::Passe_anterieur => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural), 
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					) 
 			),
 			Mood::Subjonctif => array (
 					Tense::Present => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					),
 					Tense::Imparfait => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					),
 					Tense::Passe => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					),
 					Tense::Plus_que_parfait => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural), 
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					) 
 			),
 			Mood::Conditionnel => array (
 					Tense::Present => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					),
 					Tense::Premiere_Forme => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural),
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					),
 					Tense::Deuxieme_Forme => array (
-						Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
-						Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural), 
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					) 
 			),
 			Mood::Imperatif => array (
-					Tense::Present,
-					Tense::Passe 
+					Tense::Present => array (
+							Person::FirstPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural
+					),
+					Tense::Passe => array (
+							Person::FirstPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural
+					)
 			) 
 	);
 	foreach ( $persons[$mood->getValue ()][$tense->getValue ()] as $person) {
