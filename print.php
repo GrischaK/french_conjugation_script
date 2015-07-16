@@ -1,13 +1,17 @@
 <?
 require_once 'conjugate.php';
 
-function print_conjugations_of_verb ( ) {
+function print_tenses($verb) {
+	
+}
 
-// conjugation_phrase ( $verb, new Person($person), new Tense($tense), new Mood($mood) );	
-	foreach ($xxx as $output) {
-	       echo $output;
+function print_conjugations_of_verb($verb) {
+   $moods = array(Mood::Indicatif,Mood::Subjonctif,Mood::Conditionnel,Mood::Imperatif,Mood::Modes_impersonnels);
+	foreach ( $moods as $mood ) {
+		print_tenses ( $verb, $mood );
 	}
 }
+
 
 
 
@@ -21,14 +25,16 @@ function printIt($verb, $auxiliaire, $aller) {
 <p><b><?=$verb ?></b> ist ein <b><?=$reflexiv ?></b> und <b><?=$transitiv ?></b> Verb.</p>
 -->
 <h2 class="home">Verzeichnis</h2>
-<ul style="list-style-type:none;">
+<ul style="list-style-type: none;">
 	<li><a class="down" href="#indicatif">Indicatif</a></li>
 	<li><a class="down" href="#subjonctif">Subjonctif</a></li>
 	<li><a class="down" href="#conditionnel">Conditionnel</a></li>
 	<li><a class="down" href="#imperatif">Impératif</a></li>
 	<li><a class="down" href="#modes-impersonnels">Modes impersonnels</a></li>
 </ul>
-<h2 class="home"><a id="indicatif"></a>Indicatif</h2>
+<h2 class="home">
+	<a id="indicatif"></a>Indicatif
+</h2>
 <hr class="linie">
 
 <table class="tab">
@@ -37,7 +43,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 	    <?=concatenate_apostrophized($pers, $array) ?>
 	</tr>
 <?}, $pers, $array [0] );?>
@@ -46,7 +54,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($pers, $array) ?>
 	</tr>
 <?}, $pers, $array [1] );?>
@@ -55,16 +65,20 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($pers, $array) ?>
 	</tr>
 <?}, $pers, $array [2] );?>
 	<tr class="border">
-		<th colspan="3">Futur simple  (Futur I)</th>
+		<th colspan="3">Futur simple (Futur I)</th>
 	</tr>
 <?array_map( function ($pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($pers, $array) ?>
 	</tr>
 <?}, $pers, $array [3] );?>
@@ -76,7 +90,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[0], $aux_exts[0] );?>
@@ -85,7 +101,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 <tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[3] );?>
@@ -94,7 +112,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[1] );?>
@@ -103,7 +123,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[2] );?>
@@ -112,14 +134,18 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aller) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aller)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($aller)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
         <?=concatenate_apostrophized($pers, $aller) ?>
 	</tr>
 <?}, $pers, $aller );?>
 </table>
 <br>
 <br>
-<h2 class="home"><a id="subjonctif"></a>Subjonctif</h2>
+<h2 class="home">
+	<a id="subjonctif"></a>Subjonctif
+</h2>
 <hr class="linie">
 <table class="tab">
 	<tr class="border">
@@ -127,7 +153,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($que_pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($que_pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($que_pers, strip_tags($array)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($que_pers, $array) ?>
 	</tr>
 <?}, $que_pers, $array [4] );?>
@@ -136,7 +164,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($que_pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($que_pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($que_pers, strip_tags($array)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($que_pers, $array) ?>
 	</tr>
 <?}, $que_pers, $array [5] );?>
@@ -147,7 +177,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($que_pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($que_pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($que_pers, strip_tags($aux_exts)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($que_pers, $aux_exts) ?>
 	</tr>
 <?}, $que_pers, $aux_exts[4] );?>
@@ -156,14 +188,18 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($que_pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($que_pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($que_pers, strip_tags($aux_exts)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($que_pers, $aux_exts) ?>
 	</tr>
 <?}, $que_pers, $aux_exts[5] );?>
 </table>
 <br>
 <br>
-<h2 class="home"><a id="conditionnel"></a>Conditionnel</h2>
+<h2 class="home">
+	<a id="conditionnel"></a>Conditionnel
+</h2>
 <hr class="linie">
 <table class="tab">
 	<tr class="border">
@@ -171,7 +207,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($pers, $array) ?>
 	</tr>
 <?}, $pers, $array [6] );?>
@@ -182,7 +220,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[6] );?>
@@ -191,14 +231,18 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span
+			data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
 		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[5] );?>
 </table>
 <br>
 <br>
-<h2 class="home"><a id="imperatif"></a>Impératif</h2>
+<h2 class="home">
+	<a id="imperatif"></a>Impératif
+</h2>
 <hr class="linie">
 <table class="tab">
 	<tr class="border">
@@ -206,8 +250,9 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?foreach ($array[7] as $present) {?>
 	<tr>
-		<td><span data-text="<?=strip_tags($present)?>" data-lang="fr" class="trigger_play"></span></td>
-        <td><?=$present ?></td>
+		<td><span data-text="<?=strip_tags($present)?>" data-lang="fr"
+			class="trigger_play"></span></td>
+		<td><?=$present ?></td>
 	</tr>
 <?}?>
 </table>
@@ -217,37 +262,45 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?foreach ($imperatif_passe as $imperatif_passe) {?>
 	<tr>
-		<td><span data-text="<?=strip_tags($imperatif_passe) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<td><span data-text="<?=strip_tags($imperatif_passe) ?>"
+			data-lang="fr" class="trigger_play"></span></td>
         <?=$imperatif_passe ?>
 	</tr>
 <?}?>
 </table>
 <br>
 <br>
-<h2 class="home"><a id="modes-impersonnels"></a>Modes impersonnels</h2>
+<h2 class="home">
+	<a id="modes-impersonnels"></a>Modes impersonnels
+</h2>
 <hr class="linie">
 <table>
 	<tr>
-	    <th class="titel">Mode</th>
-	    <th class="titel">Présent</th>
-	    <th class="titel">Passé</th>
+		<th class="titel">Mode</th>
+		<th class="titel">Présent</th>
+		<th class="titel">Passé</th>
 	</tr>
-    <tr>
-	    <td class="text-center"><b>Infinitif</b></td>
-	    <td><span data-text="<?=$verb ?>" data-lang="fr" class="trigger_play"></span><?=$verb ?></td>
-	    <td><span data-text="<?=$auxiliaire . ' ' . strip_tags($passe) ?>" data-lang="fr" class="trigger_play"></span><?=$auxiliaire . ' ' . strip_tags($passe) ?></td>
+	<tr>
+		<td class="text-center"><b>Infinitif</b></td>
+		<td><span data-text="<?=$verb ?>" data-lang="fr" class="trigger_play"></span><?=$verb ?></td>
+		<td><span data-text="<?=$auxiliaire . ' ' . strip_tags($passe) ?>"
+			data-lang="fr" class="trigger_play"></span><?=$auxiliaire . ' ' . strip_tags($passe) ?></td>
 	</tr>
-    <tr>
-	    <td class="text-center"><b>Gérondif</b></td>
-	    <td><span data-text="<?=strip_tags($gerontif_present) ?>" data-lang="fr" class="trigger_play"></span><?=$gerontif_present ?></td>
-	    <td><span data-text="<?=strip_tags($aux_exts[7][0]) ?>" data-lang="fr" class="trigger_play"></span><?=$aux_exts[7][0] ?></td>
+	<tr>
+		<td class="text-center"><b>Gérondif</b></td>
+		<td><span data-text="<?=strip_tags($gerontif_present) ?>"
+			data-lang="fr" class="trigger_play"></span><?=$gerontif_present ?></td>
+		<td><span data-text="<?=strip_tags($aux_exts[7][0]) ?>" data-lang="fr"
+			class="trigger_play"></span><?=$aux_exts[7][0] ?></td>
 	</tr>
-    <tr>
-	    <td class="text-center"><b>Participe</b></td>
-	    <td><span data-text="'<?=strip_tags($array [8][0]) ?>" data-lang="fr" class="trigger_play"></span><?=$array [8][0] ?></td>
-	    <td><span data-text="'<?=strip_tags($passe) ?>" data-lang="fr" class="trigger_play"></span><?=$passe ?></td>
-	 </tr>
+	<tr>
+		<td class="text-center"><b>Participe</b></td>
+		<td><span data-text="'<?=strip_tags($array [8][0]) ?>" data-lang="fr"
+			class="trigger_play"></span><?=$array [8][0] ?></td>
+		<td><span data-text="'<?=strip_tags($passe) ?>" data-lang="fr"
+			class="trigger_play"></span><?=$passe ?></td>
+	</tr>
 </table>
-  <?
+<?
 }
 ?>
