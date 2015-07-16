@@ -23,8 +23,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=French($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
-	    <?=FrenchSeparated($pers, $array) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+	    <?=concatenate_apostrophized($pers, $array) ?>
 	</tr>
 <?}, $pers, $array [0] );?>
 	<tr class="border">
@@ -32,8 +32,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=French($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchSeparated($pers, $array) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($pers, $array) ?>
 	</tr>
 <?}, $pers, $array [1] );?>
 	<tr class="border">
@@ -41,8 +41,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=French($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchSeparated($pers, $array) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($pers, $array) ?>
 	</tr>
 <?}, $pers, $array [2] );?>
 	<tr class="border">
@@ -50,8 +50,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=French($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchSeparated($pers, $array) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($pers, $array) ?>
 	</tr>
 <?}, $pers, $array [3] );?>
 </table>
@@ -62,8 +62,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=French($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchCompoundTenses($pers, $aux_exts) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[0], $aux_exts[0] );?>
 	<tr class="border">
@@ -71,8 +71,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 <tr>
-		<td><span data-text="<?=French($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchCompoundTenses($pers, $aux_exts) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[3] );?>
 	<tr class="border">
@@ -80,8 +80,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=French($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchCompoundTenses($pers, $aux_exts) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[1] );?>
 	<tr class="border">
@@ -89,8 +89,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=French($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchCompoundTenses($pers, $aux_exts) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[2] );?>
 	<tr class="border">
@@ -98,8 +98,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aller) {?>
 	<tr>
-		<td><span data-text="<?=French($pers, strip_tags($aller)) ?>" data-lang="fr" class="trigger_play"></span></td>
-        <?=FrenchCompoundTenses($pers, $aller) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aller)) ?>" data-lang="fr" class="trigger_play"></span></td>
+        <?=concatenate_apostrophized($pers, $aller) ?>
 	</tr>
 <?}, $pers, $aller );?>
 </table>
@@ -113,8 +113,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($que_pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=French($que_pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchSeparated($que_pers, $array) ?>
+		<td><span data-text="<?=concatenate_apostrophized($que_pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($que_pers, $array) ?>
 	</tr>
 <?}, $que_pers, $array [4] );?>
 	<tr class="border">
@@ -122,8 +122,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($que_pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=French($que_pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchSeparated($que_pers, $array) ?>
+		<td><span data-text="<?=concatenate_apostrophized($que_pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($que_pers, $array) ?>
 	</tr>
 <?}, $que_pers, $array [5] );?>
 </table>
@@ -133,8 +133,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($que_pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=French($que_pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchCompoundTenses($que_pers, $aux_exts) ?>
+		<td><span data-text="<?=concatenate_apostrophized($que_pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($que_pers, $aux_exts) ?>
 	</tr>
 <?}, $que_pers, $aux_exts[4] );?>
 	<tr class="border">
@@ -142,8 +142,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($que_pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=French($que_pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchCompoundTenses($que_pers, $aux_exts) ?>
+		<td><span data-text="<?=concatenate_apostrophized($que_pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($que_pers, $aux_exts) ?>
 	</tr>
 <?}, $que_pers, $aux_exts[5] );?>
 </table>
@@ -157,8 +157,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $array) {?>
 	<tr>
-		<td><span data-text="<?=French($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchSeparated($pers, $array) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($array)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($pers, $array) ?>
 	</tr>
 <?}, $pers, $array [6] );?>
 </table>
@@ -168,8 +168,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=French($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchCompoundTenses($pers, $aux_exts) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[6] );?>
 	<tr class="border">
@@ -177,8 +177,8 @@ function printIt($verb, $auxiliaire, $aller) {
 	</tr>
 <?array_map( function ($pers, $aux_exts) {?>
 	<tr>
-		<td><span data-text="<?=French($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
-		<?=FrenchCompoundTenses($pers, $aux_exts) ?>
+		<td><span data-text="<?=concatenate_apostrophized($pers, strip_tags($aux_exts)) ?>" data-lang="fr" class="trigger_play"></span></td>
+		<?=concatenate_apostrophized($pers, $aux_exts) ?>
 	</tr>
 <?}, $pers, $aux_exts[5] );?>
 </table>
