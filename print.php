@@ -1,7 +1,7 @@
 <?
 require_once 'conjugate.php';
 
-function print_persons($verb, $mood, $tense) {
+function print_persons($verb, Mood $mood, Tense $tense) {
 	$persons = array(Person::FirstPersonSingular,Person::SecondPersonSingular,Person::ThirdPersonSingular,
 					 Person::FirstPersonPlural,Person::SecondPersonPlural,Person::ThirdPersonPlural);
 	foreach ( $persons as $person) {
@@ -9,7 +9,7 @@ function print_persons($verb, $mood, $tense) {
 	}
 }
 
-function print_tenses($verb, $mood) {
+function print_tenses($verb, Mood $mood) {
 	$tenses = array(Tense::Present,Tense::Imparfait,Tense::Passe,Tense::Futur, Tense::Futur_compose,Tense::Plus_que_parfait,
 			Tense::Passe_anterieur, Tense::Futur_anterieur,Tense::Premiere_Forme,Tense::Deuxieme_Forme);
 	foreach ( $tenses as $tense ) {
