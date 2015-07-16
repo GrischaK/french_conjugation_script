@@ -1,6 +1,20 @@
 <?
 require_once 'conjugate.php';
 
+
+
+
+
+
+
+function print_conjugations_of_verb ( ) {
+	
+}
+
+
+
+
+
 function printIt($verb, $auxiliaire, $aller) {
 	?>
 <p>Die Konjugation von <?=$verb ?></p>
