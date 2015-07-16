@@ -1,12 +1,6 @@
 <?
 require_once 'conjugate.php';
 
-
-
-
-
-
-
 function print_conjugations_of_verb ( ) {
 	
 }
