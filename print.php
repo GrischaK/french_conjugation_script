@@ -4,8 +4,10 @@ require_once 'conjugate.php';
 function printIt($verb, $auxiliaire, $aller) {
 	?>
 <p>Die Konjugation von <?=$verb ?></p>
-<p>Das Verb <b><?=$verb ?></b> wird <b><?=$regelmaessig ?></b> konjugiert und wird in den zusammengesetzten Zeiten mit den Hilfsverb <b><?=$auxiliaire ?></b> gebildet.</p>
+<!--
+<p>Das Verb <b><?=$verb ?></b> wird  <b><?=$regelmaessig ?></b> konjugiert und wird in den zusammengesetzten Zeiten mit den Hilfsverb <b><?=$auxiliaire ?></b> gebildet.</p>
 <p><b><?=$verb ?></b> ist ein <b><?=$reflexiv ?></b> und <b><?=$transitiv ?></b> Verb.</p>
+-->
 <h2 class="home">Verzeichnis</h2>
 <ul style="list-style-type:none;">
 	<li><a class="down" href="#indicatif">Indicatif</a></li>
