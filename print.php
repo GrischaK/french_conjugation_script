@@ -173,7 +173,7 @@ function print_tenses($verb, Mood $mood) {
 }
 
 function print_conjugations_of_verb($verb) {
-   $moods = array(Mood::Indicatif,Mood::Subjonctif,Mood::Conditionnel,Mood::Imperatif,Mood::Modes_impersonnels);
+   $moods = array(Mood::Indicatif,Mood::Subjonctif,Mood::Conditionnel,Mood::Imperatif);
 	foreach ( $moods as $mood ) {
 		print_tenses ( $verb, new Mood($mood) );
 	}
