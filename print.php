@@ -2,7 +2,11 @@
 require_once 'conjugate.php';
 
 function print_conjugations_of_verb ( ) {
-	
+
+// conjugation_phrase ( $verb, new Person($person), new Tense($tense), new Mood($mood) );	
+	foreach ($xxx as $output) {
+	       echo $output;
+	}
 }
 
 
