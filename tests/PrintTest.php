@@ -83,12 +83,12 @@ que nous aimions
 que vous aimiez
 qu’ils aiment
 
-que j’aimais
-que tu aimais
-qu’il aimait
-que nous aimions
-que vous aimiez
-qu’ils aimaient
+que j’aimasse
+que tu aimasses
+qu’il aimât
+que nous aimassions
+que vous aimassiez
+qu’ils aimassent
 
 que j’aie aimé
 que tu aies aimé
