@@ -72,9 +72,9 @@ ils auront aimé
 je vais aimer
 tu vas aimer
 il va aimer
-nous allons aimer 
+nous allons aimer
 vous allez aimer
-ils vont aimer	
+ils vont aimer
 
 que j’aime
 que tu aimes 
