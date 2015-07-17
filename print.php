@@ -59,7 +59,23 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					) 
+					),
+					Tense::Futur_anterieur => array (
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural
+					),
+					Tense::Futur_compose => array (
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural
+					)					 
 			),
 			Mood::Subjonctif => array (
 					Tense::Present => array (
