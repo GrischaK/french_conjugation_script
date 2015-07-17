@@ -97,7 +97,7 @@ function endings(Person $person, Tense $tense, Mood $mood) {
 							Person::ThirdPersonSingular => 'erait',
 							Person::FirstPersonPlural => 'erions',
 							Person::SecondPersonPlural => 'eriez',
-							Person::ThirdPersonPlural => 'raient' 
+							Person::ThirdPersonPlural => 'eraient' 
 					) 
 			),
 			Mood::Imperatif => array (
