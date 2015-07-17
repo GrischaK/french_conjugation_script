@@ -343,8 +343,8 @@ function isComposite(Mood $mood, Tense $tense) {
 					Tense::Passe_compose,
 					Tense::Plus_que_parfait,
 					Tense::Passe_anterieur,
-					Tense::Futur_compose,
-					Tense::Futur_anterieur 
+					Tense::Futur_anterieur,
+					Tense::Futur_compose					 
 			),
 			Mood::Subjonctif => array (
 					Tense::Passe,
