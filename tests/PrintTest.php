@@ -132,15 +132,16 @@ aimez
 
 aie aimé
 ayons aimé
-ayez aimé
-						
-aimer
-avoir aimé
-en aimant
-en ayant aimé						
-aimant		
-aimé				
+ayez aimé									
 ',
+// mode impersonnels						
+//aimer
+//avoir aimé
+//en aimant
+//en ayant aimé
+//aimant
+//aimé						
+						
 
 						'aimer' 
 				) 
