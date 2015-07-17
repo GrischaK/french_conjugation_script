@@ -150,7 +150,9 @@ function print_tenses($verb, Mood $mood) {
 					Tense::Futur,
 					Tense::Passe_compose,
 					Tense::Plus_que_parfait,
-					Tense::Passe_anterieur 
+					Tense::Passe_anterieur,					
+					Tense::Futur_anterieur, 
+					Tense::Futur_compose
 			),
 			Mood::Subjonctif => array (
 					Tense::Present,
