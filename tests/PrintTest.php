@@ -104,7 +104,6 @@ qu’il eût aimé
 que nous eussions aimé
 que vous eussiez aimé
 qu’ils eussent aimé	
-
 						
 j’aimerais
 tu aimerais
@@ -126,7 +125,6 @@ il eût aimé
 nous eussions aimé
 vous eussiez aimé
 ils eussent aimé
-
 						
 aime
 aimons
@@ -138,10 +136,8 @@ ayez aimé
 						
 aimer
 avoir aimé
-
 en aimant
-en ayant aimé
-						
+en ayant aimé						
 aimant		
 aimé				
 ',

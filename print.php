@@ -136,7 +136,7 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 	);
 	foreach ( $persons[$mood->getValue ()][$tense->getValue ()] as $person) {
 	//	print_xyz ( $verb, new Person($person) ); 
-		echo conjugation_phrase($verb, new Person ($person), ($tense),  ($mood));
+		echo conjugation_phrase($verb, new Person ($person), ($tense),  ($mood)). "\n";
 	}
 	
 }
