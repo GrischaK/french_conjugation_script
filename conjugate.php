@@ -64,7 +64,7 @@ function endings(Person $person, Tense $tense, Mood $mood) {
 							Person::ThirdPersonPlural => 'èrent' 
 					),
 					Tense::Futur => array (
-							Person::FirstPersonSingular => 'era',
+							Person::FirstPersonSingular => 'erai',
 							Person::SecondPersonSingular => 'eras',
 							Person::ThirdPersonSingular => 'era',
 							Person::FirstPersonPlural => 'erons',
