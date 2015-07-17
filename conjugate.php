@@ -249,7 +249,7 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 					Mood::Subjonctif => array (
 							Tense::Passe => array (
 									Person::FirstPersonSingular => 'aie',
-									Person::SecondPersonSingular => 'ais',
+									Person::SecondPersonSingular => 'aies',
 									Person::ThirdPersonSingular => 'ait',
 									Person::FirstPersonPlural => 'ayons',
 									Person::SecondPersonPlural => 'ayez',
