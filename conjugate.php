@@ -120,7 +120,7 @@ function aller(Person $person, Tense $tense, Mood $mood) {
 							Person::ThirdPersonSingular => 'va',
 							Person::FirstPersonPlural => 'allons',
 							Person::SecondPersonPlural => 'allez',
-							Person::ThirdPersonPlural => 'vont' 
+							Person::ThirdPersonPlural => 'vont'
 					) 
 			) 
 	);
