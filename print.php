@@ -178,4 +178,6 @@ function print_conjugations_of_verb($verb) {
 		print_tenses ( $verb, new Mood($mood) );
 	}
 }
+
+echo conjugation_phrase($verb, $person, $tense, $mood). "\n";
 ?>
