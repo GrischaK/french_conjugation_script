@@ -79,8 +79,8 @@ ils vont aimer
 que j’aime
 que tu aimes
 qu’il aime
-que nous aimons
-que vous aimez
+que nous aimions
+que vous aimiez
 qu’ils aiment
 
 que j’aimais
