@@ -50,7 +50,7 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 						'Subjonctif',						
 				),
 				array (
-						"qu'il",
+						'qu’il',
 						'ThirdPersonSingular',
 						'Subjonctif',						
 				),
@@ -65,7 +65,7 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 						'Subjonctif',						
 				),
 				array (
-						"qu'ils",
+						'qu’ils',
 						'ThirdPersonPlural',
 						'Subjonctif',						
 				)																					
