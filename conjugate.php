@@ -23,10 +23,10 @@ function personal_pronoun(Person $person, Mood $mood) {
 	$subjonctif_pre_pronouns = array (
 			Person::FirstPersonSingular => 'que ',
 			Person::SecondPersonSingular => 'que ',
-			Person::ThirdPersonSingular => "qu’",
+			Person::ThirdPersonSingular => 'qu’',
 			Person::FirstPersonPlural => 'que ',
 			Person::SecondPersonPlural => 'que ',
-			Person::ThirdPersonPlural => "qu’" 
+			Person::ThirdPersonPlural => 'qu’'
 	);
 	
 	if ($mood->getValue () === Mood::Subjonctif) {
