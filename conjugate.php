@@ -248,12 +248,12 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 					),
 					Mood::Subjonctif => array (
 							Tense::Passe => array (
-									Person::FirstPersonSingular => 'ai',
-									Person::SecondPersonSingular => 'as',
-									Person::ThirdPersonSingular => 'a',
-									Person::FirstPersonPlural => 'avons',
-									Person::SecondPersonPlural => 'avez',
-									Person::ThirdPersonPlural => 'ont' 
+									Person::FirstPersonSingular => 'aie',
+									Person::SecondPersonSingular => 'ais',
+									Person::ThirdPersonSingular => 'ait',
+									Person::FirstPersonPlural => 'ayons',
+									Person::SecondPersonPlural => 'ayez',
+									Person::ThirdPersonPlural => 'aient' 
 							),
 							Tense::Plus_que_parfait => array (
 									Person::FirstPersonSingular => 'eusse',
