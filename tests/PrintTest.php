@@ -13,8 +13,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 	public function PrintProvider() {
 		return array (
 				array (
-'
-j’aime 
+'j’aime 
 tu aimes 
 il aime 
 nous aimons 
