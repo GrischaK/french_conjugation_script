@@ -131,7 +131,8 @@ aimez
 
 aie aimé
 ayons aimé
-ayez aimé',
+ayez aimé
+',
 // mode impersonnels
 //aimer
 //avoir aimé
