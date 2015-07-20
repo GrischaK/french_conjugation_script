@@ -370,7 +370,7 @@ function finding_participle_passe($verb) {
 	$participe_passe = word_stem ( $verb ) . 'é';
 	return $participe_passe;
 }
-function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense, Mood $mood) {
+function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
 	$participe_passe = finding_participle_passe ($verb);
 	$participe_present = finding_participe_present ($verb);
 	switch ($auxiliaire->getValue ()) {
@@ -408,7 +408,7 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 			
 			break;
 	}
-	return $modes_impersonnels [$mood->getValue ()] [$tense->getValue ()] [$mode->getValue ()];
+	return $modes_impersonnels [$tense->getValue ()] [$mode->getValue ()];
 }
 function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal
 	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags ( $verb ) ))

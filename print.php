@@ -202,14 +202,16 @@ function print_modes($verb) {
 			Mode::Gerondif,
 			Mode::Participe
 			);
-	$auxiliaire = array (
+	$auxiliaires = array (
 			Auxiliaire::Avoir,
 			Auxiliaire::Etre
 	);	
 	foreach ( $tenses as $tense ) {
-		foreach ( $modes as $mode ) {
-		modes_impersonnels ($verb, new Auxiliaire ($auxiliaire), new Mode($mode), new Tense($tense),new Mood($mood) );
+			foreach ( $modes as $mode ) {
+				foreach ( $auxiliaires as $auxiliaire ) {
+		modes_impersonnels ($verb, new Auxiliaire ($auxiliaire), new Mode($mode), new Tense($tense));
 		echo PHP_EOL;
+			}
 		}
 	}
 }
