@@ -184,7 +184,19 @@ function print_tenses($verb, Mood $mood) {
 			Mood::Imperatif => array (
 					Tense::Present,
 					Tense::Passe 
-			) 
+			),
+			Mood::Modes_impersonnels => array (
+					Tense::Present => array (
+							Mode::Infinitif => $verb,
+							Mode::Gerondif => 'en ' . $participe_present,
+							Mode::Participe => $participe_present
+					),
+					Tense::Passe => array (
+							Mode::Infinitif => Auxiliaire::Etre . ' ' . $participe_passe,
+							Mode::Gerondif => 'en étant ' . $participe_passe,
+							Mode::Participe => $participe_passe
+					)
+			)
 	);
 	foreach ( $tenses[$mood->getValue ()] as $tense ) {
 		print_persons ( $verb, new Tense($tense),new Mood($mood) ); 
@@ -193,7 +205,7 @@ function print_tenses($verb, Mood $mood) {
 }
 
 function print_conjugations_of_verb($verb) {
-   $moods = array(Mood::Indicatif,Mood::Subjonctif,Mood::Conditionnel,Mood::Imperatif);
+   $moods = array(Mood::Indicatif,Mood::Subjonctif,Mood::Conditionnel,Mood::Imperatif,Mood::Modes_impersonnels);
 	foreach ( $moods as $mood ) {
 		print_tenses ( $verb, new Mood($mood) );
 	}
