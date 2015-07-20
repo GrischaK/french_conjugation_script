@@ -194,20 +194,19 @@ function print_tenses($verb, Mood $mood) {
 
 function print_modes($verb, Mood $mood) {
 	$tenses = array (
-			Tense::Present => array (
-							Mode::Infinitif,
-							Mode::Gerondif,
-							Mode::Participe
-					),
-			Tense::Passe => array (
-							Mode::Infinitif,
-							Mode::Gerondif,
-							Mode::Participe
-			)
-	);
+			Tense::Present,
+			Tense::Passe
+			);
+	$modes = array (
+			Mode::Infinitif,
+			Mode::Gerondif,
+			Mode::Participe
+			);
 	foreach ( $tenses[$mood->getValue ()] as $tense ) {
+		foreach ( $modes[$mood->getValue ()] as $mode ) {
 		modes_impersonnels ( $verb, new Mode($mode), new Tense($tense),new Mood($mood) );
 		echo PHP_EOL;
+		}
 	}
 }
 
