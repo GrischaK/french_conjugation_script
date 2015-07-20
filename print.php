@@ -207,10 +207,9 @@ function print_modes($verb) {
 			Mode::Participe 
 	);
 	foreach ( $auxiliaires as $auxiliaire ) {
-		foreach ( $tenses as $tense ) {
-			foreach ( $modes as $mode ) {
-				
-				modes_impersonnels ( $verb, new Auxiliaire ( $auxiliaire ), new Mode ( $mode ), new Tense ( $tense ) );
+		foreach ( $modes as $mode ) {
+			foreach ( $tenses as $tense ) {
+				echo '<tr><td>'. modes_impersonnels ( $verb, new Auxiliaire ( $auxiliaire ), new Mode ( $mode ), new Tense ( $tense ) ).'<td><tr>';
 				echo PHP_EOL;
 			}
 		}
