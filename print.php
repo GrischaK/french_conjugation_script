@@ -204,14 +204,14 @@ function print_modes($verb, Mood $mood) {
 			);
 	foreach ( $tenses as $tense ) {
 		foreach ( $modes as $mode ) {
-		modes_impersonnels ( new Auxiliaire ($auxiliaire), $verb, new Mode($mode), new Tense($tense),new Mood($mood) );
+		modes_impersonnels ($verb, new Auxiliaire ($auxiliaire), new Mode($mode), new Tense($tense),new Mood($mood) );
 		echo PHP_EOL;
 		}
 	}
 }
 
 function print_conjugations_of_verb($verb) {
-   $moods = array(Mood::Indicatif,Mood::Subjonctif,Mood::Conditionnel,Mood::Imperatif,Mood::Modes_impersonnels);
+   $moods = array(Mood::Indicatif,Mood::Subjonctif,Mood::Conditionnel,Mood::Imperatif);
 	foreach ( $moods as $mood ) {
 		print_tenses ( $verb, new Mood($mood) );
 	}
