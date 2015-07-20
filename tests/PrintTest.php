@@ -141,7 +141,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>ayez aimé</td></tr>
 </table>
 
-<table>
 <tr><td>aimer</td></tr>
 <tr><td>avoir aimé</td></tr>
 <tr><td>en aimant</td></tr>
@@ -150,9 +149,9 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>aimé</td></tr>
 ',
 
-						
 
-						'aimer' 
+
+'aimer' 
 				) 
 		);
 	}
