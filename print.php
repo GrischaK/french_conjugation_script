@@ -213,7 +213,9 @@ function print_modes($verb) {
 function print_conjugations_of_verb($verb) {
    $moods = array(Mood::Indicatif,Mood::Subjonctif,Mood::Conditionnel,Mood::Imperatif);
 	foreach ( $moods as $mood ) {
+		echo '<table>'.PHP_EOL;
 		print_tenses ( $verb, new Mood($mood) );
+		echo '</table>'.PHP_EOL;
 	}
 	print_modes ($verb);
 }

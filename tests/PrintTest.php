@@ -13,7 +13,8 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 	public function PrintProvider() {
 		return array (
 				array (
-'<tr><td>j’aime</td></tr>
+'<table>
+<tr><td>j’aime</td></tr>
 <tr><td>tu aimes</td></tr>
 <tr><td>il aime</td></tr>
 <tr><td>nous aimons</td></tr>
@@ -75,7 +76,9 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>nous allons aimer</td></tr>
 <tr><td>vous allez aimer</td></tr>
 <tr><td>ils vont aimer</td></tr>
+</table>
 
+<table>
 <tr><td>que j’aime</td></tr>
 <tr><td>que tu aimes</td></tr>
 <tr><td>qu’il aime</td></tr>
@@ -103,7 +106,9 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>que nous eussions aimé</td></tr>
 <tr><td>que vous eussiez aimé</td></tr>
 <tr><td>qu’ils eussent aimé</td></tr>
+</table>
 
+<table>
 <tr><td>j’aimerais</td></tr>
 <tr><td>tu aimerais</td></tr>
 <tr><td>il aimerait</td></tr>
@@ -124,7 +129,9 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>nous eussions aimé</td></tr>
 <tr><td>vous eussiez aimé</td></tr>
 <tr><td>ils eussent aimé</td></tr>
+</table>
 
+<table>
 <tr><td>aime</td></tr>
 <tr><td>aimons</td></tr>
 <tr><td>aimez</td></tr>
@@ -132,7 +139,9 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>aie aimé</td></tr>
 <tr><td>ayons aimé</td></tr>
 <tr><td>ayez aimé</td></tr>
+</table>
 
+<table>
 <tr><td>aimer</td></tr>
 <tr><td>avoir aimé</td></tr>
 <tr><td>en aimant</td></tr>
@@ -140,13 +149,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>aimant</td></tr>
 <tr><td>aimé</td></tr>
 ',
-// mode impersonnels
-//<tr><td>aimer</td></tr>
-//<tr><td>avoir aimé</td></tr>
-//<tr><td>en aimant</td></tr>
-//<tr><td>en ayant aimé</td></tr>
-//<tr><td>aimant</td></tr>
-//<tr><td>aimé</td></tr>
+
 						
 
 						'aimer' 
