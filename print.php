@@ -215,7 +215,7 @@ function print_conjugations_of_verb($verb) {
 	foreach ( $moods as $mood ) {
 		echo '<table>'.PHP_EOL;
 		print_tenses ( $verb, new Mood($mood) );
-		echo '</table>'.PHP_EOL;
+		echo '</table>'.PHP_EOL.PHP_EOL;
 	}
 	print_modes ($verb);
 }
