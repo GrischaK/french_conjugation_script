@@ -193,24 +193,25 @@ function print_tenses($verb, Mood $mood) {
 }
 
 function print_modes($verb) {
+	$auxiliaires = array (
+			Auxiliaire::Avoir,
+			Auxiliaire::Etre 
+	);
 	$tenses = array (
 			Tense::Present,
-			Tense::Passe
-			);
+			Tense::Passe 
+	);
 	$modes = array (
 			Mode::Infinitif,
 			Mode::Gerondif,
-			Mode::Participe
-			);
-	$auxiliaires = array (
-			Auxiliaire::Avoir,
-			Auxiliaire::Etre
-	);	
-	foreach ( $tenses as $tense ) {
+			Mode::Participe 
+	);
+	foreach ( $auxiliaires as $auxiliaire ) {
+		foreach ( $tenses as $tense ) {
 			foreach ( $modes as $mode ) {
-				foreach ( $auxiliaires as $auxiliaire ) {
-		modes_impersonnels ($verb, new Auxiliaire ($auxiliaire), new Mode($mode), new Tense($tense));
-		echo PHP_EOL;
+				
+				modes_impersonnels ( $verb, new Auxiliaire ( $auxiliaire ), new Mode ( $mode ), new Tense ( $tense ) );
+				echo PHP_EOL;
 			}
 		}
 	}
