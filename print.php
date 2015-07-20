@@ -184,24 +184,25 @@ function print_tenses($verb, Mood $mood) {
 			Mood::Imperatif => array (
 					Tense::Present,
 					Tense::Passe 
-			),
-			Mood::Modes_impersonnels => array (
-					Tense::Present => array (
-							Mode::Infinitif => $verb,
-							Mode::Gerondif => 'en ' . $participe_present,
-							Mode::Participe => $participe_present
-					),
-					Tense::Passe => array (
-							Mode::Infinitif => Auxiliaire::Etre . ' ' . $participe_passe,
-							Mode::Gerondif => 'en étant ' . $participe_passe,
-							Mode::Participe => $participe_passe
-					)
 			)
 	);
 	foreach ( $tenses[$mood->getValue ()] as $tense ) {
 		print_persons ( $verb, new Tense($tense),new Mood($mood) ); 
 		echo PHP_EOL;
 	}	
+}
+
+function print_modes($verb, Mood $mood) {
+	$tenses = array (
+			Mood::Modes_impersonnels => array (
+					Tense::Present,
+					Tense::Passe
+			)
+	);
+	foreach ( $tenses[$mood->getValue ()] as $tense ) {
+		modes_impersonnels ( $verb, new Mode($mode), new Tense($tense),new Mood($mood) );
+		echo PHP_EOL;
+	}
 }
 
 function print_conjugations_of_verb($verb) {
