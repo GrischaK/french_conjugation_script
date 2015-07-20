@@ -145,12 +145,15 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 </table>
 
+<table>
 <tr><td>aimer</td></tr>
 <tr><td>avoir aimé</td></tr>
 <tr><td>en aimant</td></tr>
 <tr><td>en ayant aimé</td></tr>
 <tr><td>aimant</td></tr>
 <tr><td>aimé</td></tr>
+</table>
+
 ',
 
 

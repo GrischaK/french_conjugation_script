@@ -217,6 +217,8 @@ function print_conjugations_of_verb($verb) {
 		print_tenses ( $verb, new Mood($mood) );
 		echo '</table>'.PHP_EOL.PHP_EOL;
 	}
+	echo '<table>'.PHP_EOL;	
 	print_modes ($verb);
+	echo '</table>'.PHP_EOL.PHP_EOL;	
 }
 ?>
