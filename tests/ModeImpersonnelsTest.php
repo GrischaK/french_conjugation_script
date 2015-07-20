@@ -5,7 +5,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider modeImpersonnelsTestProvider
 	 */
-	public function testModeImpersonnels($expectedResult, $verb, $auxiliaire, $tense, $mood) {
+	public function testModeImpersonnels($expectedResult, $verb, $auxiliaire, $mode, $tense) {
 		$this->assertEquals ( $expectedResult, modes_impersonnels ( $verb, new Auxiliaire ( $auxiliaire ), new Mode ( $mode ), new Tense ( $tense ) ) );
 	}
 	public function modeImpersonnelsTestProvider() {
@@ -13,7 +13,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 		return array (
 				array (
 						'aimer',
-						'aimer',
+						'aimer',						
 						Auxiliaire::Avoir,
 						'Infinitif',
 						'Present',

@@ -392,18 +392,16 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 			break;
 		case Auxiliaire::Avoir :
 			$modes_impersonnels = array (				
-					Mood::Modes_impersonnels => array (
-							Tense::Present => array (
+					Tense::Present => array (
 									Mode::Infinitif => $verb,
 									Mode::Gerondif => 'en ' . $participe_present,
 									Mode::Participe => $participe_present 
 							),
-							Tense::Passe => array (
+					Tense::Passe => array (
 									Mode::Infinitif => Auxiliaire::Avoir. ' ' . $participe_passe,
 									Mode::Gerondif => 'en ayant ' . $participe_passe,
 									Mode::Participe => $participe_passe 
 							) 
-					) 
 			);
 			
 			break;
