@@ -110,7 +110,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 </table>
 
-
 <table>
 <tr><td>j’aimerais</td></tr>
 <tr><td>tu aimerais</td></tr>
@@ -135,7 +134,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 </table>
 
-
 <table>
 <tr><td>aime</td></tr>
 <tr><td>aimons</td></tr>
@@ -146,7 +144,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>ayez aimé</td></tr>
 
 </table>
-
 
 <tr><td>aimer</td></tr>
 <tr><td>avoir aimé</td></tr>
