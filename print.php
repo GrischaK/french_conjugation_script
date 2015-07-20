@@ -152,7 +152,7 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 	);
 	foreach ( $persons[$mood->getValue ()][$tense->getValue ()] as $person) {
 	//	print_xyz ( $verb, new Person($person) ); 
-		echo conjugation_phrase($verb, new Person ($person), ($tense), ($mood)).PHP_EOL;
+		echo '<tr><td>'.conjugation_phrase($verb, new Person ($person), ($tense), ($mood)).'</td></tr>'.PHP_EOL;
 	}
 	
 }

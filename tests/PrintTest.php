@@ -13,134 +13,134 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 	public function PrintProvider() {
 		return array (
 				array (
-'j’aime
-tu aimes
-il aime
-nous aimons
-vous aimez
-ils aiment
+'<tr><td>j’aime</td></tr>
+<tr><td>tu aimes</td></tr>
+<tr><td>il aime</td></tr>
+<tr><td>nous aimons</td></tr>
+<tr><td>vous aimez</td></tr>
+<tr><td>ils aiment</td></tr>
 
-j’aimais
-tu aimais
-il aimait
-nous aimions
-vous aimiez
-ils aimaient
+<tr><td>j’aimais</td></tr>
+<tr><td>tu aimais</td></tr>
+<tr><td>il aimait</td></tr>
+<tr><td>nous aimions</td></tr>
+<tr><td>vous aimiez</td></tr>
+<tr><td>ils aimaient</td></tr>
 
-j’aimai
-tu aimas
-il aima
-nous aimâmes
-vous aimâtes
-ils aimèrent
+<tr><td>j’aimai</td></tr>
+<tr><td>tu aimas</td></tr>
+<tr><td>il aima</td></tr>
+<tr><td>nous aimâmes</td></tr>
+<tr><td>vous aimâtes</td></tr>
+<tr><td>ils aimèrent</td></tr>
 
-j’aimerai
-tu aimeras
-il aimera
-nous aimerons
-vous aimerez
-ils aimeront
+<tr><td>j’aimerai</td></tr>
+<tr><td>tu aimeras</td></tr>
+<tr><td>il aimera</td></tr>
+<tr><td>nous aimerons</td></tr>
+<tr><td>vous aimerez</td></tr>
+<tr><td>ils aimeront</td></tr>
 
-j’ai aimé
-tu as aimé
-il a aimé
-nous avons aimé
-vous avez aimé
-ils ont aimé
+<tr><td>j’ai aimé</td></tr>
+<tr><td>tu as aimé</td></tr>
+<tr><td>il a aimé</td></tr>
+<tr><td>nous avons aimé</td></tr>
+<tr><td>vous avez aimé</td></tr>
+<tr><td>ils ont aimé</td></tr>
 
-j’avais aimé
-tu avais aimé
-il avait aimé
-nous avions aimé
-vous aviez aimé
-ils avaient aimé
+<tr><td>j’avais aimé</td></tr>
+<tr><td>tu avais aimé</td></tr>
+<tr><td>il avait aimé</td></tr>
+<tr><td>nous avions aimé</td></tr>
+<tr><td>vous aviez aimé</td></tr>
+<tr><td>ils avaient aimé</td></tr>
 
-j’eus aimé
-tu eus aimé
-il eut aimé
-nous eûmes aimé
-vous eûtes aimé
-ils eurent aimé
+<tr><td>j’eus aimé</td></tr>
+<tr><td>tu eus aimé</td></tr>
+<tr><td>il eut aimé</td></tr>
+<tr><td>nous eûmes aimé</td></tr>
+<tr><td>vous eûtes aimé</td></tr>
+<tr><td>ils eurent aimé</td></tr>
 
-j’aurai aimé
-tu auras aimé
-il aura aimé
-nous aurons aimé
-vous aurez aimé
-ils auront aimé
+<tr><td>j’aurai aimé</td></tr>
+<tr><td>tu auras aimé</td></tr>
+<tr><td>il aura aimé</td></tr>
+<tr><td>nous aurons aimé</td></tr>
+<tr><td>vous aurez aimé</td></tr>
+<tr><td>ils auront aimé</td></tr>
 
-je vais aimer
-tu vas aimer
-il va aimer
-nous allons aimer
-vous allez aimer
-ils vont aimer
+<tr><td>je vais aimer</td></tr>
+<tr><td>tu vas aimer</td></tr>
+<tr><td>il va aimer</td></tr>
+<tr><td>nous allons aimer</td></tr>
+<tr><td>vous allez aimer</td></tr>
+<tr><td>ils vont aimer</td></tr>
 
-que j’aime
-que tu aimes
-qu’il aime
-que nous aimions
-que vous aimiez
-qu’ils aiment
+<tr><td>que j’aime</td></tr>
+<tr><td>que tu aimes</td></tr>
+<tr><td>qu’il aime</td></tr>
+<tr><td>que nous aimions</td></tr>
+<tr><td>que vous aimiez</td></tr>
+<tr><td>qu’ils aiment</td></tr>
 
-que j’aimasse
-que tu aimasses
-qu’il aimât
-que nous aimassions
-que vous aimassiez
-qu’ils aimassent
+<tr><td>que j’aimasse</td></tr>
+<tr><td>que tu aimasses</td></tr>
+<tr><td>qu’il aimât</td></tr>
+<tr><td>que nous aimassions</td></tr>
+<tr><td>que vous aimassiez</td></tr>
+<tr><td>qu’ils aimassent</td></tr>
 
-que j’aie aimé
-que tu aies aimé
-qu’il ait aimé
-que nous ayons aimé
-que vous ayez aimé
-qu’ils aient aimé
+<tr><td>que j’aie aimé</td></tr>
+<tr><td>que tu aies aimé</td></tr>
+<tr><td>qu’il ait aimé</td></tr>
+<tr><td>que nous ayons aimé</td></tr>
+<tr><td>que vous ayez aimé</td></tr>
+<tr><td>qu’ils aient aimé</td></tr>
 
-que j’eusse aimé
-que tu eusses aimé
-qu’il eût aimé
-que nous eussions aimé
-que vous eussiez aimé
-qu’ils eussent aimé
+<tr><td>que j’eusse aimé</td></tr>
+<tr><td>que tu eusses aimé</td></tr>
+<tr><td>qu’il eût aimé</td></tr>
+<tr><td>que nous eussions aimé</td></tr>
+<tr><td>que vous eussiez aimé</td></tr>
+<tr><td>qu’ils eussent aimé</td></tr>
 
-j’aimerais
-tu aimerais
-il aimerait
-nous aimerions
-vous aimeriez
-ils aimeraient
+<tr><td>j’aimerais</td></tr>
+<tr><td>tu aimerais</td></tr>
+<tr><td>il aimerait</td></tr>
+<tr><td>nous aimerions</td></tr>
+<tr><td>vous aimeriez</td></tr>
+<tr><td>ils aimeraient</td></tr>
 
-j’aurais aimé
-tu aurais aimé
-il aurait aimé
-nous aurions aimé
-vous auriez aimé
-ils auraient aimé
+<tr><td>j’aurais aimé</td></tr>
+<tr><td>tu aurais aimé</td></tr>
+<tr><td>il aurait aimé</td></tr>
+<tr><td>nous aurions aimé</td></tr>
+<tr><td>vous auriez aimé</td></tr>
+<tr><td>ils auraient aimé</td></tr>
 
-j’eusse aimé
-tu eusses aimé
-il eût aimé
-nous eussions aimé
-vous eussiez aimé
-ils eussent aimé
+<tr><td>j’eusse aimé</td></tr>
+<tr><td>tu eusses aimé</td></tr>
+<tr><td>il eût aimé</td></tr>
+<tr><td>nous eussions aimé</td></tr>
+<tr><td>vous eussiez aimé</td></tr>
+<tr><td>ils eussent aimé</td></tr>
 
-aime
-aimons
-aimez
+<tr><td>aime</td></tr>
+<tr><td>aimons</td></tr>
+<tr><td>aimez</td></tr>
 
-aie aimé
-ayons aimé
-ayez aimé
+<tr><td>aie aimé</td></tr>
+<tr><td>ayons aimé</td></tr>
+<tr><td>ayez aimé</td></tr>
 
 ',
 // mode impersonnels
-//aimer
-//avoir aimé
-//en aimant
-//en ayant aimé
-//aimant
-//aimé
+//<tr><td>aimer</td></tr>
+//<tr><td>avoir aimé</td></tr>
+//<tr><td>en aimant</td></tr>
+//<tr><td>en ayant aimé</td></tr>
+//<tr><td>aimant</td></tr>
+//<tr><td>aimé</td></tr>
 						
 
 						'aimer' 
