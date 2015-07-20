@@ -7,7 +7,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 	 * @dataProvider PrintProvider
 	 */
 	public function testPrint($expectedResult, $verb) {
-		$this->expectOutputString ( str_replace("\r", "", $expectedResult ));
+		$this->expectOutputString ( $expectedResult );
 		print_conjugations_of_verb ( $verb );
 	}
 	public function PrintProvider() {
