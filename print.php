@@ -221,6 +221,6 @@ function print_conjugations_of_verb($verb) {
 	foreach ( $moods as $mood ) {
 		print_tenses ( $verb, new Mood($mood) );
 	}
-	print_modes ($verb);	
+	print_modes ($verb);
 }
 ?>
