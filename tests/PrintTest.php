@@ -139,7 +139,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>en ayant aimé</td></tr>
 <tr><td>aimant</td></tr>
 <tr><td>aimé</td></tr>
-
 ',
 // mode impersonnels
 //<tr><td>aimer</td></tr>
