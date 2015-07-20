@@ -202,9 +202,9 @@ function print_modes($verb, Mood $mood) {
 			Mode::Gerondif,
 			Mode::Participe
 			);
-	foreach ( $tenses[$mood->getValue ()] as $tense ) {
-		foreach ( $modes[$mood->getValue ()] as $mode ) {
-		modes_impersonnels ( $verb, new Mode($mode), new Tense($tense),new Mood($mood) );
+	foreach ( $tenses as $tense ) {
+		foreach ( $modes as $mode ) {
+		modes_impersonnels ( new Auxiliaire ($auxiliaire), $verb, new Mode($mode), new Tense($tense),new Mood($mood) );
 		echo PHP_EOL;
 		}
 	}
