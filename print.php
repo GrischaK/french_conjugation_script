@@ -204,7 +204,7 @@ function print_modes($verb) {
 	);
 		foreach ( $modes as $mode ) {
 			foreach ( $tenses as $tense ) {
-				echo '<tr><td>'. modes_impersonnels ( finding_auxiliaire($verb), new Auxiliaire ( $auxiliaire ), new Mode ( $mode ), new Tense ( $tense ) ).'</td></tr>';
+				echo '<tr><td>'. modes_impersonnels ( finding_auxiliaire($verb), new Mode ( $mode ), new Tense ( $tense ) ).'</td></tr>';
 				echo PHP_EOL;
 		}
 	}
