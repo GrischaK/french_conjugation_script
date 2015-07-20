@@ -194,9 +194,15 @@ function print_tenses($verb, Mood $mood) {
 
 function print_modes($verb, Mood $mood) {
 	$tenses = array (
-			Mood::Modes_impersonnels => array (
-					Tense::Present,
-					Tense::Passe
+			Tense::Present => array (
+							Mode::Infinitif,
+							Mode::Gerondif,
+							Mode::Participe
+					),
+			Tense::Passe => array (
+							Mode::Infinitif,
+							Mode::Gerondif,
+							Mode::Participe
 			)
 	);
 	foreach ( $tenses[$mood->getValue ()] as $tense ) {
