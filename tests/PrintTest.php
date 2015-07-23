@@ -14,6 +14,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		return array (
 				array (
 '<table>
+<tr><th></th></tr>
 <tr><td>j’aime</td></tr>
 <tr><td>tu aimes</td></tr>
 <tr><td>il aime</td></tr>
@@ -21,6 +22,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>vous aimez</td></tr>
 <tr><td>ils aiment</td></tr>
 
+<tr><th></th></tr>
 <tr><td>j’aimais</td></tr>
 <tr><td>tu aimais</td></tr>
 <tr><td>il aimait</td></tr>
@@ -28,6 +30,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>vous aimiez</td></tr>
 <tr><td>ils aimaient</td></tr>
 
+<tr><th></th></tr>
 <tr><td>j’aimai</td></tr>
 <tr><td>tu aimas</td></tr>
 <tr><td>il aima</td></tr>
@@ -35,6 +38,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>vous aimâtes</td></tr>
 <tr><td>ils aimèrent</td></tr>
 
+<tr><th></th></tr>
 <tr><td>j’aimerai</td></tr>
 <tr><td>tu aimeras</td></tr>
 <tr><td>il aimera</td></tr>
@@ -45,6 +49,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 </table>
 
 <table>
+<tr><th></th></tr>
 <tr><td>j’ai aimé</td></tr>
 <tr><td>tu as aimé</td></tr>
 <tr><td>il a aimé</td></tr>
@@ -52,6 +57,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>vous avez aimé</td></tr>
 <tr><td>ils ont aimé</td></tr>
 
+<tr><th></th></tr>
 <tr><td>j’avais aimé</td></tr>
 <tr><td>tu avais aimé</td></tr>
 <tr><td>il avait aimé</td></tr>
@@ -59,6 +65,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>vous aviez aimé</td></tr>
 <tr><td>ils avaient aimé</td></tr>
 
+<tr><th></th></tr>
 <tr><td>j’eus aimé</td></tr>
 <tr><td>tu eus aimé</td></tr>
 <tr><td>il eut aimé</td></tr>
@@ -66,6 +73,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>vous eûtes aimé</td></tr>
 <tr><td>ils eurent aimé</td></tr>
 
+<tr><th></th></tr>
 <tr><td>j’aurai aimé</td></tr>
 <tr><td>tu auras aimé</td></tr>
 <tr><td>il aura aimé</td></tr>
@@ -73,6 +81,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>vous aurez aimé</td></tr>
 <tr><td>ils auront aimé</td></tr>
 
+<tr><th></th></tr>
 <tr><td>je vais aimer</td></tr>
 <tr><td>tu vas aimer</td></tr>
 <tr><td>il va aimer</td></tr>
@@ -83,6 +92,8 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 </table>
 
 <table>
+
+<tr><th></th></tr>
 <tr><td>que j’aime</td></tr>
 <tr><td>que tu aimes</td></tr>
 <tr><td>qu’il aime</td></tr>
@@ -90,6 +101,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>que vous aimiez</td></tr>
 <tr><td>qu’ils aiment</td></tr>
 
+<tr><th></th></tr>
 <tr><td>que j’aimasse</td></tr>
 <tr><td>que tu aimasses</td></tr>
 <tr><td>qu’il aimât</td></tr>
@@ -100,6 +112,8 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 </table>
 
 <table>
+
+<tr><th></th></tr>
 <tr><td>que j’aie aimé</td></tr>
 <tr><td>que tu aies aimé</td></tr>
 <tr><td>qu’il ait aimé</td></tr>
@@ -107,6 +121,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>que vous ayez aimé</td></tr>
 <tr><td>qu’ils aient aimé</td></tr>
 
+<tr><th></th></tr>
 <tr><td>que j’eusse aimé</td></tr>
 <tr><td>que tu eusses aimé</td></tr>
 <tr><td>qu’il eût aimé</td></tr>
@@ -117,6 +132,8 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 </table>
 
 <table>
+
+<tr><th></th></tr>
 <tr><td>j’aimerais</td></tr>
 <tr><td>tu aimerais</td></tr>
 <tr><td>il aimerait</td></tr>
@@ -127,6 +144,8 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 </table>
 
 <table>
+
+<tr><th></th></tr>
 <tr><td>j’aurais aimé</td></tr>
 <tr><td>tu aurais aimé</td></tr>
 <tr><td>il aurait aimé</td></tr>
@@ -134,6 +153,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>vous auriez aimé</td></tr>
 <tr><td>ils auraient aimé</td></tr>
 
+<tr><th></th></tr>
 <tr><td>j’eusse aimé</td></tr>
 <tr><td>tu eusses aimé</td></tr>
 <tr><td>il eût aimé</td></tr>
@@ -144,6 +164,8 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 </table>
 
 <table>
+
+<tr><th></th></tr>
 <tr><td>aime</td></tr>
 <tr><td>aimons</td></tr>
 <tr><td>aimez</td></tr>
@@ -151,6 +173,8 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 </table>
 
 <table>
+
+<tr><th></th></tr>
 <tr><td>aie aimé</td></tr>
 <tr><td>ayons aimé</td></tr>
 <tr><td>ayez aimé</td></tr>

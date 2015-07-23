@@ -154,9 +154,8 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 	}
 }
 function print_tenses($verb, Mood $mood, $tenses) {
-	echo '<table>' . PHP_EOL;
-	echo '<tr><th></th></tr>' . PHP_EOL;	
 	foreach ( $tenses [$mood->getValue ()] as $tense ) {
+		echo '<tr><th></th></tr>' . PHP_EOL;		
 		print_persons ( $verb, new Tense ( $tense ), new Mood ( $mood ) );
 		echo PHP_EOL;
 	}
@@ -230,8 +229,10 @@ function print_conjugations_of_verb($verb) {
 			Mood::Imperatif 
 	);
 	foreach ( $moods as $mood ) {
+		echo '<table>' . PHP_EOL;		
 		print_simple_tenses ( $verb, new Mood ( $mood ) );
 		echo '</table>' . PHP_EOL . PHP_EOL;
+		echo '<table>' . PHP_EOL;		
 		print_composite_tenses ( $verb, new Mood ( $mood ) );
 		echo '</table>' . PHP_EOL . PHP_EOL;
 	}
