@@ -155,29 +155,29 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 }
 $th_of_tense = array (
 		Mood::Indicatif => array (
-				'Présent',
-				'Imparfait',
-				'Futur simple (Futur I)',
-				'Passé composé',
-				'Plus-que-parfait',
-				'Passé antérieur',
-				'Futur antérieur (Futur II)',
-				'Futur composé (Futur proche)'
+				Tense::Present =>'Présent',
+				Tense::Imparfait =>'Imparfait',
+				Tense::Futur =>'Futur simple (Futur I)',
+				Tense::Passe_compose =>'Passé composé',
+				Tense::Plus_que_parfait =>'Plus-que-parfait',
+				Tense::Passe_anterieur =>'Passé antérieur',
+				Tense::Futur_anterieur =>'Futur antérieur (Futur II)',
+				Tense::Futur_compose =>'Futur composé (Futur proche)'
 		),
 		Mood::Subjonctif => array (
-				'Présent',
-				'Imparfait',
-				'Passé',
+				Tense::Present =>'Présent',
+				Tense::Imparfait =>'Imparfait',
+				Tense::Passe =>'Passé',
 				Tense::Plus_que_parfait =>'Plus-que-parfait'
 		),
 		Mood::Conditionnel => array (
-				'Présent',
-				Tense::Premiere_Forme,
-				Tense::Deuxieme_Forme
+				Tense::Present =>'Présent',
+				Tense::Premiere_Forme =>'Passé première forme',
+				Tense::Deuxieme_Forme =>'Passé deuxième  forme'
 		),
 		Mood::Imperatif => array (
-				'Présent',
-				Tense::Passe
+				Tense::Present =>'Présent',
+				Tense::Passe =>'Passé',
 		)
 );
 function print_tenses($verb, Mood $mood, $tenses) {
