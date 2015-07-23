@@ -42,6 +42,9 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>vous aimerez</td></tr>
 <tr><td>ils aimeront</td></tr>
 
+</table>
+
+<table>
 <tr><td>j’ai aimé</td></tr>
 <tr><td>tu as aimé</td></tr>
 <tr><td>il a aimé</td></tr>
@@ -94,6 +97,9 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>que vous aimassiez</td></tr>
 <tr><td>qu’ils aimassent</td></tr>
 
+</table>
+
+<table>
 <tr><td>que j’aie aimé</td></tr>
 <tr><td>que tu aies aimé</td></tr>
 <tr><td>qu’il ait aimé</td></tr>
@@ -118,6 +124,9 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>vous aimeriez</td></tr>
 <tr><td>ils aimeraient</td></tr>
 
+</table>
+
+<table>
 <tr><td>j’aurais aimé</td></tr>
 <tr><td>tu aurais aimé</td></tr>
 <tr><td>il aurait aimé</td></tr>
@@ -139,6 +148,9 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>aimons</td></tr>
 <tr><td>aimez</td></tr>
 
+</table>
+
+<table>
 <tr><td>aie aimé</td></tr>
 <tr><td>ayons aimé</td></tr>
 <tr><td>ayez aimé</td></tr>

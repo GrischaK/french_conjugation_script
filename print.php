@@ -157,42 +157,8 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 	
 }
 
-function print_tenses($verb, Mood $mood) {
-	$tenses = array (
-			Mood::Indicatif => array (
-					Tense::Present,
-					Tense::Imparfait,
-					Tense::Passe,
-					Tense::Futur,
-					Tense::Passe_compose,
-					Tense::Plus_que_parfait,
-					Tense::Passe_anterieur,
-					Tense::Futur_anterieur, 
-					Tense::Futur_compose
-			),
-			Mood::Subjonctif => array (
-					Tense::Present,
-					Tense::Imparfait,
-					Tense::Passe,
-					Tense::Plus_que_parfait 
-			),
-			Mood::Conditionnel => array (
-					Tense::Present,
-					Tense::Premiere_Forme,
-					Tense::Deuxieme_Forme 
-			),
-			Mood::Imperatif => array (
-					Tense::Present,
-					Tense::Passe 
-			)
-	);
-	foreach ( $tenses[$mood->getValue ()] as $tense ) {
-		print_persons ( $verb, new Tense($tense),new Mood($mood) ); 
-		echo PHP_EOL;
-	}	
-}
 
-function print_tenses2($verb, Mood $mood, $tenses) {
+function print_tenses($verb, Mood $mood, $tenses) {
 	foreach ( $tenses[$mood->getValue ()] as $tense ) {
 		print_persons ( $verb, new Tense($tense),new Mood($mood) );
 		echo PHP_EOL;
@@ -218,7 +184,7 @@ function print_simple_tenses($verb, Mood $mood) {
 					Tense::Present,
 			)
 	);
-	print_tenses2($verb,  $mood, $tenses); 
+	print_tenses($verb,  $mood, $tenses); 
 }
 
 function print_composite_tenses($verb, Mood $mood) {
@@ -242,7 +208,7 @@ function print_composite_tenses($verb, Mood $mood) {
 					Tense::Passe
 			)
 	);
-	print_tenses2($verb,  $mood, $tenses);
+	print_tenses($verb,  $mood, $tenses);
 }
 
 function print_modes($verb) {
@@ -264,18 +230,6 @@ function print_modes($verb) {
 }
 
 function print_conjugations_of_verb($verb) {
-   $moods = array(Mood::Indicatif,Mood::Subjonctif,Mood::Conditionnel,Mood::Imperatif);
-	foreach ( $moods as $mood ) {
-		echo '<table>'.PHP_EOL;
-		print_tenses ( $verb, new Mood($mood) );
-		echo '</table>'.PHP_EOL.PHP_EOL;
-	}
-	echo '<table>'.PHP_EOL;	
-	print_modes ($verb);
-	echo '</table>'.PHP_EOL.PHP_EOL;
-}
-
-function print_conjugations_of_verb2($verb) {
 	$moods = array(Mood::Indicatif,Mood::Subjonctif,Mood::Conditionnel,Mood::Imperatif);
 	foreach ( $moods as $mood ) {
 		echo '<table>'.PHP_EOL;
