@@ -153,6 +153,33 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 		echo '<tr><td>' . conjugation_phrase ( $verb, new Person ( $person ), ($tense), ($mood) ) . '</td></tr>' . PHP_EOL;
 	}
 }
+$th_of_tense = array (
+		Mood::Indicatif => array (
+				'Présent',
+				'Imparfait',
+				'Futur simple (Futur I)',
+				'Passé composé',
+				'Plus-que-parfait',
+				'Passé antérieur',
+				'Futur antérieur (Futur II)',
+				'Futur composé (Futur proche)'
+		),
+		Mood::Subjonctif => array (
+				'Présent',
+				'Imparfait',
+				'Passé',
+				Tense::Plus_que_parfait =>'Plus-que-parfait'
+		),
+		Mood::Conditionnel => array (
+				'Présent',
+				Tense::Premiere_Forme,
+				Tense::Deuxieme_Forme
+		),
+		Mood::Imperatif => array (
+				'Présent',
+				Tense::Passe
+		)
+);
 function print_tenses($verb, Mood $mood, $tenses) {
 	foreach ( $tenses [$mood->getValue ()] as $tense ) {
 		echo '<tr><th></th></tr>' . PHP_EOL;
