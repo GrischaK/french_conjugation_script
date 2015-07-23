@@ -192,6 +192,31 @@ function print_tenses($verb, Mood $mood) {
 	}	
 }
 
+function print_simple_tenses($verb, Mood $mood) {
+	$tenses = array (
+			Mood::Indicatif => array (
+					Tense::Present,
+					Tense::Imparfait,
+					Tense::Passe,
+					Tense::Futur,
+			),
+			Mood::Subjonctif => array (
+					Tense::Present,
+					Tense::Imparfait,
+			),
+			Mood::Conditionnel => array (
+					Tense::Present,
+			),
+			Mood::Imperatif => array (
+					Tense::Present,
+			)
+	);
+	foreach ( $tenses[$mood->getValue ()] as $tense ) {
+		print_persons ( $verb, new Tense($tense),new Mood($mood) );
+		echo PHP_EOL;
+	}
+}
+
 function print_modes($verb) {
 	$tenses = array (
 			Tense::Present,
@@ -207,6 +232,33 @@ function print_modes($verb) {
 				echo '<tr><td>'. modes_impersonnels ( $verb, finding_auxiliaire($verb), new Mode ( $mode ), new Tense ( $tense ) ).'</td></tr>';
 				echo PHP_EOL;
 		}
+	}
+}
+
+function print_composite_tenses($verb, Mood $mood) {
+	$tenses = array (
+			Mood::Indicatif => array (
+					Tense::Passe_compose,
+					Tense::Plus_que_parfait,
+					Tense::Passe_anterieur,
+					Tense::Futur_anterieur,
+					Tense::Futur_compose
+			),
+			Mood::Subjonctif => array (
+					Tense::Passe,
+					Tense::Plus_que_parfait
+			),
+			Mood::Conditionnel => array (
+					Tense::Premiere_Forme,
+					Tense::Deuxieme_Forme
+			),
+			Mood::Imperatif => array (
+					Tense::Passe
+			)
+	);
+	foreach ( $tenses[$mood->getValue ()] as $tense ) {
+		print_persons ( $verb, new Tense($tense),new Mood($mood) );
+		echo PHP_EOL;
 	}
 }
 
