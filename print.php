@@ -150,8 +150,9 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 			) 
 	);
 	foreach ( $persons [$mood->getValue ()] [$tense->getValue ()] as $person ) {
-		echo '<tr><td>' . conjugation_phrase ( $verb, new Person ( $person ), ($tense), ($mood) ) . '</td></tr>' . PHP_EOL;
-	}
+		echo '<tr><td><span data-text="' . conjugation_phrase ( $verb, new Person ( $person ), ($tense), ($mood) ) . '" data-lang="fr" class="trigger_play"</span></td>';
+		echo '<td>' . conjugation_phrase ( $verb, new Person ( $person ), ($tense), ($mood) ) . '</td></tr>' . PHP_EOL;
+	}   
 }
 
 function print_tenses($verb, Mood $mood, $tenses) {
