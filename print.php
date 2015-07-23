@@ -219,6 +219,6 @@ function print_conjugations_of_verb($verb) {
 	}
 	echo '<table>'.PHP_EOL;	
 	print_modes ($verb);
-	echo '</table>'.PHP_EOL.PHP_EOL;	
+	echo '</table>'.PHP_EOL.PHP_EOL;
 }
 ?>
