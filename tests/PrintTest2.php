@@ -1,20 +1,20 @@
 <?php
 require_once 'conjugate.php';
 require_once 'print.php';
-class PrintTest extends PHPUnit_Framework_TestCase {
+class PrintTest2 extends PHPUnit_Framework_TestCase {
 	
 	/**
-	 * @dataProvider PrintProvider
+	 * @dataProvider PrintProvider2
 	 */
-	public function testPrint($expectedResult, $verb) {
+	public function testPrint2($expectedResult, $verb) {
 		$this->expectOutputString ( $expectedResult );
 		print_conjugations_of_verb2 ( $verb );
 	}
-	public function PrintProvider() {
+	public function PrintProvider2() {
 		return array (
 				array (
 '<table>
-<tr><td>j’aime</td></tr>
+<tr><td>j’aimeERROR</td></tr>
 <tr><td>tu aimes</td></tr>
 <tr><td>il aime</td></tr>
 <tr><td>nous aimons</td></tr>
