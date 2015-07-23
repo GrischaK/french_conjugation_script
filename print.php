@@ -274,4 +274,19 @@ function print_conjugations_of_verb($verb) {
 	print_modes ($verb);
 	echo '</table>'.PHP_EOL.PHP_EOL;
 }
+
+function print_conjugations_of_verb2($verb) {
+	$moods = array(Mood::Indicatif,Mood::Subjonctif,Mood::Conditionnel,Mood::Imperatif);
+	foreach ( $moods as $mood ) {
+		echo '<table>'.PHP_EOL;
+		print_simple_tenses ( $verb, new Mood($mood) );
+		echo '</table>'.PHP_EOL.PHP_EOL;		
+		echo '<table>'.PHP_EOL;
+		print_composite_tenses ( $verb, new Mood($mood) );
+		echo '</table>'.PHP_EOL.PHP_EOL;
+	}
+	echo '<table>'.PHP_EOL;
+	print_modes ($verb);
+	echo '</table>'.PHP_EOL.PHP_EOL;
+}
 ?>
