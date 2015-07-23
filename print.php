@@ -192,7 +192,7 @@ function print_tenses($verb, Mood $mood) {
 	}	
 }
 
-function print_tenses2($verb, Mood $mood, Tenses $tenses) {
+function print_tenses2($verb, Mood $mood, $tenses) {
 	foreach ( $tenses[$mood->getValue ()] as $tense ) {
 		print_persons ( $verb, new Tense($tense),new Mood($mood) );
 		echo PHP_EOL;
