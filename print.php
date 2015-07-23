@@ -192,6 +192,13 @@ function print_tenses($verb, Mood $mood) {
 	}	
 }
 
+function print_tenses2($verb, Mood $mood, Tenses $tenses) {
+	foreach ( $tenses[$mood->getValue ()] as $tense ) {
+		print_persons ( $verb, new Tense($tense),new Mood($mood) );
+		echo PHP_EOL;
+	}
+}
+
 function print_simple_tenses($verb, Mood $mood) {
 	$tenses = array (
 			Mood::Indicatif => array (
@@ -211,28 +218,7 @@ function print_simple_tenses($verb, Mood $mood) {
 					Tense::Present,
 			)
 	);
-	foreach ( $tenses[$mood->getValue ()] as $tense ) {
-		print_persons ( $verb, new Tense($tense),new Mood($mood) );
-		echo PHP_EOL;
-	}
-}
-
-function print_modes($verb) {
-	$tenses = array (
-			Tense::Present,
-			Tense::Passe 
-	);
-	$modes = array (
-			Mode::Infinitif,
-			Mode::Gerondif,
-			Mode::Participe 
-	);
-		foreach ( $modes as $mode ) {
-			foreach ( $tenses as $tense ) {
-				echo '<tr><td>'. modes_impersonnels ( $verb, finding_auxiliaire($verb), new Mode ( $mode ), new Tense ( $tense ) ).'</td></tr>';
-				echo PHP_EOL;
-		}
-	}
+	// call print_tenses2	
 }
 
 function print_composite_tenses($verb, Mood $mood) {
@@ -256,9 +242,25 @@ function print_composite_tenses($verb, Mood $mood) {
 					Tense::Passe
 			)
 	);
-	foreach ( $tenses[$mood->getValue ()] as $tense ) {
-		print_persons ( $verb, new Tense($tense),new Mood($mood) );
-		echo PHP_EOL;
+	// call print_tenses2	
+	// print_tenses2 ($verb, Mood $mood, Tenses $tenses) // wrong
+}
+
+function print_modes($verb) {
+	$tenses = array (
+			Tense::Present,
+			Tense::Passe 
+	);
+	$modes = array (
+			Mode::Infinitif,
+			Mode::Gerondif,
+			Mode::Participe 
+	);
+		foreach ( $modes as $mode ) {
+			foreach ( $tenses as $tense ) {
+				echo '<tr><td>'. modes_impersonnels ( $verb, finding_auxiliaire($verb), new Mode ( $mode ), new Tense ( $tense ) ).'</td></tr>';
+				echo PHP_EOL;
+		}
 	}
 }
 
