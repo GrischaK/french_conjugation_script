@@ -218,7 +218,7 @@ function print_simple_tenses($verb, Mood $mood) {
 					Tense::Present,
 			)
 	);
-	// call print_tenses2	
+	print_tenses2($verb,  $mood, $tenses); 
 }
 
 function print_composite_tenses($verb, Mood $mood) {
@@ -242,8 +242,7 @@ function print_composite_tenses($verb, Mood $mood) {
 					Tense::Passe
 			)
 	);
-	// call print_tenses2	
-	// print_tenses2 ($verb, Mood $mood, Tenses $tenses) // wrong
+	print_tenses2($verb,  $mood, $tenses);
 }
 
 function print_modes($verb) {
