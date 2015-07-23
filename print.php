@@ -158,19 +158,20 @@ function print_tenses($verb, Mood $mood, $tenses) {
 	$th_of_tense = array (
 			Tense::Present =>'Présent',
 			Tense::Imparfait =>'Imparfait',
-			//Tense::Passe_Simple =>'Passe Simple',
+			Tense::Passe => ($mood->getValue() == Mood::Indicatif ? 'Passé simple' : 'Passé'),
 			Tense::Futur =>'Futur simple (Futur I)',
 			Tense::Passe_compose =>'Passé composé',
 			Tense::Plus_que_parfait =>'Plus-que-parfait',
 			Tense::Passe_anterieur =>'Passé antérieur',
 			Tense::Futur_anterieur =>'Futur antérieur (Futur II)',
 			Tense::Futur_compose =>'Futur composé (Futur proche)',
-			Tense::Passe =>'Passé',
 			Tense::Premiere_Forme =>'Passé première forme',
 			Tense::Deuxieme_Forme =>'Passé deuxième forme'
 	);	
+
+
 	foreach ( $tenses [$mood->getValue ()] as $tense ) {
-		echo '<tr><th>'.$th_of_tense[$tense].'</th></tr>' . PHP_EOL;
+		echo '<tr class="border"><th>'.$th_of_tense[$tense].'</th></tr>' . PHP_EOL;
 		print_persons ( $verb, new Tense ( $tense ), new Mood ( $mood ) );
 		echo PHP_EOL;
 	}
