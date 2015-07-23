@@ -2,18 +2,8 @@
 require_once 'conjugate.php';
 require_once 'print.php';
 class PrintTest extends PHPUnit_Framework_TestCase {
-	
-	/**
-	 * @dataProvider PrintProvider
-	 */
-	public function testPrint($expectedResult, $verb) {
-		$this->expectOutputString ( $expectedResult );
-		print_conjugations_of_verb ( $verb );
-	}
-	public function PrintProvider() {
-		return array (
-				array (
-'<table>
+	public function testPrintAimer() {
+		$this->expectOutputString ( '<table>
 <tr><th></th></tr>
 <tr><td>j’aime</td></tr>
 <tr><td>tu aimes</td></tr>
@@ -184,13 +174,8 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>aimé</td></tr>
 </table>
 
-',
-
-
-
-'aimer' 
-				) 
-		);
+' );
+		print_conjugations_of_verb ( 'aimer' );
 	}
 }
 ?>
