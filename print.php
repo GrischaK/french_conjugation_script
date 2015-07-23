@@ -154,7 +154,6 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 	}
 }
 $th_of_tense = array (
-		Mood::Indicatif => array (
 				Tense::Present =>'Présent',
 				Tense::Imparfait =>'Imparfait',
 				Tense::Futur =>'Futur simple (Futur I)',
@@ -162,23 +161,10 @@ $th_of_tense = array (
 				Tense::Plus_que_parfait =>'Plus-que-parfait',
 				Tense::Passe_anterieur =>'Passé antérieur',
 				Tense::Futur_anterieur =>'Futur antérieur (Futur II)',
-				Tense::Futur_compose =>'Futur composé (Futur proche)'
-		),
-		Mood::Subjonctif => array (
-				Tense::Present =>'Présent',
-				Tense::Imparfait =>'Imparfait',
+				Tense::Futur_compose =>'Futur composé (Futur proche)',
 				Tense::Passe =>'Passé',
-				Tense::Plus_que_parfait =>'Plus-que-parfait'
-		),
-		Mood::Conditionnel => array (
-				Tense::Present =>'Présent',
 				Tense::Premiere_Forme =>'Passé première forme',
 				Tense::Deuxieme_Forme =>'Passé deuxième  forme'
-		),
-		Mood::Imperatif => array (
-				Tense::Present =>'Présent',
-				Tense::Passe =>'Passé',
-		)
 );
 function print_tenses($verb, Mood $mood, $tenses) {
 	foreach ( $tenses [$mood->getValue ()] as $tense ) {
