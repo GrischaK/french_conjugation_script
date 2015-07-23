@@ -249,7 +249,7 @@ function print_conjugations_of_verb($verb) {
 			Mood::Imperatif =>'Imperatif',
 	);
 	foreach ( $moods as $mood ) {
-		echo '<h2 class="home"><a id="'.strtolower($th_of_mood[$mood]).'"></a>'.$th_of_mood[$mood].'</h2>' . PHP_EOL;
+		echo '<h2 class="home"><a id="'.strtolower($h2_of_mood[$mood]).'"></a>'.$h2_of_mood[$mood].'</h2>' . PHP_EOL;
 		echo '<table>' . PHP_EOL;		
 		print_simple_tenses ( $verb, new Mood ( $mood ) );
 		echo '</table>' . PHP_EOL . PHP_EOL;
