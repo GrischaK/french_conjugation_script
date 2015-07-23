@@ -167,9 +167,7 @@ function print_tenses($verb, Mood $mood, $tenses) {
 			Tense::Futur_compose =>'Futur composé (Futur proche)',
 			Tense::Premiere_Forme =>'Passé première forme',
 			Tense::Deuxieme_Forme =>'Passé deuxième forme'
-	);	
-
-
+	);
 	foreach ( $tenses [$mood->getValue ()] as $tense ) {
 		echo '<tr class="border"><th>'.$th_of_tense[$tense].'</th></tr>' . PHP_EOL;
 		print_persons ( $verb, new Tense ( $tense ), new Mood ( $mood ) );
@@ -244,7 +242,14 @@ function print_conjugations_of_verb($verb) {
 			Mood::Conditionnel,
 			Mood::Imperatif 
 	);
+	$h2_of_mood = array (
+			Mood::Indicatif =>'Indicatif',
+			Mood::Subjonctif =>'Subjonctif',
+			Mood::Conditionnel =>'Conditionnel',
+			Mood::Imperatif =>'Imperatif',
+	);
 	foreach ( $moods as $mood ) {
+		echo '<h2 class="home"><a id="'.strtolower($th_of_mood[$mood]).'"></a>'.$th_of_mood[$mood].'</h2>' . PHP_EOL;
 		echo '<table>' . PHP_EOL;		
 		print_simple_tenses ( $verb, new Mood ( $mood ) );
 		echo '</table>' . PHP_EOL . PHP_EOL;
