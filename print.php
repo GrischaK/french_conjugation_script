@@ -150,11 +150,12 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 			) 
 	);
 	foreach ( $persons [$mood->getValue ()] [$tense->getValue ()] as $person ) {
-		// print_xyz ( $verb, new Person($person) );
 		echo '<tr><td>' . conjugation_phrase ( $verb, new Person ( $person ), ($tense), ($mood) ) . '</td></tr>' . PHP_EOL;
 	}
 }
 function print_tenses($verb, Mood $mood, $tenses) {
+	echo '<table>' . PHP_EOL;
+	echo '<tr><th></th></tr>' . PHP_EOL;	
 	foreach ( $tenses [$mood->getValue ()] as $tense ) {
 		print_persons ( $verb, new Tense ( $tense ), new Mood ( $mood ) );
 		echo PHP_EOL;
@@ -229,10 +230,8 @@ function print_conjugations_of_verb($verb) {
 			Mood::Imperatif 
 	);
 	foreach ( $moods as $mood ) {
-		echo '<table>' . PHP_EOL;
 		print_simple_tenses ( $verb, new Mood ( $mood ) );
 		echo '</table>' . PHP_EOL . PHP_EOL;
-		echo '<table>' . PHP_EOL;
 		print_composite_tenses ( $verb, new Mood ( $mood ) );
 		echo '</table>' . PHP_EOL . PHP_EOL;
 	}
