@@ -415,25 +415,40 @@ function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in jâ
 abstract class ConjugationPhrase {
 	abstract function accept(ConjugationPhraseVisitor $visitor);
 }
-
 class SimpleTenseConjugationPhrase extends ConjugationPhrase {
-	function accept(ConjugationPhraseVisitor $visitor){
-		$visitor->visitSimpleTense($this);
+	function accept(ConjugationPhraseVisitor $visitor) {
+		$visitor->visitSimpleTense ( $this );
+	}
+	public function __construct($personal_pronoun, $conjugated_verb) {
+		$this->personal_pronoun = $personal_pronoun;
+		$this->conjugated_verb = $conjugated_verb;
 	}
 }
 class CompositeTenseConjugationPhrase extends ConjugationPhrase {
-	function accept(ConjugationPhraseVisitor $visitor){
-		$visitor->visitCompositeTense($this);
+	function accept(ConjugationPhraseVisitor $visitor) {
+		$visitor->visitCompositeTense ( $this );
+	}
+	public function __construct($personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe) {
+		$this->personal_pronoun = $personal_pronoun;
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+		$this->participe_passe = $participe_passe;
 	}
 }
 class ImperatifTenseConjugationPhrase extends ConjugationPhrase {
-	function accept(ConjugationPhraseVisitor $visitor){
-		$visitor->visitImperatifTense($this);
+	function accept(ConjugationPhraseVisitor $visitor) {
+		$visitor->visitImperatifTense ( $this );
+	}
+	public function __construct($conjugated_verb) {
+		$this->conjugated_verb = $conjugated_verb;
 	}
 }
 class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
-	function accept(ConjugationPhraseVisitor $visitor){
-		$visitor->visitFuturComposeTense($this);
+	function accept(ConjugationPhraseVisitor $visitor) {
+		$visitor->visitFuturComposeTense ( $this );
+	}
+	public function __construct($personal_pronoun, $verb) {
+		$this->personal_pronoun = $personal_pronoun;
+		$this->verb = $verb;
 	}
 }
 
