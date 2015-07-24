@@ -411,6 +411,22 @@ function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in jâ
 		return "{$m[1]}jâ€™$verb";
 	return "$pronoun $verb";
 }
+
+abstract class ConjugationPhrase {
+	abstract function accept(ConjugationPhraseVisitor $visitor) 
+	;
+}
+abstract class ConjugationPhraseVisitor {
+}
+class SimpleTenseConjugationPhrase {
+}
+class CompositeTenseConjugationPhrase {
+}
+class ImperatifConjugationPhrase {
+}
+class FuturComposeConjugationPhrase {
+}
+
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$personal_pronoun = personal_pronoun ( $person, $mood );
 	if (isComposite ( $mood, $tense )) {
@@ -431,6 +447,5 @@ function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 		return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb );
 	}
 }
-
 $variable = conjugate ( 'aimer', new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ) );
 ?>
