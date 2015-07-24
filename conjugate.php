@@ -499,7 +499,8 @@ class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
 abstract class ConjugationPhraseVisitor {
 	abstract function visitSimpleTense(SimpleTenseConjugationPhrase $visitee);
 	abstract function visitCompositeTense(CompositeTenseConjugationPhrase $visitee);
-	abstract function visitImperatifTense(ImperatifTenseConjugationPhrase $visitee);
+	abstract function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee);
+	abstract function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee);
 	abstract function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee);
 }
 
