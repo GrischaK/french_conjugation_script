@@ -425,7 +425,10 @@ class SimpleTenseConjugationPhrase extends ConjugationPhrase {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_verb = $conjugated_verb;
 	}
-}
+	static function create($verb, Person $person, Tense $tense, Mood $mood){
+
+	}
+}	
 class CompositeTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
 		$visitor->visitCompositeTense ( $this );
