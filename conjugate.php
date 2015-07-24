@@ -418,7 +418,7 @@ abstract class ConjugationPhrase {
 
 class SimpleTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor){
-		 
+		$visitor->visitCompositeTense($this);
 	}
 }
 class CompositeTenseConjugationPhrase extends ConjugationPhrase {
