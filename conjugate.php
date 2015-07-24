@@ -416,18 +416,30 @@ abstract class ConjugationPhrase {
 	abstract function accept(ConjugationPhraseVisitor $visitor);
 }
 abstract class ConjugationPhraseVisitor {
-	abstract function visitSimpleTense(SimpleTenseConjugationPhrase  $visitee);
-	abstract function visitCompositeTense(CompositeTenseConjugationPhrase  $visitee);
-	abstract function visitImperatifTense(ImperatifTenseConjugationPhrase  $visitee);
-	abstract function visitFuturComposeTense(FuturComposeTenseConjugationPhrase  $visitee);
+	abstract function visitSimpleTense(SimpleTenseConjugationPhrase $visitee);
+	abstract function visitCompositeTense(CompositeTenseConjugationPhrase $visitee);
+	abstract function visitImperatifTense(ImperatifTenseConjugationPhrase $visitee);
+	abstract function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee);
 }
 class SimpleTenseConjugationPhrase extends ConjugationPhrase {
+	 function accept(ConjugationPhraseVisitor $visitor){
+	 	
+	 }
 }
 class CompositeTenseConjugationPhrase extends ConjugationPhrase {
+	 function accept(ConjugationPhraseVisitor $visitor){
+	 	
+	 }
 }
-class ImperatifTenseConjugationPhrase extends ConjugationPhrase{
+class ImperatifTenseConjugationPhrase extends ConjugationPhrase {
+	 function accept(ConjugationPhraseVisitor $visitor){
+	 	
+	 }
 }
-class FuturComposeTenseConjugationPhrase extends ConjugationPhrase{
+class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
+	 function accept(ConjugationPhraseVisitor $visitor){
+	 	
+	 }
 }
 
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
