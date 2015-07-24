@@ -417,10 +417,9 @@ abstract class ConjugationPhrase {
 }
 class SimpleTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
-		$visitor->visitSimpleTense ( $this );
+		return $visitor->visitSimpleTense ( $this );
 	}
-	public $personal_pronoun;
-	public $conjugated_verb;
+	public $personal_pronoun, $conjugated_verb;
 	public function __construct($personal_pronoun, $conjugated_verb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_verb = $conjugated_verb;
@@ -453,11 +452,9 @@ class SimpleTenseConjugationPhrase extends ConjugationPhrase {
 }	
 class CompositeTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
-		$visitor->visitCompositeTense ( $this );
+	return $visitor->visitCompositeTense ( $this );
 	}
-	public $personal_pronoun;
-	public $conjugated_auxiliaire_verb;
-	public $participe_passe;
+	public $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe;
 	public function __construct($personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
@@ -466,7 +463,7 @@ class CompositeTenseConjugationPhrase extends ConjugationPhrase {
 }
 class ImperatifPresentTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
-		$visitor->visitImperatifPresentTense ( $this );
+		return $visitor->visitImperatifPresentTense ( $this );
 	}
 	public $conjugated_verb;
 	public function __construct($conjugated_verb) {
@@ -475,7 +472,7 @@ class ImperatifPresentTenseConjugationPhrase extends ConjugationPhrase {
 }
 class ImperatifPasseTenseConjugationPhrase extends ConjugationPhrase { 
 	function accept(ConjugationPhraseVisitor $visitor) {
-		$visitor->visitImperatifPasseTense ( $this );
+		return $visitor->visitImperatifPasseTense ( $this );
 	}
 	public $conjugated_auxiliaire_verb, $participe_passe;
 	public function __construct($conjugated_auxiliaire_verb, $participe_passe) {
@@ -485,7 +482,7 @@ class ImperatifPasseTenseConjugationPhrase extends ConjugationPhrase {
 }
 class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
-		$visitor->visitFuturComposeTense ( $this );
+		return $visitor->visitFuturComposeTense ( $this );
 	}
 	public $personal_pronoun;
 	public $verb;	
