@@ -409,7 +409,7 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal
 	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags ( $verb ) ))
 		return "{$m[1]}j’$verb";
-	return "$pronoun $verb";
+	return '<td>'."$pronoun'</td> <td>'$verb".'</td>';
 }
 
 abstract class ConjugationPhrase {
