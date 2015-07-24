@@ -412,7 +412,7 @@ function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in jâ
 	return "$pronoun $verb";
 }
 
-abstract class ConjugationPhrase {
+abstract class ConjugationPhrase extends ConjugatedPhraseCases{
 	abstract function accept(ConjugationPhraseVisitor $visitor) 
 	;
 }
