@@ -425,8 +425,30 @@ class SimpleTenseConjugationPhrase extends ConjugationPhrase {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_verb = $conjugated_verb;
 	}
-	static function create($verb, Person $person, Tense $tense, Mood $mood){
-
+	static function create($verb, Person $person, Tense $tense, Mood $mood) {
+		$personal_pronoun = personal_pronoun ( $person, $mood );
+		if (isComposite ( $mood, $tense )) {
+			$participe_passe = finding_participle ( $verb, $person );
+			$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $verb ), $person, $tense, $mood );
+			if ($mood->getValue () === Mood::Imperatif) {
+				//return $conjugated_auxiliaire_verb . ' ' . $participe_passe;
+				return new ImperatifPasseConjugationPhrase($conjugated_auxiliaire_verb,$participe_passe);
+			}
+			if ($tense->getValue () === Tense::Futur_compose) {
+				//return $personal_pronoun . ' ' . $conjugated_auxiliaire_verb . ' ' . $verb;
+				return new FuturComposeTenseConjugationPhrase($personal_pronoun,$conjugated_auxiliaire_verb, $verb);
+			}
+			//return concatenate_apostrophized ( $personal_pronoun, $conjugated_auxiliaire_verb ) . ' ' . $participe_passe;
+			return new CompositeTenseConjugationPhrase($personal_pronoun,$conjugated_auxiliaire_verb, $participe_passe); // concatenate_apostrophized?
+		} else {
+			$conjugated_verb = conjugate ( $verb, $person, $tense, $mood );
+			if ($mood->getValue () === Mood::Imperatif) {
+				//return $conjugated_verb;
+				 return new ImperatifPresentConjugationPhrase($conjugated_verb);
+			}
+			//return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb ); 
+			return new SimpleTenseConjugationPhrase($personal_pronoun,$conjugated_verb);
+		}
 	}
 }	
 class CompositeTenseConjugationPhrase extends ConjugationPhrase {
@@ -442,13 +464,23 @@ class CompositeTenseConjugationPhrase extends ConjugationPhrase {
 		$this->participe_passe = $participe_passe;
 	}
 }
-class ImperatifTenseConjugationPhrase extends ConjugationPhrase {
+class ImperatifPresentTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
-		$visitor->visitImperatifTense ( $this );
+		$visitor->visitImperatifPresentTense ( $this );
 	}
 	public $conjugated_verb;
 	public function __construct($conjugated_verb) {
 		$this->conjugated_verb = $conjugated_verb;
+	}
+}
+class ImperatifPasseTenseConjugationPhrase extends ConjugationPhrase { 
+	function accept(ConjugationPhraseVisitor $visitor) {
+		$visitor->visitImperatifPasseTense ( $this );
+	}
+	public $conjugated_auxiliaire_verb, $participe_passe;
+	public function __construct($conjugated_auxiliaire_verb, $participe_passe) {
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+		$this->participe_passe = $participe_passe;
 	}
 }
 class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
@@ -478,14 +510,16 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
 		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb). $visitee->participe_passe ;
 	}
-	function visitImperatifTense(ImperatifTenseConjugationPhrase $visitee) {
-		return $visitee->conjugated_verb;		
+	function visitImperatifPresentTense(ImperatifTenseConjugationPhrase $visitee) {
+		return $visitee->conjugated_verb;
 	}
+	function visitImperatifPasseTense(ImperatifTenseConjugationPhrase $visitee) {
+		return $visitee->conjugated_auxiliaire_verb. $visitee->participe_passe;
+	}	
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb). $visitee->verb;		
+		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb). $visitee->verb;
 	}
 }
-
 
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$personal_pronoun = personal_pronoun ( $person, $mood );
