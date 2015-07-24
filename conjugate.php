@@ -428,17 +428,17 @@ class SimpleTenseConjugationPhrase extends ConjugationPhrase {
 }
 class CompositeTenseConjugationPhrase extends ConjugationPhrase {
 	 function accept(ConjugationPhraseVisitor $visitor){
-	 	
+	 	$visitor->visitCompositeTense($this);	 	
 	 }
 }
 class ImperatifTenseConjugationPhrase extends ConjugationPhrase {
 	 function accept(ConjugationPhraseVisitor $visitor){
-	 	
+	 	$visitor->visitImperatifTense($this);	 	
 	 }
 }
 class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
 	 function accept(ConjugationPhraseVisitor $visitor){
-	 	
+	 	$visitor->visitFuturComposeTense($this);	 	
 	 }
 }
 
