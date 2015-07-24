@@ -504,16 +504,16 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb );
 	}
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . $visitee->participe_passe;
+		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb )  . ' ' . $visitee->participe_passe;
 	}
 	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
 		return $visitee->conjugated_verb;
 	}
 	function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee) {
-		return $visitee->conjugated_auxiliaire_verb . $visitee->participe_passe;
+		return $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->participe_passe;
 	}
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . $visitee->conjugated_auxiliaire_verb . $visitee->verb;
+		return $visitee->personal_pronoun  . ' ' . $visitee->conjugated_auxiliaire_verb  . ' ' . $visitee->verb;
 	}
 }
 
