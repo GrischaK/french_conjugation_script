@@ -419,6 +419,8 @@ class SimpleTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
 		$visitor->visitSimpleTense ( $this );
 	}
+	public $personal_pronoun;
+	public $conjugated_verb;
 	public function __construct($personal_pronoun, $conjugated_verb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_verb = $conjugated_verb;
@@ -428,6 +430,9 @@ class CompositeTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
 		$visitor->visitCompositeTense ( $this );
 	}
+	public $personal_pronoun;
+	public $conjugated_auxiliaire_verb;
+	public $participe_passe;
 	public function __construct($personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
@@ -438,6 +443,7 @@ class ImperatifTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
 		$visitor->visitImperatifTense ( $this );
 	}
+	public $conjugated_verb;
 	public function __construct($conjugated_verb) {
 		$this->conjugated_verb = $conjugated_verb;
 	}
@@ -446,8 +452,11 @@ class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
 		$visitor->visitFuturComposeTense ( $this );
 	}
-	public function __construct($personal_pronoun, $verb) {
+	public $personal_pronoun;
+	public $verb;	
+	public function __construct($personal_pronoun, $conjugated_auxiliaire_verb, $verb) {
 		$this->personal_pronoun = $personal_pronoun;
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->verb = $verb;
 	}
 }
