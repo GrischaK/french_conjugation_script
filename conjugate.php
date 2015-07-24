@@ -412,7 +412,7 @@ function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in jâ
 	return "$pronoun $verb";
 }
 
-abstract class ConjugationPhrase extends ConjugatedPhraseCases {
+abstract class ConjugationPhrase {
 	abstract function accept(ConjugationPhraseVisitor $visitor);
 }
 abstract class ConjugationPhraseVisitor {
@@ -421,13 +421,13 @@ abstract class ConjugationPhraseVisitor {
 	abstract function visitImperatifTense(ImperatifTenseConjugationPhrase  $visitee);
 	abstract function visitFuturComposeTense(FuturComposeTenseConjugationPhrase  $visitee);
 }
-class SimpleTenseConjugationPhrase {
+class SimpleTenseConjugationPhrase extends ConjugationPhrase {
 }
-class CompositeTenseConjugationPhrase {
+class CompositeTenseConjugationPhrase extends ConjugationPhrase {
 }
-class ImperatifTenseConjugationPhrase {
+class ImperatifTenseConjugationPhrase extends ConjugationPhrase{
 }
-class FuturComposeTenseConjugationPhrase {
+class FuturComposeTenseConjugationPhrase extends ConjugationPhrase{
 }
 
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
