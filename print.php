@@ -150,7 +150,10 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 			) 
 	);
 	foreach ( $persons [$mood->getValue ()] [$tense->getValue ()] as $person ) {
-		$output = conjugation_phrase ( $verb, new Person ( $person ), $tense, $mood );
+		//$output = conjugation_phrase ( $verb, new Person ( $person ), $tense, $mood );
+		$conjugationPhrase = ConjugationPhrase::create($verb, $person, $tense, $mood);
+		$ttsVisitor = new GoogleTTSConjugationPhraseVisitor();
+		$output = $conjugationPhrase->accept($ttsVisitor);
 		echo '<tr><td><span data-text="' . $output . '" data-lang="fr" class="trigger_play"></span></td>';
 		echo '<td>' . $output . '</td></tr>' . PHP_EOL;
 	}   

@@ -414,16 +414,7 @@ function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in jâ
 
 abstract class ConjugationPhrase {
 	abstract function accept(ConjugationPhraseVisitor $visitor);
-}
-class SimpleTenseConjugationPhrase extends ConjugationPhrase {
-	function accept(ConjugationPhraseVisitor $visitor) {
-		return $visitor->visitSimpleTense ( $this );
-	}
-	public $personal_pronoun, $conjugated_verb;
-	public function __construct($personal_pronoun, $conjugated_verb) {
-		$this->personal_pronoun = $personal_pronoun;
-		$this->conjugated_verb = $conjugated_verb;
-	}
+
 	static function create($verb, Person $person, Tense $tense, Mood $mood) {
 		$personal_pronoun = personal_pronoun ( $person, $mood );
 		if (isComposite ( $mood, $tense )) {
@@ -443,11 +434,21 @@ class SimpleTenseConjugationPhrase extends ConjugationPhrase {
 			$conjugated_verb = conjugate ( $verb, $person, $tense, $mood );
 			if ($mood->getValue () === Mood::Imperatif) {
 				//return $conjugated_verb;
-				 return new ImperatifPresentConjugationPhrase($conjugated_verb);
+				return new ImperatifPresentConjugationPhrase($conjugated_verb);
 			}
-			//return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb ); 
+			//return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb );
 			return new SimpleTenseConjugationPhrase($personal_pronoun,$conjugated_verb);
 		}
+	}
+}
+class SimpleTenseConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor) {
+		return $visitor->visitSimpleTense ( $this );
+	}
+	public $personal_pronoun, $conjugated_verb;
+	public function __construct($personal_pronoun, $conjugated_verb) {
+		$this->personal_pronoun = $personal_pronoun;
+		$this->conjugated_verb = $conjugated_verb;
 	}
 }	
 class CompositeTenseConjugationPhrase extends ConjugationPhrase {
