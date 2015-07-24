@@ -511,10 +511,10 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
 		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb). $visitee->participe_passe ;
 	}
-	function visitImperatifPresentTense(ImperatifTenseConjugationPhrase $visitee) {
+	function visitImperatifPresentTense(ImperatifTensePresentConjugationPhrase $visitee) {
 		return $visitee->conjugated_verb;
 	}
-	function visitImperatifPasseTense(ImperatifTenseConjugationPhrase $visitee) {
+	function visitImperatifPasseTense(ImperatifTensePasseConjugationPhrase $visitee) {
 		return $visitee->conjugated_auxiliaire_verb. $visitee->participe_passe;
 	}	
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
