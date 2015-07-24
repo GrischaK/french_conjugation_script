@@ -422,7 +422,7 @@ abstract class ConjugationPhrase {
 			$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $verb ), $person, $tense, $mood );
 			if ($mood->getValue () === Mood::Imperatif) {
 				//return $conjugated_auxiliaire_verb . ' ' . $participe_passe;
-				return new ImperatifPasseConjugationPhrase($conjugated_auxiliaire_verb,$participe_passe);
+				return new ImperatifPasseTenseConjugationPhrase($conjugated_auxiliaire_verb,$participe_passe);
 			}
 			if ($tense->getValue () === Tense::Futur_compose) {
 				//return $personal_pronoun . ' ' . $conjugated_auxiliaire_verb . ' ' . $verb;
@@ -434,7 +434,7 @@ abstract class ConjugationPhrase {
 			$conjugated_verb = conjugate ( $verb, $person, $tense, $mood );
 			if ($mood->getValue () === Mood::Imperatif) {
 				//return $conjugated_verb;
-				return new ImperatifPresentConjugationPhrase($conjugated_verb);
+				return new ImperatifPresentTenseConjugationPhrase($conjugated_verb);
 			}
 			//return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb );
 			return new SimpleTenseConjugationPhrase($personal_pronoun,$conjugated_verb);
