@@ -473,10 +473,13 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb );
 	}
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
+		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb). $visitee->participe_passe ;
 	}
 	function visitImperatifTense(ImperatifTenseConjugationPhrase $visitee) {
+		return $visitee->conjugated_verb;		
 	}
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
+		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb). $visitee->verb;		
 	}
 }
 
