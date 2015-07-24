@@ -415,32 +415,46 @@ function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in jâ
 abstract class ConjugationPhrase {
 	abstract function accept(ConjugationPhraseVisitor $visitor);
 }
+
+class SimpleTenseConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor){
+		 
+	}
+}
+class CompositeTenseConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor){
+		$visitor->visitCompositeTense($this);
+	}
+}
+class ImperatifTenseConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor){
+		$visitor->visitImperatifTense($this);
+	}
+}
+class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor){
+		$visitor->visitFuturComposeTense($this);
+	}
+}
+
 abstract class ConjugationPhraseVisitor {
 	abstract function visitSimpleTense(SimpleTenseConjugationPhrase $visitee);
 	abstract function visitCompositeTense(CompositeTenseConjugationPhrase $visitee);
 	abstract function visitImperatifTense(ImperatifTenseConjugationPhrase $visitee);
 	abstract function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee);
 }
-class SimpleTenseConjugationPhrase extends ConjugationPhrase {
-	 function accept(ConjugationPhraseVisitor $visitor){
-	 	
-	 }
+
+class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
+	function visitSimpleTense(SimpleTenseConjugationPhrase $visitee) {
+	}
+	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
+	}
+	function visitImperatifTense(ImperatifTenseConjugationPhrase $visitee) {
+	}
+	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
+	}
 }
-class CompositeTenseConjugationPhrase extends ConjugationPhrase {
-	 function accept(ConjugationPhraseVisitor $visitor){
-	 	$visitor->visitCompositeTense($this);	 	
-	 }
-}
-class ImperatifTenseConjugationPhrase extends ConjugationPhrase {
-	 function accept(ConjugationPhraseVisitor $visitor){
-	 	$visitor->visitImperatifTense($this);	 	
-	 }
-}
-class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
-	 function accept(ConjugationPhraseVisitor $visitor){
-	 	$visitor->visitFuturComposeTense($this);	 	
-	 }
-}
+
 
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$personal_pronoun = personal_pronoun ( $person, $mood );
