@@ -5,8 +5,8 @@ require_once 'print.php';
  * - <br><br> after a mood
  * - colspan="number" number = count tds
  */
-class PrintTest extends PHPUnit_Framework_TestCase {
-	public function testPrintAimer() {
+class PrintNewTest extends PHPUnit_Framework_TestCase {
+	public function testPrintNewAimer() {
 		$this->expectOutputString ( '<h2 class="home">
 		<a id="indicatif"></a>Indicatif
 	</h2>
