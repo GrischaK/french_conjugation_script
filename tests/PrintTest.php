@@ -3,7 +3,8 @@ require_once 'conjugate.php';
 require_once 'print.php';
 class PrintTest extends PHPUnit_Framework_TestCase {
 	public function testPrintAimer() {
-		$this->expectOutputString ( '<h2 class="home"><a id="indicatif"></a>Indicatif</h2>
+		$this->expectOutputString ( '<hr class="linie">
+<h2 class="home"><a id="indicatif"></a>Indicatif</h2>
 <table>
 <tr class="border"><th>Présent</th></tr>
 <tr><td><span data-text="j’aime" data-lang="fr" class="trigger_play"></span></td><td>j’aime</td></tr>
@@ -83,6 +84,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 </table>
 
 <h2 class="home"><a id="subjonctif"></a>Subjonctif</h2>
+<hr class="linie">
 <table>
 <tr class="border"><th>Présent</th></tr>
 <tr><td><span data-text="que j’aime" data-lang="fr" class="trigger_play"></span></td><td>que j’aime</td></tr>
@@ -122,6 +124,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 </table>
 
 <h2 class="home"><a id="conditionnel"></a>Conditionnel</h2>
+<hr class="linie">
 <table>
 <tr class="border"><th>Présent</th></tr>
 <tr><td><span data-text="j’aimerais" data-lang="fr" class="trigger_play"></span></td><td>j’aimerais</td></tr>
@@ -153,6 +156,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 </table>
 
 <h2 class="home"><a id="imperatif"></a>Imperatif</h2>
+<hr class="linie">
 <table>
 <tr class="border"><th>Présent</th></tr>
 <tr><td><span data-text="aime" data-lang="fr" class="trigger_play"></span></td><td>aime</td></tr>
