@@ -1,5 +1,4 @@
 <?php
-<?php
 require_once 'conjugate.php';
 require_once 'printNew.php';
 /*
