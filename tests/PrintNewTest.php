@@ -678,7 +678,7 @@ class PrintNewTest extends PHPUnit_Framework_TestCase {
 	</table>
 
 ' );
-		print_conjugations_of_verbNew ( 'aimer' );
+		print_conjugations_of_verb ( 'aimer' );
 	}
 }
 ?>
