@@ -1,6 +1,6 @@
 <?php
 require_once 'conjugate.php';
-require_once 'print.php';
+require_once 'printNew.php';
 /*
  * - <br><br> after a mood
  * - colspan="number" number = count tds
@@ -145,7 +145,6 @@ class PrintNewTest extends PHPUnit_Framework_TestCase {
 			<td class="text-left">aimeront</td>
 		</tr>
 	</table>
-
 	<table class="tab">
 		<tr class="border">
 			<th colspan="number">Passé composé</th>
@@ -345,8 +344,6 @@ class PrintNewTest extends PHPUnit_Framework_TestCase {
 			<td>aimer</td>
 		</tr>
 	</table>
-	<br>
-	<br>
 	<h2 class="home">
 		<a id="subjonctif"></a>Subjonctif
 	</h2>
@@ -499,8 +496,6 @@ class PrintNewTest extends PHPUnit_Framework_TestCase {
 			<td>aimé</td>
 		</tr>
 	</table>
-	<br>
-	<br>
 	<h2 class="home">
 		<a id="conditionnel"></a>Conditionnel
 	</h2>
@@ -620,8 +615,6 @@ class PrintNewTest extends PHPUnit_Framework_TestCase {
 			<td>aimé</td>
 		</tr>
 	</table>
-	<br>
-	<br>
 	<h2 class="home">
 		<a id="imperatif"></a>Impératif
 	</h2>
@@ -663,9 +656,6 @@ class PrintNewTest extends PHPUnit_Framework_TestCase {
 			<td>aimé</td>
 		</tr>
 	</table>
-	<br>
-	<br>
-
 	<table class="tab">
 		<tr>
 			<td>aimer</td>
