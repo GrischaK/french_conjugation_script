@@ -17,7 +17,7 @@ class 	OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return "\t\t\t".'<td "text-right text-muted">'. $visitee->personal_pronoun .'</td>' . PHP_EOL."\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb  .'</td> <td>' . $visitee->verb.'</td>';
 	}
 }
-function print_persons($verb, Tense $tense, Mood $mood) {
+function print_personsNew($verb, Tense $tense, Mood $mood) {
 	$persons = array (
 			Mood::Indicatif => array (
 					Tense::Present => array (
@@ -181,7 +181,7 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 		echo "\t\t".'</tr>' . PHP_EOL;		
 	}   
 }
-function print_tenses($verb, Mood $mood, $tenses) {
+function print_tensesNew($verb, Mood $mood, $tenses) {
 	$th_of_tense = array (
 			Tense::Present =>'Présent',
 			Tense::Imparfait =>'Imparfait',
@@ -198,11 +198,11 @@ function print_tenses($verb, Mood $mood, $tenses) {
 	foreach ( $tenses [$mood->getValue ()] as $tense ) {
 		echo "\t\t".'<tr class="border">' . PHP_EOL;
 		echo "\t\t\t".'<th colspan="number">'.$th_of_tense[$tense].'</th></tr>' . PHP_EOL;
-		print_persons ( $verb, new Tense ( $tense ), new Mood ( $mood ) );
+		print_personsNew ( $verb, new Tense ( $tense ), new Mood ( $mood ) );
 		echo PHP_EOL;
 	}
 }
-function print_simple_tenses($verb, Mood $mood) {
+function print_simple_tensesNew($verb, Mood $mood) {
 	$tenses = array (
 			Mood::Indicatif => array (
 					Tense::Present,
@@ -221,9 +221,9 @@ function print_simple_tenses($verb, Mood $mood) {
 					Tense::Present 
 			) 
 	);
-	print_tenses ( $verb, $mood, $tenses );
+	print_tensesNew ( $verb, $mood, $tenses );
 }
-function print_composite_tenses($verb, Mood $mood) {
+function print_composite_tensesNew($verb, Mood $mood) {
 	$tenses = array (
 			Mood::Indicatif => array (
 					Tense::Passe_compose,
@@ -244,9 +244,9 @@ function print_composite_tenses($verb, Mood $mood) {
 					Tense::Passe 
 			) 
 	);
-	print_tenses ( $verb, $mood, $tenses );
+	print_tensesNew ( $verb, $mood, $tenses );
 }
-function print_modes($verb) {
+function print_modesNew($verb) {
 	$tenses = array (
 			Tense::Present,
 			Tense::Passe 
@@ -264,7 +264,7 @@ function print_modes($verb) {
 		}
 	}
 }
-function print_conjugations_of_verb($verb) {
+function print_conjugations_of_verbNew($verb) {
 	$moods = array (
 			Mood::Indicatif,
 			Mood::Subjonctif,
@@ -281,14 +281,14 @@ function print_conjugations_of_verb($verb) {
 		echo "\t".'<hr class="linie">' . PHP_EOL;
 		echo "\t".'<h2 class="home"><a id="'.strtolower($h2_of_mood[$mood]).'"></a>'.$h2_of_mood[$mood].'</h2>' . PHP_EOL;
 		echo "\t".'<table class="tab">' . PHP_EOL;		
-		print_simple_tenses ( $verb, new Mood ( $mood ) );
+		print_simple_tensesNew ( $verb, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 		echo "\t".'<table class="tab">' . PHP_EOL;		
-		print_composite_tenses ( $verb, new Mood ( $mood ) );
+		print_composite_tensesNew ( $verb, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 	}
 	echo "\t".'<table class="tab">' . PHP_EOL;
-	print_modes ( $verb );
+	print_modesNew ( $verb );
 	echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 }
 ?>
