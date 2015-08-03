@@ -150,30 +150,10 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 			) 
 	);
 	foreach ( $persons [$mood->getValue ()] [$tense->getValue ()] as $person ) {
-		//$output = conjugation_phrase ( $verb, new Person ( $person ), $tense, $mood );
-		$conjugationPhrase = ConjugationPhrase::create($verb, new Person($person), $tense, $mood);
-		$ttsVisitor = new GoogleTTSConjugationPhraseVisitor();
-		$output = $conjugationPhrase->accept($ttsVisitor);
+		$output = conjugation_phrase ( $verb, new Person ( $person ), $tense, $mood );
 		echo '<tr><td><span data-text="' . $output . '" data-lang="fr" class="trigger_play"></span></td>';
 		echo '<td>' . $output . '</td></tr>' . PHP_EOL;
 	}   
-}
-class 	OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
-	function visitSimpleTense(SimpleTenseConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb );
-	}
-	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb )  .' <td>' . $visitee->participe_passe;
-	}
-	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
-		return '<td>'. $visitee->conjugated_verb.'</td>';
-	}
-	function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee) {
-		return '<td>'. $visitee->conjugated_auxiliaire_verb .'</td> <td>' . $visitee->participe_passe.'</td>';
-	}
-	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
-		return '<td>'. $visitee->personal_pronoun .'</td> <td>' . $visitee->conjugated_auxiliaire_verb  .'</td> <td>' . $visitee->verb.'</td>';
-	}
 }
 function print_tenses($verb, Mood $mood, $tenses) {
 	$th_of_tense = array (
