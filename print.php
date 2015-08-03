@@ -253,6 +253,7 @@ function print_conjugations_of_verb($verb) {
 			Mood::Conditionnel =>'Conditionnel',
 			Mood::Imperatif =>'Imperatif',
 	);
+	echo '<xml_tag>' . PHP_EOL;	
 	foreach ( $moods as $mood ) {
 		echo '<h2 class="home"><a id="'.strtolower($h2_of_mood[$mood]).'"></a>'.$h2_of_mood[$mood].'</h2>' . PHP_EOL;
 		echo '<table>' . PHP_EOL;		
@@ -264,6 +265,7 @@ function print_conjugations_of_verb($verb) {
 	}
 	echo '<table>' . PHP_EOL;
 	print_modes ( $verb );
-	echo '</table>' . PHP_EOL . PHP_EOL;
+	echo '</table>' . PHP_EOL;
+	echo '</xml_tag>' . PHP_EOL . PHP_EOL;	
 }
 ?>

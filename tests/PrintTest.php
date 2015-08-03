@@ -3,7 +3,11 @@ require_once 'conjugate.php';
 require_once 'print.php';
 class PrintTest extends PHPUnit_Framework_TestCase {
 	public function testPrintAimer() {
-		$this->expectOutputString ( '<h2 class="home"><a id="indicatif"></a>Indicatif</h2>
+		ob_start();
+		print_conjugations_of_verb ( 'aimer' );
+		$actual_output = ob_get_clean();
+		$this->assertXmlStringEqualsXmlString('<xml_tag>
+<h2 class="home"><a id="indicatif"></a>Indicatif</h2>
 <table>
 <tr class="border"><th>Présent</th></tr>
 <tr><td><span data-text="j’aime" data-lang="fr" class="trigger_play"></span></td><td>j’aime</td></tr>
@@ -177,9 +181,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 <tr><td>aimant</td></tr>
 <tr><td>aimé</td></tr>
 </table>
-
-' );
-		print_conjugations_of_verb ( 'aimer' );
+</xml_tag>', $actual_output);
 	}
 }
 ?>
