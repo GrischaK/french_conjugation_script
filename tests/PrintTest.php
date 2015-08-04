@@ -271,9 +271,18 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		<tr class="border">
 			<th>Présent</th>
 		</tr>
-<tr><td><span data-text="aime" data-lang="fr" class="trigger_play"></span></td><td>aime</td></tr>
-<tr><td><span data-text="aimons" data-lang="fr" class="trigger_play"></span></td><td>aimons</td></tr>
-<tr><td><span data-text="aimez" data-lang="fr" class="trigger_play"></span></td><td>aimez</td></tr>
+	<tr>
+		<td><span data-text="aime" data-lang="fr" class="trigger_play"></span></td>
+		<td>aime</td>
+	</tr>
+	<tr>
+		<td><span data-text="aimons" data-lang="fr" class="trigger_play"></span></td>
+		<td>aimons</td>
+	</tr>
+	<tr>
+		<td><span data-text="aimez" data-lang="fr" class="trigger_play"></span></td>
+		<td>aimez</td>
+	</tr>
 
 	</table>
 
@@ -281,9 +290,18 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		<tr class="border">
 			<th>Passé</th>
 		</tr>
-<tr><td><span data-text="aie aimé" data-lang="fr" class="trigger_play"></span></td><td>aie aimé</td></tr>
-<tr><td><span data-text="ayons aimé" data-lang="fr" class="trigger_play"></span></td><td>ayons aimé</td></tr>
-<tr><td><span data-text="ayez aimé" data-lang="fr" class="trigger_play"></span></td><td>ayez aimé</td></tr>
+	<tr>
+		<td><span data-text="aie aimé" data-lang="fr" class="trigger_play"></span></td>
+		<td>aie aimé</td>
+	</tr>
+	<tr>
+		<td><span data-text="ayons aimé" data-lang="fr" class="trigger_play"></span></td>
+		<td>ayons aimé</td>
+	</tr>
+	<tr>
+		<td><span data-text="ayez aimé" data-lang="fr" class="trigger_play"></span></td>
+		<td>ayez aimé</td>
+	</tr>
 
 	</table>
 
