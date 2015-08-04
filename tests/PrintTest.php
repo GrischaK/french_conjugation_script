@@ -106,7 +106,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 			<td>j’aimerai</td>
 		</tr>
 		<tr>
-			<td><span data-text="tu aimeras" data-lang="fr" class="trigger_play"></span></td
+			<td><span data-text="tu aimeras" data-lang="fr" class="trigger_play"></span></td>
 			<td>tu aimeras</td>
 		</tr>
 		<tr>
@@ -119,7 +119,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="vous aimerez" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous aimerez</td
+			<td>vous aimerez</td>
 		</tr>
 	<tr><td><span data-text="ils aimeront" data-lang="fr" class="trigger_play"></span></td><td>ils aimeront</td>
 	</tr>
