@@ -98,7 +98,9 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 			<td>ils aimèrent</td>
 		</tr>
 
-		<tr class="border"><th>Futur simple (Futur I)</th></tr>
+		<tr class="border">
+			<th>Futur simple (Futur I)</th>
+		</tr>
 		<tr>
 			<td><span data-text="j’aimerai" data-lang="fr" class="trigger_play"></span></td>
 			<td>j’aimerai</td>
