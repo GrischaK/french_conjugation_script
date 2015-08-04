@@ -174,7 +174,9 @@ function print_tenses($verb, Mood $mood, $tenses) {
 			Tense::Deuxieme_Forme =>'Passé deuxième forme'
 	);
 	foreach ( $tenses [$mood->getValue ()] as $tense ) {
-		echo '<tr class="border"><th>'.$th_of_tense[$tense].'</th></tr>' . PHP_EOL;
+		echo "\t\t".'<tr class="border">' . PHP_EOL;
+		echo "\t\t\t".'<th>'.$th_of_tense[$tense].'</th>' . PHP_EOL;
+		echo "\t\t".'</tr>' . PHP_EOL;		
 		print_persons ( $verb, new Tense ( $tense ), new Mood ( $mood ) );
 		echo PHP_EOL;
 	}
