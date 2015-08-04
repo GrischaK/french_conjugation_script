@@ -406,12 +406,16 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 	}
 	return $modes_impersonnels [$tense->getValue ()] [$mode->getValue ()];
 }
-function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal
+function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal FOR OLD TESTS
 	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags ( $verb ) ))
 		return "{$m[1]}j’$verb";
 	return "$pronoun $verb";
 }
-
+function apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal
+	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $verb ))
+		return "{$m[1]}j’";
+	return "$pronoun ";
+}
 abstract class ConjugationPhrase {
 	abstract function accept(ConjugationPhraseVisitor $visitor);
 	static function create($verb, Person $person, Tense $tense, Mood $mood) {
