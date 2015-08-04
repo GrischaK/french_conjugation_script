@@ -257,8 +257,8 @@ function print_conjugations_of_verb($verb) {
 	);
 	foreach ( $moods as $mood ) {
 		echo '<h2 class="home"><a id="'.strtolower($h2_of_mood[$mood]).'"></a>'.$h2_of_mood[$mood].'</h2>' . PHP_EOL;
-		echo "\t".'<hr class="linie">' . PHP_EOL;
-		echo "\t".'<table class="tab">' . PHP_EOL;		
+		echo "\t".'<hr class="linie"><hr />' . PHP_EOL;
+		echo "\t".'<table class="tab">' . PHP_EOL;
 		print_simple_tenses ( $verb, new Mood ( $mood ) );
 		echo '</table>' . PHP_EOL . PHP_EOL;
 		echo '<table>' . PHP_EOL;		
