@@ -5,9 +5,16 @@ require_once 'printNew.php';
  * - <br><br> after a mood
  * - colspan="number" number = count tds
  */
-class PrintNewTest extends PHPUnit_Framework_TestCase {
+function wrapInXMLTag($string) {
+	return '<xml_tag>'.PHP_EOL.$string.PHP_EOL.'</xml_tag>';
+}
+
+class PrintTest extends PHPUnit_Framework_TestCase {	
 	public function testPrintNewAimer() {
-		$this->expectOutputString ( '<h2 class="home">
+		ob_start();
+		print_conjugations_of_verb ( 'aimer' );
+		$actual_output = ob_get_clean();
+		$this->assertXmlStringEqualsXmlString(wrapInXMLTag('<h2 class="home">
 		<a id="indicatif"></a>Indicatif
 	</h2>
 	<hr class="linie">
@@ -675,10 +682,7 @@ class PrintNewTest extends PHPUnit_Framework_TestCase {
 		<tr>
 			<td>aimé</td>
 		</tr>
-	</table>
-
-' );
-		print_conjugations_of_verb ( 'aimer' );
+	</table>'), wrapInXMLTag($actual_output));
 	}
 }
 ?>
