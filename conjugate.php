@@ -505,10 +505,10 @@ abstract class ConjugationPhraseVisitor {
 }
 class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitSimpleTense(SimpleTenseConjugationPhrase $visitee) {
-		return apostrophized ( $visitee->personal_pronoun,$verb).$visitee->conjugated_verb;
+		return apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb).$visitee->conjugated_verb;
 	}
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
-		return apostrophized ( $visitee->personal_pronoun,$verb). $visitee->conjugated_auxiliaire_verb  . ' ' . $visitee->participe_passe;
+		return apostrophized ( $visitee->personal_pronoun,$visitee->conjugated_auxiliaire_verb) .$visitee->conjugated_auxiliaire_verb. ' ' . $visitee->participe_passe;		
 	}
 	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
 		return $visitee->conjugated_verb;
