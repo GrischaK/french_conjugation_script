@@ -406,16 +406,23 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 	}
 	return $modes_impersonnels [$tense->getValue ()] [$mode->getValue ()];
 }
-function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal FOR OLD TESTS
-	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags ( $verb ) ))
-		return "{$m[1]}j’$verb";
-	return "$pronoun $verb";
-}
+
 function apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal
 	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $verb ))
 		return "{$m[1]}j’";
-	return "$pronoun ";
+	return $pronoun;
 }
+
+function isApostrophized($pronoun) {
+	$lastChar = mb_substr($pronoun, -1);
+	return $lastChar === '’';
+}
+
+function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal FOR OLD TESTS
+	$possiblyApostrophizedPronoun = apostrophized ( $pronoun, $verb );
+	return isApostrophized ( $possiblyApostrophizedPronoun ) ? $possiblyApostrophizedPronoun.$verb : "$possiblyApostrophizedPronoun $verb";
+}
+
 abstract class ConjugationPhrase {
 	abstract function accept(ConjugationPhraseVisitor $visitor);
 	static function create($verb, Person $person, Tense $tense, Mood $mood) {
@@ -500,10 +507,10 @@ abstract class ConjugationPhraseVisitor {
 }
 class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitSimpleTense(SimpleTenseConjugationPhrase $visitee) {
-		return apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb).$visitee->conjugated_verb;
+		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb );
 	}
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
-		return apostrophized ( $visitee->personal_pronoun,$visitee->conjugated_auxiliaire_verb) .$visitee->conjugated_auxiliaire_verb. ' ' . $visitee->participe_passe;		
+		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->participe_passe;
 	}
 	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
 		return $visitee->conjugated_verb;
