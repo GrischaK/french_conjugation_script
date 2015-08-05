@@ -406,7 +406,11 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 	}
 	return $modes_impersonnels [$tense->getValue ()] [$mode->getValue ()];
 }
-
+function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal FOR OLD TESTS
+	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', strip_tags ( $verb ) ))
+		return "{$m[1]}j’$verb";
+	return "$pronoun $verb";
+}
 function apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal
 	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $verb ))
 		return "{$m[1]}j’";
@@ -523,13 +527,13 @@ function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 		if ($tense->getValue () === Tense::Futur_compose) {
 			return $personal_pronoun . ' ' . $conjugated_auxiliaire_verb . ' ' . $verb;
 		}
-		return apostrophized ( $personal_pronoun, $conjugated_auxiliaire_verb ) . ' ' . $participe_passe;
+		return concatenate_apostrophized ( $personal_pronoun, $conjugated_auxiliaire_verb ) . ' ' . $participe_passe;
 	} else {
 		$conjugated_verb = conjugate ( $verb, $person, $tense, $mood );
 		if ($mood->getValue () === Mood::Imperatif) {
 			return $conjugated_verb;
 		}
-		return apostrophized ( $personal_pronoun, $conjugated_verb );
+		return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb );
 	}
 }
 $variable = conjugate ( 'aimer', new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ) );
