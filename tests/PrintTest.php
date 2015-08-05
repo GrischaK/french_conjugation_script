@@ -19,33 +19,27 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="j’aime" data-lang="fr" class="trigger_play"></span></td>
-			<td>j’</td>
-			<td>aime</td>
+			<td>j’aime</td>
 		</tr>
 		<tr>
 			<td><span data-text="tu aimes" data-lang="fr" class="trigger_play"></span></td>
-			<td>tu</td>
-			<td>aimes</td>
+			<td>tu aimes</td>
 		</tr>
 		<tr>
 			<td><span data-text="il aime" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>aime</td>
+			<td>il aime</td>
 		</tr>
 		<tr>
 			<td><span data-text="nous aimons" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>aimons</td>
+			<td>nous aimons</td>
 		</tr>
 		<tr>
 			<td><span data-text="vous aimez" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous</td>
-			<td>aimez</td>
+			<td>vous aimez</td>
 		</tr>
 		<tr>
 			<td><span data-text="ils aiment" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>aiment</td>
+			<td>ils aiment</td>
 		</tr>
 
 		<tr class="border">
@@ -53,33 +47,27 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="j’aimais" data-lang="fr" class="trigger_play"></span></td>
-			<td>j’</td>
-			<td>aimais</td>
+			<td>j’aimais</td>
 		</tr>
 		<tr>
 			<td><span data-text="tu aimais" data-lang="fr" class="trigger_play"></span></td>
-			<td>tu</td>
-			<td>aimais</td>
+			<td>tu aimais</td>
 		</tr>
 		<tr>
 			<td><span data-text="il aimait" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>aimait</td>
+			<td>il aimait</td>
 		</tr>
 		<tr>
 			<td><span data-text="nous aimions" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>aimions</td>
+			<td>nous aimions</td>
 		</tr>
 		<tr>
 			<td><span data-text="vous aimiez" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous</td>
-			<td>vaimiez</td>
+			<td>vous aimiez</td>
 		</tr>
 		<tr>
 			<td><span data-text="ils aimaient" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>aimaient</td>
+			<td>ils aimaient</td>
 		</tr>
 
 		<tr class="border">
@@ -87,33 +75,27 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="j’aimai" data-lang="fr" class="trigger_play"></span></td>
-			<td>j’</td>
-			<td>aimai</td>
+			<td>j’aimai</td>
 		</tr>
 		<tr>
 			<td><span data-text="tu aimas" data-lang="fr" class="trigger_play"></span></td>
-			<td>tu</td>
-			<td>aimas</td>
+			<td>tu aimas</td>
 		</tr>
 		<tr>
 			<td><span data-text="il aima" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>aima</td>
+			<td>il aima</td>
 		</tr>
 		<tr>
 			<td><span data-text="nous aimâmes" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>aimâmes</td>
+			<td>nous aimâmes</td>
 		</tr>
 		<tr>
 			<td><span data-text="vous aimâtes" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous</td>
-			<td>aimâtes</td>
+			<td>vous aimâtes</td>
 		</tr>
 		<tr>
 			<td><span data-text="ils aimèrent" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>aimèrent</td>
+			<td>ils aimèrent</td>
 		</tr>
 
 		<tr class="border">
@@ -121,33 +103,27 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="j’aimerai" data-lang="fr" class="trigger_play"></span></td>
-			<td>j’</td>
-			<td>aimerai</td>
+			<td>j’aimerai</td>
 		</tr>
 		<tr>
 			<td><span data-text="tu aimeras" data-lang="fr" class="trigger_play"></span></td>
-			<td>tu</td>
-			<td>aimeras</td>
+			<td>tu aimeras</td>
 		</tr>
 		<tr>
 			<td><span data-text="il aimera" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>aimera</td>
+			<td>il aimera</td>
 		</tr>
 		<tr>
 			<td><span data-text="nous aimerons" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>aimerons</td>
+			<td>nous aimerons</td>
 		</tr>
 		<tr>
 			<td><span data-text="vous aimerez" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous</td>
-			<td>aimerez</td>
+			<td>vous aimerez</td>
 		</tr>
 		<tr>
 			<td><span data-text="ils aimeront" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>aimeront</td>
+			<td>ils aimeront</td>
 		</tr>
 
 	</table>
@@ -158,39 +134,27 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="j’ai aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>j’</td>
-			<td>ai</td>
-			<td>aimé</td>
+			<td>j’ai aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="tu as aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>tu</td>
-			<td>as</td>
-			<td>aimé</td>
+			<td>tu as aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="il a aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>a</td>
-			<td>aimé</td>
+			<td>il a aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="nous avons aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>avons</td>
-			<td>aimé</td>
+			<td>nous avons aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="vous avez aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous</td>
-			<td>avez</td>
-			<td>aimé</td>
+			<td>vous avez aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="ils ont aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>ont</td>
-			<td>aimé</td>
+			<td>ils ont aimé</td>
 		</tr>
 
 		<tr class="border">
@@ -198,39 +162,27 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="j’avais aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>j’</td>
-			<td>avais</td>
-			<td>aimé</td>
+			<td>j’avais aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="tu avais aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>tu</td>
-			<td>avais</td>
-			<td>aimé</td>
+			<td>tu avais aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="il avait aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>avait</td>
-			<td>aimé</td>
+			<td>il avait aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="nous avions aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>avions</td>
-			<td>aimé</td>
+			<td>nous avions aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="vous aviez aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous</td>
-			<td>aviez</td>
-			<td>aimé</td>
+			<td>vous aviez aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="ils avaient aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>avaient</td>
-			<td>aimé</td>
+			<td>ils avaient aimé</td>
 		</tr>
 
 		<tr class="border">
@@ -238,79 +190,55 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="j’eus aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>j’</td>
-			<td>eus</td>
-			<td>aimé</td>
+			<td>j’eus aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="tu eus aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>tu</td>
-			<td>eus</td>
-			<td>aimé</td>
+			<td>tu eus aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="il eut aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>eut</td>
-			<td>aimé</td>
+			<td>il eut aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="nous eûmes aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>eûmes</td>
-			<td>aimé</td>
+			<td>nous eûmes aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="vous eûtes aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous</td>
-			<td>eûtes</td>
-			<td>aimé</td>
+			<td>vous eûtes aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="ils eurent aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>eurent</td>
-			<td>aimé</td>
+			<td>ils eurent aimé</td>
 		</tr>
 
 		<tr class="border">
 			<th>Futur antérieur (Futur II)</th>
 		</tr>
 		<tr>
-			<td><span data-text="j’aurai aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>j’</td>
-			<td>aurai</td>
-			<td>aimé</td>
-		</tr>
+		<td><span data-text="j’aurai aimé" data-lang="fr" class="trigger_play"></span></td>
+		<td>j’aurai aimé</td>
+			</tr>
 		<tr>
 			<td><span data-text="tu auras aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>tu</td>
-			<td>auras</td>
-			<td>aimé</td>
+			<td>tu auras aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="il aura aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>aura</td>
-			<td>aimé</td>
+			<td>il aura aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="nous aurons aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>aurons</td>
-			<td>aimé</td>
+			<td>nous aurons aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="vous aurez aimé" data-lang="fr" class="trigger_play"></span>
-			</td><td>vous</td>
-			<td>aurez</td>
-			<td>aimé</td>
+			</td><td>vous aurez aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="ils auront aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>auront</td>
-			<td>aimé</td>
+			<td>ils auront aimé</td>
 		</tr>
 
 		<tr class="border">
@@ -318,39 +246,27 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="je vais aimer" data-lang="fr" class="trigger_play"></span></td>
-			<td>je</td>
-			<td>vais</td>
-			<td>aimer</td>
+			<td>je vais aimer</td>
 		</tr>
 		<tr>
 			<td><span data-text="tu vas aimer" data-lang="fr" class="trigger_play"></span></td>
-			<td>tu</td>
-			<td>vas</td>
-			<td>aimer</td>
+			<td>tu vas aimer</td>
 		</tr>
 		<tr>
 			<td><span data-text="il va aimer" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>va</td>
-			<td>aimer</td>
+			<td>il va aimer</td>
 		</tr>
 		<tr>
 			<td><span data-text="nous allons aimer" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>allons</td>
-			<td>aimer</td>
+			<td>nous allons aimer</td>
 		</tr>
 		<tr>
 			<td><span data-text="vous allez aimer" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous</td>
-			<td>allez</td>
-			<td>aimer</td>
+			<td>vous allez aimer</td>
 		</tr>
 		<tr>
 			<td><span data-text="ils vont aimer" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>vont</td>
-			<td>aimer</td>
+			<td>ils vont aimer</td>
 		</tr>
 
 	</table>
@@ -363,33 +279,27 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="que j’aime" data-lang="fr" class="trigger_play"></span></td>
-			<td>que j’</td>
-			<td>aime</td>
+			<td>que j’aime</td>
 		</tr>
 		<tr>
 			<td><span data-text="que tu aimes" data-lang="fr" class="trigger_play"></span></td>
-			<td>que tu</td>
-			<td>aimes</td>
+			<td>que tu aimes</td>
 		</tr>
 		<tr>
 			<td><span data-text="qu’il aime" data-lang="fr" class="trigger_play"></span></td>
-			<td>qu’il</td>
-			<td>aime</td>
+			<td>qu’il aime</td>
 		</tr>
 		<tr>
 			<td><span data-text="que nous aimions" data-lang="fr" class="trigger_play"></span></td>
-			<td>que nous</td>
-			<td>aimions</td>
+			<td>que nous aimions</td>
 		</tr>
 		<tr>
 			<td><span data-text="que vous aimiez" data-lang="fr" class="trigger_play"></span></td>
-			<td>que vous</td>
-			<td>aimiez</td>
+			<td>que vous aimiez</td>
 		</tr>
 		<tr>
 			<td><span data-text="qu’ils aiment" data-lang="fr" class="trigger_play"></span></td>
-			<td>qu’ils</td>
-			<td>aiment</td>
+			<td>qu’ils aiment</td>
 		</tr>
 
 		<tr class="border">
@@ -397,33 +307,27 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="que j’aimasse" data-lang="fr" class="trigger_play"></span></td>
-			<td>que j’</td>
-			<td>aimasse</td>
+			<td>que j’aimasse</td>
 		</tr>
 		<tr>
 			<td><span data-text="que tu aimasses" data-lang="fr" class="trigger_play"></span></td>
-			<td>que tu</td>
-			<td>aimasses</td>
+			<td>que tu aimasses</td>
 		</tr>
 		<tr>
 			<td><span data-text="qu’il aimât" data-lang="fr" class="trigger_play"></span></td>
-			<td>qu’il</td>
-			<td>aimât</td>
+			<td>qu’il aimât</td>
 		</tr>
 		<tr>
 			<td><span data-text="que nous aimassions" data-lang="fr" class="trigger_play"></span></td>
-			<td>que nous</td>
-			<td>aimassions</td>
+			<td>que nous aimassions</td>
 		</tr>
 		<tr>
 			<td><span data-text="que vous aimassiez" data-lang="fr" class="trigger_play"></span></td>
-			<td>que vous</td>
-			<td>aimassiez</td>
+			<td>que vous aimassiez</td>
 		</tr>
 		<tr>
 			<td><span data-text="qu’ils aimassent" data-lang="fr" class="trigger_play"></span></td>
-			<td>qu’ils</td>
-			<td>aimassent</td>
+			<td>qu’ils aimassent</td>
 		</tr>
 
 	</table>
@@ -434,38 +338,27 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="que j’aie aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>que j’</td>
-			<td>aie</td>
-			<td>aimé</td>
+			<td>que j’aie aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="que tu aies aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>que tu</td>
-			<td>aies aimé</td>
+			<td>que tu aies aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="qu’il ait aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>qu’il</td>
-			<td>ait</td>
-			<td>aimé</td>
+			<td>qu’il ait aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="que nous ayons aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>que nous</td>
-			<td>ayons</td>
-			<td>aimé</td>
+			<td>que nous ayons aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="que vous ayez aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>que vous</td>
-			<td>ayez</td>
-			<td>aimé</td>
+			<td>que vous ayez aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="qu’ils aient aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>qu’ils</td>
-			<td>aient</td>
-			<td>aimé</td>
+			<td>qu’ils aient aimé</td>
 		</tr>
 
 		<tr class="border">
@@ -473,36 +366,25 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="que j’eusse aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>que j’</td>
-			<td>eusse</td>
-			<td>aimé</td></tr>
+			<td>que j’eusse aimé</td></tr>
 		<tr>
 			<td><span data-text="que tu eusses aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>que tu eusses</td>
-			<td>aimé</td></tr>
+			<td>que tu eusses aimé</td></tr>
 		<tr>
 			<td><span data-text="qu’il eût aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>qu’il</td>
-			<td>eût</td>
-			<td>aimé</td>
+			<td>qu’il eût aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="que nous eussions aimé" data-lang="fr" class="trigger_play"></span></td>
-	 		<td>que nous</td>
-			<td>eussions</td>
-			<td>aimé</td>
+	 		<td>que nous eussions aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="que vous eussiez aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>que vous</td>
-			<td>eussiez</td>
-			<td>aimé</td>
+			<td>que vous eussiez aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="qu’ils eussent aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>qu’ils</td>
-			<td>eussent</td>
-			<td>aimé</td>
+			<td>qu’ils eussent aimé</td>
 		</tr>
 
 	</table>
@@ -515,33 +397,27 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="j’aimerais" data-lang="fr" class="trigger_play"></span></td>
-			<td>j’</td>
-			<td>aimerais</td>
+			<td>j’aimerais</td>
 		</tr>
 		<tr>
 			<td><span data-text="tu aimerais" data-lang="fr" class="trigger_play"></span></td>
-			<td>tu</td>
-			<td>aimerais</td>
+			<td>tu aimerais</td>
 		</tr>
 		<tr>
 			<td><span data-text="il aimerait" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>aimerait</td>
+			<td>il aimerait</td>
 		</tr>
 		<tr>
 			<td><span data-text="nous aimerions" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>aimerions</td>
+			<td>nous aimerions</td>
 		</tr>
 		<tr>
 			<td><span data-text="vous aimeriez" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous</td>
-			<td>aimeriez</td>
+			<td>vous aimeriez</td>
 		</tr>
 		<tr>
 			<td><span data-text="ils aimeraient" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>aimeraient</td>
+			<td>ils aimeraient</td>
 		</tr>
 
 	</table>
@@ -551,50 +427,24 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 			<th>Passé première forme</th>
 		</tr>
 		<tr>
-			<td><span data-text="j’aurais aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>j’</td>
-			<td>aurais</td>
-			<td>aimé</td>
-		</tr>
+			<td><span data-text="j’aurais aimé" data-lang="fr" class="trigger_play"></span></td><td>j’aurais aimé</td></tr>
 		<tr>
-			<td><span data-text="tu aurais aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>tu</td>
-			<td>aurais</td>
-			<td>aimé</td>
-		</tr>
+				<td><span data-text="tu aurais aimé" data-lang="fr" class="trigger_play"></span></td><td>tu aurais aimé</td></tr>
 		<tr>
-			<td><span data-text="il aurait aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>aurait</td>
-			<td>aimé</td>
-		</tr>
+			<td><span data-text="il aurait aimé" data-lang="fr" class="trigger_play"></span></td><td>il aurait aimé</td></tr>
 		<tr>
-			<td><span data-text="nous aurions aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>aurions</td>
-			<td>aimé</td>
-		</tr>
+			<td><span data-text="nous aurions aimé" data-lang="fr" class="trigger_play"></span></td><td>nous aurions aimé</td></tr>
 		<tr>
-			<td><span data-text="vous auriez aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous</td>
-			<td>auriez</td>
-			<td>aimé</td>
-		</tr>
+			<td><span data-text="vous auriez aimé" data-lang="fr" class="trigger_play"></span></td><td>vous auriez aimé</td></tr>
 		<tr>
-			<td><span data-text="ils auraient aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>auraient</td>
-			<td>aimé</td>
-		</tr>
+			<td><span data-text="ils auraient aimé" data-lang="fr" class="trigger_play"></span></td><td>ils auraient aimé</td></tr>
 
 		<tr class="border">
 			<th>Passé deuxième forme</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’eusse aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>j’</td>
-			<td>eusse</td>
-			<td>aimé</td>
+			<td>j’eusse aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="tu eusses aimé" data-lang="fr" class="trigger_play"></span></td>
@@ -602,26 +452,19 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="il eût aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>il</td>
-			<td>eût</td>
-			<td>aimé</td>
+			<td>il eût aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="nous eussions aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>nous</td>
-			<td>eussions</td>
-			<td>aimé</td>
+			<td>nous eussions aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="vous eussiez aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>vous eussiez</td>
-			<td>aimé</td>
+			<td>vous eussiez aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="ils eussent aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
-			<td>eussent</td>
-			<td>aimé</td>
+			<td>ils eussent aimé</td>
 		</tr>
 
 	</table>
@@ -653,18 +496,15 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="aie aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>aie</td>
-			<td>aimé</td>
+			<td>aie aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="ayons aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>ayons</td>
-			<td>aimé</td>
+			<td>ayons aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="ayez aimé" data-lang="fr" class="trigger_play"></span></td>
-			<td>ayez</td>
-			<td>aimé</td>
+			<td>ayez aimé</td>
 		</tr>
 
 	</table>
