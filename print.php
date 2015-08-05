@@ -165,16 +165,16 @@ class 	OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb );
 	}
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
-		return apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb )  .' <td>' . $visitee->participe_passe.'</td>';
+		return apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb )  .'' . PHP_EOL. '<td>' . $visitee->participe_passe.'</td>';
 	}
 	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
 		return '<td>'. $visitee->conjugated_verb.'</td>';
 	}
 	function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee) {
-		return '<td>'. $visitee->conjugated_auxiliaire_verb .'</td> <td>' . $visitee->participe_passe.'</td>';
+		return '<td>'. $visitee->conjugated_auxiliaire_verb .'</td>' . PHP_EOL. '<td>' . $visitee->participe_passe.'</td>';
 	}
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
-		return '<td class="text-right text-muted">'. $visitee->personal_pronoun .'</td> <td>' . $visitee->conjugated_auxiliaire_verb  .'</td> <td>' . $visitee->verb.'</td>';
+		return '<td class="text-right text-muted">'. $visitee->personal_pronoun .'</td>' . PHP_EOL. '<td>' . $visitee->conjugated_auxiliaire_verb  .'</td>' . PHP_EOL. '<td>' . $visitee->verb.'</td>';
 	}
 }
 function print_tenses($verb, Mood $mood, $tenses) {
