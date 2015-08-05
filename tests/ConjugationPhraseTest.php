@@ -33,12 +33,12 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Passe_compose',
 						'ThirdPersonPlural',
 						'Indicatif'
-				),											
+				),
 				array (
 						'j’aime',
 						'aimer',	
-						'Present',						
-						'FirstPersonSingular',											
+						'Present',
+						'FirstPersonSingular',
 						'Indicatif' 
 				),	
 				array (
@@ -89,7 +89,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Passe',
 						'SecondPersonPlural',
 						'Imperatif'
-				),											
+				),
 				array (
 						'je donne',
 						'donner',
@@ -103,7 +103,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Futur_compose',
 						'FirstPersonSingular',
 						'Indicatif'
-				)				
+				)
 		);		
 	}
 }
