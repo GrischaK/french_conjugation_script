@@ -153,7 +153,9 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 		//$output = conjugation_phrase ( $verb, new Person ( $person ), $tense, $mood );
 		$conjugationPhrase = ConjugationPhrase::create($verb, new Person($person), $tense, $mood);
 		$ttsVisitor = new GoogleTTSConjugationPhraseVisitor();
-		$output = $conjugationPhrase->accept($ttsVisitor);
+		$output = $conjugationPhrase->accept($ttsVisitor);$
+		$tablePrintVisitor = new OutputConjugationPhraseVisitor();
+		$conjugationPhrase->accept($tablePrintVisitor);
 		echo "\t\t".'<tr>' . PHP_EOL;
 		echo "\t\t\t".'<td><span data-text="' . $output . '" data-lang="fr" class="trigger_play"></span></td>' . PHP_EOL;
 		echo "\t\t\t".'<td>' . $output . '</td>' . PHP_EOL;
