@@ -159,12 +159,13 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 		echo "\t\t".'<tr>' . PHP_EOL;
 		echo "\t\t\t".'<td><span data-text="' . $output . '" data-lang="fr" class="trigger_play"></span></td>' . PHP_EOL;
 		echo "\t\t\t" . $output . PHP_EOL;
+		echo $conjugationPhrase->accept($tablePrintVisitor);
 		echo "\t\t".'</tr>' . PHP_EOL;
 	} 
 }
 class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitSimpleTense(SimpleTenseConjugationPhrase $visitee) {
-		return '<td>' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb ) . '</td>'. PHP_EOL.'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
+		return '<td>' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb ) . '</td>' . PHP_EOL . '<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
 	}
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
 		return '<td>' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . PHP_EOL . '<td>' . $visitee->participe_passe . '</td>';
