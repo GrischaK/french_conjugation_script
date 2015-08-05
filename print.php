@@ -158,7 +158,6 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 		$conjugationPhrase->accept($tablePrintVisitor);
 		echo "\t\t".'<tr>' . PHP_EOL;
 		echo "\t\t\t".'<td><span data-text="' . $output . '" data-lang="fr" class="trigger_play"></span></td>' . PHP_EOL;
-		echo "\t\t\t" . $output . PHP_EOL;
 		echo $conjugationPhrase->accept($tablePrintVisitor);
 		echo "\t\t".'</tr>' . PHP_EOL;
 	} 
