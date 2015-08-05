@@ -158,25 +158,25 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 		$conjugationPhrase->accept($tablePrintVisitor);
 		echo "\t\t".'<tr>' . PHP_EOL;
 		echo "\t\t\t".'<td><span data-text="' . $output . '" data-lang="fr" class="trigger_play"></span></td>' . PHP_EOL;
-		echo "\t\t\t".'<td>' . $output . '</td>' . PHP_EOL;
+		echo "\t\t\t" . $output . PHP_EOL;
 		echo "\t\t".'</tr>' . PHP_EOL;
 	} 
 }
-class 	OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
+class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitSimpleTense(SimpleTenseConjugationPhrase $visitee) {
-		return apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb );
+		return '<td>' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb ) . '</td>'. PHP_EOL.'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
 	}
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
-		return apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb )  .'' . PHP_EOL. '<td>' . $visitee->participe_passe.'</td>';
+		return '<td>' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . PHP_EOL . '<td>' . $visitee->participe_passe . '</td>';
 	}
 	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
-		return '<td>'. $visitee->conjugated_verb.'</td>';
+		return '<td>' . $visitee->conjugated_verb . '</td>';
 	}
 	function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee) {
-		return '<td>'. $visitee->conjugated_auxiliaire_verb .'</td>' . PHP_EOL. '<td>' . $visitee->participe_passe.'</td>';
+		return '<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . '<td>' . $visitee->participe_passe . '</td>';
 	}
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
-		return '<td class="text-right text-muted">'. $visitee->personal_pronoun .'</td>' . PHP_EOL. '<td>' . $visitee->conjugated_auxiliaire_verb  .'</td>' . PHP_EOL. '<td>' . $visitee->verb.'</td>';
+		return '<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . '<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . '<td>' . $visitee->verb . '</td>';
 	}
 }
 function print_tenses($verb, Mood $mood, $tenses) {
