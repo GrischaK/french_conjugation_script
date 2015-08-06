@@ -441,7 +441,8 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		<tr>
 			<td><span data-text="que tu aies aimé" data-lang="fr" class="trigger_play"></span></td>
 			<td class="text-right text-muted">que tu</td>
-			<td>aies aimé</td>
+			<td>aies</td>
+			<td>aimé</td>
 		</tr>
 		<tr>
 			<td><span data-text="qu’il ait aimé" data-lang="fr" class="trigger_play"></span></td>
