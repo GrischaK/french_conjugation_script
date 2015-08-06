@@ -348,7 +348,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="ils vont aimer" data-lang="fr" class="trigger_play"></span></td>
-			<td>ils</td>
+			<td class="text-right text-muted">ils</td>
 			<td>vont</td>
 			<td>aimer</td>
 		</tr>
@@ -388,7 +388,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 		<tr>
 			<td><span data-text="qu’ils aiment" data-lang="fr" class="trigger_play"></span></td>
-			<td>qu’ils</td>
+			<td class="text-right text-muted">qu’ils</td>
 			<td>aiment</td>
 		</tr>
 
