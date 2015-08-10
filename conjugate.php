@@ -1,10 +1,10 @@
 <?php
-require_once 'Enum.php';
-require_once 'Tense.php';
-require_once 'Person.php';
-require_once 'Mood.php';
-require_once 'Mode.php';
-require_once 'Auxiliaire.php';
+require_once 'classes/Enum.php';
+require_once 'classes/Tense.php';
+require_once 'classes/Person.php';
+require_once 'classes/Mood.php';
+require_once 'classes/Mode.php';
+require_once 'classes/Auxiliaire.php';
 function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
