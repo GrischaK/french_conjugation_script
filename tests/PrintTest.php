@@ -687,25 +687,17 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		<tr>
 			<td class="text-center"><b>Infinitif</b></td>
 			<td><span data-text="aimer" data-lang="fr" class="trigger_play"></span>aimer</td>
-		</tr>
-		<tr>
-			<td class="text-center"><b>Infinitif</b></td>
+
 			<td><span data-text="avoir aimé" data-lang="fr" class="trigger_play"></span>avoir aimé</td>
 		</tr>
 		<tr>
 			<td class="text-center"><b>Gérondif</b></td>
 			<td><span data-text="en aimant" data-lang="fr" class="trigger_play"></span>en aimant</td>
-		</tr>
-		<tr>
-			<td class="text-center"><b>Gérondif</b></td>
 			<td><span data-text="en ayant aimé" data-lang="fr" class="trigger_play"></span>en ayant aimé</td>
 		</tr>
 		<tr>
 			<td class="text-center"><b>Participe</b></td>
 			<td><span data-text="aimant" data-lang="fr" class="trigger_play"></span>aimant</td>
-		</tr>
-		<tr>
-			<td class="text-center"><b>Participe</b></td>
 			<td><span data-text="aimé" data-lang="fr" class="trigger_play"></span>aimé</td>
 		</tr>
 	</table>'), wrapInXMLTag($actual_output));
