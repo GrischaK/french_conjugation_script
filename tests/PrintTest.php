@@ -676,6 +676,8 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 	</table>
 
+<h2 class="home"><a id="modes-impersonnels"></a>Modes impersonnels</h2>
+	<hr class="linie" />
 	<table>
 		<tr>
 			<th class="titel">Mode</th>

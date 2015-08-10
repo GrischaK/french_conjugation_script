@@ -293,6 +293,8 @@ function print_conjugations_of_verb($verb) {
 		print_composite_tenses ( $verb, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 	}
+	echo '<h2 class="home"><a id="modes-impersonnels"></a>Modes impersonnels</h2>' . PHP_EOL;
+	echo "\t".'<hr class="linie" />' . PHP_EOL;	
 	echo "\t".'<table>' . PHP_EOL;
 	print_modes ( $verb );
 	echo "\t".'</table>' . PHP_EOL;
