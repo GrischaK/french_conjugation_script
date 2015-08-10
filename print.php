@@ -255,6 +255,11 @@ function print_modes($verb) {
 			Mode::Gerondif,
 			Mode::Participe 
 	);
+	echo "\t\t".'<tr>';
+	echo "\t\t\t".'<th class="titel">Mode</th>';
+	echo "\t\t\t".'<th class="titel">Présent</th>';
+	echo "\t\t".'<th class="titel">Passé</th>';
+	echo "\t\t".'</tr>';	
 	foreach ( $modes as $mode ) {
 		foreach ( $tenses as $tense ) {
 			echo "\t\t".'<tr>';

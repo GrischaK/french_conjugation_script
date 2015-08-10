@@ -678,6 +678,11 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 	<table>
 		<tr>
+			<th class="titel">Mode</th>
+			<th class="titel">Présent</th>
+			<th class="titel">Passé</th>
+		</tr>
+		<tr>
 			<td>aimer</td>
 		</tr>
 		<tr>
