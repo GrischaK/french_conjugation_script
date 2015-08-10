@@ -212,7 +212,6 @@ function print_tenses($verb, Mood $mood, $tenses) {
 		echo "\t\t\t".'<th colspan="'.colspan_number($mood, new Tense($tense)).'">'.$th_of_tense[$tense].'</th>' . PHP_EOL;
 		echo "\t\t".'</tr>' . PHP_EOL;
 		print_persons ( $verb, new Tense ( $tense ), new Mood ( $mood ) );
-		echo PHP_EOL;
 	}
 }
 function print_simple_tenses($verb, Mood $mood) {
@@ -269,20 +268,19 @@ function print_modes($verb) {
 			Mode::Gerondif =>'Gérondif',
 			Mode::Participe =>'Participe',
 	);
-	echo "\t\t".'<tr>';
-	echo "\t\t\t".'<th class="titel">Mode</th>';
-	echo "\t\t\t".'<th class="titel">Présent</th>';
-	echo "\t\t\t".'<th class="titel">Passé</th>';
-	echo "\t\t".'</tr>';	
+	echo "\t\t".'<tr>' . PHP_EOL;
+	echo "\t\t\t".'<th class="titel">Mode</th>' . PHP_EOL;
+	echo "\t\t\t".'<th class="titel">Présent</th>' . PHP_EOL;
+	echo "\t\t\t".'<th class="titel">Passé</th>' . PHP_EOL;
+	echo "\t\t".'</tr>' . PHP_EOL;
 	foreach ( $modes as $mode => $mode_name ) {
-		echo "\t\t".'<tr>';
-		echo "\t\t\t".'<td class="text-center"><b>'.$mode_name.'</b></td>';
+		echo "\t\t".'<tr>' . PHP_EOL;
+		echo "\t\t\t".'<td class="text-center"><b>'.$mode_name.'</b></td>' . PHP_EOL;
 		foreach ( $tenses as $tense ) {
 			$output_modes = modes_impersonnels ( $verb, finding_auxiliaire ( $verb ), new Mode ( $mode ), new Tense ( $tense ) );
 			echo "\t\t\t".'<td><span data-text="' . $output_modes . '" data-lang="fr" class="trigger_play"></span>' . $output_modes . '</td>' . PHP_EOL;
 		}
-		echo "\t\t".'</tr>';
-		echo PHP_EOL;
+		echo "\t\t".'</tr>' . PHP_EOL;
 	}
 }
 function print_conjugations_of_verb($verb) {

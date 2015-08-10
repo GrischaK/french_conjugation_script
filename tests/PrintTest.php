@@ -149,7 +149,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 			<td class="text-right text-muted">ils</td>
 			<td>aimeront</td>
 		</tr>
-
 	</table>
 
 	<table class="tab">
@@ -352,7 +351,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 			<td>vont</td>
 			<td>aimer</td>
 		</tr>
-
 	</table>
 
 <h2 class="home"><a id="subjonctif"></a>Subjonctif</h2>
@@ -425,7 +423,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 			<td class="text-right text-muted">qu’ils</td>
 			<td>aimassent</td>
 		</tr>
-
 	</table>
 
 	<table class="tab">
@@ -508,7 +505,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 			<td>eussent</td>
 			<td>aimé</td>
 		</tr>
-
 	</table>
 
 <h2 class="home"><a id="conditionnel"></a>Conditionnel</h2>
@@ -547,7 +543,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 			<td class="text-right text-muted">ils</td>
 			<td>aimeraient</td>
 		</tr>
-
 	</table>
 
 	<table class="tab">
@@ -630,7 +625,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 			<td>eussent</td>
 			<td>aimé</td>
 		</tr>
-
 	</table>
 
 <h2 class="home"><a id="imperatif"></a>Imperatif</h2>
@@ -651,7 +645,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 			<td><span data-text="aimez" data-lang="fr" class="trigger_play"></span></td>
 			<td>aimez</td>
 		</tr>
-
 	</table>
 
 	<table class="tab">
@@ -673,7 +666,6 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 			<td>ayez</td>
 			<td>aimé</td>
 		</tr>
-
 	</table>
 
 <h2 class="home"><a id="modes-impersonnels"></a>Modes impersonnels</h2>
