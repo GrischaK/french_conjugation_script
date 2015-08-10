@@ -75,7 +75,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'Present',
 						'SecondPersonPlural',
 						'Imperatif'
-				),														
+				),
 				array (
 						'donne',
 						'donner',
