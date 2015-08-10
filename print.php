@@ -261,14 +261,14 @@ function print_modes($verb) {
 	echo "\t\t".'<th class="titel">Passé</th>';
 	echo "\t\t".'</tr>';	
 	foreach ( $modes as $mode => $mode_name ) {
+		echo "\t\t".'<tr>';
 		foreach ( $tenses as $tense ) {
 			$output_modes = modes_impersonnels ( $verb, finding_auxiliaire ( $verb ), new Mode ( $mode ), new Tense ( $tense ) );
-			echo "\t\t".'<tr>';
 			echo "\t\t\t".'<td class="text-center"><b>'.$mode_name.'</b></td>';
 			echo "\t\t\t".'<td><span data-text="' . $output_modes . '" data-lang="fr" class="trigger_play"></span>' . $output_modes . '</td>' . PHP_EOL;
-			echo "\t\t".'</tr>';
-			echo PHP_EOL;
 		}
+		echo "\t\t".'</tr>';
+		echo PHP_EOL;
 	}
 }
 function print_conjugations_of_verb($verb) {
