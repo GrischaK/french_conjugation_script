@@ -167,7 +167,7 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return "\t\t\t".'<td class="text-right text-muted">' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb ) . '</td>' . PHP_EOL . "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
 	}
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
-		return "\t\t\t".'<td class="text-right text-muted">' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . '<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . "\t\t\t".'<td>' . $visitee->participe_passe . '</td>';
+		return "\t\t\t".'<td class="text-right text-muted">' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . PHP_EOL . "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . "\t\t\t".'<td>' . $visitee->participe_passe . '</td>';
 	}
 	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
 		return "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>';
