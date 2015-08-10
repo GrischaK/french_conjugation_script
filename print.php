@@ -290,7 +290,7 @@ function print_conjugations_of_verb($verb) {
 		echo "\t".'<table class="tab">' . PHP_EOL;
 		print_simple_tenses ( $verb, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
-		echo "\t".'<table>' . PHP_EOL;		
+		echo "\t".'<table class="tab">' . PHP_EOL;		
 		print_composite_tenses ( $verb, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 	}

@@ -152,7 +152,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 	</table>
 
-	<table>
+	<table class="tab">
 		<tr class="border">
 			<th>Passé composé</th>
 		</tr>
@@ -428,7 +428,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 	</table>
 
-	<table>
+	<table class="tab">
 		<tr class="border">
 			<th>Passé</th>
 		</tr>
@@ -550,7 +550,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 	</table>
 
-	<table>
+	<table class="tab">
 		<tr class="border">
 			<th>Passé première forme</th>
 		</tr>
@@ -654,7 +654,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 	</table>
 
-	<table>
+	<table class="tab">
 		<tr class="border">
 			<th>Passé</th>
 		</tr>
