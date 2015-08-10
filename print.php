@@ -255,6 +255,11 @@ function print_modes($verb) {
 			Mode::Gerondif,
 			Mode::Participe 
 	);
+	$name = array (
+			Mode::Infinitif =>'Infinitif',
+			Mode::Gerondif =>'Gérondif',
+			Mode::Participe =>'Participe',
+	);
 	echo "\t\t".'<tr>';
 	echo "\t\t\t".'<th class="titel">Mode</th>';
 	echo "\t\t\t".'<th class="titel">Présent</th>';
@@ -263,6 +268,7 @@ function print_modes($verb) {
 	foreach ( $modes as $mode ) {
 		foreach ( $tenses as $tense ) {
 			echo "\t\t".'<tr>';
+			echo "\t\t\t".'<td class="text-center"><b>'.$name[$mode].'</b></td>';
 			echo "\t\t\t".'<td><span data-text="' . modes_impersonnels ( $verb, finding_auxiliaire ( $verb ), new Mode ( $mode ), new Tense ( $tense ) ) . '" data-lang="fr" class="trigger_play"></span></td>' . PHP_EOL;
 			echo "\t\t\t".'<td>' . modes_impersonnels ( $verb, finding_auxiliaire ( $verb ), new Mode ( $mode ), new Tense ( $tense ) ) . '</td>';
 			echo "\t\t".'</tr>';
