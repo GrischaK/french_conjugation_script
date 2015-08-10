@@ -179,20 +179,20 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return '<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . '<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . '<td>' . $visitee->verb . '</td>';
 	}
 }
-function colspan_number(Mood $mood, Tense $tense) {
+function colspan_number($mood, $tense) {
 	if (isComposite ( $mood, $tense )) {
-	return 4;
+		$colspan = 4;
 		if ($mood->getValue () === Mood::Imperatif) {
-		return 3;
+			$colspan = 3;
+		}
+	} else {
+		$colspan = 3;
+		if ($mood->getValue () === Mood::Imperatif) {
+			$colspan = 2;
 		}
 	}
-	else {
-		return 3;
-		if ($mood->getValue () === Mood::Imperatif) {
-			return 2;
-		}
-	}
-}	
+	return $colspan;
+}
 function print_tenses($verb, Mood $mood, $tenses) {
 	$th_of_tense = array (
 			Tense::Present =>'Présent',
