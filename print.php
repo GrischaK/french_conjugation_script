@@ -269,8 +269,7 @@ function print_modes($verb) {
 		foreach ( $tenses as $tense ) {
 			echo "\t\t".'<tr>';
 			echo "\t\t\t".'<td class="text-center"><b>'.$name[$mode].'</b></td>';
-			echo "\t\t\t".'<td><span data-text="' . modes_impersonnels ( $verb, finding_auxiliaire ( $verb ), new Mode ( $mode ), new Tense ( $tense ) ) . '" data-lang="fr" class="trigger_play"></span></td>' . PHP_EOL;
-			echo "\t\t\t".'<td>' . modes_impersonnels ( $verb, finding_auxiliaire ( $verb ), new Mode ( $mode ), new Tense ( $tense ) ) . '</td>';
+			echo "\t\t\t".'<td><span data-text="' . modes_impersonnels ( $verb, finding_auxiliaire ( $verb ), new Mode ( $mode ), new Tense ( $tense ) ) . '" data-lang="fr" class="trigger_play"></span>' . modes_impersonnels ( $verb, finding_auxiliaire ( $verb ), new Mode ( $mode ), new Tense ( $tense ) ) . '</td>' . PHP_EOL;
 			echo "\t\t".'</tr>';
 			echo PHP_EOL;
 		}
