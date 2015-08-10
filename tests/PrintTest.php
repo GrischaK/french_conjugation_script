@@ -15,7 +15,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 	<hr class="linie" />
 	<table class="tab">
 		<tr class="border">
-			<th colspan="2">Présent</th>
+			<th colspan="3">Présent</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’aime" data-lang="fr" class="trigger_play"></span></td>
@@ -49,7 +49,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 
 		<tr class="border">
-			<th colspan="2">Imparfait</th>
+			<th colspan="3">Imparfait</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’aimais" data-lang="fr" class="trigger_play"></span></td>
@@ -83,7 +83,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 
 		<tr class="border">
-			<th colspan="2">Passé simple</th>
+			<th colspan="3">Passé simple</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’aimai" data-lang="fr" class="trigger_play"></span></td>
@@ -117,7 +117,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 
 		<tr class="border">
-			<th colspan="2">Futur simple (Futur I)</th>
+			<th colspan="3">Futur simple (Futur I)</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’aimerai" data-lang="fr" class="trigger_play"></span></td>
@@ -154,7 +154,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 	<table class="tab">
 		<tr class="border">
-			<th colspan="2">Passé composé</th>
+			<th colspan="4">Passé composé</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’ai aimé" data-lang="fr" class="trigger_play"></span></td>
@@ -194,7 +194,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 
 		<tr class="border">
-			<th colspan="2">Plus-que-parfait</th>
+			<th colspan="4">Plus-que-parfait</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’avais aimé" data-lang="fr" class="trigger_play"></span></td>
@@ -234,7 +234,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 
 		<tr class="border">
-			<th colspan="2">Passé antérieur</th>
+			<th colspan="4">Passé antérieur</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’eus aimé" data-lang="fr" class="trigger_play"></span></td>
@@ -274,7 +274,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 
 		<tr class="border">
-			<th colspan="2">Futur antérieur (Futur II)</th>
+			<th colspan="4">Futur antérieur (Futur II)</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’aurai aimé" data-lang="fr" class="trigger_play"></span></td>
@@ -314,7 +314,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 
 		<tr class="border">
-			<th colspan="2">Futur composé (Futur proche)</th>
+			<th colspan="4">Futur composé (Futur proche)</th>
 		</tr>
 		<tr>
 			<td><span data-text="je vais aimer" data-lang="fr" class="trigger_play"></span></td>
@@ -359,7 +359,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 	<hr class="linie" />
 	<table class="tab">
 		<tr class="border">
-			<th colspan="2">Présent</th>
+			<th colspan="3">Présent</th>
 		</tr>
 		<tr>
 			<td><span data-text="que j’aime" data-lang="fr" class="trigger_play"></span></td>
@@ -393,7 +393,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 
 		<tr class="border">
-			<th colspan="2">Imparfait</th>
+			<th colspan="3">Imparfait</th>
 		</tr>
 		<tr>
 			<td><span data-text="que j’aimasse" data-lang="fr" class="trigger_play"></span></td>
@@ -430,7 +430,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 	<table class="tab">
 		<tr class="border">
-			<th colspan="2">Passé</th>
+			<th colspan="3">Passé</th>
 		</tr>
 		<tr>
 			<td><span data-text="que j’aie aimé" data-lang="fr" class="trigger_play"></span></td>
@@ -470,7 +470,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 
 		<tr class="border">
-			<th colspan="2">Plus-que-parfait</th>
+			<th colspan="3">Plus-que-parfait</th>
 		</tr>
 		<tr>
 			<td><span data-text="que j’eusse aimé" data-lang="fr" class="trigger_play"></span></td>
@@ -515,7 +515,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 	<hr class="linie" />
 	<table class="tab">
 		<tr class="border">
-			<th colspan="2">Présent</th>
+			<th colspan="3">Présent</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’aimerais" data-lang="fr" class="trigger_play"></span></td>
@@ -552,7 +552,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 	<table class="tab">
 		<tr class="border">
-			<th colspan="2">Passé première forme</th>
+			<th colspan="4">Passé première forme</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’aurais aimé" data-lang="fr" class="trigger_play"></span></td>
@@ -592,7 +592,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 
 		<tr class="border">
-			<th colspan="2">Passé deuxième forme</th>
+			<th colspan="4">Passé deuxième forme</th>
 		</tr>
 		<tr>
 			<td><span data-text="j’eusse aimé" data-lang="fr" class="trigger_play"></span></td>
@@ -656,7 +656,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 	<table class="tab">
 		<tr class="border">
-			<th colspan="2">Passé</th>
+			<th colspan="3">Passé</th>
 		</tr>
 		<tr>
 			<td><span data-text="aie aimé" data-lang="fr" class="trigger_play"></span></td>
