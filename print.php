@@ -164,19 +164,19 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 }
 class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitSimpleTense(SimpleTenseConjugationPhrase $visitee) {
-		return '<td class="text-right text-muted">' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb ) . '</td>' . PHP_EOL . '<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
+		return "\t\t\t".'<td class="text-right text-muted">' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb ) . '</td>' . PHP_EOL . "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
 	}
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
-		return '<td class="text-right text-muted">' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . '<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . '<td>' . $visitee->participe_passe . '</td>';
+		return "\t\t\t".'<td class="text-right text-muted">' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . '<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . "\t\t\t".'<td>' . $visitee->participe_passe . '</td>';
 	}
 	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
-		return '<td>' . $visitee->conjugated_verb . '</td>';
+		return "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>';
 	}
 	function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee) {
-		return '<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . '<td>' . $visitee->participe_passe . '</td>';
+		return "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . "\t\t\t".'<td>' . $visitee->participe_passe . '</td>';
 	}
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
-		return '<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . '<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . '<td>' . $visitee->verb . '</td>';
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . "\t\t\t".'<td>' . $visitee->verb . '</td>';
 	}
 }
 function colspan_number($mood, $tense) {
