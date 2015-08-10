@@ -195,7 +195,7 @@ function print_tenses($verb, Mood $mood, $tenses) {
 	);
 	foreach ( $tenses [$mood->getValue ()] as $tense ) {
 		echo "\t\t".'<tr class="border">' . PHP_EOL;
-		echo "\t\t\t".'<th>'.$th_of_tense[$tense].'</th>' . PHP_EOL;
+		echo "\t\t\t".'<th colspan="2">'.$th_of_tense[$tense].'</th>' . PHP_EOL;
 		echo "\t\t".'</tr>' . PHP_EOL;
 		print_persons ( $verb, new Tense ( $tense ), new Mood ( $mood ) );
 		echo PHP_EOL;
@@ -258,7 +258,7 @@ function print_modes($verb) {
 	echo "\t\t".'<tr>';
 	echo "\t\t\t".'<th class="titel">Mode</th>';
 	echo "\t\t\t".'<th class="titel">Présent</th>';
-	echo "\t\t".'<th class="titel">Passé</th>';
+	echo "\t\t\t".'<th class="titel">Passé</th>';
 	echo "\t\t".'</tr>';	
 	foreach ( $modes as $mode => $mode_name ) {
 		echo "\t\t".'<tr>';
