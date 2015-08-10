@@ -430,7 +430,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 
 	<table class="tab">
 		<tr class="border">
-			<th colspan="3">Passé</th>
+			<th colspan="4">Passé</th>
 		</tr>
 		<tr>
 			<td><span data-text="que j’aie aimé" data-lang="fr" class="trigger_play"></span></td>
@@ -470,7 +470,7 @@ class PrintTest extends PHPUnit_Framework_TestCase {
 		</tr>
 
 		<tr class="border">
-			<th colspan="3">Plus-que-parfait</th>
+			<th colspan="4">Plus-que-parfait</th>
 		</tr>
 		<tr>
 			<td><span data-text="que j’eusse aimé" data-lang="fr" class="trigger_play"></span></td>
