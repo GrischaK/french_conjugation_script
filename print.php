@@ -184,6 +184,7 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 				"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
 		       "\t\t\t".'<td>' . $visitee->verb . '</td>' . PHP_EOL;
 	}
+}	
 function colspan_number($mood, $tense) {
 	if (isComposite ( $mood, $tense )) {
 		$colspan = 4;
@@ -316,6 +317,5 @@ function print_conjugations_of_verb($verb) {
 	echo "\t".'<table>' . PHP_EOL;
 	print_modes ( $verb );
 	echo "\t".'</table>' . PHP_EOL;
-}
 }
 ?>
