@@ -12,13 +12,17 @@ class Main_Verb_EndingTest extends PHPUnit_Framework_TestCase {
 	public function regularMain_Verb_EndingProvider() {
 		return array (
 				array (
-						 'aimer',
-						Ending_Regular_Main::ER 
+						Ending_Regular_Main::ER,
+						'aimer',
 				),
 				array (
+						Ending_Regular_Main::IR,
 						'finir',
-						Ending_Regular_Main::IR
-				)				
+				),
+				array (
+						Ending_Regular_Main::UNREGULAR,
+						'prendre',
+				)
 		);
 	}
 }
