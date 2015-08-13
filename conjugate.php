@@ -21,6 +21,8 @@ break;
 default:
 $main_verb_ending = Ending_Regular_Main::UNREGULAR;
 }
+
+return new Ending_Regular_Main ( $main_verb_ending );
 }
 function personal_pronoun(Person $person, Mood $mood) {
 	$finding_person = '"Unknown Person';
