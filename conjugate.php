@@ -18,6 +18,8 @@ break;
 case 'ir':	
 $main_verb_ending = Ending_Regular_Main::IR;
 break;
+default:
+$main_verb_ending = Ending_Regular_Main::UNREGULAR;
 }
 }
 function personal_pronoun(Person $person, Mood $mood) {
