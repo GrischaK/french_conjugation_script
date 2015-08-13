@@ -19,6 +19,14 @@ class Main_Verb_EndingTest extends PHPUnit_Framework_TestCase {
 						Ending_Regular_Main::IR,
 						'finir',
 				),
+				array ( // not correct, after adding irregular verbs Ending_Regular_Main::UNREGULAR should be correct
+						Ending_Regular_Main::ER,
+						'aller',
+				),
+				array ( // not correct, after adding irregular verbs Ending_Regular_Main::UNREGULAR should be correct
+						Ending_Regular_Main::IR,
+						'avoir',
+				),				
 				array (
 						Ending_Regular_Main::UNREGULAR,
 						'prendre',
