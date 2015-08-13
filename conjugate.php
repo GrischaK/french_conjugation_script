@@ -10,6 +10,16 @@ function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
+function finding_main_verb_ending($verb) {
+switch(substr ( $verb, - 2, 2 )) {
+case 'er':
+$main_verb_ending = Ending_Regular_Main::ER;
+break;	
+case 'ir':	
+$main_verb_ending = Ending_Regular_Main::IR;
+break;
+}
+}
 function personal_pronoun(Person $person, Mood $mood) {
 	$finding_person = '"Unknown Person';
 	// for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural
@@ -325,14 +335,6 @@ function isPlural(Person $person) {
 	);
 	return in_array ( $person->getValue (), $plural_persons );
 }
-function finding_participle($verb, $person) {
-	// $participe_passe = 'Unknown Participe Passé';
-	$participe_passe = word_stem ( $verb ) . 'é';
-	if (finding_auxiliaire ( $verb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
-		$participe_passe .= 's';
-	}
-	return $participe_passe;
-}
 function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
 	// $conjugated_verb = 'Unknown Person';
 	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood );
@@ -360,6 +362,14 @@ function isComposite(Mood $mood, Tense $tense) {
 			) 
 	);
 	return in_array ( $tense->getValue (), $composite_tenses [$mood->getValue ()] );
+}
+function finding_participle($verb, $person) {
+	// $participe_passe = 'Unknown Participe Passé';
+	$participe_passe = word_stem ( $verb ) . 'é';
+	if (finding_auxiliaire ( $verb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
+		$participe_passe .= 's';
+	}
+	return $participe_passe;
 }
 function finding_participe_present($verb) { 
                                       // $participe_present = 'Unknown Participe Présent';
