@@ -6,7 +6,7 @@ function wrapInXMLTag($string) {
 	return '<xml_tag>'.PHP_EOL.$string.PHP_EOL.'</xml_tag>';
 }
 
-class PrintTest extends PHPUnit_Framework_TestCase {	
+class PrintTest extends PHPUnit_Framework_TestCase {
 	public function testPrintAimer() {
 		ob_start();
 		print_conjugations_of_verb ( 'aimer' );

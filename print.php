@@ -317,4 +317,5 @@ function print_conjugations_of_verb($verb) {
 	print_modes ( $verb );
 	echo "\t".'</table>' . PHP_EOL;
 }
+}
 ?>
