@@ -1,5 +1,6 @@
 <?php
 require_once 'classes/Enum.php';
+require_once 'classes/Ending_Regular_Main.php';
 require_once 'classes/Tense.php';
 require_once 'classes/Person.php';
 require_once 'classes/Mood.php';
