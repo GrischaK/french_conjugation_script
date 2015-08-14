@@ -1,6 +1,6 @@
 <?php
 require_once 'classes/Enum.php';
-require_once 'classes/Ending_With.php';
+require_once 'classes/EndingWith.php';
 require_once 'classes/Tense.php';
 require_once 'classes/Person.php';
 require_once 'classes/Mood.php';
@@ -13,16 +13,16 @@ function word_stem($verb) {
 function finding_main_verb_ending($verb) {
 switch(substr ( $verb, - 2, 2 )) {
 case 'er':
-$main_verb_ending = Ending_With::ER;
+$main_verb_ending = EndingWith::ER;
 break;	
 case 'ir':	
-$main_verb_ending = Ending_With::IR;
+$main_verb_ending = EndingWith::IR;
 break;
 default:
-$main_verb_ending = Ending_With::UNREGULAR;
+$main_verb_ending = EndingWith::UNREGULAR;
 }
 
-return new Ending_With ( $main_verb_ending );
+return new EndingWith ( $main_verb_ending );
 }
 function personal_pronoun(Person $person, Mood $mood) {
 	$finding_person = '"Unknown Person';
@@ -50,10 +50,10 @@ function personal_pronoun(Person $person, Mood $mood) {
 		return $finding_person [$person->getValue ()];
 	}
 }
-function endings(Person $person, Tense $tense, Mood $mood, Ending_With $ending_with) {
+function endings(Person $person, Tense $tense, Mood $mood, EndingWith $EndingWith) {
 		// $ending = 'Unknown Ending';
 	$ending = array ( // Standardendungen für Verben auf -er
-			Ending_With::ER => array (
+			EndingWith::ER => array (
 					Mood::Indicatif => array (
 							Tense::Present => array (
 									Person::FirstPersonSingular => 'e',
@@ -124,7 +124,7 @@ function endings(Person $person, Tense $tense, Mood $mood, Ending_With $ending_w
 							) 
 					) 
 			),
-			Ending_With::IR => array (
+			EndingWith::IR => array (
 					Mood::Indicatif => array (
 							Tense::Present => array (
 									Person::FirstPersonSingular => 'is',
@@ -196,7 +196,7 @@ function endings(Person $person, Tense $tense, Mood $mood, Ending_With $ending_w
 					)
 			)			
 	);
-	return $ending [$ending_with->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+	return $ending [$EndingWith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
 function aller(Person $person, Tense $tense, Mood $mood) {
 	// $aller = 'Unknown Aller';
@@ -414,7 +414,7 @@ function isPlural(Person $person) {
 }
 function conjugate($verb, Person $person, Tense $tense, Mood $mood, Mood $mood) {
 	// $conjugated_verb = 'Unknown Person';
-	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood, $ending_with );
+	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood, $EndingWith );
 	return $conjugated_verb;
 }
 function isComposite(Mood $mood, Tense $tense) {
@@ -630,5 +630,5 @@ function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 		return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb );
 	}
 }
-$variable = conjugate ( 'aimer', new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ), new Ending_With ( Ending_With::ER ) );
+$variable = conjugate ( 'aimer', new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ), new EndingWith ( EndingWith::ER ) );
 ?>
