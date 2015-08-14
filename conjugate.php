@@ -412,7 +412,7 @@ function isPlural(Person $person) {
 	return in_array ( $person->getValue (), $plural_persons );
 }
 function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
-	 $endingwith = finding_infinitive_ending($verb);
+	$endingwith = finding_infinitive_ending($verb);
 	$conjugated_verb = word_stem ( $verb ) . ending ( $person, $tense, $mood, $endingwith );
 	return $conjugated_verb;
 }
@@ -447,11 +447,8 @@ if ( finding_infinitive_ending( $verb )->getValue () === EndingWith::IR)
 	$participle_present = word_stem ( $verb ) . 'issant';	
 	return $participle_present;
 }
-function finding_participle_passe($verb, $person) {
+function finding_participle_passe($verb) {
 	$participle_passe = word_stem ( $verb ) . 'é';
-	if (finding_auxiliaire ( $verb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
-		$participle_passe .= 's';
-	}	
 	return $participle_passe;
 }
 function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
@@ -463,12 +460,12 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 					Tense::Present => array (
 									Mode::Infinitif => $verb,
 									Mode::Gerondif => 'en ' . $participle_present,
-									Mode::participle => $participle_present 
+									Mode::Participe => $participle_present 
 							),
 					Tense::Passe => array (
 									Mode::Infinitif => Auxiliaire::Etre . ' ' . $participle_passe,
 									Mode::Gerondif => 'en étant ' . $participle_passe,
-									Mode::participle => $participle_passe 
+									Mode::Participe => $participle_passe 
 					) 
 			);
 			break;
@@ -477,12 +474,12 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 					Tense::Present => array (
 									Mode::Infinitif => $verb,
 									Mode::Gerondif => 'en ' . $participle_present,
-									Mode::participle => $participle_present 
+									Mode::Participe => $participle_present 
 							),
 					Tense::Passe => array (
 									Mode::Infinitif => Auxiliaire::Avoir. ' ' . $participle_passe,
 									Mode::Gerondif => 'en ayant ' . $participle_passe,
-									Mode::participle => $participle_passe 
+									Mode::Participe => $participle_passe 
 							) 
 			);
 			
@@ -511,7 +508,7 @@ abstract class ConjugationPhrase {
 	static function create($verb, Person $person, Tense $tense, Mood $mood) {
 		$personal_pronoun = personal_pronoun ( $person, $mood );
 		if (isComposite ( $mood, $tense )) {
-			$participle_passe = finding_participle_passe ( $verb, $person );
+			$participle_passe = finding_participle_passe ( $verb );
 			$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $verb ), $person, $tense, $mood );
 			if ($mood->getValue () === Mood::Imperatif) {
 				return new ImperatifPasseTenseConjugationPhrase ( $conjugated_auxiliaire_verb, $participle_passe );
@@ -609,7 +606,10 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$personal_pronoun = personal_pronoun ( $person, $mood );
 	if (isComposite ( $mood, $tense )) {
-		$participle_passe = finding_participle_passe ( $verb, $person );
+		$participle_passe = finding_participle_passe ( $verb );
+		if (finding_auxiliaire ( $verb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
+			$participle_passe .= 's';
+		}
 		$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $verb ), $person, $tense, $mood );
 		if ($mood->getValue () === Mood::Imperatif) {
 			return $conjugated_auxiliaire_verb . ' ' . $participle_passe;
