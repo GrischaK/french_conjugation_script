@@ -439,37 +439,31 @@ function isComposite(Mood $mood, Tense $tense) {
 	);
 	return in_array ( $tense->getValue (), $composite_tenses [$mood->getValue ()] );
 }
-function finding_participle($verb, $person) {
-	$participe_passe = word_stem ( $verb ) . 'é';
+function finding_participle_present($verb) { 
+	$participle_present = word_stem ( $verb ) . 'ant';
+	return $participle_present;
+}
+function finding_participle_passe($verb, $person) {
+	$participle_passe = word_stem ( $verb ) . 'é';
 	if (finding_auxiliaire ( $verb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
-		$participe_passe .= 's';
-	}
-	return $participe_passe;
-}
-function finding_participe_present($verb) { 
-	$participe_present = word_stem ( $verb ) . 'ant';
-	return $participe_present;
-}
-function finding_participle_passe($verb) {
-	// $participe_passe = 'Unknown Participe Passé';
-	$participe_passe = word_stem ( $verb ) . 'é';
-	return $participe_passe;
+		$participle_passe .= 's';
+	return $participle_passe;
 }
 function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
-	$participe_passe = finding_participle_passe ($verb);
-	$participe_present = finding_participe_present ($verb);
+	$participle_passe = finding_participle_passe ($verb);
+	$participle_present = finding_participle_present ($verb);
 	switch ($auxiliaire->getValue ()) {
 		case Auxiliaire::Etre :
 			$modes_impersonnels = array (
 					Tense::Present => array (
 									Mode::Infinitif => $verb,
-									Mode::Gerondif => 'en ' . $participe_present,
-									Mode::Participe => $participe_present 
+									Mode::Gerondif => 'en ' . $participle_present,
+									Mode::participle => $participle_present 
 							),
 					Tense::Passe => array (
-									Mode::Infinitif => Auxiliaire::Etre . ' ' . $participe_passe,
-									Mode::Gerondif => 'en étant ' . $participe_passe,
-									Mode::Participe => $participe_passe 
+									Mode::Infinitif => Auxiliaire::Etre . ' ' . $participle_passe,
+									Mode::Gerondif => 'en étant ' . $participle_passe,
+									Mode::participle => $participle_passe 
 					) 
 			);
 			break;
@@ -477,13 +471,13 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 			$modes_impersonnels = array (
 					Tense::Present => array (
 									Mode::Infinitif => $verb,
-									Mode::Gerondif => 'en ' . $participe_present,
-									Mode::Participe => $participe_present 
+									Mode::Gerondif => 'en ' . $participle_present,
+									Mode::participle => $participle_present 
 							),
 					Tense::Passe => array (
-									Mode::Infinitif => Auxiliaire::Avoir. ' ' . $participe_passe,
-									Mode::Gerondif => 'en ayant ' . $participe_passe,
-									Mode::Participe => $participe_passe 
+									Mode::Infinitif => Auxiliaire::Avoir. ' ' . $participle_passe,
+									Mode::Gerondif => 'en ayant ' . $participle_passe,
+									Mode::participle => $participle_passe 
 							) 
 			);
 			
@@ -512,15 +506,15 @@ abstract class ConjugationPhrase {
 	static function create($verb, Person $person, Tense $tense, Mood $mood) {
 		$personal_pronoun = personal_pronoun ( $person, $mood );
 		if (isComposite ( $mood, $tense )) {
-			$participe_passe = finding_participle ( $verb, $person );
+			$participle_passe = finding_participle_passe ( $verb, $person );
 			$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $verb ), $person, $tense, $mood );
 			if ($mood->getValue () === Mood::Imperatif) {
-				return new ImperatifPasseTenseConjugationPhrase ( $conjugated_auxiliaire_verb, $participe_passe );
+				return new ImperatifPasseTenseConjugationPhrase ( $conjugated_auxiliaire_verb, $participle_passe );
 			}
 			if ($tense->getValue () === Tense::Futur_compose) {
 				return new FuturComposeTenseConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $verb );
 			}
-			return new CompositeTenseConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe ); 
+			return new CompositeTenseConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participle_passe ); 
 		} else {
 			$conjugated_verb = conjugate ( $verb, $person, $tense, $mood );
 			if ($mood->getValue () === Mood::Imperatif) {
@@ -544,11 +538,11 @@ class CompositeTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
 		return $visitor->visitCompositeTense ( $this );
 	}
-	public $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe;
-	public function __construct($personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe) {
+	public $personal_pronoun, $conjugated_auxiliaire_verb, $participle_passe;
+	public function __construct($personal_pronoun, $conjugated_auxiliaire_verb, $participle_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
-		$this->participe_passe = $participe_passe;
+		$this->participle_passe = $participle_passe;
 	}
 }
 class ImperatifPresentTenseConjugationPhrase extends ConjugationPhrase {
@@ -564,10 +558,10 @@ class ImperatifPasseTenseConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
 		return $visitor->visitImperatifPasseTense ( $this );
 	}
-	public $conjugated_auxiliaire_verb, $participe_passe;
-	public function __construct($conjugated_auxiliaire_verb, $participe_passe) {
+	public $conjugated_auxiliaire_verb, $participle_passe;
+	public function __construct($conjugated_auxiliaire_verb, $participle_passe) {
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
-		$this->participe_passe = $participe_passe;
+		$this->participle_passe = $participle_passe;
 	}
 }
 class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
@@ -594,13 +588,13 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb );
 	}
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->participe_passe;
+		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->participle_passe;
 	}
 	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
 		return $visitee->conjugated_verb;
 	}
 	function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee) {
-		return $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->participe_passe;
+		return $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->participle_passe;
 	}
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
 		return $visitee->personal_pronoun  . ' ' . $visitee->conjugated_auxiliaire_verb  . ' ' . $visitee->verb;
@@ -610,15 +604,15 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$personal_pronoun = personal_pronoun ( $person, $mood );
 	if (isComposite ( $mood, $tense )) {
-		$participe_passe = finding_participle ( $verb, $person );
+		$participle_passe = finding_participle ( $verb, $person );
 		$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $verb ), $person, $tense, $mood );
 		if ($mood->getValue () === Mood::Imperatif) {
-			return $conjugated_auxiliaire_verb . ' ' . $participe_passe;
+			return $conjugated_auxiliaire_verb . ' ' . $participle_passe;
 		}
 		if ($tense->getValue () === Tense::Futur_compose) {
 			return $personal_pronoun . ' ' . $conjugated_auxiliaire_verb . ' ' . $verb;
 		}
-		return concatenate_apostrophized ( $personal_pronoun, $conjugated_auxiliaire_verb ) . ' ' . $participe_passe;
+		return concatenate_apostrophized ( $personal_pronoun, $conjugated_auxiliaire_verb ) . ' ' . $participle_passe;
 	} else {
 		$conjugated_verb = conjugate ( $verb, $person, $tense, $mood );
 		if ($mood->getValue () === Mood::Imperatif) {
