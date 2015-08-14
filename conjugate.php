@@ -50,80 +50,153 @@ function personal_pronoun(Person $person, Mood $mood) {
 		return $finding_person [$person->getValue ()];
 	}
 }
-function endings(Person $person, Tense $tense, Mood $mood) {
-	// $ending = 'Unknown Ending';
+function endings(Person $person, Tense $tense, Mood $mood, Ending_Regular_Main $main_verb_ending) {
+		// $ending = 'Unknown Ending';
 	$ending = array ( // Standardendungen für Verben auf -er
-			Mood::Indicatif => array (
-					Tense::Present => array (
-							Person::FirstPersonSingular => 'e',
-							Person::SecondPersonSingular => 'es',
-							Person::ThirdPersonSingular => 'e',
-							Person::FirstPersonPlural => 'ons',
-							Person::SecondPersonPlural => 'ez',
-							Person::ThirdPersonPlural => 'ent' 
+			Ending_Regular_Main::ER => array (
+					Mood::Indicatif => array (
+							Tense::Present => array (
+									Person::FirstPersonSingular => 'e',
+									Person::SecondPersonSingular => 'es',
+									Person::ThirdPersonSingular => 'e',
+									Person::FirstPersonPlural => 'ons',
+									Person::SecondPersonPlural => 'ez',
+									Person::ThirdPersonPlural => 'ent' 
+							),
+							Tense::Imparfait => array (
+									Person::FirstPersonSingular => 'ais',
+									Person::SecondPersonSingular => 'ais',
+									Person::ThirdPersonSingular => 'ait',
+									Person::FirstPersonPlural => 'ions',
+									Person::SecondPersonPlural => 'iez',
+									Person::ThirdPersonPlural => 'aient' 
+							),
+							Tense::Passe => array (
+									Person::FirstPersonSingular => 'ai',
+									Person::SecondPersonSingular => 'as',
+									Person::ThirdPersonSingular => 'a',
+									Person::FirstPersonPlural => 'âmes',
+									Person::SecondPersonPlural => 'âtes',
+									Person::ThirdPersonPlural => 'èrent' 
+							),
+							Tense::Futur => array (
+									Person::FirstPersonSingular => 'erai',
+									Person::SecondPersonSingular => 'eras',
+									Person::ThirdPersonSingular => 'era',
+									Person::FirstPersonPlural => 'erons',
+									Person::SecondPersonPlural => 'erez',
+									Person::ThirdPersonPlural => 'eront' 
+							) 
 					),
-					Tense::Imparfait => array (
-							Person::FirstPersonSingular => 'ais',
-							Person::SecondPersonSingular => 'ais',
-							Person::ThirdPersonSingular => 'ait',
-							Person::FirstPersonPlural => 'ions',
-							Person::SecondPersonPlural => 'iez',
-							Person::ThirdPersonPlural => 'aient' 
+					Mood::Subjonctif => array (
+							Tense::Present => array (
+									Person::FirstPersonSingular => 'e',
+									Person::SecondPersonSingular => 'es',
+									Person::ThirdPersonSingular => 'e',
+									Person::FirstPersonPlural => 'ions',
+									Person::SecondPersonPlural => 'iez',
+									Person::ThirdPersonPlural => 'ent' 
+							),
+							Tense::Imparfait => array (
+									Person::FirstPersonSingular => 'asse',
+									Person::SecondPersonSingular => 'asses',
+									Person::ThirdPersonSingular => 'ât',
+									Person::FirstPersonPlural => 'assions',
+									Person::SecondPersonPlural => 'assiez',
+									Person::ThirdPersonPlural => 'assent' 
+							) 
 					),
-					Tense::Passe => array (
-							Person::FirstPersonSingular => 'ai',
-							Person::SecondPersonSingular => 'as',
-							Person::ThirdPersonSingular => 'a',
-							Person::FirstPersonPlural => 'âmes',
-							Person::SecondPersonPlural => 'âtes',
-							Person::ThirdPersonPlural => 'èrent' 
+					Mood::Conditionnel => array (
+							Tense::Present => array (
+									Person::FirstPersonSingular => 'erais',
+									Person::SecondPersonSingular => 'erais',
+									Person::ThirdPersonSingular => 'erait',
+									Person::FirstPersonPlural => 'erions',
+									Person::SecondPersonPlural => 'eriez',
+									Person::ThirdPersonPlural => 'eraient' 
+							) 
 					),
-					Tense::Futur => array (
-							Person::FirstPersonSingular => 'erai',
-							Person::SecondPersonSingular => 'eras',
-							Person::ThirdPersonSingular => 'era',
-							Person::FirstPersonPlural => 'erons',
-							Person::SecondPersonPlural => 'erez',
-							Person::ThirdPersonPlural => 'eront' 
+					Mood::Imperatif => array (
+							Tense::Present => array (
+									Person::FirstPersonSingular => 'e',
+									Person::FirstPersonPlural => 'ons',
+									Person::SecondPersonPlural => 'ez' 
+							) 
 					) 
 			),
-			Mood::Subjonctif => array (
-					Tense::Present => array (
-							Person::FirstPersonSingular => 'e',
-							Person::SecondPersonSingular => 'es',
-							Person::ThirdPersonSingular => 'e',
-							Person::FirstPersonPlural => 'ions',
-							Person::SecondPersonPlural => 'iez',
-							Person::ThirdPersonPlural => 'ent' 
+			Ending_Regular_Main::IR => array (
+					Mood::Indicatif => array (
+							Tense::Present => array (
+									Person::FirstPersonSingular => 'is',
+									Person::SecondPersonSingular => 'is',
+									Person::ThirdPersonSingular => 'it',
+									Person::FirstPersonPlural => 'issions',
+									Person::SecondPersonPlural => 'issiez',
+									Person::ThirdPersonPlural => 'issent'
+							),
+							Tense::Imparfait => array (
+									Person::FirstPersonSingular => 'issais',
+									Person::SecondPersonSingular => 'issais',
+									Person::ThirdPersonSingular => 'issait',
+									Person::FirstPersonPlural => 'issions',
+									Person::SecondPersonPlural => 'issiez',
+									Person::ThirdPersonPlural => 'issaient'
+							),
+							Tense::Passe => array (
+									Person::FirstPersonSingular => 'is',
+									Person::SecondPersonSingular => 'is',
+									Person::ThirdPersonSingular => 'it',
+									Person::FirstPersonPlural => 'îmes',
+									Person::SecondPersonPlural => 'îtes',
+									Person::ThirdPersonPlural => 'irent'
+							),
+							Tense::Futur => array (
+									Person::FirstPersonSingular => 'irai',
+									Person::SecondPersonSingular => 'iras',
+									Person::ThirdPersonSingular => 'ira',
+									Person::FirstPersonPlural => 'irons',
+									Person::SecondPersonPlural => 'irez',
+									Person::ThirdPersonPlural => 'iront'
+							)
 					),
-					Tense::Imparfait => array (
-							Person::FirstPersonSingular => 'asse',
-							Person::SecondPersonSingular => 'asses',
-							Person::ThirdPersonSingular => 'ât',
-							Person::FirstPersonPlural => 'assions',
-							Person::SecondPersonPlural => 'assiez',
-							Person::ThirdPersonPlural => 'assent' 
-					) 
-			),
-			Mood::Conditionnel => array (
-					Tense::Present => array (
-							Person::FirstPersonSingular => 'erais',
-							Person::SecondPersonSingular => 'erais',
-							Person::ThirdPersonSingular => 'erait',
-							Person::FirstPersonPlural => 'erions',
-							Person::SecondPersonPlural => 'eriez',
-							Person::ThirdPersonPlural => 'eraient' 
-					) 
-			),
-			Mood::Imperatif => array (
-					Tense::Present => array (
-							Person::FirstPersonSingular => 'e',
-							Person::FirstPersonPlural => 'ons',
-							Person::SecondPersonPlural => 'ez' 
-					) 
-			) 
+					Mood::Subjonctif => array (
+							Tense::Present => array (
+									Person::FirstPersonSingular => 'isse',
+									Person::SecondPersonSingular => 'isses',
+									Person::ThirdPersonSingular => 'isse',
+									Person::FirstPersonPlural => 'issions',
+									Person::SecondPersonPlural => 'issiez',
+									Person::ThirdPersonPlural => 'issent'
+							),
+							Tense::Imparfait => array (
+									Person::FirstPersonSingular => 'isse',
+									Person::SecondPersonSingular => 'isses',
+									Person::ThirdPersonSingular => 'ît',
+									Person::FirstPersonPlural => 'issions',
+									Person::SecondPersonPlural => 'issiez',
+									Person::ThirdPersonPlural => 'issent'
+							)
+					),
+					Mood::Conditionnel => array (
+							Tense::Present => array (
+									Person::FirstPersonSingular => 'irais',
+									Person::SecondPersonSingular => 'irais',
+									Person::ThirdPersonSingular => 'irait',
+									Person::FirstPersonPlural => 'irions',
+									Person::SecondPersonPlural => 'iriez',
+									Person::ThirdPersonPlural => 'iraient'
+							)
+					),
+					Mood::Imperatif => array (
+							Tense::Present => array (
+									Person::FirstPersonSingular => 'is',
+									Person::FirstPersonPlural => 'issons',
+									Person::SecondPersonPlural => 'issez'
+							)
+					)
+			)			
 	);
-	return $ending [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+	return $ending [$main_verb_ending->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
 function aller(Person $person, Tense $tense, Mood $mood) {
 	// $aller = 'Unknown Aller';
@@ -339,9 +412,9 @@ function isPlural(Person $person) {
 	);
 	return in_array ( $person->getValue (), $plural_persons );
 }
-function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
+function conjugate($verb, Person $person, Tense $tense, Mood $mood, Mood $mood) {
 	// $conjugated_verb = 'Unknown Person';
-	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood );
+	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood, $main_verb_ending );
 	return $conjugated_verb;
 }
 function isComposite(Mood $mood, Tense $tense) {
@@ -557,5 +630,5 @@ function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 		return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb );
 	}
 }
-$variable = conjugate ( 'aimer', new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ) );
+$variable = conjugate ( 'aimer', new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ), new Ending_Regular_Main ( Ending_Regular_Main::ER ) );
 ?>
