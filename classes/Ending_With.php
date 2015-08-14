@@ -1,5 +1,5 @@
 <?php
-class Ending_Regular_Main extends Enum {
+class Ending_With extends Enum {
 	const ER = '-er';
 	const IR = '-ir'; 
 	const UNREGULAR = '-unregular_ending';	
