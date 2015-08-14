@@ -609,7 +609,7 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 	$personal_pronoun = personal_pronoun ( $person, $mood );
 	if (isComposite ( $mood, $tense )) {
-		$participle_passe = finding_participle ( $verb, $person );
+		$participle_passe = finding_participle_passe ( $verb, $person );
 		$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $verb ), $person, $tense, $mood );
 		if ($mood->getValue () === Mood::Imperatif) {
 			return $conjugated_auxiliaire_verb . ' ' . $participle_passe;
