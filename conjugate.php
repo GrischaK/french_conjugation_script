@@ -13,16 +13,16 @@ function word_stem($verb) {
 function finding_main_verb_ending($verb) {
 switch(substr ( $verb, - 2, 2 )) {
 case 'er':
-$main_verb_ending = EndingWith::ER;
+$endingwith = EndingWith::ER;
 break;	
 case 'ir':	
-$main_verb_ending = EndingWith::IR;
+$endingwith = EndingWith::IR;
 break;
 default:
-$main_verb_ending = EndingWith::UNREGULAR;
+$endingwith = EndingWith::UNREGULAR;
 }
 
-return new EndingWith ( $main_verb_ending );
+return new EndingWith ( $endingwith );
 }
 function personal_pronoun(Person $person, Mood $mood) {
 	$finding_person = '"Unknown Person';
