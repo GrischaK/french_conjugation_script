@@ -12,23 +12,23 @@ class Main_Verb_EndingTest extends PHPUnit_Framework_TestCase {
 	public function regularMain_Verb_EndingProvider() {
 		return array (
 				array (
-						Ending_Regular_Main::ER,
+						EndingWith::ER,
 						'aimer',
 				),
 				array (
-						Ending_Regular_Main::IR,
+						EndingWith::IR,
 						'finir',
 				),
 				array ( // not correct, after adding irregular verbs Ending_Regular_Main::UNREGULAR should be correct
-						Ending_Regular_Main::ER,
+						EndingWith::ER,
 						'aller',
 				),
 				array ( // not correct, after adding irregular verbs Ending_Regular_Main::UNREGULAR should be correct
-						Ending_Regular_Main::IR,
+						EndingWith::IR,
 						'avoir',
 				),				
 				array (
-						Ending_Regular_Main::UNREGULAR,
+						EndingWith::UNREGULAR,
 						'prendre',
 				)
 		);

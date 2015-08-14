@@ -411,7 +411,7 @@ function isPlural(Person $person) {
 	);
 	return in_array ( $person->getValue (), $plural_persons );
 }
-function conjugate($verb, Person $person, Tense $tense, Mood $mood, Mood $mood) {
+function conjugate($verb, Person $person, Tense $tense, Mood $mood,  EndingWith $endingwith) {
 	// $conjugated_verb = 'Unknown Person';
 	$conjugated_verb = word_stem ( $verb ) . ending ( $person, $tense, $mood, $endingwith );
 	return $conjugated_verb;
@@ -440,7 +440,11 @@ function isComposite(Mood $mood, Tense $tense) {
 	return in_array ( $tense->getValue (), $composite_tenses [$mood->getValue ()] );
 }
 function finding_participle_present($verb) { 
+	
+if ( finding_infinitive_ending( $verb )->getValue () === EndingWith::ER)
 	$participle_present = word_stem ( $verb ) . 'ant';
+if ( finding_infinitive_ending( $verb )->getValue () === EndingWith::IR)
+	$participle_present = word_stem ( $verb ) . 'issant';	
 	return $participle_present;
 }
 function finding_participle_passe($verb, $person) {
