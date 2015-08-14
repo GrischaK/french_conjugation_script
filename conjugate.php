@@ -10,7 +10,7 @@ function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
-function finding_main_verb_ending($verb) {
+function finding_infinitive_ending($verb) {
 switch(substr ( $verb, - 2, 2 )) {
 case 'er':
 $endingwith = EndingWith::ER;
@@ -440,7 +440,6 @@ function isComposite(Mood $mood, Tense $tense) {
 	return in_array ( $tense->getValue (), $composite_tenses [$mood->getValue ()] );
 }
 function finding_participle($verb, $person) {
-	// $participe_passe = 'Unknown Participe Passé';
 	$participe_passe = word_stem ( $verb ) . 'é';
 	if (finding_auxiliaire ( $verb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
 		$participe_passe .= 's';
@@ -448,7 +447,6 @@ function finding_participle($verb, $person) {
 	return $participe_passe;
 }
 function finding_participe_present($verb) { 
-                                      // $participe_present = 'Unknown Participe Présent';
 	$participe_present = word_stem ( $verb ) . 'ant';
 	return $participe_present;
 }
