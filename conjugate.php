@@ -50,7 +50,7 @@ function personal_pronoun(Person $person, Mood $mood) {
 		return $finding_person [$person->getValue ()];
 	}
 }
-function endings(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith) {
+function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith) {
 	$ending = array ( // Standardendungen für Verben auf -er
 			EndingWith::ER => array (
 					Mood::Indicatif => array (
@@ -413,7 +413,7 @@ function isPlural(Person $person) {
 }
 function conjugate($verb, Person $person, Tense $tense, Mood $mood, Mood $mood) {
 	// $conjugated_verb = 'Unknown Person';
-	$conjugated_verb = word_stem ( $verb ) . endings ( $person, $tense, $mood, $endingwith );
+	$conjugated_verb = word_stem ( $verb ) . ending ( $person, $tense, $mood, $endingwith );
 	return $conjugated_verb;
 }
 function isComposite(Mood $mood, Tense $tense) {
