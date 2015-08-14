@@ -51,8 +51,8 @@ function personal_pronoun(Person $person, Mood $mood) {
 	}
 }
 function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith) {
-	$ending = array ( // Standardendungen für Verben auf -er
-			EndingWith::ER => array (
+	$ending = array ( 
+			EndingWith::ER => array ( // Standardendungen für Verben auf -er
 					Mood::Indicatif => array (
 							Tense::Present => array (
 									Person::FirstPersonSingular => 'e',
@@ -123,7 +123,7 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 							) 
 					) 
 			),
-			EndingWith::IR => array (
+			EndingWith::IR => array ( // Standardendungen für Verben auf -er
 					Mood::Indicatif => array (
 							Tense::Present => array (
 									Person::FirstPersonSingular => 'is',
@@ -447,6 +447,7 @@ function finding_participle_passe($verb, $person) {
 	$participle_passe = word_stem ( $verb ) . 'é';
 	if (finding_auxiliaire ( $verb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
 		$participle_passe .= 's';
+	}	
 	return $participle_passe;
 }
 function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
