@@ -411,7 +411,7 @@ function isPlural(Person $person) {
 	);
 	return in_array ( $person->getValue (), $plural_persons );
 }
-function conjugate($verb, Person $person, Tense $tense, Mood $mood,  EndingWith $endingwith) {
+function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
 	// $conjugated_verb = 'Unknown Person';
 	$conjugated_verb = word_stem ( $verb ) . ending ( $person, $tense, $mood, $endingwith );
 	return $conjugated_verb;
