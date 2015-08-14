@@ -1,15 +1,15 @@
 <?php
 require_once 'conjugate.php';
-class EndingWith::IRTest extends PHPUnit_Framework_TestCase {
+class InfinitiveEndingTest extends PHPUnit_Framework_TestCase {
 	
 
 	/**
-	 * @dataProvider EndingWith::IRProvider
+	 * @dataProvider InfinitiveEndingTestProvider
 	 */
-	public function EndingWith::IR($expectedResult, $verb) {
+	public function InfinitiveEndingTest($expectedResult, $verb) {
 	$this->assertEquals ( new EndingWith($expectedResult), finding_infinitve_ending ($verb));
 	}
-	public function regularMain_Verb_EndingProvider() {
+	public function InfinitiveEndingTestProvider() {
 		return array (
 				array (
 						EndingWith::ER,
