@@ -6,7 +6,7 @@ class InfinitiveEndingTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider InfinitiveEndingTestProvider
 	 */
-	public function testInfinitiveEndingTest($expectedResult, $verb) {
+	public function testInfinitiveEnding($expectedResult, $verb) {
 	$this->assertEquals ( new EndingWith($expectedResult), finding_infinitive_ending ($verb));
 	}
 	public function InfinitiveEndingTestProvider() {
@@ -16,21 +16,29 @@ class InfinitiveEndingTest extends PHPUnit_Framework_TestCase {
 						'aimer',
 				),
 				array (
+						EndingWith::CER,
+						'commencer',
+				),
+				array (
+						EndingWith::GER,
+						'manger',
+				),
+				array (
+						EndingWith::YER,
+						'payer',
+				),				
+				array (
 						EndingWith::IR,
 						'finir',
 				),
-				array ( // not correct, after adding irregular verbs EndingWith::UNREGULAR should be correct
+				array ( 
 						EndingWith::ER,
 						'aller',
 				),
-				array ( // not correct, after adding irregular verbs EndingWith::UNREGULAR should be correct
+				array ( 
 						EndingWith::IR,
 						'avoir',
-				),				
-				array (
-						EndingWith::UNREGULAR,
-						'prendre',
-				)
+				)			
 		);
 	}
 }

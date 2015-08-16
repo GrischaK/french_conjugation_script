@@ -6,23 +6,51 @@ require_once 'classes/Person.php';
 require_once 'classes/Mood.php';
 require_once 'classes/Mode.php';
 require_once 'classes/Auxiliaire.php';
+require_once 'classes/ConjugationModel.php';
+
 function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
 function finding_infinitive_ending($verb) {
-switch(substr ( $verb, - 2, 2 )) {
-case 'er':
-$endingwith = EndingWith::ER;
-break;	
-case 'ir':	
-$endingwith = EndingWith::IR;
-break;
-default:
-$endingwith = EndingWith::UNREGULAR;
+	switch (substr ( $verb, - 2, 2 )) {
+		case 'er' :
+			$endingwith = EndingWith::ER;
+			switch (substr ( $verb, - 3, 3 )) {
+				case 'cer' :
+					$endingwith = EndingWith::CER;
+					break;
+				case 'ger' :
+					$endingwith = EndingWith::GER;
+					break;
+				case 'yer' :
+					$endingwith = EndingWith::YER;
+					break;
+			}
+			break;
+		case 'ir' :
+			$endingwith = EndingWith::IR;
+			switch (substr ( $verb, - 3, 3 )) {
+				case 'cer' :
+					$endingwith = EndingWith::CER;
+					break;
+			}
+			break;
+	}
+	return new EndingWith ( $endingwith );
 }
+function finding_conjugation_model($verb) { 
 
-return new EndingWith ( $endingwith );
+	require_once 'irregular/irregular-verb-groups.php';	
+	$eler_ele = array ('aciseler');
+	$eler_elle = array ('agneler');	
+	if (in_array ( $verb, $eler_ele )) {
+		$conjugationmodel = ConjugationModel::ELER_ELE;
+	}
+	if (in_array ( $verb, $eler_elle )) {
+		$conjugationmodel = ConjugationModel::ELER_ELLE;
+	}
+	return new ConjugationModel ( $conjugationmodel );
 }
 function personal_pronoun(Person $person, Mood $mood) {
 	$finding_person = '"Unknown Person';
@@ -392,7 +420,7 @@ function finding_auxiliaire($verb) {
 			'redevenir','réentrer','réintervenir','remonter','remourir','renaitre','renaître','rentrer','revenir','reparaitre','reparaître',
 			'repartir','reparvenir','repasser','repourrir','rerentrer','rerester','ressortir','ressouvenir','rester','resurvenir','retomber',
 			'retourner','retrépasser','revenir','s’amuser','se redépartir','se sortir','se souvenir','sortir','souvenir','stationner','sur-aller'
-			,'suradvenir','survenir','tomber','trépasser','venir'); 	                     
+			,'suradvenir','survenir','tomber','trépasser','venir');
 	$aux_avoir_etre = array ('accourir','ascendre','convenir','déchoir','demeurer','descendre','disparaitre','disparaître','disconvenir',
 			'éclore','enclore','entrer ','monter','paraitre','paraître','passer','ragaillardir', 'ré-apparaître','réapparaître','reconvenir',
 			'reparaitre','reparaître','sortir','tomber'); // use both auxiliary verbs
@@ -448,7 +476,11 @@ if ( finding_infinitive_ending( $verb )->getValue () === EndingWith::IR)
 	return $participe_present;
 }
 function finding_participe_passe($verb) {
-	$participe_passe = word_stem ( $verb ) . 'é';
+
+	if ( finding_infinitive_ending( $verb )->getValue () === EndingWith::ER)
+		$participe_passe = word_stem ( $verb ) . 'é';
+	if ( finding_infinitive_ending( $verb )->getValue () === EndingWith::IR)
+		$participe_passe = word_stem ( $verb ) . 'i';
 	return $participe_passe;
 }
 function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
