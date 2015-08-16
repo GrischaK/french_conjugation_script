@@ -4,7 +4,7 @@ class ReflexiveTest extends PHPUnit_Framework_TestCase {
 	
 	
 	/**
-	 * @dataProviderReflexiveTestProvider
+	 * @dataProvider ReflexiveTestProvider
 	 */
 	public function testReflexiveTest($expectedResult, $verb) {
 	$this->assertEquals ( new ReflexiveModel($expectedResult), finding_reflexive_model ($verb));
