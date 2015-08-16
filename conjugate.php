@@ -7,6 +7,7 @@ require_once 'classes/Mood.php';
 require_once 'classes/Mode.php';
 require_once 'classes/Auxiliaire.php';
 require_once 'classes/ConjugationModel.php';
+require_once 'classes/ReflexiveModel.php';
 
 function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
