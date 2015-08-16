@@ -41,9 +41,7 @@ function finding_infinitive_ending($verb) {
 }
 function finding_conjugation_model($verb) { 
 
-	require_once 'irregular/irregular-verb-groups.php';	
-	$eler_ele = array ('aciseler');
-	$eler_elle = array ('agneler');	
+	include 'irregular/irregular-verb-groups.php';	
 	if (in_array ( $verb, $eler_ele )) {
 		$conjugationmodel = ConjugationModel::ELER_ELE;
 	}
