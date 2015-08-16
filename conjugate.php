@@ -49,6 +49,20 @@ function finding_conjugation_model($verb) {
 	}
 	return new ConjugationModel ( $conjugationmodel );
 }
+function finding_reflexive_model($verb) {
+	$verbes_pronominaux  = array('aimer','lever');
+	$verbes_exclusivement_pronominaux  = array('abrater','empommer');
+	if (!in_array ( $verb, $verbes_pronominaux )) {
+		$reflexivmodel = RefexiveModel::NonReflexive;
+	}
+	if (in_array ( $verb, $verbes_pronominaux )) {
+		$reflexivmodel = RefexiveModel::Reflexive;
+	}
+	if (in_array ( $verb, $verbes_exclusivement_pronominaux  )) {
+		$reflexivmodel = RefexiveModel::OnlyReflexive;
+	}
+	return new RefexiveModel ( $reflexivmodel );
+}
 function personal_pronoun(Person $person, Mood $mood) {
 	$finding_person = '"Unknown Person';
 	$finding_person = array (
