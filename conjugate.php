@@ -54,15 +54,15 @@ function finding_reflexive_model($verb) {
 	$verbes_pronominaux  = array('aimer','lever');
 	$verbes_exclusivement_pronominaux  = array('abrater','empommer');
 	if (!in_array ( $verb, $verbes_pronominaux )) {
-		$reflexivmodel = RefexiveModel::NonReflexive;
+		$reflexivmodel = ReflexiveModel::NonReflexive;
 	}
 	if (in_array ( $verb, $verbes_pronominaux )) {
-		$reflexivmodel = RefexiveModel::Reflexive;
+		$reflexivmodel = ReflexiveModel::Reflexive;
 	}
 	if (in_array ( $verb, $verbes_exclusivement_pronominaux  )) {
-		$reflexivmodel = RefexiveModel::OnlyReflexive;
+		$reflexivmodel = ReflexiveModel::OnlyReflexive;
 	}
-	return new RefexiveModel ( $reflexivmodel );
+	return new ReflexiveModel ( $reflexivmodel );
 }
 function personal_pronoun(Person $person, Mood $mood) {
 	$finding_person = '"Unknown Person';

@@ -12,25 +12,25 @@ class ReflexiveTest extends PHPUnit_Framework_TestCase {
 	public function ReflexiveTestProvider() {
 		return array (
 				array (
-						RefexiveModel::Reflexive,
+						ReflexiveModel::Reflexive,
 						'aimer',
 				),
 				array (
-						RefexiveModel::Reflexive,
+						ReflexiveModel::Reflexive,
 						'lever',
 				),
 				array (
-						RefexiveModel::NonReflexive,
+						ReflexiveModel::NonReflexive,
 						'lire',
 				),			
 				array (
-						RefexiveModel::OnlyReflexive,
+						ReflexiveModel::OnlyReflexive,
 						'abrater',
 				),
 				array (
-						RefexiveModel::OnlyReflexive,
+						ReflexiveModel::OnlyReflexive,
 						'empommer',
-				)				
+				)
 		);
 	}
 }
