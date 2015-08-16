@@ -100,9 +100,9 @@ function reflexive_pronoun(Person $person, Mood $mood) {
 	);
 
 	if ($mood->getValue () === Mood::Subjonctif) {
-		return $subjonctif_pre_pronouns [$person->getValue ()] . $finding_reflexive_pronoun [$person->getValue ()];
+		return $subjonctif_pre_pronouns [$person->getValue ()] . $finding_person [$person->getValue ()] .$finding_reflexive_pronoun [$person->getValue ()];
 	} else {
-		return $finding_reflexive_pronoun [$person->getValue ()];
+		return $finding_person [$person->getValue ()] . $finding_reflexive_pronoun [$person->getValue ()];
 	}
 }
 function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith) {
