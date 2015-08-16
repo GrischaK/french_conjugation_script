@@ -80,7 +80,7 @@ function personal_pronoun(Person $person, Mood $mood) {
 			Person::ThirdPersonSingular => 'qu’',
 			Person::FirstPersonPlural => 'que ',
 			Person::SecondPersonPlural => 'que ',
-			Person::ThirdPersonPlural => 'qu’'
+			Person::ThirdPersonPlural => 'qu’' 
 	);
 	
 	if ($mood->getValue () === Mood::Subjonctif) {
@@ -96,11 +96,13 @@ function reflexive_pronoun(Person $person, Mood $mood) {
 			Person::ThirdPersonSingular => 'se',
 			Person::FirstPersonPlural => 'nous',
 			Person::SecondPersonPlural => 'vous',
-			Person::ThirdPersonPlural => 'se'
+			Person::ThirdPersonPlural => 'se' 
 	);
-
+	return $finding_reflexive_pronoun [$person->getValue ()];
+}
+function merge_pronoun(Person $person, Mood $mood) {
 	if ($mood->getValue () === Mood::Subjonctif) {
-		return $subjonctif_pre_pronouns [$person->getValue ()] . $finding_person [$person->getValue ()] .$finding_reflexive_pronoun [$person->getValue ()];
+		return $subjonctif_pre_pronouns [$person->getValue ()] . $finding_person [$person->getValue ()] . $finding_reflexive_pronoun [$person->getValue ()];
 	} else {
 		return $finding_person [$person->getValue ()] . $finding_reflexive_pronoun [$person->getValue ()];
 	}

@@ -10,66 +10,35 @@ class ReflexivePronounTest extends PHPUnit_Framework_TestCase {
 	public function ReflexivePronounProvider() {
 		return array (
 				array (
-						'je me',
+						'me',
 						'FirstPersonSingular',
 						'Indicatif',
 				),
 				array (
-						'tu te',
+						'te',
 						'SecondPersonSingular',
 						'Indicatif',
 				),
 				array (
-						'il se',
+						'se',
 						'ThirdPersonSingular',
 						'Indicatif',
 				),
 				array (
-						'nous nous',
+						'nous',
 						'FirstPersonPlural',
 						'Indicatif',
 				),
 				array (
-						'vous vous',
+						'vous',
 						'SecondPersonPlural',
 						'Indicatif',
 				),
 				array (
-						'ils se',
+						'se',
 						'ThirdPersonPlural',
 						'Indicatif',
-				),
-				array (
-						'que je me',
-						'FirstPersonSingular',
-						'Subjonctif',
-				),
-				array (
-						'que tu te',
-						'SecondPersonSingular',
-						'Subjonctif',
-				),
-				array (
-						'qu’il se',
-						'ThirdPersonSingular',
-						'Subjonctif',
-				),
-				array (
-						'que nous nous',
-						'FirstPersonPlural',
-						'Subjonctif',
-				),
-				array (
-						'que vous vous',
-						'SecondPersonPlural',
-						'Subjonctif',
-				),
-				array (
-						'qu’ils se',
-						'ThirdPersonPlural',
-						'Subjonctif',
 				)
-				
 		);
 	}
 }
