@@ -10,9 +10,6 @@ require_once 'classes/ConjugationModel.php';
 
 function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
-	if (finding_conjugation_model( $verb )->getValue () === ConjugationModel::ELER_ELE) {
-		$word_stem = substr_replace($word_stem, '<u>è</u>', -2, 1);	
-	}
 	return $word_stem;
 }
 function finding_infinitive_ending($verb) {
