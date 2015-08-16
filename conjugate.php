@@ -10,6 +10,9 @@ require_once 'classes/ConjugationModel.php';
 
 function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
+	if (finding_conjugation_model( $verb )->getValue () === ConjugationModel::ELER_ELE) {
+		$word_stem = substr_replace($word_stem, '<u>è</u>', -2, 1);	
+	}
 	return $word_stem;
 }
 function finding_infinitive_ending($verb) {
@@ -39,9 +42,8 @@ function finding_infinitive_ending($verb) {
 	}
 	return new EndingWith ( $endingwith );
 }
-function finding_conjugation_model($verb) { 
-
-	include 'irregular/irregular-verb-groups.php';	
+function finding_conjugation_model($verb) {
+	include 'irregular/irregular-verb-groups.php';
 	if (in_array ( $verb, $eler_ele )) {
 		$conjugationmodel = ConjugationModel::ELER_ELE;
 	}
@@ -52,7 +54,6 @@ function finding_conjugation_model($verb) {
 }
 function personal_pronoun(Person $person, Mood $mood) {
 	$finding_person = '"Unknown Person';
-	// for all Tenses in Mood::Subjonctif add before personal pronoun "que"/"qu'" for ThirdPersonSingular and ThirdPersonPlural
 	$finding_person = array (
 			Person::FirstPersonSingular => 'je',
 			Person::SecondPersonSingular => 'tu',
@@ -652,7 +653,7 @@ function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
 		$conjugated_verb = conjugate ( $verb, $person, $tense, $mood );
 		if ($mood->getValue () === Mood::Imperatif) {
 			return $conjugated_verb;
-		}
+		}		
 		return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb );
 	}
 }
