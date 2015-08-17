@@ -549,16 +549,15 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 	return $modes_impersonnels [$tense->getValue ()] [$mode->getValue ()];
 }
 
-function apostrophized($pronoun, $verb, & $was_apostrophized = null) { // tauscht je/que je in j’/que j’, wenn Vokal
-	if (preg_match ( '~(.*)\bje$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $verb )) {
+function apostrophized($pronoun, $verb, & $was_apostrophized = null) { 
+	if (preg_match ( '~(.*\b[jtms])e$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $verb )) {
 		$was_apostrophized = true;
-		return "{$m[1]}j’";
+		return "{$m[1]}’";
 	}
 	$was_apostrophized = false;
 	return $pronoun;
 }
-
-function concatenate_apostrophized($pronoun, $verb) { // tauscht je/que je in j’/que j’, wenn Vokal FOR OLD TESTS
+function concatenate_apostrophized($pronoun, $verb) { 
 	$was_apostrophized = false;
 	$possiblyApostrophizedPronoun = apostrophized ( $pronoun, $verb, $was_apostrophized);
 	return $was_apostrophized ? $possiblyApostrophizedPronoun.$verb : "$possiblyApostrophizedPronoun $verb";
