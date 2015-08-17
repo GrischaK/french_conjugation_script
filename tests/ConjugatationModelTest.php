@@ -1,34 +1,34 @@
 <?php
 require_once 'conjugate.php';
-class ConjugatationModelTest extends PHPUnit_Framework_TestCase {
+class ConjugationModelTest extends PHPUnit_Framework_TestCase {
 	
 	
 	/**
-	 * @dataProvider ConjugatationModelTestProvider
+	 * @dataProvider ConjugationModelTestProvider
 	 */
-	public function testConjugatationModel($expectedResult, $verb) {
-	$this->assertEquals ( new ConjugatationModel($expectedResult), finding_conjugation_model ($verb));
+	public function testConjugationModel($expectedResult, $verb) {
+	$this->assertEquals ( new ConjugationModel($expectedResult), finding_conjugation_model ($verb));
 	}
-	public function ConjugatationModelTestProvider() {
+	public function ConjugationModelTestProvider() {
 		return array (
 				array (
-						ConjugatationModel::Reflexive,
+						ConjugationModel::Reflexive,
 						'aimer',
 				),
 				array (
-						ConjugatationModel::Reflexive,
+						ConjugationModel::Reflexive,
 						'lever',
 				),
 				array (
-						ConjugatationModel::NonReflexive,
+						ConjugationModel::NonReflexive,
 						'lire',
 				),			
 				array (
-						ConjugatationModel::OnlyReflexive,
+						ConjugationModel::OnlyReflexive,
 						'abrater',
 				),
 				array (
-						ConjugatationModel::OnlyReflexive,
+						ConjugationModel::OnlyReflexive,
 						'empommer',
 				)
 		);
