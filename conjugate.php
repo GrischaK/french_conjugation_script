@@ -7,7 +7,7 @@ require_once 'classes/Mood.php';
 require_once 'classes/Mode.php';
 require_once 'classes/Auxiliaire.php';
 require_once 'classes/ConjugationModel.php';
-require_once 'classes/ReflexiveModel.php';
+require_once 'classes/ExceptionModel.php';
 
 function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
@@ -40,29 +40,29 @@ function finding_infinitive_ending($verb) {
 	}
 	return new EndingWith ( $endingwith );
 }
-function finding_conjugation_model($verb) {
+function finding_exception_model($verb) {
 	include 'irregular/irregular-verb-groups.php';
 	if (in_array ( $verb, $eler_ele )) {
-		$conjugationmodel = ConjugationModel::ELER_ELE;
+		$exceptionmodel = ExceptionModel::ELER_ELE;
 	}
 	if (in_array ( $verb, $eler_elle )) {
-		$conjugationmodel = ConjugationModel::ELER_ELLE;
+		$exceptionmodel = ExceptionModel::ELER_ELLE;
 	}
-	return new ConjugationModel ( $conjugationmodel );
+	return new ExceptionModel ( $exceptionmodel );
 }
-function finding_reflexive_model($verb) {
+function finding_conjugation_model($verb) {
 	$verbes_pronominaux  = array('aimer','lever');
 	$verbes_exclusivement_pronominaux  = array('abrater','empommer');
 	if (!in_array ( $verb, $verbes_pronominaux )) {
-		$reflexivmodel = ReflexiveModel::NonReflexive;
+		$conjugationmodel = ConjugationModel::NonReflexive;
 	}
 	if (in_array ( $verb, $verbes_pronominaux )) {
-		$reflexivmodel = ReflexiveModel::Reflexive;
+		$conjugationmodel = ConjugationModel::Reflexive;
 	}
 	if (in_array ( $verb, $verbes_exclusivement_pronominaux  )) {
-		$reflexivmodel = ReflexiveModel::OnlyReflexive;
+		$conjugationmodel = ConjugationModel::OnlyReflexive;
 	}
-	return new ReflexiveModel ( $reflexivmodel );
+	return new ConjugationModel ( $conjugationmodel );
 }
 function personal_pronoun(Person $person, Mood $mood) {
 	$finding_person = '"Unknown Person';

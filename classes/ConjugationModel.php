@@ -1,11 +1,7 @@
 <?php
 class ConjugationModel extends Enum {
-	const ELER_ELE = 'eler_ele';  // all verbs in array $eler_ele
-	const ELER_ELLE = 'eler_elle';// all verbs in array $eler_elle
-
-	const ALLER = 'aller';  // all verbs in array aller_irr
-	const AVOIR = 'avoir';// all verbs in array $avoir_irr
-	const ETRE = 'aller';  // all verbs in array etre_irr
-
+	const Reflexive = 'reflexive';
+	const NonReflexive = 'non reflexive';
+	const OnlyReflexive = 'only reflexive';
 }
 ?>
