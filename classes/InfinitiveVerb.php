@@ -4,7 +4,6 @@ class InfinitiveVerb {
 	
 	public function __construct($infinitivverb) {
 			$this->value = $infinitivverb->value;
-			return;
 		}
 }
 ?>
