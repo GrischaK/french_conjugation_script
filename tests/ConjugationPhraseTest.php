@@ -42,6 +42,20 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Indicatif' 
 				),	
 				array (
+						'j’habilite',
+						'habiliter',
+						'Present',
+						'FirstPersonSingular',
+						'Indicatif'
+				),
+				array (
+						'je hérisse',
+						'hérisser',
+						'Present',
+						'FirstPersonSingular',
+						'Indicatif'
+				),				
+				array (
 						'je finis',
 						'finir',
 						'Present',

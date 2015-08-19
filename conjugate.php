@@ -550,7 +550,8 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 }
 
 function apostrophized($pronoun, $verb, & $was_apostrophized = null) { 
-	if (preg_match ( '~(.*\b[jtms])e$~ui', $pronoun, $m ) && preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $verb )) {
+	$h_apire = array ('hérisser');// example values
+	if (preg_match ( '~(.*\b[jtms])e$~ui', $pronoun, $m ) && (preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $verb ) && !in_array($verb, $h_apire))) {
 		$was_apostrophized = true;
 		return "{$m[1]}’";
 	}
