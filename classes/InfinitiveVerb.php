@@ -1,11 +1,10 @@
 <?php
 class InfinitiveVerb {
-	private $infinitivverb;
+	private $infinitivverb = 'value';
 	
 	public function __construct($infinitivverb) {
-		if(is_a($infinitivverb, get_called_class ())) {
-			$this->value = $value->value;
+			$this->value = $infinitivverb->value;
 			return;
-		}	
+		}
 }
 ?>
