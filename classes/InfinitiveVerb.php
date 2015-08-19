@@ -1,6 +1,6 @@
 <?php
 class InfinitiveVerb {
-	private $infinitivverb = 'value';
+	private $infinitivverb;
 	
 	public function __construct($infinitivverb) {
 			$this->value = $infinitivverb->value;
