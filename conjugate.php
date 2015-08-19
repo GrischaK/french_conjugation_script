@@ -570,6 +570,9 @@ abstract class ConjugationPhrase {
 		$personal_pronoun = personal_pronoun ( $person, $mood );
 		if (isComposite ( $mood, $tense )) {
 			$participe_passe = finding_participe_passe ( $verb );
+			if (finding_auxiliaire ( $verb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
+				$participe_passe .= 's';
+			}
 			$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $verb ), $person, $tense, $mood );
 			if ($mood->getValue () === Mood::Imperatif) {
 				return new ImperatifPasseTenseConjugationPhrase ( $conjugated_auxiliaire_verb, $participe_passe );
@@ -665,27 +668,9 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 }
 
 function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
-	$personal_pronoun = personal_pronoun ( $person, $mood );
-	if (isComposite ( $mood, $tense )) {
-		$participe_passe = finding_participe_passe ( $verb );
-		if (finding_auxiliaire ( $verb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
-			$participe_passe .= 's';
-		}
-		$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $verb ), $person, $tense, $mood );
-		if ($mood->getValue () === Mood::Imperatif) {
-			return $conjugated_auxiliaire_verb . ' ' . $participe_passe;
-		}
-		if ($tense->getValue () === Tense::Futur_compose) {
-			return $personal_pronoun . ' ' . $conjugated_auxiliaire_verb . ' ' . $verb;
-		}
-		return concatenate_apostrophized ( $personal_pronoun, $conjugated_auxiliaire_verb ) . ' ' . $participe_passe;
-	} else {
-		$conjugated_verb = conjugate ( $verb, $person, $tense, $mood );
-		if ($mood->getValue () === Mood::Imperatif) {
-			return $conjugated_verb;
-		}		
-		return concatenate_apostrophized ( $personal_pronoun, $conjugated_verb );
-	}
+	$conjugationPhrase = ConjugationPhrase::create($verb, $person, $tense, $mood);
+	$visitor = new GoogleTTSConjugationPhraseVisitor();
+	return $conjugationPhrase->accept($visitor);
 }
 $variable = conjugate ( 'aimer', new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ), new EndingWith ( EndingWith::ER ) );
 ?>
