@@ -1,5 +1,6 @@
 <?php
 require_once 'classes/Enum.php';
+require_once 'classes/InfinitiveVerb.php';
 require_once 'classes/EndingWith.php';
 require_once 'classes/Tense.php';
 require_once 'classes/Person.php';
