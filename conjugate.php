@@ -15,7 +15,7 @@ function word_stem(InfinitiveVerb $verb) {
 	return $word_stem;
 }
 function finding_infinitive_ending(InfinitiveVerb $verb) {
-	switch (substr ( $verb, - 2, 2 )) {
+	switch (substr ( $verb->getInfinitiveVerb(), - 2, 2 )) {
 		case 'er' :
 			$endingwith = EndingWith::ER;
 			switch (substr ( $verb, - 3, 3 )) {
@@ -673,5 +673,5 @@ function conjugation_phrase(InfinitiveVerb $verb, Person $person, Tense $tense, 
 	$visitor = new GoogleTTSConjugationPhraseVisitor();
 	return $conjugationPhrase->accept($visitor);
 }
-$variable = conjugate ( 'aimer', new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ), new EndingWith ( EndingWith::ER ) );
+$variable = conjugate ( new InfinitiveVerb('aimer'), new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ), new EndingWith ( EndingWith::ER ) );
 ?>
