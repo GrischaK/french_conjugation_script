@@ -2,7 +2,7 @@
 class InfinitiveVerb {
 	private $infinitiveVerb;
 	public function __construct($infinitiveVerb) {
-		$this->infinitiveVerb = $invinitiveverb;
+		$this->infinitiveVerb = $infinitiveVerb;
 	}
 
    public function getInfinitiveVerb($verb) {
