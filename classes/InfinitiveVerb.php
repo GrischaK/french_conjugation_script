@@ -5,7 +5,7 @@ class InfinitiveVerb {
 		$this->infinitiveVerb = $infinitiveVerb;
 	}
 
-   public function getInfinitiveVerb($verb) {
+   public function getInfinitiveVerb() {
 	return $this->infinitiveVerb;
    }
 }
