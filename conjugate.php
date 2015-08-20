@@ -14,7 +14,7 @@ function word_stem($verb) {
 	$word_stem = substr ( $verb, 0, - 2 );
 	return $word_stem;
 }
-function finding_infinitive_ending($verb) {
+function finding_infinitive_ending(InfinitiveVerb $verb) {
 	switch (substr ( $verb, - 2, 2 )) {
 		case 'er' :
 			$endingwith = EndingWith::ER;
@@ -41,7 +41,7 @@ function finding_infinitive_ending($verb) {
 	}
 	return new EndingWith ( $endingwith );
 }
-function finding_exception_model($verb) {
+function finding_exception_model(InfinitiveVerb $verb) {
 	include 'irregular/irregular-verb-groups.php';
 	if (in_array ( $verb, $eler_ele )) {
 		$exceptionmodel = ExceptionModel::ELER_ELE;
@@ -51,7 +51,7 @@ function finding_exception_model($verb) {
 	}
 	return new ExceptionModel ( $exceptionmodel );
 }
-function finding_conjugation_model($verb) {
+function finding_conjugation_model(InfinitiveVerb $verb) {
 	$verbes_pronominaux  = array('aimer','lever');
 	$verbes_exclusivement_pronominaux  = array('abrater','empommer');
 	if (!in_array ( $verb, $verbes_pronominaux )) {
@@ -442,7 +442,7 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 	}
 	return $conjugated_auxiliaire [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
-function finding_auxiliaire($verb) {
+function finding_auxiliaire(InfinitiveVerb $verb) {
 	$aux_etre = array ('accourir','advenir','aller','amuser','apparaitre','apparaître','arriver','ascendre','co-naitre','co-naître','convenir',
 			'débeller','décéder','démourir','descendre','disconvenir','devenir','échoir','entre-venir','entrer','époustoufler','intervenir',
 			'issir','mévenir','monter','mourir','naitre','naître','obvenir','paraitre','paraître','partir','parvenir','pourrir','prémourir',
@@ -469,7 +469,7 @@ function isPlural(Person $person) {
 	);
 	return in_array ( $person->getValue (), $plural_persons );
 }
-function conjugate($verb, Person $person, Tense $tense, Mood $mood) {
+function conjugate(InfinitiveVerb $verb, Person $person, Tense $tense, Mood $mood) {
 	$endingwith = finding_infinitive_ending($verb);
 	$conjugated_verb = word_stem ( $verb ) . ending ( $person, $tense, $mood, $endingwith );
 	return $conjugated_verb;
@@ -497,7 +497,7 @@ function isComposite(Mood $mood, Tense $tense) {
 	);
 	return in_array ( $tense->getValue (), $composite_tenses [$mood->getValue ()] );
 }
-function finding_participe_present($verb) { 
+function finding_participe_present(InfinitiveVerb $verb) { 
 	
 if ( finding_infinitive_ending( $verb )->getValue () === EndingWith::ER)
 	$participe_present = word_stem ( $verb ) . 'ant';
@@ -505,7 +505,7 @@ if ( finding_infinitive_ending( $verb )->getValue () === EndingWith::IR)
 	$participe_present = word_stem ( $verb ) . 'issant';	
 	return $participe_present;
 }
-function finding_participe_passe($verb) {
+function finding_participe_passe(InfinitiveVerb $verb) {
 
 	if ( finding_infinitive_ending( $verb )->getValue () === EndingWith::ER)
 		$participe_passe = word_stem ( $verb ) . 'é';
@@ -513,7 +513,7 @@ function finding_participe_passe($verb) {
 		$participe_passe = word_stem ( $verb ) . 'i';
 	return $participe_passe;
 }
-function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
+function modes_impersonnels(InfinitiveVerb $verb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
 	$participe_passe = finding_participe_passe ($verb);
 	$participe_present = finding_participe_present ($verb);
 	switch ($auxiliaire->getValue ()) {
@@ -552,14 +552,14 @@ function modes_impersonnels($verb, Auxiliaire $auxiliaire, Mode $mode, Tense $te
 
 function apostrophized($pronoun, InfinitiveVerb $invinitiveverb, & $was_apostrophized = null) { 
 	$h_apire = array ('hérisser');//  example values
-	if (preg_match ( '~(.*\b[jtms])e$~ui', $pronoun, $m ) && (preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $invinitiveverb ) && !in_array($invinitiveverb, $h_apire))) {
+	if (preg_match ( '~(.*\b[jtms])e$~ui', $pronoun, $m ) && (preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', verb ) && !in_array(verb, $h_apire))) {
 		$was_apostrophized = true;
 		return "{$m[1]}’";
 	}
 	$was_apostrophized = false;
 	return $pronoun;
 }
-function concatenate_apostrophized($pronoun, $verb) { 
+function concatenate_apostrophized($pronoun, InfinitiveVerb $verb) { 
 	$was_apostrophized = false;
 	$possiblyApostrophizedPronoun = apostrophized ( $pronoun, $verb, $was_apostrophized);
 	return $was_apostrophized ? $possiblyApostrophizedPronoun.$verb : "$possiblyApostrophizedPronoun $verb";
@@ -668,7 +668,7 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	}
 }
 
-function conjugation_phrase($verb, Person $person, Tense $tense, Mood $mood) {
+function conjugation_phrase(InfinitiveVerb $verb, Person $person, Tense $tense, Mood $mood) {
 	$conjugationPhrase = ConjugationPhrase::create($verb, $person, $tense, $mood);
 	$visitor = new GoogleTTSConjugationPhraseVisitor();
 	return $conjugationPhrase->accept($visitor);
