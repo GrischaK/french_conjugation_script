@@ -11,14 +11,14 @@ require_once 'classes/ConjugationModel.php';
 require_once 'classes/ExceptionModel.php';
 
 function word_stem(InfinitiveVerb $verb) {
-	$word_stem = substr ( $verb, 0, - 2 );
+	$word_stem = substr ( $verb->getInfinitiveVerb(), 0, - 2 );
 	return $word_stem;
 }
 function finding_infinitive_ending(InfinitiveVerb $verb) {
 	switch (substr ( $verb->getInfinitiveVerb(), - 2, 2 )) {
 		case 'er' :
 			$endingwith = EndingWith::ER;
-			switch (substr ( $verb, - 3, 3 )) {
+			switch (substr ( $verb->getInfinitiveVerb(), - 3, 3 )) {
 				case 'cer' :
 					$endingwith = EndingWith::CER;
 					break;
@@ -32,7 +32,7 @@ function finding_infinitive_ending(InfinitiveVerb $verb) {
 			break;
 		case 'ir' :
 			$endingwith = EndingWith::IR;
-			switch (substr ( $verb, - 3, 3 )) {
+			switch (substr ( $verb->getInfinitiveVerb(), - 3, 3 )) {
 				case 'cer' :
 					$endingwith = EndingWith::CER;
 					break;
