@@ -13,5 +13,9 @@ class InfinitiveVerb {
    public function getInfinitiveVerb() {
 	return $this->infinitiveVerb;
    }
+   
+   public function __toString() {
+   	return $this->infinitiveVerb;
+   }
 }
 ?>

@@ -9,7 +9,7 @@ function wrapInXMLTag($string) {
 class PrintTest extends PHPUnit_Framework_TestCase {
 	public function testPrintAimer() {
 		ob_start();
-		print_conjugations_of_verb ( 'aimer' );
+		print_conjugations_of_verb ( new InfinitiveVerb('aimer') );
 		$actual_output = ob_get_clean();
 		$this->assertXmlStringEqualsXmlString(wrapInXMLTag('<h2 class="home"><a id="indicatif"></a>Indicatif</h2>
 	<hr class="linie" />

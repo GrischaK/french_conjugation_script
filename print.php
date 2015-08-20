@@ -1,6 +1,6 @@
 <?php
 require_once 'conjugate.php';
-function print_persons($verb, Tense $tense, Mood $mood) {
+function print_persons(InfinitiveVerb $verb, Tense $tense, Mood $mood) {
 	$persons = array (
 			Mood::Indicatif => array (
 					Tense::Present => array (
@@ -199,7 +199,7 @@ function colspan_number($mood, $tense) {
 	}
 	return $colspan;
 }
-function print_tenses($verb, Mood $mood, $tenses) {
+function print_tenses(InfinitiveVerb $verb, Mood $mood, $tenses) {
 	$th_of_tense = array (
 			Tense::Present =>'Présent',
 			Tense::Imparfait =>'Imparfait',
@@ -220,7 +220,7 @@ function print_tenses($verb, Mood $mood, $tenses) {
 		print_persons ( $verb, new Tense ( $tense ), new Mood ( $mood ) );
 	}
 }
-function print_simple_tenses($verb, Mood $mood) {
+function print_simple_tenses(InfinitiveVerb $verb, Mood $mood) {
 	$tenses = array (
 			Mood::Indicatif => array (
 					Tense::Present,
@@ -241,7 +241,7 @@ function print_simple_tenses($verb, Mood $mood) {
 	);
 	print_tenses ( $verb, $mood, $tenses );
 }
-function print_composite_tenses($verb, Mood $mood) {
+function print_composite_tenses(InfinitiveVerb $verb, Mood $mood) {
 	$tenses = array (
 			Mood::Indicatif => array (
 					Tense::Passe_compose,
@@ -264,7 +264,7 @@ function print_composite_tenses($verb, Mood $mood) {
 	);
 	print_tenses ( $verb, $mood, $tenses );
 }
-function print_modes($verb) {
+function print_modes(InfinitiveVerb $verb) {
 	$tenses = array (
 			Tense::Present,
 			Tense::Passe 
@@ -289,7 +289,7 @@ function print_modes($verb) {
 		echo "\t\t".'</tr>' . PHP_EOL;
 	}
 }
-function print_conjugations_of_verb($verb) {
+function print_conjugations_of_verb(InfinitiveVerb $verb) {
 	$moods = array (
 			Mood::Indicatif,
 			Mood::Subjonctif,

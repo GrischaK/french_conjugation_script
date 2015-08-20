@@ -7,7 +7,7 @@ class ExceptionModelTest extends PHPUnit_Framework_TestCase {
 	 * @dataProvider ExceptionModelTestProvider
 	 */
 	public function testConjugationModelTest($expectedResult, $verb) {
-	$this->assertEquals ( new ExceptionModel($expectedResult), finding_exception_model ($verb));
+	$this->assertEquals ( new ExceptionModel($expectedResult), finding_exception_model (new InfinitiveVerb($verb)));
 	}
 	public function ExceptionModelTestProvider() {
 		return array (
