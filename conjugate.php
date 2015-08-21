@@ -1,6 +1,7 @@
 <?php
 require_once 'classes/Enum.php';
 require_once 'classes/InfinitiveVerb.php';
+require_once 'classes/ConjugatedVerb.php';
 require_once 'classes/EndingWith.php';
 require_once 'classes/Tense.php';
 require_once 'classes/Person.php';
@@ -585,7 +586,7 @@ abstract class ConjugationPhrase {
 			}
 			return new CompositeTenseConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe ); 
 		} else {
-			$conjugated_verb = conjugate ( $verb, $person, $tense, $mood );
+			$conjugated_verb = new ConjugatedVerb($infinitiveVerb, $mode, $tense, $person);
 			if ($mood->getValue () === Mood::Imperatif) {
 				return new ImperatifPresentTenseConjugationPhrase ( $conjugated_verb );
 			}
@@ -598,7 +599,7 @@ class SimpleTenseConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitSimpleTense ( $this );
 	}
 	public $personal_pronoun, $conjugated_verb;
-	public function __construct($personal_pronoun, $conjugated_verb) {
+	public function __construct($personal_pronoun, ConjugatedVerb $conjugated_verb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_verb = $conjugated_verb;
 	}
