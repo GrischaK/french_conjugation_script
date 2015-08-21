@@ -561,7 +561,7 @@ function apostrophized($pronoun, $verb, & $was_apostrophized = null) {
 	$was_apostrophized = false;
 	return $pronoun;
 }
-function concatenate_apostrophized($pronoun, $conjugatedVerb) { 
+function concatenate_apostrophized($pronoun, ConjugatedVerb $conjugatedVerb) { 
 	$was_apostrophized = false;
 	$possiblyApostrophizedPronoun = apostrophized ( $pronoun, $conjugatedVerb, $was_apostrophized);
 	return $was_apostrophized ? $possiblyApostrophizedPronoun.$conjugatedVerb : "$possiblyApostrophizedPronoun $conjugatedVerb";
