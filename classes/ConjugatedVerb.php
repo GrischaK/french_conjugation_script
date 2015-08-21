@@ -2,7 +2,7 @@
 class ConjugatedVerb {
 	private $conjugatedVerb;
 	public function __construct($conjugatedVerb) {
-		if($conjugatedVerb instanceof $conjugatedVerb) {
+		if($conjugatedVerb instanceof ConjugatedVerb) {
 			$this->conjugatedVerb = $conjugatedVerb->getConjugatedVerb();
 		} else {
 			assert(is_string($conjugatedVerb));
