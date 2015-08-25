@@ -8,5 +8,5 @@ class ConjugatedAuxiliaireVerb extends ConjugatedVerb {
 	public function __toString() {
 		return $this->conjugatedAuxiliaireVerb;
 	}
-}
+}//test
 ?>
