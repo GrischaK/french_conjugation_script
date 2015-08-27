@@ -2,7 +2,7 @@
 class ConjugatedVerb {
 	private $conjugatedVerb, $infinitiveVerb, $mood, $tense, $person;
 	public function __construct(InfinitiveVerb $infinitiveVerb, Mood $mood, Tense $tense, Person $person) {
-		$conjugatedVerb = conjugate ( $infinitiveVerb->getInfinitiveVerb (), $person, $tense, $mood );
+		$conjugatedVerb = conjugate ( $infinitiveVerb, $person, $tense, $mood );
 		initialize ( $conjugatedVerb, $mood, $tense, $person );
 	}
 	protected function initialize($conjugatedVerb, $mood, $tense, $person) {
