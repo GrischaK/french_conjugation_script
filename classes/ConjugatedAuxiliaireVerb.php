@@ -4,8 +4,5 @@ class ConjugatedAuxiliaireVerb extends ConjugatedVerb {
 		$conjugatedVerb = conjugated_auxiliaire($auxiliaire, $person, $tense, $mood);
 		$this->initialize ( $conjugatedVerb, $mood, $tense, $person );
 	}
-	public function __toString() {
-		return $this->conjugatedAuxiliaireVerb;
-	}
 }
 ?>
