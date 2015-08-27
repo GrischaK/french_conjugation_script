@@ -639,6 +639,7 @@ class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitFuturComposeTense ( $this );
 	}
 	public $personal_pronoun;
+	public $conjugated_auxiliaire_verb;
 	public $infinitiveVerb;
 	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, InfinitiveVerb $infinitiveVerb) {
 		$this->personal_pronoun = $personal_pronoun;
