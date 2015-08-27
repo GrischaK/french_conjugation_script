@@ -552,23 +552,22 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 	return $modes_impersonnels [$tense->getValue ()] [$mode->getValue ()];
 }
 
-function apostrophized($pronoun, $infinitiveVerb, & $was_apostrophized = null) { 
-	$h_apire = array ('hérisser');//  example values
-	if (preg_match ( '~(.*\b[jtms])e$~ui', $pronoun, $m ) && 
-			(preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $infinitiveVerb ) && 
-					!in_array($infinitiveVerb, $h_apire))) {
+function apostrophized($pronoun, $infinitiveVerb, & $was_apostrophized = null) {
+	$h_apire = array (
+			'hérisser' 
+	); // example values
+	if (preg_match ( '~(.*\b[jtms])e$~ui', $pronoun, $m ) && (preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $infinitiveVerb ) && ! in_array ( $infinitiveVerb, $h_apire ))) {
 		$was_apostrophized = true;
 		return "{$m[1]}’";
 	}
 	$was_apostrophized = false;
 	return $pronoun;
 }
-function concatenate_apostrophized($pronoun, ConjugatedVerb $conjugatedVerb) { 
+function concatenate_apostrophized($pronoun, ConjugatedVerb $conjugatedVerb) {
 	$was_apostrophized = false;
-	$possiblyApostrophizedPronoun = apostrophized ( $pronoun, $conjugatedVerb, $was_apostrophized);
-	return $was_apostrophized ? $possiblyApostrophizedPronoun.$conjugatedVerb : "$possiblyApostrophizedPronoun $conjugatedVerb";
+	$possiblyApostrophizedPronoun = apostrophized ( $pronoun, $conjugatedVerb, $was_apostrophized );
+	return $was_apostrophized ? $possiblyApostrophizedPronoun . $conjugatedVerb : "$possiblyApostrophizedPronoun $conjugatedVerb";
 }
-
 abstract class ConjugationPhrase {
 	abstract function accept(ConjugationPhraseVisitor $visitor);
 	static function create(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood) {
@@ -578,16 +577,16 @@ abstract class ConjugationPhrase {
 			if (finding_auxiliaire ( $infinitiveVerb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
 				$participe_passe .= 's';
 			}
-			$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb( finding_auxiliaire ( $infinitiveVerb ), $person, $tense, $mood );
+			$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( finding_auxiliaire ( $infinitiveVerb ), $person, $tense, $mood );
 			if ($mood->getValue () === Mood::Imperatif) {
 				return new ImperatifPasseTenseConjugationPhrase ( $conjugated_auxiliaire_verb, $participe_passe );
 			}
 			if ($tense->getValue () === Tense::Futur_compose) {
 				return new FuturComposeTenseConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $infinitiveVerb );
 			}
-			return new CompositeTenseConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe ); 
+			return new CompositeTenseConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe );
 		} else {
-			$conjugated_verb = new ConjugatedVerb($infinitiveVerb, $mood, $tense, $person);
+			$conjugated_verb = new ConjugatedVerb ( $infinitiveVerb, $mood, $tense, $person );
 			if ($mood->getValue () === Mood::Imperatif) {
 				return new ImperatifPresentTenseConjugationPhrase ( $conjugated_verb );
 			}
@@ -668,14 +667,13 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->participe_passe;
 	}
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun  . ' ' . $visitee->conjugated_auxiliaire_verb  . ' ' . $visitee->verb;
+		return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->verb;
 	}
 }
-
 function conjugation_phrase(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood) {
-	$conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, $person, $tense, $mood);
-	$visitor = new GoogleTTSConjugationPhraseVisitor();
-	return $conjugationPhrase->accept($visitor);
+	$conjugationPhrase = ConjugationPhrase::create ( $infinitiveVerb, $person, $tense, $mood );
+	$visitor = new GoogleTTSConjugationPhraseVisitor ();
+	return $conjugationPhrase->accept ( $visitor );
 }
-$variable = conjugate ( new InfinitiveVerb('aimer'), new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ), new EndingWith ( EndingWith::ER ) );
+$variable = conjugate ( new InfinitiveVerb ( 'aimer' ), new Person ( Person::FirstPersonSingular ), new Tense ( Tense::Present ), new Mood ( Mood::Indicatif ), new EndingWith ( EndingWith::ER ) );
 ?>
