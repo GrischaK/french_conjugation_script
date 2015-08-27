@@ -552,11 +552,11 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 	return $modes_impersonnels [$tense->getValue ()] [$mode->getValue ()];
 }
 
-function apostrophized($pronoun, InfinitiveVerb $infinitiveVerb, & $was_apostrophized = null) {
+function apostrophized($pronoun, ConjugatedVerb $conjugatedVerb, & $was_apostrophized = null) {
 	$h_apire = array (
 			'hérisser' 
 	); // example values
-	if (preg_match ( '~(.*\b[jtms])e$~ui', $pronoun, $m ) && (preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $infinitiveVerb ) && ! in_array ( $infinitiveVerb, $h_apire ))) {
+	if (preg_match ( '~(.*\b[jtms])e$~ui', $pronoun, $m ) && (preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $conjugatedVerb ) && ! in_array ( $conjugatedVerb->getInfinitive(), $h_apire ))) {
 		$was_apostrophized = true;
 		return "{$m[1]}’";
 	}
@@ -565,7 +565,7 @@ function apostrophized($pronoun, InfinitiveVerb $infinitiveVerb, & $was_apostrop
 }
 function concatenate_apostrophized($pronoun, ConjugatedVerb $conjugatedVerb) {
 	$was_apostrophized = false;
-	$possiblyApostrophizedPronoun = apostrophized ( $pronoun, $conjugatedVerb->getInfinitive(), $was_apostrophized );
+	$possiblyApostrophizedPronoun = apostrophized ( $pronoun, $conjugatedVerb,  $was_apostrophized );
 	return $was_apostrophized ? $possiblyApostrophizedPronoun . $conjugatedVerb : "$possiblyApostrophizedPronoun $conjugatedVerb";
 }
 abstract class ConjugationPhrase {
