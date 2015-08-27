@@ -9,6 +9,7 @@ class ConjugatedVerb {
 		$this->mood = $mood;
 		$this->tense = $tense;
 		$this->person = $person;
+		$this->conjugatedVerb = $conjugatedVerb;
 	}
 	public function __toString() {
 		return $this->conjugatedVerb;
