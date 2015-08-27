@@ -1,7 +1,7 @@
 <?php
 class ConjugatedVerb {
 	private $conjugatedVerb, $infinitiveVerb, $mood, $tense, $person;
-	public function __construct(InfinitiveVerb $infinitiveVerb, Mood $mood, Tense $tense, Person $person) {
+	public function __construct(InfinitiveVerb $infinitiveVerb, Tense $tense, Person $person, Mood $mood) {
 		$conjugatedVerb = conjugate ( $infinitiveVerb, $person, $tense, $mood );
 		$this->initialize ( $conjugatedVerb, $mood, $tense, $person );
 	}
