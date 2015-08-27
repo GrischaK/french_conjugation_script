@@ -6,8 +6,8 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider ParticipePresentTestProvider
 	 */
-	public function testParticipePresent($expectedResult, $verb) {
-		$this->assertEquals ( $expectedResult, finding_participe_present (new InfinitiveVerb( $verb)));
+	public function testParticipePresent($expectedResult, $infinitiveVerb) {
+		$this->assertEquals ( $expectedResult, finding_participe_present (new InfinitiveVerb( $infinitiveVerb)));
 	}
 	public function ParticipePresentTestProvider() {
 		return array (

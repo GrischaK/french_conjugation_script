@@ -6,8 +6,8 @@ class InfinitiveEndingTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider InfinitiveEndingTestProvider
 	 */
-	public function testInfinitiveEnding($expectedResult, $verb) {
-	$this->assertEquals ( new EndingWith($expectedResult), finding_infinitive_ending (new InfinitiveVerb($verb)));
+	public function testInfinitiveEnding($expectedResult, $infinitiveVerb) {
+	$this->assertEquals ( new EndingWith($expectedResult), finding_infinitive_ending (new InfinitiveVerb($infinitiveVerb)));
 	}
 	public function InfinitiveEndingTestProvider() {
 		return array (

@@ -4,8 +4,8 @@ class FrenchVerbWordStemTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider regularWordStemProvider
 	 */
-	public function testWordStem($expectedResult, $verb) {
-		$this->assertEquals ( $expectedResult, word_stem ( new InfinitiveVerb($verb) ) );
+	public function testWordStem($expectedResult, $infinitiveVerb) {
+		$this->assertEquals ( $expectedResult, word_stem ( new InfinitiveVerb($infinitiveVerb) ) );
 	}
 	public function regularWordStemProvider() {
 		return array (

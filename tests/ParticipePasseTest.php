@@ -6,8 +6,8 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider ParticipePasseTestProvider
 	 */
-	public function testParticipePasse($expectedResult, $verb) {
-	$this->assertEquals ( $expectedResult, finding_participe_passe (new InfinitiveVerb( $verb)));
+	public function testParticipePasse($expectedResult, $infinitiveVerb) {
+	$this->assertEquals ( $expectedResult, finding_participe_passe (new InfinitiveVerb( $infinitiveVerb)));
 	}
 	public function ParticipePasseTestProvider() {
 		return array (

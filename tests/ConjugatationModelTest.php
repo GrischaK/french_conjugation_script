@@ -6,8 +6,8 @@ class ConjugationModelTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider ConjugationModelTestProvider
 	 */
-	public function testConjugationModel($expectedResult, $verb) {
-	$this->assertEquals ( new ConjugationModel($expectedResult), finding_conjugation_model (new InfinitiveVerb($verb)));
+	public function testConjugationModel($expectedResult, $infinitiveVerb) {
+	$this->assertEquals ( new ConjugationModel($expectedResult), finding_conjugation_model (new InfinitiveVerb($infinitiveVerb)));
 	}
 	public function ConjugationModelTestProvider() {
 		return array (
