@@ -565,7 +565,7 @@ function apostrophized($pronoun, InfinitiveVerb $infinitiveVerb, & $was_apostrop
 }
 function concatenate_apostrophized($pronoun, ConjugatedVerb $conjugatedVerb) {
 	$was_apostrophized = false;
-	$possiblyApostrophizedPronoun = apostrophized ( $pronoun, $conjugatedVerb, $was_apostrophized );
+	$possiblyApostrophizedPronoun = apostrophized ( $pronoun, $conjugatedVerb->getInfinitive(), $was_apostrophized );
 	return $was_apostrophized ? $possiblyApostrophizedPronoun . $conjugatedVerb : "$possiblyApostrophizedPronoun $conjugatedVerb";
 }
 abstract class ConjugationPhrase {
