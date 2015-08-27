@@ -182,7 +182,7 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
 		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . 
 				"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
-		       "\t\t\t".'<td>' . $visitee->verb . '</td>' . PHP_EOL;
+		       "\t\t\t".'<td>' . $visitee->infinitiveVerb . '</td>' . PHP_EOL;
 	}
 }	
 function colspan_number($mood, $tense) {

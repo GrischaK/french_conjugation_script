@@ -668,7 +668,7 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->participe_passe;
 	}
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->verb;
+		return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->infinitiveVerb;
 	}
 }
 function conjugation_phrase(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood) {
