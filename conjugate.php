@@ -2,6 +2,7 @@
 require_once 'classes/Enum.php';
 require_once 'classes/InfinitiveVerb.php';
 require_once 'classes/ConjugatedVerb.php';
+require_once 'classes/ConjugatedAuxiliaireVerb.php';
 require_once 'classes/EndingWith.php';
 require_once 'classes/Tense.php';
 require_once 'classes/Person.php';
@@ -577,7 +578,7 @@ abstract class ConjugationPhrase {
 			if (finding_auxiliaire ( $infinitiveVerb )->getValue () === Auxiliaire::Etre && (isPlural ( $person ))) {
 				$participe_passe .= 's';
 			}
-			$conjugated_auxiliaire_verb = conjugated_auxiliaire ( finding_auxiliaire ( $infinitiveVerb ), $person, $tense, $mood );
+			$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb( finding_auxiliaire ( $infinitiveVerb ), $person, $tense, $mood );
 			if ($mood->getValue () === Mood::Imperatif) {
 				return new ImperatifPasseTenseConjugationPhrase ( $conjugated_auxiliaire_verb, $participe_passe );
 			}
@@ -609,7 +610,7 @@ class CompositeTenseConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitCompositeTense ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe;
-	public function __construct($personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe) {
+	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->participe_passe = $participe_passe;
