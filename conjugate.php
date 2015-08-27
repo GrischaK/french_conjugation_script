@@ -586,7 +586,7 @@ abstract class ConjugationPhrase {
 			}
 			return new CompositeTenseConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe );
 		} else {
-			$conjugated_verb = new ConjugatedVerb ( $infinitiveVerb, $mood, $tense, $person );
+			$conjugated_verb = new ConjugatedVerb ( $infinitiveVerb, $person, $tense, $mood );
 			if ($mood->getValue () === Mood::Imperatif) {
 				return new ImperatifPresentTenseConjugationPhrase ( $conjugated_verb );
 			}
