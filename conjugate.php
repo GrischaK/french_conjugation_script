@@ -552,7 +552,7 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 	return $modes_impersonnels [$tense->getValue ()] [$mode->getValue ()];
 }
 
-function apostrophized($pronoun, $infinitiveVerb, & $was_apostrophized = null) {
+function apostrophized($pronoun, InfinitiveVerb $infinitiveVerb, & $was_apostrophized = null) {
 	$h_apire = array (
 			'hérisser' 
 	); // example values
