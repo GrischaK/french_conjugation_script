@@ -12,15 +12,15 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 	}						
 	public function regularVerbProvider() {
 		;
-		return array (			
+		return array (
 				array (
 						'aime',
 						'aimer',
 						'Present',
 						'FirstPersonSingular',
 						'Indicatif' 
-				),	
-				array (				
+				),
+				array (
 						'aimes',
 						'aimer',
 						'Present',
@@ -118,7 +118,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'ThirdPersonPlural',
 						'Indicatif' 
 				) 
-		);		
+		);
 	}
 }
 ?>
