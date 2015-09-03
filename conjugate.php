@@ -46,18 +46,9 @@ function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 }
 function finding_exception_model(InfinitiveVerb $infinitiveVerb) {
 	$exceptionmodel = ExceptionModel::NO_EXCEPTIONS;
-	if (in_array ( $infinitiveVerb, $vetir )) {
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$vetir )) {
 		$exceptionmodel = ExceptionModel::VETIR;
 	}	
-	
-    // not used yet	Start
-	if (in_array ( $infinitiveVerb, $eler_ele )) {
-		$exceptionmodel = ExceptionModel::ELER_ELE;
-	}	
-	if (in_array ( $infinitiveVerb, $eler_elle )) {
-		$exceptionmodel = ExceptionModel::ELER_ELLE;
-	}
-	// not used yet END	
 	return new ExceptionModel ( $exceptionmodel );
 }
 

@@ -12,12 +12,8 @@ class ExceptionModelTest extends PHPUnit_Framework_TestCase {
 	public function ExceptionModelTestProvider() {
 		return array (
 				array (
-						ExceptionModel::ELER_ELE,
-						'aciseler',
-				),
-				array (
-						ExceptionModel::ELER_ELLE,
-						'agneler',
+						ExceptionModel::VETIR,
+						'vêtir',
 				)
 		);
 	}
