@@ -119,7 +119,7 @@ function merge_pronoun(Person $person, Mood $mood) {
 }
 function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith) {
 	$ending = array ( 
-			EndingWith::ER => array ( // Standardendungen für Verben auf -er
+			EndingWith::ER => array ( // standard endings for verbs ending with -er
 					Mood::Indicatif => array (
 							Tense::Present => array (
 									Person::FirstPersonSingular => 'e',
@@ -190,7 +190,7 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 							) 
 					) 
 			),
-			EndingWith::IR => array ( // Standardendungen für Verben auf -er
+			EndingWith::IR => array ( // standard endings for verbs ending with -ir
 					Mood::Indicatif => array (
 							Tense::Present => array (
 									Person::FirstPersonSingular => 'is',
@@ -260,9 +260,8 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 									Person::SecondPersonPlural => 'issez'
 							)
 					)
-			)			
+			)
 	);
-	
 	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
 function aller(Person $person, Tense $tense, Mood $mood) {
