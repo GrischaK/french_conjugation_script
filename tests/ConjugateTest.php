@@ -149,7 +149,14 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'Present',
 						'ThirdPersonSingular',
 						'Indicatif'
-				)
+				),
+				array (
+						'vêts',
+						'vêtir',
+						'Present',
+						'FirstPersonSingular',
+						'Imperatif'
+				),				
 		);
 	}	
 }
