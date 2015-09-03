@@ -262,6 +262,7 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 					)
 			)			
 	);
+	
 	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
 function aller(Person $person, Tense $tense, Mood $mood) {
@@ -521,7 +522,7 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 	if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::IR)
 		$participe_passe = word_stem ( $infinitiveVerb ) . 'i';
 	if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === ExceptionModel::VETIR)
-		$participe_passe = word_stem ( $infinitiveVerb ) . 'U';	
+		$participe_passe = word_stem ( $infinitiveVerb ) . 'u';	
 	return $participe_passe;
 }
 function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
