@@ -268,6 +268,8 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 		case ExceptionModel::VETIR:
 			$ending[EndingWith::IR][Mood::Indicatif][Tense::Present][Person::FirstPersonSingular] = 's';
 			$ending[EndingWith::IR][Mood::Indicatif][Tense::Present][Person::SecondPersonSingular] = 's';
+			$ending[EndingWith::IR][Mood::Indicatif][Tense::Present][Person::ThirdPersonSingular] = ''; 
+			$ending[EndingWith::IR][Mood::Imperatif][Tense::Present][Person::FirstPersonSingular] = 's';
 			break;
 	}
 	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
