@@ -45,12 +45,19 @@ function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 }
 function finding_exception_model(InfinitiveVerb $infinitiveVerb) {
 	include 'irregular/irregular-verb-groups.php';
+	if (in_array ( $infinitiveVerb, $vetir )) {
+		$vetir	= array ('vêtir'); 
+		$exceptionmodel = ExceptionModel::VETIR;
+	}	
+	
+    // not used yet	Start
 	if (in_array ( $infinitiveVerb, $eler_ele )) {
 		$exceptionmodel = ExceptionModel::ELER_ELE;
-	}
+	}	
 	if (in_array ( $infinitiveVerb, $eler_elle )) {
 		$exceptionmodel = ExceptionModel::ELER_ELLE;
 	}
+	// not used yet END	
 	return new ExceptionModel ( $exceptionmodel );
 }
 function finding_conjugation_model(InfinitiveVerb $infinitiveVerb) {
@@ -513,6 +520,8 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 		$participe_passe = word_stem ( $infinitiveVerb ) . 'é';
 	if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::IR)
 		$participe_passe = word_stem ( $infinitiveVerb ) . 'i';
+	if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === ExceptionModel::VETIR)
+		$participe_passe = word_stem ( $infinitiveVerb ) . 'U';	
 	return $participe_passe;
 }
 function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {

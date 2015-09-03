@@ -1,5 +1,10 @@
 <?php
 class ExceptionModel extends Enum {
+	const VETIR = 'vetir';  // all verbs in array vetir	
+	
+	
+	
+// not used yet:	
 	const ELER_ELE = 'eler_ele';  // all verbs in array $eler_ele
 	const ELER_ELLE = 'eler_elle';// all verbs in array $eler_elle
 
