@@ -20,10 +20,14 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase {
 						'finir',
 				) 
 		);
-	}	
+	}
+	
 	/**
 	 * @dataProvider UnregularParticipePasseTestProvider
-	 */	
+	 */
+	public function testUnregularParticipePasse($expectedResult, $infinitiveVerb) {
+		$this->assertEquals ( $expectedResult, finding_participe_passe (new InfinitiveVerb( $infinitiveVerb)));
+	}
 	public function UnregularParticipePasseTestProvider() {
 		return array (
 				array (
