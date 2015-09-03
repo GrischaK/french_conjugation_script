@@ -45,7 +45,7 @@ function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 }
 function finding_exception_model(InfinitiveVerb $infinitiveVerb) {
 	include 'irregular/irregular-verb-groups.php';
-	$exceptionmodel = null;
+	$exceptionmodel = ExceptionModel::NO_EXCEPTIONS;
 	if (in_array ( $infinitiveVerb, $vetir )) {
 		$vetir	= array ('vêtir'); 
 		$exceptionmodel = ExceptionModel::VETIR;
@@ -59,7 +59,7 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb) {
 		$exceptionmodel = ExceptionModel::ELER_ELLE;
 	}
 	// not used yet END	
-	return $exceptionmodel ? new ExceptionModel ( $exceptionmodel ) : null;
+	return new ExceptionModel ( $exceptionmodel );
 }
 
 function finding_conjugation_model(InfinitiveVerb $infinitiveVerb) {
@@ -523,7 +523,7 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 	if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::IR)
 		$participe_passe = word_stem ( $infinitiveVerb ) . 'i';
 	$exceptionModel = finding_exception_model( $infinitiveVerb );
-	if ($exceptionModel != null && $exceptionModel->getValue () === ExceptionModel::VETIR)
+	if ($exceptionModel->getValue () === ExceptionModel::VETIR)
 		$participe_passe = word_stem ( $infinitiveVerb ) . 'u';	
 	return $participe_passe;
 }
