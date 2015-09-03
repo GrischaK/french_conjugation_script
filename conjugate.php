@@ -11,6 +11,7 @@ require_once 'classes/Mode.php';
 require_once 'classes/Auxiliaire.php';
 require_once 'classes/ConjugationModel.php';
 require_once 'classes/ExceptionModel.php';
+require_once 'classes/IrregularExceptionGroup';// should be replaced by DB 
 
 function word_stem(InfinitiveVerb $infinitiveVerb) {
 	$word_stem = substr ( $infinitiveVerb->getInfinitiveVerb(), 0, - 2 );
