@@ -45,7 +45,6 @@ function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 	return new EndingWith ( $endingwith );
 }
 function finding_exception_model(InfinitiveVerb $infinitiveVerb) {
-	include 'irregular/irregular-verb-groups.php';
 	$exceptionmodel = ExceptionModel::NO_EXCEPTIONS;
 	if (in_array ( $infinitiveVerb, $vetir )) {
 		$vetir	= array ('vêtir'); 
