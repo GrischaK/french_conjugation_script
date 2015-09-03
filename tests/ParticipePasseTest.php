@@ -33,6 +33,10 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase {
 				array (
 						'vêtu',
 						'vêtir',
+				),
+				array (
+						'mû',
+						'mouvoir',
 				)
 		);
 	}	
