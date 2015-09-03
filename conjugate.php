@@ -47,7 +47,6 @@ function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 function finding_exception_model(InfinitiveVerb $infinitiveVerb) {
 	$exceptionmodel = ExceptionModel::NO_EXCEPTIONS;
 	if (in_array ( $infinitiveVerb, $vetir )) {
-		$vetir	= array ('vêtir'); 
 		$exceptionmodel = ExceptionModel::VETIR;
 	}	
 	
