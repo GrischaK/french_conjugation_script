@@ -21,8 +21,10 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase {
 				) 
 		);
 	}	
-	
-	public function UnregularParticipePasseTest() {
+	/**
+	 * @dataProvider UnregularParticipePasseTestProvider
+	 */	
+	public function UnregularParticipePasseTestProvider() {
 		return array (
 				array (
 						'vêtu',
@@ -31,7 +33,7 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase {
 				array (
 						'WRONG TESTRESULT',
 						'vêtir',
-				)				
+				)
 		);
 	}	
 }
