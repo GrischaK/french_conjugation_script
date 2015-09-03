@@ -119,7 +119,7 @@ function merge_pronoun(Person $person, Mood $mood) {
 		return $finding_person [$person->getValue ()] . $finding_reflexive_pronoun [$person->getValue ()];
 	}
 }
-function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith) {
+function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
 	$ending = array ( 
 			EndingWith::ER => array ( // standard endings for verbs ending with -er
 					Mood::Indicatif => array (
@@ -264,6 +264,12 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 					)
 			)
 	);
+	switch($exceptionModel->getValue()) {
+		case ExceptionModel::VETIR:
+			$ending[EndingWith::IR][Mood::Indicatif][Tense::Present][Person::FirstPersonSingular] = 's';
+			$ending[EndingWith::IR][Mood::Indicatif][Tense::Present][Person::SecondPersonSingular] = 's';
+			break;
+	}
 	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
 function aller(Person $person, Tense $tense, Mood $mood) {
@@ -482,7 +488,8 @@ function isPlural(Person $person) {
 }
 function conjugate(InfinitiveVerb $infinitiveVerb , Person $person, Tense $tense, Mood $mood) {
 	$endingwith = finding_infinitive_ending($infinitiveVerb );
-	$conjugated_verb = word_stem ( $infinitiveVerb) . ending ( $person, $tense, $mood, $endingwith );
+	$exceptionmodel = finding_exception_model($infinitiveVerb);
+	$conjugated_verb = word_stem ( $infinitiveVerb) . ending ( $person, $tense, $mood, $endingwith, $exceptionmodel);
 	return $conjugated_verb;
 }
 function isComposite(Mood $mood, Tense $tense) {
