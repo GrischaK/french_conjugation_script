@@ -13,7 +13,22 @@ require_once 'classes/ConjugationModel.php';
 require_once 'classes/ExceptionModel.php';
 require 'classes/IrregularExceptionGroup.php';// should be replaced by DB 
 
-function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood ) {
+function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood, ExceptionModel $exceptionModel) {
+	$word_stem = substr ( $infinitiveVerb->getInfinitiveVerb (), 0, - 2 );
+	if ($exceptionModel->getValue () === ExceptionModel::MOUVOIR 
+&& ($mood->getValue () === Mood::Indicatif 
+&& $tense->getValue () === Tense::Present 
+&& $person->getValue () === in_array($person, array(Person::FirstPersonSingular, SecondPersonSingular,ThirdPersonSingular,ThirdPersonPlural))) 
+|| ( 
+ $mood->getValue () === Mood::Imperatif 
+&& $tense->getValue () === Tense::Present 
+&& $person->getValue () === Person::FirstPersonSingular) 
+) {
+		$word_stem = substr ( $infinitiveVerb->getInfinitiveVerb (), 0, - 6 );
+	}
+	return $word_stem;
+}
+function participe_word_stem(InfinitiveVerb $infinitiveVerb) {
 	$word_stem = substr ( $infinitiveVerb->getInfinitiveVerb(), 0, - 2 );
 	return $word_stem;
 }
@@ -513,17 +528,17 @@ function isComposite(Mood $mood, Tense $tense) {
 function finding_participe_present(InfinitiveVerb $infinitiveVerb) { 
 	
 if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::ER)
-	$participe_present = word_stem ( $infinitiveVerb, $person, $tense, $mood ) . 'ant';
+	$participe_present = participe_word_stem ( $infinitiveVerb) . 'ant';
 if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::IR)
-	$participe_present = word_stem ( $infinitiveVerb, $person, $tense, $mood ) . 'issant';	
+	$participe_present = participe_word_stem ( $infinitiveVerb) . 'issant';	
 	return $participe_present;
 }
 function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 
 	if ( finding_infinitive_ending( $infinitiveVerb)->getValue () === EndingWith::ER)
-		$participe_passe = word_stem ( $infinitiveVerb, $person, $tense, $mood ) . 'é';
+		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'é';
 	if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::IR)
-		$participe_passe = word_stem ( $infinitiveVerb, $person, $tense, $mood ) . 'i';
+		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'i';
 	$exceptionModel = finding_exception_model( $infinitiveVerb );
 
 	
