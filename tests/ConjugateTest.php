@@ -120,5 +120,37 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 				) 
 		);
 	}
+	
+	/**
+	 * @dataProvider UnregularVerbProvider
+	 */
+	public function testUnregularVerb($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
+			$this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb( $infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood) ) );
+	}
+	public function UnregularVerbProvider() {
+		return array (
+				array (
+						'vêts',
+						'vêtir',
+						'Present',
+						'FirstPersonSingular',
+						'Indicatif'
+				),
+				array (
+						'vêts',
+						'vêtir',
+						'Present',
+						'SecondPersonSingular',
+						'Indicatif'
+				),
+				array (
+						'vêt',
+						'vêtir',
+						'Present',
+						'ThirdPersonSingular',
+						'Indicatif'
+				)
+		);
+	}	
 }
 ?>
