@@ -13,9 +13,9 @@ require_once 'classes/ConjugationModel.php';
 require_once 'classes/ExceptionModel.php';
 require 'classes/IrregularExceptionGroup.php';// should be replaced by DB 
 
-function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood, ExceptionModel $exceptionModel) {
+function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood, ExceptionModel $exceptionmodel) {
 	$word_stem = substr ( $infinitiveVerb->getInfinitiveVerb (), 0, - 2 );
-	if ($exceptionModel->getValue () === ExceptionModel::MOUVOIR 
+	if ($exceptionmodel->getValue () === ExceptionModel::MOUVOIR 
 && ($mood->getValue () === Mood::Indicatif 
 && $tense->getValue () === Tense::Present 
 && $person->getValue () === in_array($person, array(Person::FirstPersonSingular, SecondPersonSingular,ThirdPersonSingular,ThirdPersonPlural))) 
@@ -499,7 +499,7 @@ function isPlural(Person $person) {
 function conjugate(InfinitiveVerb $infinitiveVerb , Person $person, Tense $tense, Mood $mood) {
 	$endingwith = finding_infinitive_ending($infinitiveVerb );
 	$exceptionmodel = finding_exception_model($infinitiveVerb);
-	$conjugated_verb = word_stem ( $infinitiveVerb, $person, $tense, $mood) . ending ( $person, $tense, $mood, $endingwith, $exceptionmodel);
+	$conjugated_verb = word_stem ( $infinitiveVerb, $person, $tense, $mood, $exceptionmodel) . ending ( $person, $tense, $mood, $endingwith, $exceptionmodel);
 	return $conjugated_verb;
 }
 function isComposite(Mood $mood, Tense $tense) {
@@ -543,9 +543,9 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 
 	
 	if ($exceptionModel->getValue () === ExceptionModel::VETIR)
-		$participe_passe = word_stem ( $infinitiveVerb, $person, $tense, $mood ) . 'u';	
+		$participe_passe = participe_word_stem ( $infinitiveVerb, $person, $tense, $mood ) . 'u';	
 	if ($exceptionModel->getValue () === ExceptionModel::MOUVOIR)
-		$participe_passe = word_stem ( $infinitiveVerb, $person, $tense, $mood ) . 'û';	
+		$participe_passe = participe_word_stem ( $infinitiveVerb, $person, $tense, $mood ) . 'û';	
 	return $participe_passe;
 }
 function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
