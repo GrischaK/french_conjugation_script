@@ -13,24 +13,42 @@ require_once 'classes/ConjugationModel.php';
 require_once 'classes/ExceptionModel.php';
 require 'classes/IrregularExceptionGroup.php';// should be replaced by DB 
 
-function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood, ExceptionModel $exceptionmodel) {
-	$word_stem = substr ( $infinitiveVerb->getInfinitiveVerb (), 0, - 2 );
+
+function word_stem_length(InfinitiveVerb $infinitiveVerb, $endingLength) {
+	return substr ( $infinitiveVerb->getInfinitiveVerb (), 0, - $endingLength);
+}
+
+function word_stem_regular(InfinitiveVerb $infinitiveVerb) {
+	return word_stem_length($infinitiveVerb, 2);
+}
+
+function word_stem_mouvoir_exception(InfinitiveVerb $infinitiveVerb) {
+	return word_stem_length($infinitiveVerb, 6);
+}
+
+function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood) {
+	$exceptionmodel = finding_exception_model($infinitiveVerb);
+	$word_stem = word_stem_regular($infinitiveVerb);
 	if ($exceptionmodel->getValue () === ExceptionModel::MOUVOIR 
-&& ($mood->getValue () === Mood::Indicatif 
+&& (($mood->getValue () === Mood::Indicatif 
 && $tense->getValue () === Tense::Present 
-&& $person->getValue () === in_array($person, array(Person::FirstPersonSingular, Person::SecondPersonSingular,Person::ThirdPersonSingular,Person::ThirdPersonPlural))) 
+&& in_array($person->getValue(), array(Person::FirstPersonSingular, Person::SecondPersonSingular,Person::ThirdPersonSingular,Person::ThirdPersonPlural))) 
 || ( 
  $mood->getValue () === Mood::Imperatif 
 && $tense->getValue () === Tense::Present 
-&& $person->getValue () === Person::FirstPersonSingular) 
+&& $person->getValue () === Person::FirstPersonSingular)) 
 ) {
-		$word_stem = substr ( $infinitiveVerb->getInfinitiveVerb (), 0, - 6 );
+		$word_stem = word_stem_mouvoir_exception($infinitiveVerb);
 	}
 	return $word_stem;
 }
 function participe_word_stem(InfinitiveVerb $infinitiveVerb) {
-	$word_stem = substr ( $infinitiveVerb->getInfinitiveVerb(), 0, - 2 );
-	return $word_stem;
+	$exceptionmodel = finding_exception_model($infinitiveVerb);
+	$word_stem = word_stem_regular($infinitiveVerb);
+	if ($exceptionmodel->getValue () === ExceptionModel::MOUVOIR) {
+		$word_stem = word_stem_mouvoir_exception($infinitiveVerb);
+	}	
+	return $word_stem;	
 }
 function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 	switch (substr ( $infinitiveVerb->getInfinitiveVerb(), - 2, 2 )) {
@@ -273,11 +291,15 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 			)
 	);
 	switch($exceptionModel->getValue()) {
-		case ExceptionModel::VETIR:
-			$ending[EndingWith::IR][Mood::Indicatif][Tense::Present][Person::FirstPersonSingular] = 's';
-			$ending[EndingWith::IR][Mood::Indicatif][Tense::Present][Person::SecondPersonSingular] = 's';
-			$ending[EndingWith::IR][Mood::Indicatif][Tense::Present][Person::ThirdPersonSingular] = ''; 
-			$ending[EndingWith::IR][Mood::Imperatif][Tense::Present][Person::FirstPersonSingular] = 's';
+		case ExceptionModel::VETIR :
+			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::FirstPersonSingular] = 's';
+			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::SecondPersonSingular] = 's';
+			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::ThirdPersonSingular] = '';
+			$ending [EndingWith::IR] [Mood::Imperatif] [Tense::Present] [Person::FirstPersonSingular] = 's';
+			break;
+		case ExceptionModel::MOUVOIR :
+			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::FirstPersonSingular] = 'eus';
+			// ...
 			break;
 	}
 	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
@@ -499,7 +521,7 @@ function isPlural(Person $person) {
 function conjugate(InfinitiveVerb $infinitiveVerb , Person $person, Tense $tense, Mood $mood) {
 	$endingwith = finding_infinitive_ending($infinitiveVerb );
 	$exceptionmodel = finding_exception_model($infinitiveVerb);
-	$conjugated_verb = word_stem ( $infinitiveVerb, $person, $tense, $mood, $exceptionmodel) . ending ( $person, $tense, $mood, $endingwith, $exceptionmodel);
+	$conjugated_verb = word_stem ( $infinitiveVerb, $person, $tense, $mood) . ending ( $person, $tense, $mood, $endingwith, $exceptionmodel);
 	return $conjugated_verb;
 }
 function isComposite(Mood $mood, Tense $tense) {
@@ -543,9 +565,9 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 
 	
 	if ($exceptionModel->getValue () === ExceptionModel::VETIR)
-		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'u';	
+		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'u';
 	if ($exceptionModel->getValue () === ExceptionModel::MOUVOIR)
-		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'û';	
+		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'û';
 	return $participe_passe;
 }
 function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
