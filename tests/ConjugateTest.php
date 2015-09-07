@@ -129,6 +129,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 	}
 	public function UnregularVerbProvider() {
 		return array (
+   // MOUVOIR
 				array (
 						'meus',
 						'mouvoir',
@@ -136,6 +137,28 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'FirstPersonSingular',
 						'Indicatif'
 				),
+				array (
+						'meus',
+						'mouvoir',
+						'Present',
+						'SecondPersonSingular',
+						'Indicatif'
+				),
+				array (
+						'meut',
+						'mouvoir',
+						'Present',
+						'ThirdPersonSingular',
+						'Indicatif'
+				),	
+				array (
+						'meuvent',
+						'mouvoir',
+						'Present',
+						'ThirdPersonPlural',
+						'Indicatif'
+				),				
+	// VETIR
 				array (
 						'vêts',
 						'vêtir',
