@@ -28,6 +28,10 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
 	}
 	return $word_stem;
 }
+function participe_word_stem(InfinitiveVerb $infinitiveVerb) {
+	$word_stem = substr ( $infinitiveVerb->getInfinitiveVerb(), 0, - 2 );
+	return $word_stem;
+}
 function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 	switch (substr ( $infinitiveVerb->getInfinitiveVerb(), - 2, 2 )) {
 		case 'er' :
@@ -524,24 +528,24 @@ function isComposite(Mood $mood, Tense $tense) {
 function finding_participe_present(InfinitiveVerb $infinitiveVerb) { 
 	
 if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::ER)
-	$participe_present = word_stem ( $infinitiveVerb, $person, $tense, $mood, $exceptionmodel) . 'ant';
+	$participe_present = participe_word_stem ( $infinitiveVerb) . 'ant';
 if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::IR)
-	$participe_present = word_stem ( $infinitiveVerb, $person, $tense, $mood, $exceptionmodel) . 'issant';	
+	$participe_present = participe_word_stem ( $infinitiveVerb) . 'issant';	
 	return $participe_present;
 }
 function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 
 	if ( finding_infinitive_ending( $infinitiveVerb)->getValue () === EndingWith::ER)
-		$participe_passe = word_stem ( $infinitiveVerb, $person, $tense, $mood, $exceptionmodel) . 'é';
+		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'é';
 	if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::IR)
-		$participe_passe = word_stem ( $infinitiveVerb, $person, $tense, $mood, $exceptionmodel) . 'i';
+		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'i';
 	$exceptionModel = finding_exception_model( $infinitiveVerb );
 
 	
 	if ($exceptionModel->getValue () === ExceptionModel::VETIR)
-		$participe_passe = word_stem ( $infinitiveVerb, $person, $tense, $mood, $exceptionmodel) . 'u';	
+		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'u';	
 	if ($exceptionModel->getValue () === ExceptionModel::MOUVOIR)
-		$participe_passe = word_stem ( $infinitiveVerb, $person, $tense, $mood, $exceptionmodel) . 'û';	
+		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'û';	
 	return $participe_passe;
 }
 function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
