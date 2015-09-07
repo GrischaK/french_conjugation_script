@@ -543,9 +543,9 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 
 	
 	if ($exceptionModel->getValue () === ExceptionModel::VETIR)
-		$participe_passe = participe_word_stem ( $infinitiveVerb, $person, $tense, $mood ) . 'u';	
+		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'u';	
 	if ($exceptionModel->getValue () === ExceptionModel::MOUVOIR)
-		$participe_passe = participe_word_stem ( $infinitiveVerb, $person, $tense, $mood ) . 'û';	
+		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'û';	
 	return $participe_passe;
 }
 function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
