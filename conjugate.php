@@ -299,13 +299,14 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 			break;
 		case ExceptionModel::MOUVOIR :
 			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::FirstPersonSingular] = 'eus';
-			// ...
+			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::SecondPersonSingular] = 'eus';
+			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::ThirdPersonSingular] = 'eut';
+			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::ThirdPersonPlural] = 'euvent';
 			break;
 	}
 	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
 function aller(Person $person, Tense $tense, Mood $mood) {
-	// $aller = 'Unknown Aller';
 	$aller_form = array (
 			Mood::Indicatif => array (
 					Tense::Futur_compose => array (
