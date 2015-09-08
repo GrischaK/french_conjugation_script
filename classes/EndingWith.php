@@ -5,5 +5,6 @@ class EndingWith extends Enum {
 		const GER = '-ger';
 		const YER = '-yer';
 	const IR = '-ir'; 
+		const OIR = '-oir'; // not ExceptionModel SEOIR !in_array($verb, $seoir) 
 }
 ?>
