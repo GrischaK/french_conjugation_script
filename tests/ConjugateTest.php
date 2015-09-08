@@ -157,6 +157,136 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'Present',
 						'ThirdPersonPlural',
 						'Indicatif'
+				),
+
+				array (
+						'mus',
+						'mouvoir',
+						'Passe',
+						'FirstPersonSingular',
+						'Indicatif'
+				),				
+				array (
+						'mus',
+						'mouvoir',
+						'Passe',
+						'SecondPersonSingular',
+						'Indicatif' 
+				),
+				array (
+						'mut',
+						'mouvoir',
+						'Passe',
+						'ThirdPersonSingular',
+						'Indicatif'
+				),
+				
+				array (
+						'mûmes',
+						'mouvoir',
+						'Passe',
+						'FirstPersonPlural',
+						'Indicatif' 
+				),
+				array (
+						'mûtes',
+						'mouvoir',
+						'Passe',
+						'SecondPersonPlural',
+						'Indicatif'
+				),
+				array (
+						'mouvez',
+						'mouvoir',
+						'Present',
+						'SecondPersonPlural',
+						'Indicatif'
+				),				
+				array (
+						'murent',
+						'mouvoir',
+						'Passe',
+						'ThirdPersonPlural',
+						'Indicatif'
+				),
+
+				array (
+						'meus',
+						'mouvoir',
+						'Present',
+						'FirstPersonSingular',
+						'Imperatif'
+				),				
+				array (
+						'meuve',
+						'mouvoir',
+						'Present',
+						'FirstPersonSingular',
+						'Subjonctif'
+				),
+				array (
+						'meuves',
+						'mouvoir',
+						'Present',
+						'SecondPersonSingular',
+						'Subjonctif'
+				),
+				array (
+						'meuve',
+						'mouvoir',
+						'Present',
+						'ThirdPersonSingular',
+						'Subjonctif'
+				),
+				array (
+						'meuvent',
+						'mouvoir',
+						'Present',
+						'ThirdPersonPlural',
+						'Subjonctif'
+				),
+				
+				array (
+						'musse',
+						'mouvoir',
+						'Imparfait',
+						'FirstPersonSingular',
+						'Subjonctif'
+				),
+				array (
+						'musses',
+						'mouvoir',
+						'Imparfait',
+						'SecondPersonSingular',
+						'Subjonctif'
+				),
+				array (
+						'mût',
+						'mouvoir',
+						'Imparfait',
+						'ThirdPersonSingular',
+						'Subjonctif'
+				),
+				array (
+						'mussions',
+						'mouvoir',
+						'Imparfait',
+						'FirstPersonPlural',
+						'Subjonctif'
+				),
+				array (
+						'mussiez',
+						'mouvoir',
+						'Imparfait',
+						'SecondPersonPlural',
+						'Subjonctif'
+				),
+				array (
+						'mussent',
+						'mouvoir',
+						'Imparfait',
+						'ThirdPersonPlural',
+						'Subjonctif'
 				),				
 	// VETIR
 				array (
