@@ -2,6 +2,10 @@
 class ExceptionModel extends Enum {
 	const NO_EXCEPTIONS = 'no exceptions';
 	const VETIR = 'vetir';  
-	const MOUVOIR = 'mouvoir'; 	
+	
+// OIR	
+	const MOUVOIR = 'mouvoir';
+
+	const SEOIR = 'seoir';
 }
 ?>
