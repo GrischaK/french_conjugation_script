@@ -32,13 +32,10 @@ class InfinitiveEndingTest extends PHPUnit_Framework_TestCase {
 						'finir',
 				),
 				array ( 
-						EndingWith::ER,
-						'aller',
-				),
-				array ( 
-						EndingWith::IR,
-						'avoir',
-				)			
+						EndingWith::OIR,
+						'mouvoir',
+				)	
+				
 		);
 	}
 }
