@@ -151,6 +151,20 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'ThirdPersonSingular',
 						'Indicatif'
 				),	
+				array ( // with word_stem_ending_oir
+						'mouvons',
+						'mouvoir',
+						'Present',
+						'FirstPersonPlural',
+						'Indicatif'
+				),
+				array ( // with word_stem_ending_oir
+						'mouvez',
+						'mouvoir',
+						'Present',
+						'SecondPersonPlural',
+						'Indicatif'
+				),
 				array (
 						'meuvent',
 						'mouvoir',
@@ -158,7 +172,49 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'ThirdPersonPlural',
 						'Indicatif'
 				),
-
+				array (// with word_stem_ending_oir
+						'mouvais',
+						'mouvoir',
+						'Imparfait',
+						'FirstPersonSingular',
+						'Indicatif'
+				),
+				array (// with word_stem_ending_oir
+						'mouvais',
+						'mouvoir',
+						'Imparfait',
+						'SecondPersonSingular',
+						'Indicatif'
+				),
+				array (// with word_stem_ending_oir
+						'mouvait',
+						'mouvoir',
+						'Imparfait',
+						'ThirdPersonSingular',
+						'Indicatif'
+				),
+				array ( // with word_stem_ending_oir
+						'mouvions',
+						'mouvoir',
+						'Imparfait',
+						'FirstPersonPlural',
+						'Indicatif'
+				),
+				array ( // with word_stem_ending_oir
+						'mouviez',
+						'mouvoir',
+						'Imparfait',
+						'SecondPersonPlural',
+						'Indicatif'
+				),
+				array (// with word_stem_ending_oir
+						'mouvaient',
+						'mouvoir',
+						'Imparfait',
+						'ThirdPersonPlural',
+						'Indicatif'
+				),
+				
 				array (
 						'mus',
 						'mouvoir',
@@ -209,14 +265,58 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'ThirdPersonPlural',
 						'Indicatif'
 				),
-
+				
 				array (
-						'meus',
+						'mus',
 						'mouvoir',
-						'Present',
+						'Passe',
 						'FirstPersonSingular',
-						'Imperatif'
-				),				
+						'Indicatif'
+				),
+				array (// with word_stem_ending_oir + changed oir ending
+						'mouvrai',
+						'mouvoir',
+						'Futur',
+						'SecondPersonSingular',
+						'Indicatif'
+				),
+				array (// with word_stem_ending_oir + changed oir ending
+						'mouvras',
+						'mouvoir',
+						'Futur',
+						'ThirdPersonSingular',
+						'Indicatif'
+				),
+				
+				array (// with word_stem_ending_oir + changed oir ending
+						'mouvra',
+						'mouvoir',
+						'Futur',
+						'FirstPersonPlural',
+						'Indicatif'
+				),
+				array (// with word_stem_ending_oir + changed oir ending
+						'mouvrons',
+						'mouvoir',
+						'Futur',
+						'SecondPersonPlural',
+						'Indicatif'
+				),
+				array (// with word_stem_ending_oir + changed oir ending
+						'mouvrez',
+						'mouvoir',
+						'Futur',
+						'SecondPersonPlural',
+						'Indicatif'
+				),
+				array (// with word_stem_ending_oir + changed oir ending
+						'mouvront',
+						'mouvoir',
+						'Futur',
+						'ThirdPersonPlural',
+						'Indicatif'
+				),
+
 				array (
 						'meuve',
 						'mouvoir',
@@ -238,12 +338,120 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'ThirdPersonSingular',
 						'Subjonctif'
 				),
+				array ( // with word_stem_ending_oir
+						'mouvions',
+						'mouvoir',
+						'Present',
+						'FirstPersonPlural',
+						'Subjonctif'
+				),
+				array ( // with word_stem_ending_oir
+						'mouviez',
+						'mouvoir',
+						'Present',
+						'SecondPersonPlural',
+						'Subjonctif'
+				),
 				array (
 						'meuvent',
 						'mouvoir',
 						'Present',
 						'ThirdPersonPlural',
 						'Subjonctif'
+				),
+				
+				array (// with word_stem_ending_mouvoir + changed oir ending
+						'musse',
+						'mouvoir',
+						'Imparfait',
+						'FirstPersonSingular',
+						'Subjonctif'
+				),
+				array (// with word_stem_ending_mouvoir + changed oir ending
+						'musses',
+						'mouvoir',
+						'Imparfait',
+						'SecondPersonSingular',
+						'Subjonctif'
+				),
+				array (// with word_stem_ending_mouvoir + changed oir ending
+						'mût',
+						'mouvoir',
+						'Imparfait',
+						'ThirdPersonSingular',
+						'Subjonctif'
+				),
+				array (// with word_stem_ending_mouvoir + changed oir ending
+						'mussions',
+						'mouvoir',
+						'Imparfait',
+						'FirstPersonPlural',
+						'Subjonctif'
+				),
+				array (// with word_stem_ending_mouvoir + changed oir ending
+						'mussiez',
+						'mouvoir',
+						'Imparfait',
+						'SecondPersonPlural',
+						'Subjonctif'
+				),				
+				array (// with word_stem_ending_mouvoir + changed oir ending
+						'mussent',
+						'mouvoir',
+						'Imparfait',
+						'ThirdPersonPlural',
+						'Subjonctif'
+				),
+
+				array ( // with word_stem_ending_oir + changed oir ending
+						'mouvrais',
+						'mouvoir',
+						'Present',
+						'FirstPersonSingular',
+						'Conditionnel'
+				),
+				array ( // with word_stem_ending_oir + changed oir ending
+						'mouvrais',
+						'mouvoir',
+						'Present',
+						'SecondPersonSingular',
+						'Conditionnel'
+				),
+				array ( // with word_stem_ending_oir + changed oir ending
+						'mouvrait',
+						'mouvoir',
+						'Present',
+						'ThirdPersonSingular',
+						'Conditionnel'
+				),
+				array ( // with word_stem_ending_oir + changed oir ending
+						'mouvrions',
+						'mouvoir',
+						'Present',
+						'FirstPersonPlural',
+						'Conditionnel'
+				),
+				array ( // with word_stem_ending_oir + changed oir ending
+						'mouvriez',
+						'mouvoir',
+						'Present',
+						'SecondPersonPlural',
+						'Conditionnel'
+				),
+				array ( // with word_stem_ending_oir + changed oir ending
+						'mouvraient',
+						'mouvoir',
+						'Present',
+						'ThirdPersonPlural',
+						'Conditionnel'
+				),
+				
+				array (
+						'meus',
+						'mouvoir',
+						'Present',
+						'FirstPersonSingular',
+						'Imperatif'
 				),
 				
 				array (
