@@ -277,11 +277,18 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 						'mouvrai',
 						'mouvoir',
 						'Futur',
+						'FirstPersonSingular',
+						'Indicatif'
+				),				
+				array (// with word_stem_ending_oir + changed oir ending
+						'mouvras',
+						'mouvoir',
+						'Futur',
 						'SecondPersonSingular',
 						'Indicatif'
 				),
 				array (// with word_stem_ending_oir + changed oir ending
-						'mouvras',
+						'mouvra',
 						'mouvoir',
 						'Futur',
 						'ThirdPersonSingular',
@@ -289,17 +296,10 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase {
 				),
 				
 				array (// with word_stem_ending_oir + changed oir ending
-						'mouvra',
-						'mouvoir',
-						'Futur',
-						'FirstPersonPlural',
-						'Indicatif'
-				),
-				array (// with word_stem_ending_oir + changed oir ending
 						'mouvrons',
 						'mouvoir',
 						'Futur',
-						'SecondPersonPlural',
+						'FirstPersonPlural',
 						'Indicatif'
 				),
 				array (// with word_stem_ending_oir + changed oir ending
