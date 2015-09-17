@@ -350,7 +350,8 @@ function ending_vetir(Person $person, Tense $tense, Mood $mood, EndingWith $endi
 			Mood::Imperatif => array(
 					Tense::Present => array(
 							Person::FirstPersonSingular => 's')));
-	if(ending_array_defines($endings, $person, $tense, $mood)) {
+	$ending = ending_array_defines($endings, $person, $tense, $mood);
+	if($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
 	}
 	return ending_ir($person, $tense, $mood, $endingwith, $exceptionModel);
@@ -397,7 +398,8 @@ function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $ending
 							)
 					)
 	);
-	if($ending = ending_array_defines($endings, $person, $tense, $mood)) {
+	$ending = ending_array_defines($endings, $person, $tense, $mood);
+	if($ending !== null) {
 		return $ending;
 	}
 	return ending_ir($person, $tense, $mood, new EndingWith(EndingWith::IR), $exceptionModel);
