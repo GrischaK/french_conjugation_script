@@ -14,6 +14,10 @@ class ExceptionModelTest extends PHPUnit_Framework_TestCase {
 				array (
 						ExceptionModel::VETIR,
 						'vêtir',
+				),
+				array (
+						ExceptionModel::MOUVOIR,
+						'mouvoir',
 				)
 		);
 	}
