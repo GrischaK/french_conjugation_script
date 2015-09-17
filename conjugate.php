@@ -155,6 +155,19 @@ function merge_pronoun(Person $person, Mood $mood) {
 	}
 }
 function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
+	switch($endingwith->getValue()) {
+		case EndingWith::ER: return ending_er($person, $tense, $mood, $endingwith, $exceptionModel);
+		case EndingWith::IR: return ending_ir($person, $tense, $mood, $endingwith, $exceptionModel);
+		case EndingWith::OIR: return ending_oir($person, $tense, $mood, $endingwith, $exceptionModel);
+	}
+	switch($exceptionModel->getValue()) {
+		case ExceptionModel::VETIR: return ending_vetir($person, $tense, $mood, $endingwith, $exceptionModel);
+		case ExceptionModel::MOUVOIR: return ending_mouvoir($person, $tense, $mood, $endingwith, $exceptionModel);
+	}
+	return null;
+}
+
+function ending_er(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
 	$ending = array ( 
 			EndingWith::ER => array ( // standard endings for verbs ending with -er
 					Mood::Indicatif => array (
@@ -228,6 +241,8 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 					) 
 			)
 	);
+	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+}
 	function ending_ir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
 		$ending = array (
 				EndingWith::IR => array ( // standard endings for verbs ending with -ir
@@ -302,23 +317,44 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 						)
 				)
 		);	
-	switch($exceptionModel->getValue()) {
-		case ExceptionModel::VETIR :
-			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::FirstPersonSingular] = 's';
-			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::SecondPersonSingular] = 's';
-			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::ThirdPersonSingular] = '';
-			
-			$ending [EndingWith::IR] [Mood::Imperatif] [Tense::Present] [Person::FirstPersonSingular] = 's';
-			break;
-	}
 	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
+
+function ending_array_defines($array_mood_tense_person, Person $person, Tense $tense, Mood $mood) {
+	if (key_exists ( $mood->getValue (), $array_mood_tense_person )) {
+		$array_tense_person = $array_mood_tense_person [$mood->getValue ()];
+		if (key_exists ( $tense->getValue (), $array_tense_person )) {
+			$array_person = $array_tense_person [$tense->getValue ()];
+			if (key_exists ( $person->getValue (), $array_person)) {
+				return $array_person[$person->getValue()];
+			}
+		}
+	}
+	return null;
+}
+
+function ending_vetir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
+	assert($exceptionModel === ExceptionModel::VETIR);
+	assert($endingwith === EndingWith::OIR);
+	$endings = array(
+			Mood::Indicatif => array(
+					Tense::Present => array(
+							Person::FirstPersonSingular => 's',
+							Person::SecondPersonSingular => 's',
+							Person::ThirdPersonSingular => '')),
+			Mood::Imperatif => array(
+					Tense::Present => array(
+							Person::FirstPersonSingular => 's')));
+	if(ending_array_defines($endings, $person, $tense, $mood)) {
+		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
+	}
+	return ending_ir($person, $tense, $mood, $endingwith, $exceptionModel);
+}
+
 function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
-	if(exceptional case) {
-	$ending = array (
-			EndingWith::OIR => array ( // changed endings for verbs ending with -oir exclusion ExceptionModel SEOIR
+	$endings = array (
 					Mood::Indicatif => array (
-							Tense::Passe => array (// changing first letter iî into u/û, else like ending-IR 
+							Tense::Passe => array (// changing first letter iî into u/û, else like ending-IR
 									Person::FirstPersonSingular => 'us',
 									Person::SecondPersonSingular => 'us',
 									Person::ThirdPersonSingular => 'ut',
@@ -335,8 +371,8 @@ function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $ending
 									Person::ThirdPersonPlural => 'ront'
 							)
 					),
-					Mood::Subjonctif => array (// changing first letter iî into u/û, else like ending-IR 
-							Tense::Imparfait => array (// changing first letter iî into u/û, else like ending-IR 
+					Mood::Subjonctif => array (// changing first letter iî into u/û, else like ending-IR
+							Tense::Imparfait => array (// changing first letter iî into u/û, else like ending-IR
 									Person::FirstPersonSingular => 'usse',
 									Person::SecondPersonSingular => 'usses',
 									Person::ThirdPersonSingular => 'ût',
@@ -355,8 +391,15 @@ function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $ending
 									Person::ThirdPersonPlural => 'raient'
 							)
 					)
-			)
 	);
+	if($ending = ending_array_defines($endings, $person, $tense, $mood)) {
+		return $ending;
+	}
+	return ending_ir($person, $tense, $mood, new EndingWith(EndingWith::IR), $exceptionModel);
+}
+
+function ending_mouvoir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
+	if(false) {
 	switch($exceptionModel->getValue()) {
 		case ExceptionModel::MOUVOIR :
 			$ending [EndingWith::IR] [Mood::Indicatif] [Tense::Present] [Person::FirstPersonSingular] = 'eus';
@@ -387,7 +430,6 @@ function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $ending
 					Person::ThirdPersonPlural => 'ussent'
 			);
 			break;
-	}
 	}
 	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 	} else {
