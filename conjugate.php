@@ -15,14 +15,7 @@ require 'classes/IrregularExceptionGroup.php';// should be replaced by DB
 
 
 include_once 'word_stem.php';
-function participe_word_stem(InfinitiveVerb $infinitiveVerb) {
-	$exceptionmodel = finding_exception_model($infinitiveVerb);
-	$word_stem = word_stem_regular($infinitiveVerb);
-	if ($exceptionmodel->getValue () === ExceptionModel::MOUVOIR) {
-		$word_stem = word_stem_mouvoir_exception($infinitiveVerb);
-	}	
-	return $word_stem;	
-}
+
 function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 	switch (substr ( $infinitiveVerb->getInfinitiveVerb(), - 2, 2 )) {
 		case 'er' :
