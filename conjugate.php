@@ -428,7 +428,7 @@ function ending_mouvoir(Person $person, Tense $tense, Mood $mood, EndingWith $en
 	if($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
 	}
-	return ending_ir($person, $tense, $mood, $endingwith, $exceptionModel);
+	return ending_oir($person, $tense, $mood, $endingwith, $exceptionModel);
 }
 function aller(Person $person, Tense $tense, Mood $mood) {
 	$aller_form = array (
