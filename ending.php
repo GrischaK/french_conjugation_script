@@ -169,6 +169,51 @@ function ending_ir(Person $person, Tense $tense, Mood $mood, EndingWith $endingw
 	);
 	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
+function ending_without_iss(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
+	$ending = array (
+			EndingWith::IR => array ( // standard endings for verbs ending with -ir
+					Mood::Indicatif => array (
+							Tense::Present => array (
+									Person::FirstPersonPlural => 'ions',
+									Person::SecondPersonPlural => 'iez',
+									Person::ThirdPersonPlural => 'ent'
+							),
+							Tense::Imparfait => array (
+									Person::FirstPersonSingular => 'ais',
+									Person::SecondPersonSingular => 'ais',
+									Person::ThirdPersonSingular => 'ait',
+									Person::FirstPersonPlural => 'ions',
+									Person::SecondPersonPlural => 'iez',
+									Person::ThirdPersonPlural => 'aient'
+							)
+					),
+					Mood::Subjonctif => array (
+							Tense::Present => array (
+									Person::FirstPersonSingular => 'e',
+									Person::SecondPersonSingular => 'es',
+									Person::ThirdPersonSingular => 'e',
+									Person::FirstPersonPlural => 'ions',
+									Person::SecondPersonPlural => 'iez',
+									Person::ThirdPersonPlural => 'ent'
+							),
+							Tense::Imparfait => array (
+									Person::FirstPersonSingular => 'e',
+									Person::SecondPersonSingular => 'es',
+									Person::FirstPersonPlural => 'ions',
+									Person::SecondPersonPlural => 'iez',
+									Person::ThirdPersonPlural => 'ent'
+							)
+					),
+					Mood::Imperatif => array (
+							Tense::Present => array (
+									Person::FirstPersonPlural => 'ons',
+									Person::SecondPersonPlural => 'ez'
+							)
+					)
+			)
+	);
+	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+}
 
 function ending_array_defines($array_mood_tense_person, Person $person, Tense $tense, Mood $mood) {
 	if (key_exists ( $mood->getValue (), $array_mood_tense_person )) {
