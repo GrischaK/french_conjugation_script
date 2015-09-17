@@ -155,14 +155,19 @@ function merge_pronoun(Person $person, Mood $mood) {
 	}
 }
 function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
-	switch($endingwith->getValue()) {
-		case EndingWith::ER: return ending_er($person, $tense, $mood, $endingwith, $exceptionModel);
-		case EndingWith::IR: return ending_ir($person, $tense, $mood, $endingwith, $exceptionModel);
-		case EndingWith::OIR: return ending_oir($person, $tense, $mood, $endingwith, $exceptionModel);
+	switch ($exceptionModel->getValue ()) {
+		case ExceptionModel::VETIR :
+			return ending_vetir ( $person, $tense, $mood, $endingwith, $exceptionModel );
+		case ExceptionModel::MOUVOIR :
+			return ending_mouvoir ( $person, $tense, $mood, $endingwith, $exceptionModel );
 	}
-	switch($exceptionModel->getValue()) {
-		case ExceptionModel::VETIR: return ending_vetir($person, $tense, $mood, $endingwith, $exceptionModel);
-		case ExceptionModel::MOUVOIR: return ending_mouvoir($person, $tense, $mood, $endingwith, $exceptionModel);
+	switch ($endingwith->getValue ()) {
+		case EndingWith::ER :
+			return ending_er ( $person, $tense, $mood, $endingwith, $exceptionModel );
+		case EndingWith::IR :
+			return ending_ir ( $person, $tense, $mood, $endingwith, $exceptionModel );
+		case EndingWith::OIR :
+			return ending_oir ( $person, $tense, $mood, $endingwith, $exceptionModel );
 	}
 	return null;
 }
@@ -334,8 +339,8 @@ function ending_array_defines($array_mood_tense_person, Person $person, Tense $t
 }
 
 function ending_vetir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
-	assert($exceptionModel === ExceptionModel::VETIR);
-	assert($endingwith === EndingWith::OIR);
+	assert($exceptionModel->getValue() === ExceptionModel::VETIR);	
+	$endingwith->getValue();
 	$endings = array(
 			Mood::Indicatif => array(
 					Tense::Present => array(
