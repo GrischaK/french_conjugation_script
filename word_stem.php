@@ -36,4 +36,12 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
 	}
 	return $word_stem;
 }
+function participe_word_stem(InfinitiveVerb $infinitiveVerb) {
+	$exceptionmodel = finding_exception_model($infinitiveVerb);
+	$word_stem = word_stem_regular($infinitiveVerb);
+	if ($exceptionmodel->getValue () === ExceptionModel::MOUVOIR) {
+		$word_stem = word_stem_mouvoir_exception($infinitiveVerb);
+	}
+	return $word_stem;
+}
 ?>
