@@ -21,7 +21,8 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
 	if ($exceptionmodel->getValue () === ExceptionModel::MOUVOIR ) {
 		$word_stem = word_stem_ending_oir ( $infinitiveVerb );
 	}
-	if ($exceptionmodel->getValue () === ExceptionModel::MOUVOIR && (($mood->getValue () === Mood::Indicatif && $tense->getValue () === Tense::Present && in_array ( $person->getValue (), array (
+	if ($exceptionmodel->getValue () === ExceptionModel::MOUVOIR && (($mood->getValue () === Mood::Indicatif && $tense->getValue () === Tense::Present 
+			&& in_array ( $person->getValue (), array (
 			Person::FirstPersonSingular,
 			Person::SecondPersonSingular,
 			Person::ThirdPersonSingular,
@@ -31,7 +32,9 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
 			Person::SecondPersonSingular,
 			Person::ThirdPersonSingular,
 			Person::ThirdPersonPlural
-	) ) || $tense->getValue () === Tense::Imparfait) || (($mood->getValue () === Mood::Imperatif && $tense->getValue () === Tense::Present && $person->getValue () === Person::FirstPersonSingular)))) {
+	) ) ) 
+	|| (($mood->getValue () === Mood::Subjonctif && $tense->getValue () === Tense::Imparfait )) 
+	|| (($mood->getValue () === Mood::Imperatif && $tense->getValue () === Tense::Present && $person->getValue () === Person::FirstPersonSingular)))) {
 		$word_stem = word_stem_mouvoir_exception ( $infinitiveVerb );
 	}
 	return $word_stem;
