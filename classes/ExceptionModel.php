@@ -8,6 +8,6 @@ class ExceptionModel extends Enum {
 // OIR	
 	const MOUVOIR = 'mouvoir';
 
-	const SEOIR = 'seoir';
+	//const SEOIR = 'seoir';
 }
 ?>
