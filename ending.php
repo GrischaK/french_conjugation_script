@@ -10,7 +10,7 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 		case EndingWith::ER :
 			return ending_er ( $person, $tense, $mood, $endingwith, $exceptionModel );
 		case EndingWith::IR :
-			return ending_ir ( $person, $tense, $mood, $endingwith, $exceptionModel );
+			return ending_ir_without_iss ( $person, $tense, $mood, $endingwith, $exceptionModel );
 		case EndingWith::OIR :
 			return ending_oir ( $person, $tense, $mood, $endingwith, $exceptionModel );
 	}
@@ -174,8 +174,8 @@ function ending_ir_without_iss(Person $person, Tense $tense, Mood $mood, EndingW
 			EndingWith::IR => array ( 
 					Mood::Indicatif => array (
 							Tense::Present => array (
-									Person::FirstPersonPlural => 'ions',
-									Person::SecondPersonPlural => 'iez',
+									Person::FirstPersonPlural => 'ons',
+									Person::SecondPersonPlural => 'ez',
 									Person::ThirdPersonPlural => 'ent'
 							),
 							Tense::Imparfait => array (
@@ -244,7 +244,7 @@ function ending_vetir(Person $person, Tense $tense, Mood $mood, EndingWith $endi
 	if($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
 	}
-	return ending_ir($person, $tense, $mood, $endingwith, $exceptionModel);
+	return ending_ir_without_iss($person, $tense, $mood, $endingwith, $exceptionModel);
 }
 
 function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
@@ -292,7 +292,7 @@ function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $ending
 	if($ending !== null) {
 		return $ending;
 	}
-	return ending_ir($person, $tense, $mood, new EndingWith(EndingWith::IR), $exceptionModel);
+	return ending_ir_without_iss($person, $tense, $mood, new EndingWith(EndingWith::IR), $exceptionModel);
 }
 function ending_mouvoir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
 	assert($exceptionModel->getValue() === ExceptionModel::MOUVOIR);
