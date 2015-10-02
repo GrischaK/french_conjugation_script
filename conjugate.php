@@ -328,7 +328,7 @@ function isPlural(Person $person) {
 function conjugate(InfinitiveVerb $infinitiveVerb , Person $person, Tense $tense, Mood $mood) {
 	$endingwith = finding_infinitive_ending($infinitiveVerb );
 	$exceptionmodel = finding_exception_model($infinitiveVerb);
-	$conjugated_verb = word_stem ( $infinitiveVerb, $person, $tense, $mood) . ending ( $person, $tense, $mood, $endingwith, $exceptionmodel);
+	$conjugated_verb = word_stem ( $infinitiveVerb, $person, $tense, $mood) . ending ( $person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb);
 	return $conjugated_verb;
 }
 function isComposite(Mood $mood, Tense $tense) {

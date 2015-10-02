@@ -1,5 +1,5 @@
 <?php
-function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
+function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
 	switch ($exceptionModel->getValue ()) {
 		case ExceptionModel::VETIR :
 			return ending_vetir ( $person, $tense, $mood, $endingwith, $exceptionModel );
@@ -10,7 +10,7 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 		case EndingWith::ER :
 			return ending_er ( $person, $tense, $mood, $endingwith, $exceptionModel );
 		case EndingWith::IR :
-			return ending_ir_without_iss ( $person, $tense, $mood, $endingwith, $exceptionModel );
+			return ending_ir ( $person, $tense, $mood, $endingwith, $exceptionModel,$infinitiveVerb );
 		case EndingWith::OIR :
 			return ending_oir ( $person, $tense, $mood, $endingwith, $exceptionModel );
 	}
@@ -93,7 +93,7 @@ function ending_er(Person $person, Tense $tense, Mood $mood, EndingWith $endingw
 	);
 	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
-function ending_ir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
+function ending_ir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
 	if(in_array($infinitiveVerb,IrregularExceptionGroup::$ohne_iss)) {
 		return ending_ir_without_iss($person, $tense, $mood, $endingwith, $exceptionModel);
 	} else {
@@ -262,7 +262,7 @@ function ending_vetir(Person $person, Tense $tense, Mood $mood, EndingWith $endi
 	if($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
 	}
-	return ending_ir_without_iss($person, $tense, $mood, $endingwith, $exceptionModel);
+	return ending_ir($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
 }
 
 function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
@@ -310,7 +310,7 @@ function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $ending
 	if($ending !== null) {
 		return $ending;
 	}
-	return ending_ir_without_iss($person, $tense, $mood, new EndingWith(EndingWith::IR), $exceptionModel);
+	return ending_ir($person, $tense, $mood, new EndingWith(EndingWith::IR), $exceptionModel, $infinitiveVerb);
 }
 function ending_mouvoir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
 	assert($exceptionModel->getValue() === ExceptionModel::MOUVOIR);
