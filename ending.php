@@ -2,17 +2,17 @@
 function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
 	switch ($exceptionModel->getValue ()) {
 		case ExceptionModel::VETIR :
-			return ending_vetir ( $person, $tense, $mood, $endingwith, $exceptionModel );
+			return ending_vetir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 		case ExceptionModel::MOUVOIR :
-			return ending_mouvoir ( $person, $tense, $mood, $endingwith, $exceptionModel );
+			return ending_mouvoir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 	}
 	switch ($endingwith->getValue ()) {
 		case EndingWith::ER :
 			return ending_er ( $person, $tense, $mood, $endingwith, $exceptionModel );
 		case EndingWith::IR :
-			return ending_ir ( $person, $tense, $mood, $endingwith, $exceptionModel,$infinitiveVerb );
+			return ending_ir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 		case EndingWith::OIR :
-			return ending_oir ( $person, $tense, $mood, $endingwith, $exceptionModel );
+			return ending_oir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 	}
 	return null;
 }
@@ -227,12 +227,6 @@ if($ending !== null) {
 return ending_ir_with_iss($person, $tense, $mood, new EndingWith(EndingWith::IR), $exceptionModel);
 }
 
-
-
-
-
-
-
 function ending_array_defines($array_mood_tense_person, Person $person, Tense $tense, Mood $mood) {
 	if (key_exists ( $mood->getValue (), $array_mood_tense_person )) {
 		$array_tense_person = $array_mood_tense_person [$mood->getValue ()];
@@ -246,7 +240,7 @@ function ending_array_defines($array_mood_tense_person, Person $person, Tense $t
 	return null;
 }
 
-function ending_vetir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
+function ending_vetir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
 	assert($exceptionModel->getValue() === ExceptionModel::VETIR);
 	assert($endingwith->getValue() === EndingWith::IR);
 	$endings = array(
@@ -265,7 +259,7 @@ function ending_vetir(Person $person, Tense $tense, Mood $mood, EndingWith $endi
 	return ending_ir($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
 }
 
-function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
+function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
 	$endings = array (
 			Mood::Indicatif => array (
 					Tense::Passe => array (// changing first letter iî into u/û, else like ending-IR
@@ -312,7 +306,7 @@ function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $ending
 	}
 	return ending_ir($person, $tense, $mood, new EndingWith(EndingWith::IR), $exceptionModel, $infinitiveVerb);
 }
-function ending_mouvoir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
+function ending_mouvoir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
 	assert($exceptionModel->getValue() === ExceptionModel::MOUVOIR);
 	assert($endingwith->getValue() === EndingWith::OIR);
 	$endings = array(
@@ -336,6 +330,6 @@ function ending_mouvoir(Person $person, Tense $tense, Mood $mood, EndingWith $en
 	if($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
 	}
-	return ending_oir($person, $tense, $mood, $endingwith, $exceptionModel);
+	return ending_oir($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
 }
 ?>
