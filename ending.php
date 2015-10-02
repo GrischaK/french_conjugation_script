@@ -94,10 +94,10 @@ function ending_er(Person $person, Tense $tense, Mood $mood, EndingWith $endingw
 	return $ending [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
 function ending_ir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
-	if() {
-		return ending_ir_without_iss(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel);
+	if(in_array($infinitiveVerb,IrregularExceptionGroup::$ohne_iss)) {
+		return ending_ir_without_iss($person, $tense, $mood, $endingwith, $exceptionModel);
 	} else {
-		return ending_ir_with_iss(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel);
+		return ending_ir_with_iss($person, $tense, $mood, $endingwith, $exceptionModel);
 	}	
 }
 function ending_ir_with_iss(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
