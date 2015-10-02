@@ -102,7 +102,7 @@ function ending_ir(Person $person, Tense $tense, Mood $mood, EndingWith $endingw
 }
 function ending_ir_with_iss(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
 	$endings = array (
-			EndingWith::IR => array ( // standard endings for verbs ending with -ir
+			
 					Mood::Indicatif => array (
 							Tense::Present => array (
 									Person::FirstPersonSingular => 'is',
@@ -172,13 +172,13 @@ function ending_ir_with_iss(Person $person, Tense $tense, Mood $mood, EndingWith
 									Person::SecondPersonPlural => 'issez'
 							)
 					)
-			)
+			
 	);
-	return $endings [$endingwith->getValue ()][$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+	return $endings [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
 function ending_ir_without_iss(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
 	$endings = array (
-			EndingWith::IR => array ( 
+
 					Mood::Indicatif => array (
 							Tense::Present => array (
 									Person::FirstPersonPlural => 'ons',
@@ -217,7 +217,7 @@ function ending_ir_without_iss(Person $person, Tense $tense, Mood $mood, EndingW
 									Person::SecondPersonPlural => 'ez'
 							)
 					)
-			)
+			
 	);
 
 $ending = ending_array_defines($endings, $person, $tense, $mood);
