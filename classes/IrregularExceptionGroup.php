@@ -6,7 +6,7 @@ class IrregularExceptionGroup {
 	public static $ohne_iss;
   static function init()
   {
-    self::$ohne_iss = array_merge($mouvoir);
+    self::$ohne_iss = array_merge(self::$mouvoir);
   }
 }
 IrregularExceptionGroup::init();
