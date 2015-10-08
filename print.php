@@ -185,6 +185,25 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		       "\t\t\t".'<td>' . $visitee->infinitiveVerb . '</td>' . PHP_EOL;
 	}
 }	
+
+class OutputReflexiveConjugationPhraseVisitor extends ConjugationPhraseVisitor {
+	function visitSimpleTense(SimpleTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ) . '</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
+	}
+	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
+	}
+
+	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {// twice
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . $visitee->reflexive_pronoun .'</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->infinitiveVerb . '</td>' . PHP_EOL;
+	}
+}
+
 function colspan_number($mood, $tense) {
 	if (isComposite ( $mood, $tense )) {
 		$colspan = 4;
