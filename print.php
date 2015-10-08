@@ -196,7 +196,13 @@ class OutputReflexiveConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
 		"\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
 	}
-
+	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
+	}
+	function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
+	}
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {// twice
 		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . $visitee->reflexive_pronoun .'</td>' . PHP_EOL .
 		"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
