@@ -12,9 +12,16 @@ require_once 'classes/Auxiliaire.php';
 require_once 'classes/ConjugationModel.php';
 require_once 'classes/ExceptionModel.php';
 require 'classes/IrregularExceptionGroup.php';// should be replaced by DB 
-
-
 include_once 'word_stem.php';
+
+include_once '/groups/verbes_pronominaux.php';									// Array mit allen reflexiven Verben
+include_once '/groups/verbes_exclusivement_pronominaux.php';	// Array mit allen - ausschließlich - reflexiven Verben
+include_once '/groups/verbes_intransitifs.php'; 				// Array mit allen transitiven Verben
+include_once '/groups/verbes_transitifs.php';					// Array mit allen intransitiven Verben (manche Verben sowohl transitiv als auch intransitiv sind)
+include_once '/groups/irregular-verb-groups.php';
+
+include_once '/groups/verbes_defectifs.php';	// Array mit allen defekten Verben
+include_once '/groups/verbes_en_ancien.php';	// Array mit allen Verben aus der altfranzösischen Sprache
 
 function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 	switch (substr ( $infinitiveVerb->getInfinitiveVerb(), - 2, 2 )) {
