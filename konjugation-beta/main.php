@@ -5,11 +5,6 @@
 		$keywords='';
 	}
 
-	$per_page=7;
-	$page=0;
-	$params=explode($char_split,$_GET["buchstabe"]);
-	if(count($params)>0)
-		$page=$params[1];
 	$description='Hier findest du die Übersicht aller französischen Verben mit ihrer Konjugation.';
 	$keywords='Konjugation, Konjugation von französischen Verben, Französische Verben konjugieren';  
 	$letters=range('a','z');
