@@ -306,10 +306,9 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 	return $conjugated_auxiliaire [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 }
 function finding_auxiliaire(InfinitiveVerb $infinitiveVerb) {
-	call Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::Etre))  // will use $aux_etre from Auxiliaire class
   //call Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::AvoirandEtre))  // will use $aux_avoir_etre from Auxiliaire class
 	
-	if (in_array ( $infinitiveVerb, $aux_etre )) { // later or in_array($infinitiveVerb, $verbes_pronominaux) only the pronominal version!
+	if (in_array ( $infinitiveVerb, Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::Etre)))) { // later or in_array($infinitiveVerb, $verbes_pronominaux) only the pronominal version!
 		$auxiliaire = Auxiliaire::Etre;
 	} else {
 		$auxiliaire = Auxiliaire::Avoir;
