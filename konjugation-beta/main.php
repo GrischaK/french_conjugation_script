@@ -4,7 +4,7 @@
 	elseif(isset($_GET['buchstabe'])){
 		$keywords='';
 	}
-
+// test
 	$description='Hier findest du die Übersicht aller französischen Verben mit ihrer Konjugation.';
 	$keywords='Konjugation, Konjugation von französischen Verben, Französische Verben konjugieren';  
 	$letters=range('a','z');
