@@ -1,4 +1,14 @@
 <?php 
+
+include_once 'groups/verbes_pronominaux.php';				// Array mit allen reflexiven Verben
+include_once 'groups/verbes_exclusivement_pronominaux.php';	// Array mit allen - ausschließlich - reflexiven Verben
+include_once 'groups/verbes_intransitifs.php'; 				// Array mit allen transitiven Verben
+include_once 'groups/verbes_transitifs.php';				// Array mit allen intransitiven Verben (manche Verben sowohl transitiv als auch intransitiv sind)
+include_once 'groups/irregular-verb-groups.php';
+
+include_once 'groups/verbes_defectifs.php';	// Array mit allen defekten Verben
+include_once ' groups/verbes_en_ancien.php';	// Array mit allen Verben aus der altfranzösischen Sprache
+
 		$func_array=array(preg_grep("/.*er$/",$verbs1),preg_grep("/.*[iï]r$/",$verbs1),preg_grep("/.*re$/",$verbs1),
 		array_diff($verbs1,$aux_etre),$aux_etre,$aux_avoir_etre,
 		$verbes_pronominaux,array_diff($verbs1,$verbes_pronominaux),$verbes_exclusivement_pronominaux,$verbes_transitifs,$verbes_intransitifs,$verbes_en_ancien,$verbes_defectifs,$impersonnels,
