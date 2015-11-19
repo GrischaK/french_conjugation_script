@@ -1,6 +1,17 @@
 <?php 
+
+include_once 'classes/Auxiliaire.php';
+include_once 'groups/verbes_pronominaux.php';
+include_once 'groups/verbes_exclusivement_pronominaux.php';
+include_once 'groups/verbes_intransitifs.php';
+include_once 'groups/verbes_transitifs.php';
+include_once 'groups/irregular-verb-groups.php';
+include_once 'groups/verbes_defectifs.php';
+include_once 'groups/verbes_en_ancien.php';
+
+
 		$func_array=array(preg_grep("/.*er$/",$verbs1),preg_grep("/.*[iï]r$/",$verbs1),preg_grep("/.*re$/",$verbs1),
-		array_diff($verbs1,$aux_etre),$aux_etre,$aux_avoir_etre,
+		array_diff($verbs1,Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::Etre))),Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::Etre)),$Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::AvoirandEtre)),
 		$verbes_pronominaux,array_diff($verbs1,$verbes_pronominaux),$verbes_exclusivement_pronominaux,$verbes_transitifs,$verbes_intransitifs,$verbes_en_ancien,$verbes_defectifs,$impersonnels,
 		$cer,$ger,$eler_ele,$eler_elle,$eter_ete,$eter_ette,$yer_ie,$e_akut_er,$ecer,$eger,$eyer,$envoyer,
 		$vouloir,$avoir_ravoir,$voir,$cevoir,$devoir,$mouvoir,$pleuvoir,$pouvoir,$savoir,$falloir,$seoir,$valoir,$haiir,
@@ -15,16 +26,6 @@
 			if(count($params)>1)
 				$page=$params[1];
 			$start=$page*$per_page;
-			$aux_etre  = array('accourir','advenir','aller','amuser','apparaitre','apparaître','arriver','ascendre','co-naitre',
-				'co-naître','convenir','débeller','décéder','démourir','descendre','disconvenir','devenir','échoir',
-				'entre-venir','entrer','époustoufler','intervenir','issir','mévenir','monter','mourir','naitre','naître',
-				'obvenir','paraitre','paraître','partir','parvenir','pourrir','prémourir','provenir','ragaillardir',
-				'raller','réadvenir','re-aller','réapparaitre','réapparaître','reconvenir','redépartir','redescendre',
-				'redevenir','réentrer','réintervenir','remonter','remourir','renaitre','renaître','rentrer','revenir',
-				'reparaitre','reparaître','repartir','reparvenir','repasser','repourrir','rerentrer','rerester',
-				'ressortir','ressouvenir','rester','resurvenir','retomber','retourner','retrépasser','revenir',
-				's’amuser','se redépartir','se sortir','se souvenir','sortir','souvenir','stationner','sur-aller',
-				'suradvenir','survenir','tomber','trépasser','venir');
 			$h1="Unknown group name!!!";
 			for($a=0;$a<count($kategorien);$a++)
 				if($params[0]==$kategorien[$a]){
