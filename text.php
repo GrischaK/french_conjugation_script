@@ -29,7 +29,6 @@ $transitiv = implode(' oder ', $conditions);
     $gruppe = 'der 3. Verbgruppe';
   }
   require_once 'verbs.php';
-  require_once 'groups/irregular-verb-groups';
   require_once 'groups/irregular.php';
   
   require_once 'groups/verbes_pronominaux.php';
