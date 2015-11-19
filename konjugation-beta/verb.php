@@ -7,7 +7,7 @@ include_once 'groups/verbes_intransitifs.php';
 include_once 'groups/verbes_transitifs.php';
 include_once 'groups/irregular-verb-groups.php';
 include_once 'groups/verbes_defectifs.php';
-include_once ' groups/verbes_en_ancien.php';
+include_once 'groups/verbes_en_ancien.php';
 
 		$func_array=array(preg_grep("/.*er$/",$verbs1),preg_grep("/.*[iï]r$/",$verbs1),preg_grep("/.*re$/",$verbs1),
 		array_diff($verbs1,Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::Etre))),Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::Etre)),$Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::AvoirandEtre)),
