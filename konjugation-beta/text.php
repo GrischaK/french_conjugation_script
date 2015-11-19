@@ -28,16 +28,15 @@ $transitiv = implode(' oder ', $conditions);
   else { // aller,....
     $gruppe = 'der 3. Verbgruppe';
   }
-
-include ($_SERVER['DOCUMENT_ROOT'] . "/data/languages/french/verbs.php");
-include ($_SERVER['DOCUMENT_ROOT'] . "/data/languages/french/irregular-verb-groups.php");
-
-include ($_SERVER['DOCUMENT_ROOT'] . "/data/languages/french/verbes_pronominaux.php"); 				// Array mit allen reflexiven Verben
-include ($_SERVER['DOCUMENT_ROOT'] . "/data/languages/french/verbes_exclusivement_pronominaux.php");	// Array mit allen - ausschließlich - reflexiven Verben
-// manche Verben sind transitiv oder auch intransitiv
-include ($_SERVER['DOCUMENT_ROOT'] . "/data/languages/french/verbes_intransitifs.php"); 				// Array mit allen transitiven Verben
-include ($_SERVER['DOCUMENT_ROOT'] . "/data/languages/french/verbes_transitifs.php");	// Array mit allen intransitiven Verben 
-include ($_SERVER['DOCUMENT_ROOT'] . "/data/languages/french/irregular.php");    
+  require_once 'verbs.php';
+  require_once 'groups/irregular-verb-groups';
+  require_once 'groups/irregular.php';
+  
+  require_once 'groups/verbes_pronominaux.php';
+  require_once 'groups/verbes_exclusivement_pronominaux.php';
+  require_once 'groups/verbes_intransitifs.php';
+  require_once 'groups/verbes_transitifs.php';
+  require_once 'groups/irregular-verb-groups.php';
 ?>
 <style type="text/css">
 #menu,#rechts {display:none;} 

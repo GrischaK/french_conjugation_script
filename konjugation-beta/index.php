@@ -1,8 +1,8 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT']."/data/languages/french/translation.php");
-include($_SERVER['DOCUMENT_ROOT']. "/data/languages/french/verbs.php");
-include($_SERVER['DOCUMENT_ROOT']."/data/languages/french/beta/conjugate.php"); 
-include($_SERVER['DOCUMENT_ROOT']."/data/languages/french/beta/print.php"); 
+require_once 'translation.php';
+require_once 'verbs.php';
+require_once 'conjugate.php';
+require_once 'print.php';
 include($_SERVER['DOCUMENT_ROOT']."/data/before_content.php");
 
 
