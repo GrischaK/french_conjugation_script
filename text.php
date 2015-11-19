@@ -38,8 +38,18 @@ $transitiv = implode(' oder ', $conditions);
   require_once 'groups/irregular-verb-groups.php';
 ?>
 <style type="text/css">
-#menu,#rechts {display:none;} 
-</style>
+#menu.#rechts  {display:none;}
+#right.col-md-2{display:none;}	  
+#content.col-md-7 {width:85%;}
+	  
+
+@media 
+  (min-device-width: 800px) 
+  and (max-device-width: 1280px) {
+#menu.col-md-3 {width:23%;}
+#content.col-md-7 {width:77%;}
+}
+</style> 
 <p>Die Konjugation von <?=$verb ?></p>
 <p>Das Verb <b><?=$verb ?></b> wird <b><?=$regelmaessig ?></b> konjugiert und wird in den zusammengesetzten Zeiten mit den Hilfsverb <b><?=$auxiliaire ?></b> gebildet.</p>
 <p><b><?=$verb ?></b> ist ein <b><?=$reflexiv ?></b> und <b><?=$transitiv ?></b> Verb.</p>
