@@ -1,6 +1,6 @@
 <?php
 	header('Content-Type: application/xml; charset=utf-8');
-	include($_SERVER['DOCUMENT_ROOT']."/data/languages/french/verbs.php");
+	require_once 'verbs.php';
 ?>
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>' ?>
 <pages>
