@@ -38,7 +38,7 @@ $transitiv = implode(' oder ', $conditions);
   require_once 'groups/irregular-verb-groups.php';
 ?>
 <style type="text/css">
-#menu.#rechts  {display:none;}
+#menu, #rechts  {display:none;}
 #right.col-md-2{display:none;}	  
 #content.col-md-7 {width:85%;}
 	  
