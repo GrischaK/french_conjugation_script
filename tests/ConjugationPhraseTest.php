@@ -7,8 +7,9 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider ConjugatePhraseTestProvider
 	 */                                          
-	public function testConjugatePhrase($expectedResult, $verb, $tense, $person, $mood) {
-		$this->assertEquals ( $expectedResult, conjugation_phrase ( $verb, new Person($person), new Tense($tense), new Mood($mood) ) );
+	public function testConjugatePhrase($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
+		$this->assertEquals ( $expectedResult, (string)conjugation_phrase ( new InfinitiveVerb( $infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood) ) );
+  
 	}						
 	public function ConjugatePhraseTestProvider() {
 		;
@@ -33,14 +34,35 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Passe_compose',
 						'ThirdPersonPlural',
 						'Indicatif'
-				),											
+				),
 				array (
 						'j’aime',
 						'aimer',	
-						'Present',						
-						'FirstPersonSingular',											
+						'Present',
+						'FirstPersonSingular',
 						'Indicatif' 
 				),	
+				array (
+						'j’habilite',
+						'habiliter',
+						'Present',
+						'FirstPersonSingular',
+						'Indicatif'
+				),
+				array (
+						'je hérisse',
+						'hérisser',
+						'Present',
+						'FirstPersonSingular',
+						'Indicatif'
+				),
+				array (
+						'je finis',
+						'finir',
+						'Present',
+						'FirstPersonSingular',
+						'Indicatif'
+				),
 				array (
 						'que j’aime',
 						'aimer',
@@ -89,7 +111,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Passe',
 						'SecondPersonPlural',
 						'Imperatif'
-				),											
+				),
 				array (
 						'je donne',
 						'donner',
@@ -103,7 +125,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						'Futur_compose',
 						'FirstPersonSingular',
 						'Indicatif'
-				)				
+				)
 		);		
 	}
 }

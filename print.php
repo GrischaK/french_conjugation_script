@@ -1,6 +1,6 @@
 <?php
 require_once 'conjugate.php';
-function print_persons($verb, Tense $tense, Mood $mood) {
+function print_persons(InfinitiveVerb $infinitiveVerb, Tense $tense, Mood $mood) {
 	$persons = array (
 			Mood::Indicatif => array (
 					Tense::Present => array (
@@ -150,12 +150,81 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 			) 
 	);
 	foreach ( $persons [$mood->getValue ()] [$tense->getValue ()] as $person ) {
-		$output = conjugation_phrase ( $verb, new Person ( $person ), $tense, $mood );
-		echo '<tr><td><span data-text="' . $output . '" data-lang="fr" class="trigger_play"></span></td>';
-		echo '<td>' . $output . '</td></tr>' . PHP_EOL;
-	}   
+		//$output = conjugation_phrase ( $infinitiveVerb, new Person ( $person ), $tense, $mood );
+		$conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, new Person($person), $tense, $mood);
+		$ttsVisitor = new GoogleTTSConjugationPhraseVisitor();
+		$output = $conjugationPhrase->accept($ttsVisitor);
+		$tablePrintVisitor = new OutputConjugationPhraseVisitor();
+		$conjugationPhrase->accept($tablePrintVisitor);
+		echo "\t\t".'<tr>' . PHP_EOL;
+		echo "\t\t\t".'<td><span data-text="' . $output . '" data-lang="fr" class="trigger_play"></span></td>' . PHP_EOL;
+		echo $conjugationPhrase->accept($tablePrintVisitor);
+		echo "\t\t".'</tr>' . PHP_EOL;
+	} 
 }
-function print_tenses($verb, Mood $mood, $tenses) {
+class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
+	function visitSimpleTense(SimpleTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb ) . '</td>' . PHP_EOL . 
+			   "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
+	}
+	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . PHP_EOL . 
+		       "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
+		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
+	}
+	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
+	}
+	function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
+		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
+	}
+	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . 
+				"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
+		       "\t\t\t".'<td>' . $visitee->infinitiveVerb . '</td>' . PHP_EOL;
+	}
+}	
+
+class OutputReflexiveConjugationPhraseVisitor extends ConjugationPhraseVisitor {
+	function visitSimpleTense(SimpleTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ) . '</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
+	}
+	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
+	}
+	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
+	}
+	function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
+	}
+	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {// twice
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . $visitee->reflexive_pronoun .'</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->infinitiveVerb . '</td>' . PHP_EOL;
+	}
+}
+
+function colspan_number($mood, $tense) {
+	if (isComposite ( $mood, $tense )) {
+		$colspan = 4;
+		if ($mood->getValue () === Mood::Imperatif) {
+			$colspan = 3;
+		}
+	} else {
+		$colspan = 3;
+		if ($mood->getValue () === Mood::Imperatif) {
+			$colspan = 2;
+		}
+	}
+	return $colspan;
+}
+function print_tenses(InfinitiveVerb $infinitiveVerb, Mood $mood, $tenses) {
 	$th_of_tense = array (
 			Tense::Present =>'Présent',
 			Tense::Imparfait =>'Imparfait',
@@ -170,12 +239,13 @@ function print_tenses($verb, Mood $mood, $tenses) {
 			Tense::Deuxieme_Forme =>'Passé deuxième forme'
 	);
 	foreach ( $tenses [$mood->getValue ()] as $tense ) {
-		echo '<tr class="border"><th>'.$th_of_tense[$tense].'</th></tr>' . PHP_EOL;
-		print_persons ( $verb, new Tense ( $tense ), new Mood ( $mood ) );
-		echo PHP_EOL;
+		echo "\t\t".'<tr class="border">' . PHP_EOL;
+		echo "\t\t\t".'<th colspan="'.colspan_number($mood, new Tense($tense)).'">'.$th_of_tense[$tense].'</th>' . PHP_EOL;
+		echo "\t\t".'</tr>' . PHP_EOL;
+		print_persons ( $infinitiveVerb, new Tense ( $tense ), new Mood ( $mood ) );
 	}
 }
-function print_simple_tenses($verb, Mood $mood) {
+function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Mood $mood) {
 	$tenses = array (
 			Mood::Indicatif => array (
 					Tense::Present,
@@ -194,9 +264,9 @@ function print_simple_tenses($verb, Mood $mood) {
 					Tense::Present 
 			) 
 	);
-	print_tenses ( $verb, $mood, $tenses );
+	print_tenses ( $infinitiveVerb, $mood, $tenses );
 }
-function print_composite_tenses($verb, Mood $mood) {
+function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Mood $mood) {
 	$tenses = array (
 			Mood::Indicatif => array (
 					Tense::Passe_compose,
@@ -217,26 +287,34 @@ function print_composite_tenses($verb, Mood $mood) {
 					Tense::Passe 
 			) 
 	);
-	print_tenses ( $verb, $mood, $tenses );
+	print_tenses ( $infinitiveVerb, $mood, $tenses );
 }
-function print_modes($verb) {
+function print_modes(InfinitiveVerb $infinitiveVerb) {
 	$tenses = array (
 			Tense::Present,
 			Tense::Passe 
 	);
 	$modes = array (
-			Mode::Infinitif,
-			Mode::Gerondif,
-			Mode::Participe 
+			Mode::Infinitif =>'Infinitif',
+			Mode::Gerondif =>'Gérondif',
+			Mode::Participe =>'Participe',
 	);
-	foreach ( $modes as $mode ) {
+	echo "\t\t".'<tr>' . PHP_EOL;
+	echo "\t\t\t".'<th class="titel">Mode</th>' . PHP_EOL;
+	echo "\t\t\t".'<th class="titel">Présent</th>' . PHP_EOL;
+	echo "\t\t\t".'<th class="titel">Passé</th>' . PHP_EOL;
+	echo "\t\t".'</tr>' . PHP_EOL;
+	foreach ( $modes as $mode => $mode_name ) {
+		echo "\t\t".'<tr>' . PHP_EOL;
+		echo "\t\t\t".'<td class="text-center"><b>'.$mode_name.'</b></td>' . PHP_EOL;
 		foreach ( $tenses as $tense ) {
-			echo '<tr><td>' . modes_impersonnels ( $verb, finding_auxiliaire ( $verb ), new Mode ( $mode ), new Tense ( $tense ) ) . '</td></tr>';
-			echo PHP_EOL;
+			$output_modes = modes_impersonnels ( $infinitiveVerb, finding_auxiliaire ( $infinitiveVerb ), new Mode ( $mode ), new Tense ( $tense ) );
+			echo "\t\t\t".'<td><span data-text="' . $output_modes . '" data-lang="fr" class="trigger_play"></span>' . $output_modes . '</td>' . PHP_EOL;
 		}
+		echo "\t\t".'</tr>' . PHP_EOL;
 	}
 }
-function print_conjugations_of_verb($verb) {
+function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb) {
 	$moods = array (
 			Mood::Indicatif,
 			Mood::Subjonctif,
@@ -251,15 +329,18 @@ function print_conjugations_of_verb($verb) {
 	);
 	foreach ( $moods as $mood ) {
 		echo '<h2 class="home"><a id="'.strtolower($h2_of_mood[$mood]).'"></a>'.$h2_of_mood[$mood].'</h2>' . PHP_EOL;
-		echo '<table>' . PHP_EOL;		
-		print_simple_tenses ( $verb, new Mood ( $mood ) );
-		echo '</table>' . PHP_EOL . PHP_EOL;
-		echo '<table>' . PHP_EOL;		
-		print_composite_tenses ( $verb, new Mood ( $mood ) );
-		echo '</table>' . PHP_EOL . PHP_EOL;
+		echo "\t".'<hr class="linie" />' . PHP_EOL;
+		echo "\t".'<table class="tab">' . PHP_EOL;
+		print_simple_tenses ( $infinitiveVerb, new Mood ( $mood ) );
+		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
+		echo "\t".'<table class="tab">' . PHP_EOL;		
+		print_composite_tenses ( $infinitiveVerb, new Mood ( $mood ) );
+		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 	}
-	echo '<table>' . PHP_EOL;
-	print_modes ( $verb );
-	echo '</table>' . PHP_EOL . PHP_EOL;
+	echo '<h2 class="home"><a id="modes-impersonnels"></a>Modes impersonnels</h2>' . PHP_EOL;
+	echo "\t".'<hr class="linie" />' . PHP_EOL;	
+	echo "\t".'<table>' . PHP_EOL;
+	print_modes ( $infinitiveVerb );
+	echo "\t".'</table>' . PHP_EOL;
 }
 ?>

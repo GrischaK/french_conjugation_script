@@ -1,75 +1,75 @@
 <?php
 require_once 'conjugate.php';
-class PersonTest extends PHPUnit_Framework_TestCase {
+class MergePronounTest extends PHPUnit_Framework_TestCase {
 	/**
-	 * @dataProvider PersonTestProvider
+	 * @dataProvider MergePronounProvider
 	 */
-	public function testPerson($expectedResult, $person, $mood) {
-		$this->assertEquals ( $expectedResult, personal_pronoun(new Person($person), new Mood($mood)));
+	public function testMergePronoun($expectedResult, $person, $mood) {
+		$this->assertEquals ( $expectedResult, merge_pronoun(new Person($person), new Mood($mood)));
 	}
-	public function PersonTestProvider() {
+	public function MergePronounProvider() {
 		return array (
 				array (
-						'je',
+						'je me',
 						'FirstPersonSingular',
 						'Indicatif',
 				),
 				array (
-						'tu',
+						'tu te',
 						'SecondPersonSingular',
 						'Indicatif',
 				),
 				array (
-						'il',
+						'il se',
 						'ThirdPersonSingular',
 						'Indicatif',
 				),
 				array (
-						'nous',
+						'nous nous',
 						'FirstPersonPlural',
 						'Indicatif',
 				),
 				array (
-						'vous',
+						'vous vous',
 						'SecondPersonPlural',
 						'Indicatif',
 				),
 				array (
-						'ils',
+						'ils se',
 						'ThirdPersonPlural',
 						'Indicatif',
 				),
 				array (
-						'que je',
+						'que je me',
 						'FirstPersonSingular',
 						'Subjonctif',
 				),
 				array (
-						'que tu',
+						'que tu te',
 						'SecondPersonSingular',
 						'Subjonctif',
 				),
 				array (
-						'qu’il',
+						'qu’il se',
 						'ThirdPersonSingular',
 						'Subjonctif',
 				),
 				array (
-						'que nous',
+						'que nous nous',
 						'FirstPersonPlural',
 						'Subjonctif',
 				),
 				array (
-						'que vous',
+						'que vous vous',
 						'SecondPersonPlural',
 						'Subjonctif',
 				),
 				array (
-						'qu’ils',
+						'qu’ils se',
 						'ThirdPersonPlural',
 						'Subjonctif',
 				)
-				
+
 		);
 	}
 }
