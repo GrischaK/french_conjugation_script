@@ -21,7 +21,7 @@ include_once 'groups/verbes_transitifs.php';					// Array mit allen intransitive
 include_once 'groups/irregular-verb-groups.php';
 
 include_once 'groups/verbes_defectifs.php';	// Array mit allen defekten Verben
-include_once 'groups/verbes_en_ancien.php';	// Array mit allen Verben aus der altfranzösischen Sprache
+include_once ' groups/verbes_en_ancien.php';	// Array mit allen Verben aus der altfranzösischen Sprache
 
 function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 	switch (substr ( $infinitiveVerb->getInfinitiveVerb(), - 2, 2 )) {
