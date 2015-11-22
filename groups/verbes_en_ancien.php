@@ -2675,7 +2675,6 @@ $verbes_en_ancien = array  (  // Verben aus dem altfranzösischer Sprache
 'schengar',
 'schinguer',
 'scrimir',
-'se donner se et sua',
 'seignorer',
 'seisir',
 'sembler',

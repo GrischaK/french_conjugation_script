@@ -1,0 +1,4 @@
+<? 
+$impersonnels = array( // 63 Stück unpersonelle Verben
+'advenir', 'beaucir', 'blanc-geler', 'brouillarder', 'brouillasser', 'broussiner', 'bruinasser', 'bruiner','brumailler', 'brumasser', 'brumer', 'burler', 'crachiner', 'dracher', 'ensuivre', 'falloir', 'frimasser', 'gibouler', 'gloyer', 'grêler', 'luner', 'mésadvenir', 'mésarriver', 'mésavenir', 'mévenir', 'mouillancher', 'mouillasser', 'mousiner', 'neigeasser', 'neigeoter', 'neigeotter', 'neiger', 'névoler', 'pleuvasser', 'pleuvigner', 'pleuviner', 'pleuvocher', 'pleuvoir', 'pleuvoter', 'pluvigner', 'pluvinasser', 'pluviner', 'pluvioter', 'pluvoter', 'réadvenir', 'rebeausir', 'rebrouillasser', 'rebruiner', 'rebrumer', 'redracher', 'regeler', 'reneigeoter', 'reneigeotter', 'reneiger', 'repleuviner', 'repleuvioter','repleuvoir', 'repleuvoter', 'résulter', 's’agir', 'souvenir', 'urger', 'vaser', 'venter','verglacer');
+?>
