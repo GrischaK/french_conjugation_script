@@ -1,21 +1,22 @@
 <?php 
-
-include_once 'classes/Auxiliaire.php';
-include_once 'groups/verbes_pronominaux.php';
-include_once 'groups/verbes_exclusivement_pronominaux.php';
-include_once 'groups/verbes_intransitifs.php';
-include_once 'groups/verbes_transitifs.php';
-include_once 'groups/irregular-verb-groups.php';
-include_once 'groups/verbes_defectifs.php';
-include_once 'groups/verbes_en_ancien.php';
-
+require_once 'classes/Auxiliaire.php';
+require_once 'classes/InfinitiveVerb.php';
+require_once 'groups/verbes_pronominaux.php';
+require_once 'groups/verbes_exclusivement_pronominaux.php';
+require_once 'groups/verbes_intransitifs.php';
+require_once 'groups/verbes_transitifs.php';
+require_once 'groups/irregular-verb-groups.php';
+require_once 'groups/verbes_defectifs.php';
+require_once 'groups/verbes_en_ancien.php';
+require_once 'groups/verbes_impersonnels.php';	
+require_once 'groups/verbes_defectifs.php';	
 
 		$func_array=array(preg_grep("/.*er$/",$verbs1),preg_grep("/.*[iï]r$/",$verbs1),preg_grep("/.*re$/",$verbs1),
 		array_diff($verbs1,Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::Etre))),Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::Etre)),Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::AvoirandEtre)),
 		$verbes_pronominaux,array_diff($verbs1,$verbes_pronominaux),$verbes_exclusivement_pronominaux,$verbes_transitifs,$verbes_intransitifs,$verbes_en_ancien,$verbes_defectifs,$impersonnels,
 		$cer,$ger,$eler_ele,$eler_elle,$eter_ete,$eter_ette,$yer_ie,$e_akut_er,$ecer,$eger,$eyer,$envoyer,
-		$vouloir,$avoir_ravoir,$voir,$cevoir,$devoir,$mouvoir,$pleuvoir,$pouvoir,$savoir,$falloir,$seoir,$valoir,$haiir,
-		$indre,$battre,$crire,$mettre,$prendre,$rompre,$etre_unregel,$aire,$faire);
+		$vouloir,$avoir_irr,$voir,$cevoir,$devoir,$mouvoir,$pleuvoir,$pouvoir,$savoir,$falloir,$seoir,$valoir,$haiir,
+		$indre,$battre,$crire,$mettre,$prendre,$rompre,$etre_irr,$faire);
 
 		if($_GET["buchstabe"]=="kategorien"){
 			$per_page=200;
@@ -26,6 +27,7 @@ include_once 'groups/verbes_en_ancien.php';
 			if(count($params)>1)
 				$page=$params[1];
 			$start=$page*$per_page;
+			
 			$h1="Unknown group name!!!";
 			for($a=0;$a<count($kategorien);$a++)
 				if($params[0]==$kategorien[$a]){
@@ -59,7 +61,7 @@ include_once 'groups/verbes_en_ancien.php';
 
 <h1><?php echo $_GET['verb'];?></h1>
 <?php
-$exception == $_GET['verb'].'es' ;
+//$exception == $_GET['verb'].'es' ;
 	translation($_GET['verb'],$fr_de[$_GET['verb']]);  
     include("text.php"); 	
 	print_conjugations_of_verb($_GET['verb']);
