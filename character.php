@@ -3,10 +3,10 @@
 	$params=explode($char_split,$_GET["buchstabe"]);
 
 	if(strlen($params[0])>1){
-		$array = preg_grep("/^".$params[0].".*/",$verbs[substr($params[0],0,1)]);
+		$array = preg_grep("/^".$params[0].".*/",$infinitiveVerb[substr($params[0],0,1)]);
 		$h1='Suchergebnisse für '.$params[0];
 	}else{
-		$array = $verbs[$params[0]];
+		$array = $infinitiveVerb[$params[0]];
 		$h1=strtoupper($params[0]);
 	}
 ?>
