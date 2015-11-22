@@ -11,33 +11,22 @@ require_once 'classes/Mode.php';
 require_once 'classes/Auxiliaire.php';
 require_once 'classes/ConjugationModel.php';
 require_once 'classes/ExceptionModel.php';
-require_once 'classes/IrregularExceptionGroup.php'; 
+require_once 'classes/IrregularExceptionGroup.php';// should be replaced by DB 
 require_once 'word_stem.php';
 
-require_once 'groups/verbes_pronominaux.php';
-require_once 'groups/verbes_exclusivement_pronominaux.php';
-require_once 'groups/verbes_intransitifs.php';
-require_once 'groups/verbes_transitifs.php';					
-require_once 'groups/irregular-verb-groups.php';
+//require_once 'groups/verbes_pronominaux.php';
+//require_once 'groups/verbes_exclusivement_pronominaux.php';	
+//require_once 'groups/verbes_intransitifs.php';
+//require_once 'groups/verbes_transitifs.php';
+//require_once 'groups/irregular-verb-groups.php';
 
-require_once 'groups/verbes_defectifs.php';	
-require_once 'groups/verbes_en_ancien.php';
+//require_once 'groups/verbes_defectifs.php';
+//require_once 'groups/verbes_en_ancien.php';	
 
 function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 	switch (substr ( $infinitiveVerb->getInfinitiveVerb(), - 2, 2 )) {
 		case 'er' :
 			$endingwith = EndingWith::ER;
-			switch (substr ( $infinitiveVerb->getInfinitiveVerb(), - 3, 3 )) {
-				case 'cer' :
-					$endingwith = EndingWith::CER;
-					break;
-				case 'ger' :
-					$endingwith = EndingWith::GER;
-					break;
-				case 'yer' :
-					$endingwith = EndingWith::YER;
-					break;
-			}
 			break;
 		case 'ir' :
 			$endingwith = EndingWith::IR;
@@ -52,12 +41,57 @@ function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 }
 function finding_exception_model(InfinitiveVerb $infinitiveVerb) {
 	$exceptionmodel = ExceptionModel::NO_EXCEPTIONS;
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$eler_ele )) {
+		$exceptionmodel = ExceptionModel::Eler_Ele;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$eter_ete )) {
+		$exceptionmodel = ExceptionModel::Eter_Ete;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$eler_elle )) {
+		$exceptionmodel = ExceptionModel::Eler_Elle;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$eter_ette )) {
+		$exceptionmodel = ExceptionModel::Eter_Ette;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$envoyer )) {
+		$exceptionmodel = ExceptionModel::ENVOYER;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$cer )) {
+		$exceptionmodel = ExceptionModel::CER;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$ger )) {
+		$exceptionmodel = ExceptionModel::GER;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$e_akut_er )) {
+		$exceptionmodel = ExceptionModel::E_Akut_Er;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$e_er )) {
+		$exceptionmodel = ExceptionModel::E_Er;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$devoir )) {
+		$exceptionmodel = ExceptionModel::DEVOIR;
+	}
 	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$mouvoir )) {
 		$exceptionmodel = ExceptionModel::MOUVOIR;
-	}	
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$pouvoir )) {
+		$exceptionmodel = ExceptionModel::POUVOIR;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$savoir )) {
+		$exceptionmodel = ExceptionModel::SAVOIR;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$courir )) {
+		$exceptionmodel = ExceptionModel::COURIR;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$mourir )) {
+		$exceptionmodel = ExceptionModel::MOURIR;
+	}
+	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$querir )) {
+		$exceptionmodel = ExceptionModel::QUERIR;
+	}
 	if (in_array ( $infinitiveVerb, IrregularExceptionGroup::$vetir )) {
 		$exceptionmodel = ExceptionModel::VETIR;
-	}	
+	}
 	return new ExceptionModel ( $exceptionmodel );
 }
 
@@ -353,26 +387,36 @@ function isComposite(Mood $mood, Tense $tense) {
 	return in_array ( $tense->getValue (), $composite_tenses [$mood->getValue ()] );
 }
 function finding_participe_present(InfinitiveVerb $infinitiveVerb) { 
-	
-if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::ER)
-	$participe_present = participe_word_stem ( $infinitiveVerb) . 'ant';
-if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::IR)
-	$participe_present = participe_word_stem ( $infinitiveVerb) . 'issant';	
+		$participe_present = finding_infinitive_ending($infinitiveVerb);	//without this line Undefined variable
+	if (in_array($participe_present->getValue(), array(
+    		EndingWith::ER,
+    		EndingWith::OIR)))
+	$participe_present = participe_present_word_stem ( $infinitiveVerb) . 'ant';	
+	if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::IR)
+	$participe_present = participe_present_word_stem ( $infinitiveVerb) . 'issant';	
 	return $participe_present;
 }
 function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
-
 	if ( finding_infinitive_ending( $infinitiveVerb)->getValue () === EndingWith::ER)
-		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'é';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb) . 'é';
 	if ( finding_infinitive_ending( $infinitiveVerb )->getValue () === EndingWith::IR)
-		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'i';
-	$exceptionModel = finding_exception_model( $infinitiveVerb );
-
-	
-	if ($exceptionModel->getValue () === ExceptionModel::VETIR)
-		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'u';
-	if ($exceptionModel->getValue () === ExceptionModel::MOUVOIR)
-		$participe_passe = participe_word_stem ( $infinitiveVerb) . 'û';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb) . 'i';
+// beginning unregular	
+		$exceptionmodel = finding_exception_model($infinitiveVerb);	//without this line Undefined variable
+    if (in_array(finding_exception_model($infinitiveVerb)->getValue(), array(
+    		ExceptionModel::COURIR,
+    		ExceptionModel::VETIR,
+    		ExceptionModel::POUVOIR,
+    		ExceptionModel::SAVOIR))) 
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb) .'u';
+    if (in_array($exceptionmodel->getValue(), array(
+    		ExceptionModel::DEVOIR,
+    		ExceptionModel::MOUVOIR))) 
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb) .'û';		
+	if ($exceptionmodel->getValue () === ExceptionModel::MOURIR)
+		$participe_passe = word_stem_oir_first_letter ( $infinitiveVerb) .'ort';
+	if ($exceptionmodel->getValue () === ExceptionModel::QUERIR)
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb) .'a';
 	return $participe_passe;
 }
 function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense) {
