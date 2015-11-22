@@ -1,5 +1,5 @@
 <?php
-require_once 'conjugate.php';
+require_once '../conjugate.php';
 class ParticipePasseTest extends PHPUnit_Framework_TestCase {
 	
 
@@ -14,11 +14,11 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase {
 				array (
 						'aimé',
 						'aimer',
-				),
+				),			
 				array (
 						'fini',
 						'finir',
-				) 
+				)				
 		);
 	}
 	
@@ -26,18 +26,50 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase {
 	 * @dataProvider UnregularParticipePasseTestProvider
 	 */
 	public function testUnregularParticipePasse($expectedResult, $infinitiveVerb) {
-		$this->assertEquals ( $expectedResult, finding_participe_passe (new InfinitiveVerb( $infinitiveVerb)));
+	$this->assertEquals ( $expectedResult, finding_participe_passe (new InfinitiveVerb( $infinitiveVerb)));
 	}
 	public function UnregularParticipePasseTestProvider() {
 		return array (
 				array (
-						'vêtu',
-						'vêtir',
-				),
+						'mangé',
+						'manger',
+				),	
+				array (
+						'agacé',
+						'agacer',
+				),			
+				array (
+						'dû',
+						'devoir',
+				),				
 				array (
 						'mû',
 						'mouvoir',
-				)
+				),
+				array (
+						'pu',
+						'pouvoir',
+				),				
+				array (
+						'su',
+						'savoir',
+				),
+				array (
+						'couru',
+						'courir',
+				),
+				array (
+						'mort',
+						'mourir',
+				),
+				array (
+						'acquis',
+						'acquérir',
+				),
+				array (
+						'vêtu',
+						'vêtir',
+				),
 		);
 	}	
 }

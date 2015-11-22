@@ -1,5 +1,5 @@
 <?php
-require_once 'conjugate.php';
+require_once '../conjugate.php';
 class AllerTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider AllerTestProvider
@@ -19,31 +19,31 @@ class AllerTest extends PHPUnit_Framework_TestCase {
 						'vas',
 						'SecondPersonSingular',
 						'Futur_compose',
-						'Indicatif',						
+						'Indicatif',
 				),
 				array (
 						'va',
 						'ThirdPersonSingular',
 						'Futur_compose',
-						'Indicatif',						
+						'Indicatif',
 				),
 				array (
 						'allons',
 						'FirstPersonPlural',
 						'Futur_compose',
-						'Indicatif',						
+						'Indicatif',
 				),
 				array (
 						'allez',
 						'SecondPersonPlural',
 						'Futur_compose',
-						'Indicatif',						
+						'Indicatif',
 				),
 				array (
 						'vont',
 						'ThirdPersonPlural',
 						'Futur_compose',
-						'Indicatif',						
+						'Indicatif',
 				)
 		);
 	}

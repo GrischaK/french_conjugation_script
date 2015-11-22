@@ -1,5 +1,5 @@
 <?php
-require_once 'conjugate.php';
+require_once '../conjugate.php';
 class InfinitiveEndingTest extends PHPUnit_Framework_TestCase {
 	
 
@@ -14,19 +14,7 @@ class InfinitiveEndingTest extends PHPUnit_Framework_TestCase {
 				array (
 						EndingWith::ER,
 						'aimer',
-				),
-				array (
-						EndingWith::CER,
-						'commencer',
-				),
-				array (
-						EndingWith::GER,
-						'manger',
-				),
-				array (
-						EndingWith::YER,
-						'payer',
-				),				
+				),			
 				array (
 						EndingWith::IR,
 						'finir',

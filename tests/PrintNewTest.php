@@ -1,6 +1,6 @@
 <?php
-require_once 'conjugate.php';
-require_once 'printNew.php';
+require_once '../conjugate.php';
+require_once '../printNew.php';
 /*
  * - <br><br> after a mood
  * - colspan="number" number = count tds
