@@ -4,14 +4,15 @@
 	elseif(isset($_GET['buchstabe'])){
 		$keywords='';
 	}
+
 	$description='Hier findest du die Übersicht aller französischen Verben mit ihrer Konjugation.';
 	$keywords='Konjugation, Konjugation von französischen Verben, Französische Verben konjugieren';  
 	$letters=range('a','z');
 	$letters_special=array("à","â","æ","ç","é","ê","è","ë","î","ï","ô","œ","û","ù");
 ?>                                                          
 <h1> <?=$h1;?></h1>
+<p>Derzeit befindet sich <b><?php echo count($infinitiveVerb, COUNT_RECURSIVE)-count($infinitiveVerb)-1; ?></b> Verben unserer Datenbank. Klicke auf einen Buchstaben, um alle Verben zu finden, die mit diesem Buchstaben anfangen.</p>
 <? translation('la conjugaison','die Konjugation'); ?>
-<p>Derzeit befindet sich <b><?php echo count($verbs, COUNT_RECURSIVE)-count($verbs)-1; ?></b> Verben unserer Datenbank. Klicke auf einen Buchstaben, um alle Verben zu finden, die mit diesem Buchstaben anfangen.</p>
 <?php
 	$str="";
 	//letter menu
