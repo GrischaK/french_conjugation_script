@@ -9,7 +9,7 @@ class Auxiliaire extends Enum{
 	}
 	
 	static function getVerbsThatUse(Auxiliaire $auxiliaire) {
-		$verbs = array(Auxiliaire::Etre => array ('accourir','advenir','aller','amuser','apparaitre','apparaître','arriver','ascendre','co-naitre','co-naître','convenir',
+		$infinitiveVerb = array(Auxiliaire::Etre => array ('accourir','advenir','aller','amuser','apparaitre','apparaître','arriver','ascendre','co-naitre','co-naître','convenir',
 			'débeller','décéder','démourir','descendre','disconvenir','devenir','échoir','entre-venir','entrer','époustoufler','intervenir',
 			'issir','mévenir','monter','mourir','naitre','naître','obvenir','paraitre','paraître','partir','parvenir','pourrir','prémourir',
 			'provenir','ragaillardir','raller','réadvenir','re-aller','réapparaitre','réapparaître','reconvenir','redépartir','redescendre',
@@ -20,7 +20,7 @@ class Auxiliaire extends Enum{
 		Auxiliaire::AvoirandEtre => array ('accourir','ascendre','convenir','déchoir','demeurer','descendre','disparaitre','disparaître','disconvenir',
 			'éclore','enclore','entrer ','monter','paraitre','paraître','passer','ragaillardir', 'ré-apparaître','réapparaître','reconvenir',
 			'reparaitre','reparaître','sortir','tomber'));	
-		return $verbs[$auxiliaire->getValue()];
+		return $infinitiveVerb[$auxiliaire->getValue()];
 	}
 }
 ?>

@@ -168,7 +168,7 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 	);
 	foreach ( $persons [$mood->getValue ()] [$tense->getValue ()] as $person ) {
 		//$output = conjugation_phrase ( $verb, new Person ( $person ), $tense, $mood );
-		$conjugationPhrase = ConjugationPhrase::create($verb, new Person($person), $tense, $mood);
+		$conjugationPhrase = ConjugationPhrase::create($infinitiveVerb->getInfinitiveVerb(), new Person($person), $tense, $mood);
 		$ttsVisitor = new GoogleTTSConjugationPhraseVisitor();
 		$output = $conjugationPhrase->accept($ttsVisitor);
 		
