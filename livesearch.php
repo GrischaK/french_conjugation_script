@@ -7,10 +7,10 @@
 <?php 
 	$num=0;
 	$hint="";
-	foreach($verbs as $buchstabe){
-		foreach($buchstabe as $verb){
-			if(preg_match("/^".$_GET['pattern']."/",$verb)){
-				$hint.="<a class=\"franzoesisch konju\" href='".substr($verb,0,1)."/".$verb."/'>".$verb."</a>";
+	foreach($infinitiveVerb as $buchstabe){
+		foreach($buchstabe as $$infinitiveVerb){
+			if(preg_match("/^".$_GET['pattern']."/",$$infinitiveVerb)){
+				$hint.="<a class=\"franzoesisch konju\" href='".substr($$infinitiveVerb,0,1)."/".$$infinitiveVerb."/'>".$$infinitiveVerb."</a>";
 				$num++;
 			}
 			if($num>10)break;
