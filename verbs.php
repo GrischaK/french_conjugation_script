@@ -7,8 +7,13 @@ $infinitiveVerb = array (
 'aimer',
 'acquérir',
 'appeler',
+'assentir',
+'autopromouvoir',
 'courir',
+'couvrir',
+'cueillir',
 'devor',
+'dormir',
 'empommer',
 'envoyer',
 'espérer',
@@ -20,8 +25,12 @@ $infinitiveVerb = array (
 'peler',
 'peser',
 'redégénérer',
+'redevoir',
+'remourir',
+'resavoir',
 'savoir',
 'sécher',
+'servir',
 'vêtir'
 );					
 $verbs1 = call_user_func_array('array_merge', $infinitiveVerb);
