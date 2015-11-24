@@ -23,11 +23,25 @@ class ExceptionModel extends Enum {
 	const SAVOIR = 'savoir';
 	
 // RIR
+	const RIR = 'rir';
 	const COURIR = 'courir';
 	const MOURIR = 'mourir';
 	const QUERIR = 'querir';
+	
+	const DORMIR = 'dormir';
+	const TIR = 'tir';
+	const SERVIR = 'servir';
+	const CUEILLIR = 'cueillir';
+
 	const VETIR = 'vetir';
 	
 	//const SEOIR = 'seoir';
+	const ENIR = 'enir';
+	const FUIR = 'fuir';
+	const BOUILLIR = 'bouillir';
+	const SAILLIR = 'saillir';
+	const VALOIR = 'valoir';
+	const VOIR = 'voir';
+
 }
 ?>
