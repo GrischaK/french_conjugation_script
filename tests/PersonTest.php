@@ -8,68 +8,68 @@ class PersonTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals ( $expectedResult, personal_pronoun(new Person($person), new Mood($mood)));
 	}
 	public function PersonTestProvider() {
-		return array (
-				array (
+		return [
+				[
 						'je',
 						'FirstPersonSingular',
 						'Indicatif',
-				),
-				array (
+				],
+				[
 						'tu',
 						'SecondPersonSingular',
 						'Indicatif',
-				),
-				array (
+				],
+				[
 						'il',
 						'ThirdPersonSingular',
 						'Indicatif',
-				),
-				array (
+				],
+				[
 						'nous',
 						'FirstPersonPlural',
 						'Indicatif',
-				),
-				array (
+				],
+				[
 						'vous',
 						'SecondPersonPlural',
 						'Indicatif',
-				),
-				array (
+				],
+				[
 						'ils',
 						'ThirdPersonPlural',
 						'Indicatif',
-				),
-				array (
+				],
+				[
 						'que je',
 						'FirstPersonSingular',
 						'Subjonctif',
-				),
-				array (
+				],
+				[
 						'que tu',
 						'SecondPersonSingular',
 						'Subjonctif',
-				),
-				array (
+				],
+				[
 						'qu’il',
 						'ThirdPersonSingular',
 						'Subjonctif',
-				),
-				array (
+				],
+				[
 						'que nous',
 						'FirstPersonPlural',
 						'Subjonctif',
-				),
-				array (
+				],
+				[
 						'que vous',
 						'SecondPersonPlural',
 						'Subjonctif',
-				),
-				array (
+				],
+				[
 						'qu’ils',
 						'ThirdPersonPlural',
 						'Subjonctif',
-				)
+				]
 				
-		);
+		];
 	}
 }

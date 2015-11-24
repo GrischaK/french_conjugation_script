@@ -8,23 +8,23 @@ class CompositeTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals ( $expectedResult, isComposite(new Mood($mood),new Tense($tense)));
 	}
 	public function CompsoiteTestProvider() {
-		return array (
-				array (
+		return [
+				[
 						true,
 						'Futur_compose',
 						'Indicatif',
-				),				
-				array (
+				],				
+				[
 						true,
 						'Passe',
 						'Imperatif',
-				),
-				array (
+				],
+				[
 						false,
 						'Present',
 						'Indicatif',
-				),				
+				],				
 				
-		);
+		];
 	}
 }

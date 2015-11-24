@@ -10,21 +10,21 @@ class InfinitiveEndingTest extends PHPUnit_Framework_TestCase {
 	$this->assertEquals ( new EndingWith($expectedResult), finding_infinitive_ending (new InfinitiveVerb($infinitiveVerb)));
 	}
 	public function InfinitiveEndingTestProvider() {
-		return array (
-				array (
+		return [
+				[
 						EndingWith::ER,
 						'aimer',
-				),			
-				array (
+				],			
+				[
 						EndingWith::IR,
 						'finir',
-				),
-				array ( 
+				],
+				[ 
 						EndingWith::OIR,
 						'mouvoir',
-				)	
+				]	
 				
-		);
+		];
 	}
 }
 

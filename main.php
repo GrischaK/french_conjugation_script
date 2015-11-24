@@ -8,7 +8,7 @@
 	$description='Hier findest du die Übersicht aller französischen Verben mit ihrer Konjugation.';
 	$keywords='Konjugation, Konjugation von französischen Verben, Französische Verben konjugieren';  
 	$letters=range('a','z');
-	$letters_special=array("à","â","æ","ç","é","ê","è","ë","î","ï","ô","œ","û","ù");
+	$letters_special=["à","â","æ","ç","é","ê","è","ë","î","ï","ô","œ","û","ù"];
 ?>                                                          
 <h1> <?=$h1;?></h1>
 <p>Derzeit befindet sich <b><?php echo count($infinitiveVerb, COUNT_RECURSIVE)-count($infinitiveVerb)-1; ?></b> Verben unserer Datenbank. Klicke auf einen Buchstaben, um alle Verben zu finden, die mit diesem Buchstaben anfangen.</p>
@@ -71,7 +71,7 @@ function suchen(){
 <br><br>
 <p>Hier finden Sie die meistgesuchten Verben:</p>
 <?php
-$beliebtesten_verben = array(array('acheter','aller','appeler','apprendre','attendre','avoir','balayer','battre','boire','choisir','comprendre','connaître','courir','devenir','devoir','dormir','dire','envoyer','être','écrire','étudier','faire','falloir','finir','fuir','gagner','grandir','grossir','guerir','habiller','habiter','inviter','jeter','joindre','jouer','jouir','laver','laisser','lever','lire','manger','mettre','monter','mourir','nager','naître','nettoyer','nuire','obtenir','offrir','oublier','ouvrir','parler','partir','prendre','pouvoir','quitter','recevoir','rendre','rester','reussir','savoir','sentir','servir','sortir','tenir','travailler','trouver','utiliser','venir','vivre','vouloir','voir'));    
+$beliebtesten_verben = [['acheter','aller','appeler','apprendre','attendre','avoir','balayer','battre','boire','choisir','comprendre','connaître','courir','devenir','devoir','dormir','dire','envoyer','être','écrire','étudier','faire','falloir','finir','fuir','gagner','grandir','grossir','guerir','habiller','habiter','inviter','jeter','joindre','jouer','jouir','laver','laisser','lever','lire','manger','mettre','monter','mourir','nager','naître','nettoyer','nuire','obtenir','offrir','oublier','ouvrir','parler','partir','prendre','pouvoir','quitter','recevoir','rendre','rester','reussir','savoir','sentir','servir','sortir','tenir','travailler','trouver','utiliser','venir','vivre','vouloir','voir']];    
 
 	//verbs in groups
 	foreach($beliebtesten_verben as $bel_verben){

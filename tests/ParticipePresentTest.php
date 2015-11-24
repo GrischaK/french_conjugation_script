@@ -9,62 +9,62 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals ( $expectedResult, finding_participe_present ( new InfinitiveVerb ( $infinitiveVerb ) ) );
 	}
 	public function ParticipePresentTestProvider() {
-		return array (
-				array (
+		return [
+				[
 						'aimant',
 						'aimer' 
-				),
-				array (
+				],
+				[
 						'finissant',
 						'finir' 
-				),
+				],
 				// oir
-				array (
+				[
 						'devant',
 						'devoir' 
-				),
-				array (
+				],
+				[
 						'mouvant',
 						'mouvoir' 
-				),
-				array (
+				],
+				[
 						'pouvant',
 						'pouvoir' 
-				),
-				array (
+				],
+				[
 						'savant',
 						'savoir' 
-				),
+				],
 				// rir
-				array (
+				[
 						'acquérant',
 						'acquérir' 
-				),
-				array (
+				],
+				[
 						'courant',
 						'courir' 
-				),
-				array (
+				],
+				[
 						'mourant',
 						'mourir' 
-				),
-				array (
+				],
+				[
 						'fuyant',
 						'fuir' 
-				),
-				array (
+				],
+				[
 						'valant',
 						'valoir' 
-				),
-				array (
+				],
+				[
 						'voyant',
 						'voir' 
-				),
-				array (
+				],
+				[
 						'vêtant',
 						'vêtir' 
-				) 
-		);
+				] 
+		];
 	}
 	
 	/**
@@ -74,16 +74,16 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals ( $expectedResult, finding_participe_present ( new InfinitiveVerb ( $infinitiveVerb ) ) );
 	}
 	public function UnregularParticipePresentTestProvider() {
-		return array (
-				array (
+		return [
+				[
 						'mangeant',
 						'manger' 
-				),
-				array (
+				],
+				[
 						'agaçant',
 						'agacer' 
-				) 
-		);
+				] 
+		];
 	}
 }
 ?>

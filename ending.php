@@ -51,79 +51,79 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 
 function ending_er(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel)
 {
-    $ending = array(
-        EndingWith::ER => array( // standard endings for verbs ending with -er
-            Mood::Indicatif => array(
-                Tense::Present => array(
+    $ending = [
+        EndingWith::ER => [ // standard endings for verbs ending with -er
+            Mood::Indicatif => [
+                Tense::Present => [
                     Person::FirstPersonSingular => 'e',
                     Person::SecondPersonSingular => 'es',
                     Person::ThirdPersonSingular => 'e',
                     Person::FirstPersonPlural => 'ons',
                     Person::SecondPersonPlural => 'ez',
                     Person::ThirdPersonPlural => 'ent'
-                ),
-                Tense::Imparfait => array(
+                ],
+                Tense::Imparfait => [
                     Person::FirstPersonSingular => 'ais',
                     Person::SecondPersonSingular => 'ais',
                     Person::ThirdPersonSingular => 'ait',
                     Person::FirstPersonPlural => 'ions',
                     Person::SecondPersonPlural => 'iez',
                     Person::ThirdPersonPlural => 'aient'
-                ),
-                Tense::Passe => array(
+                ],
+                Tense::Passe => [
                     Person::FirstPersonSingular => 'ai',
                     Person::SecondPersonSingular => 'as',
                     Person::ThirdPersonSingular => 'a',
                     Person::FirstPersonPlural => 'âmes',
                     Person::SecondPersonPlural => 'âtes',
                     Person::ThirdPersonPlural => 'èrent'
-                ),
-                Tense::Futur => array(
+                ],
+                Tense::Futur => [
                     Person::FirstPersonSingular => 'erai',
                     Person::SecondPersonSingular => 'eras',
                     Person::ThirdPersonSingular => 'era',
                     Person::FirstPersonPlural => 'erons',
                     Person::SecondPersonPlural => 'erez',
                     Person::ThirdPersonPlural => 'eront'
-                )
-            ),
-            Mood::Subjonctif => array(
-                Tense::Present => array(
+                ]
+            ],
+            Mood::Subjonctif => [
+                Tense::Present => [
                     Person::FirstPersonSingular => 'e',
                     Person::SecondPersonSingular => 'es',
                     Person::ThirdPersonSingular => 'e',
                     Person::FirstPersonPlural => 'ions',
                     Person::SecondPersonPlural => 'iez',
                     Person::ThirdPersonPlural => 'ent'
-                ),
-                Tense::Imparfait => array(
+                ],
+                Tense::Imparfait => [
                     Person::FirstPersonSingular => 'asse',
                     Person::SecondPersonSingular => 'asses',
                     Person::ThirdPersonSingular => 'ât',
                     Person::FirstPersonPlural => 'assions',
                     Person::SecondPersonPlural => 'assiez',
                     Person::ThirdPersonPlural => 'assent'
-                )
-            ),
-            Mood::Conditionnel => array(
-                Tense::Present => array(
+                ]
+            ],
+            Mood::Conditionnel => [
+                Tense::Present => [
                     Person::FirstPersonSingular => 'erais',
                     Person::SecondPersonSingular => 'erais',
                     Person::ThirdPersonSingular => 'erait',
                     Person::FirstPersonPlural => 'erions',
                     Person::SecondPersonPlural => 'eriez',
                     Person::ThirdPersonPlural => 'eraient'
-                )
-            ),
-            Mood::Imperatif => array(
-                Tense::Present => array(
+                ]
+            ],
+            Mood::Imperatif => [
+                Tense::Present => [
                     Person::SecondPersonSingular => 'e',
                     Person::FirstPersonPlural => 'ons',
                     Person::SecondPersonPlural => 'ez'
-                )
-            )
-        )
-    );
+                ]
+            ]
+        ]
+    ];
     return $ending[$endingwith->getValue()][$mood->getValue()][$tense->getValue()][$person->getValue()];
 }
 function ending_ir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb)
@@ -136,137 +136,137 @@ function ending_ir(Person $person, Tense $tense, Mood $mood, EndingWith $endingw
 }
 function ending_ir_with_iss(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel)
 {
-    $endings = array(
+    $endings = [
         
-        Mood::Indicatif => array(
-            Tense::Present => array(
+        Mood::Indicatif => [
+            Tense::Present => [
                 Person::FirstPersonSingular => 'is',
                 Person::SecondPersonSingular => 'is',
                 Person::ThirdPersonSingular => 'it',
                 Person::FirstPersonPlural => 'issions',
                 Person::SecondPersonPlural => 'issiez',
                 Person::ThirdPersonPlural => 'issent'
-            ),
-            Tense::Imparfait => array(
+            ],
+            Tense::Imparfait => [
                 Person::FirstPersonSingular => 'issais',
                 Person::SecondPersonSingular => 'issais',
                 Person::ThirdPersonSingular => 'issait',
                 Person::FirstPersonPlural => 'issions',
                 Person::SecondPersonPlural => 'issiez',
                 Person::ThirdPersonPlural => 'issaient'
-            ),
-            Tense::Passe => array(
+            ],
+            Tense::Passe => [
                 Person::FirstPersonSingular => 'is',
                 Person::SecondPersonSingular => 'is',
                 Person::ThirdPersonSingular => 'it',
                 Person::FirstPersonPlural => 'îmes',
                 Person::SecondPersonPlural => 'îtes',
                 Person::ThirdPersonPlural => 'irent'
-            ),
-            Tense::Futur => array(
+            ],
+            Tense::Futur => [
                 Person::FirstPersonSingular => 'irai',
                 Person::SecondPersonSingular => 'iras',
                 Person::ThirdPersonSingular => 'ira',
                 Person::FirstPersonPlural => 'irons',
                 Person::SecondPersonPlural => 'irez',
                 Person::ThirdPersonPlural => 'iront'
-            )
-        ),
-        Mood::Subjonctif => array(
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Subjonctif => [
+            Tense::Present => [
                 Person::FirstPersonSingular => 'isse',
                 Person::SecondPersonSingular => 'isses',
                 Person::ThirdPersonSingular => 'isse',
                 Person::FirstPersonPlural => 'issions',
                 Person::SecondPersonPlural => 'issiez',
                 Person::ThirdPersonPlural => 'issent'
-            ),
-            Tense::Imparfait => array(
+            ],
+            Tense::Imparfait => [
                 Person::FirstPersonSingular => 'isse',
                 Person::SecondPersonSingular => 'isses',
                 Person::ThirdPersonSingular => 'ît',
                 Person::FirstPersonPlural => 'issions',
                 Person::SecondPersonPlural => 'issiez',
                 Person::ThirdPersonPlural => 'issent'
-            )
-        ),
-        Mood::Conditionnel => array(
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Conditionnel => [
+            Tense::Present => [
                 Person::FirstPersonSingular => 'irais',
                 Person::SecondPersonSingular => 'irais',
                 Person::ThirdPersonSingular => 'irait',
                 Person::FirstPersonPlural => 'irions',
                 Person::SecondPersonPlural => 'iriez',
                 Person::ThirdPersonPlural => 'iraient'
-            )
-        ),
-        Mood::Imperatif => array(
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Imperatif => [
+            Tense::Present => [
                 Person::SecondPersonSingular => 'is',
                 Person::FirstPersonPlural => 'issons',
                 Person::SecondPersonPlural => 'issez'
-            )
-        )
+            ]
+        ]
         
-    );
+    ];
     return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
 }
 function ending_ir_without_iss(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel)
 { 
-    $endings = array(      
-        Mood::Indicatif => array(
-            Tense::Present => array(// without -iss at beginning like ending regular -er
+    $endings = [      
+        Mood::Indicatif => [
+            Tense::Present => [// without -iss at beginning like ending regular -er
                 Person::FirstPersonSingular => 's',
                 Person::SecondPersonSingular => 's',
                 Person::ThirdPersonSingular => 't',
                 Person::FirstPersonPlural => 'ons',
                 Person::SecondPersonPlural => 'ez',
                 Person::ThirdPersonPlural => 'ent'
-            ),
-        		Tense::Passe => array(
+            ],
+        		Tense::Passe => [
         		Person::FirstPersonSingular => 'us',
         		Person::SecondPersonSingular => 'us',
         		Person::ThirdPersonSingular => 'ut',
         		Person::FirstPersonPlural => 'ûmes',
         		Person::SecondPersonPlural => 'ûtes',
         		Person::ThirdPersonPlural => 'urent'
-            ),	
-            Tense::Imparfait => array(// without -iss at beginning like ending regular -er
+            ],	
+            Tense::Imparfait => [// without -iss at beginning like ending regular -er
                 Person::FirstPersonSingular => 'ais',
                 Person::SecondPersonSingular => 'ais',
                 Person::ThirdPersonSingular => 'ait',
                 Person::FirstPersonPlural => 'ions',
                 Person::SecondPersonPlural => 'iez',
                 Person::ThirdPersonPlural => 'aient'
-            )
-        ),
-        Mood::Subjonctif => array(
-            Tense::Present => array(// without -iss at beginning like ending regular -er
+            ]
+        ],
+        Mood::Subjonctif => [
+            Tense::Present => [// without -iss at beginning like ending regular -er
                 Person::FirstPersonSingular => 'e',
                 Person::SecondPersonSingular => 'es',
                 Person::ThirdPersonSingular => 'e',
                 Person::FirstPersonPlural => 'ions',
                 Person::SecondPersonPlural => 'iez',
                 Person::ThirdPersonPlural => 'ent'
-            ),
-			Tense::Imparfait => array( // changing first letter iî into u/û, else like ending-IR
+            ],
+			Tense::Imparfait => [ // changing first letter iî into u/û, else like ending-IR
 				Person::FirstPersonSingular => 'usse',
 				Person::SecondPersonSingular => 'usses',
 				Person::ThirdPersonSingular => 'ût',
 				Person::FirstPersonPlural => 'ussions',
 				Person::SecondPersonPlural => 'ussiez',
 				Person::ThirdPersonPlural => 'ussent'
-			) 
-        ),
-        Mood::Imperatif => array(
-            Tense::Present => array(// without -iss at beginning like ending regular -er
+			] 
+        ],
+        Mood::Imperatif => [
+            Tense::Present => [// without -iss at beginning like ending regular -er
                 Person::SecondPersonSingular => 's',
                 Person::FirstPersonPlural => 'ons',
                 Person::SecondPersonPlural => 'ez'
-            )
-        )
+            ]
+        ]
         
-    );
+    ];
     
     $ending = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
@@ -292,28 +292,28 @@ function ending_envoyer(Person $person, Tense $tense, Mood $mood, EndingWith $en
 {
     assert($exceptionModel->getValue() === ExceptionModel::ENVOYER);
     assert($endingwith->getValue() === EndingWith::ER);
-    $endings = array(
-        Mood::Indicatif => array(
-            Tense::Futur => array( // first e changed to r
+    $endings = [
+        Mood::Indicatif => [
+            Tense::Futur => [ // first e changed to r
                 Person::FirstPersonSingular => 'rai',
                 Person::SecondPersonSingular => 'ras',
                 Person::ThirdPersonSingular => 'ra',
                 Person::FirstPersonPlural => 'rons',
                 Person::SecondPersonPlural => 'rez',
                 Person::ThirdPersonPlural => 'ront'
-            )
-        ),
-        Mood::Conditionnel => array( // first e changed to r
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Conditionnel => [ // first e changed to r
+            Tense::Present => [
                 Person::FirstPersonSingular => 'rais',
                 Person::SecondPersonSingular => 'rais',
                 Person::ThirdPersonSingular => 'rait',
                 Person::FirstPersonPlural => 'rions',
                 Person::SecondPersonPlural => 'riez',
                 Person::ThirdPersonPlural => 'raient'
-            )
-        )
-    );
+            ]
+        ]
+    ];
     $ending  = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
         return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -324,20 +324,20 @@ function ending_rir(Person $person, Tense $tense, Mood $mood, EndingWith $ending
 {
     assert($exceptionModel->getValue() === ExceptionModel::RIR);
     assert($endingwith->getValue() === EndingWith::IR);
-    $endings = array(
-        Mood::Indicatif => array(
-            Tense::Present => array( // like regular verbs ending with -er
+    $endings = [
+        Mood::Indicatif => [
+            Tense::Present => [ // like regular verbs ending with -er
                 Person::FirstPersonSingular => 'e',
                 Person::SecondPersonSingular => 'es',
                 Person::ThirdPersonSingular => 'e'
-            )
-        ),
-        Mood::Imperatif => array( // like regular verbs ending with -er
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Imperatif => [ // like regular verbs ending with -er
+            Tense::Present => [
                 Person::SecondPersonSingular => 'e'
-            )
-        )
-    );
+            ]
+        ]
+    ];
     $ending  = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
         return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -348,28 +348,28 @@ function ending_courir(Person $person, Tense $tense, Mood $mood, EndingWith $end
 {
     assert($exceptionModel->getValue() === ExceptionModel::COURIR);
     assert($endingwith->getValue() === EndingWith::IR);
-    $endings = array(
-        Mood::Indicatif => array( // without 'i' at beginning like regular
-            Tense::Futur => array( // without first letter i, like ending-oir
+    $endings = [
+        Mood::Indicatif => [ // without 'i' at beginning like regular
+            Tense::Futur => [ // without first letter i, like ending-oir
                 Person::FirstPersonSingular => 'rai',
                 Person::SecondPersonSingular => 'ras',
                 Person::ThirdPersonSingular => 'ra',
                 Person::FirstPersonPlural => 'rons',
                 Person::SecondPersonPlural => 'rez',
                 Person::ThirdPersonPlural => 'ront'
-            )
-        ),
-        Mood::Conditionnel => array(
-            Tense::Present => array( // replace first letter i -> r
+            ]
+        ],
+        Mood::Conditionnel => [
+            Tense::Present => [ // replace first letter i -> r
                 Person::FirstPersonSingular => 'rais',
                 Person::SecondPersonSingular => 'rais',
                 Person::ThirdPersonSingular => 'rait',
                 Person::FirstPersonPlural => 'rions',
                 Person::SecondPersonPlural => 'riez',
                 Person::ThirdPersonPlural => 'raient'
-            )
-        )
-    );
+            ]
+        ]
+    ];
     $ending  = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
         return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -380,28 +380,28 @@ function ending_mourir(Person $person, Tense $tense, Mood $mood, EndingWith $end
 {
     assert($exceptionModel->getValue() === ExceptionModel::MOURIR);
     assert($endingwith->getValue() === EndingWith::IR);
-    $endings = array(
-        Mood::Indicatif => array(
-            Tense::Futur => array( // without first letter i, like ending-oir
+    $endings = [
+        Mood::Indicatif => [
+            Tense::Futur => [ // without first letter i, like ending-oir
                 Person::FirstPersonSingular => 'rai',
                 Person::SecondPersonSingular => 'ras',
                 Person::ThirdPersonSingular => 'ra',
                 Person::FirstPersonPlural => 'rons',
                 Person::SecondPersonPlural => 'rez',
                 Person::ThirdPersonPlural => 'ront'
-            )
-        ),
-        Mood::Conditionnel => array(
-            Tense::Present => array( // replace first leeter i -> r
+            ]
+        ],
+        Mood::Conditionnel => [
+            Tense::Present => [ // replace first leeter i -> r
                 Person::FirstPersonSingular => 'rais',
                 Person::SecondPersonSingular => 'rais',
                 Person::ThirdPersonSingular => 'rait',
                 Person::FirstPersonPlural => 'rions',
                 Person::SecondPersonPlural => 'riez',
                 Person::ThirdPersonPlural => 'raient'
-            )
-        )
-    );
+            ]
+        ]
+    ];
     $ending  = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
         return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -412,55 +412,55 @@ function ending_querir(Person $person, Tense $tense, Mood $mood, EndingWith $end
 {
     assert($exceptionModel->getValue() === ExceptionModel::QUERIR);
     assert($endingwith->getValue() === EndingWith::IR);
-    $endings = array(
-        Mood::Indicatif => array(
-            Tense::Present => array( //adds 3x'iers'/1x'ièr' to standard ending
+    $endings = [
+        Mood::Indicatif => [
+            Tense::Present => [ //adds 3x'iers'/1x'ièr' to standard ending
                 Person::FirstPersonSingular => 'iers',
                 Person::SecondPersonSingular => 'iers',
                 Person::ThirdPersonSingular => 'iert',
                 Person::ThirdPersonPlural => 'ièrent'
-            ),
-            Tense::Futur => array( // replace first letter i -> r
+            ],
+            Tense::Futur => [ // replace first letter i -> r
                 Person::FirstPersonSingular => 'rai',
                 Person::SecondPersonSingular => 'ras',
                 Person::ThirdPersonSingular => 'ra',
                 Person::FirstPersonPlural => 'rons',
                 Person::SecondPersonPlural => 'rez',
                 Person::ThirdPersonPlural => 'ront'
-            )
-        ),
-        Mood::Subjonctif => array(
-            Tense::Present => array( //adds 'ièr' to standard ending
+            ]
+        ],
+        Mood::Subjonctif => [
+            Tense::Present => [ //adds 'ièr' to standard ending
                 Person::FirstPersonSingular => 'ière',
                 Person::SecondPersonSingular => 'ières',
                 Person::ThirdPersonSingular => 'ière',
                 Person::ThirdPersonPlural => 'ièrent'
-            ),
-            Tense::Imparfait => array( // = like ending-IR but this verb uses ending_ir_without_iss!
+            ],
+            Tense::Imparfait => [ // = like ending-IR but this verb uses ending_ir_without_iss!
                 Person::FirstPersonSingular => 'isse',
                 Person::SecondPersonSingular => 'isses',
                 Person::ThirdPersonSingular => 'ît',
                 Person::FirstPersonPlural => 'issions',
                 Person::SecondPersonPlural => 'issiez',
                 Person::ThirdPersonPlural => 'issent'
-            )
-        ),
-        Mood::Conditionnel => array( // replace first letter i -> r
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Conditionnel => [ // replace first letter i -> r
+            Tense::Present => [
                 Person::FirstPersonSingular => 'rais',
                 Person::SecondPersonSingular => 'rais',
                 Person::ThirdPersonSingular => 'rait',
                 Person::FirstPersonPlural => 'rions',
                 Person::SecondPersonPlural => 'riez',
                 Person::ThirdPersonPlural => 'raient'
-            )
-        ),
-        Mood::Imperatif => array(
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Imperatif => [
+            Tense::Present => [
                 Person::SecondPersonSingular => 'iers'
-            )
-        )
-    );
+            ]
+        ]
+    ];
     $ending  = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
         return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -471,48 +471,48 @@ function ending_cueillir(Person $person, Tense $tense, Mood $mood, EndingWith $e
 {
 	assert($exceptionModel->getValue() === ExceptionModel::CUEILLIR);
 	assert($endingwith->getValue() === EndingWith::IR);
-	$endings = array(
-			Mood::Indicatif => array(
-					Tense::Present => array(// like regular verbs ending with -er
+	$endings = [
+			Mood::Indicatif => [
+					Tense::Present => [// like regular verbs ending with -er
 							Person::FirstPersonSingular => 'e',
 							Person::SecondPersonSingular => 'es',
 							Person::ThirdPersonSingular => 'e'
-					),
-					Tense::Futur => array(// replace first letter i -> er
+					],
+					Tense::Futur => [// replace first letter i -> er
 							Person::FirstPersonSingular => 'erai',
 							Person::SecondPersonSingular => 'eras',
 							Person::ThirdPersonSingular => 'era',
 							Person::FirstPersonPlural => 'erons',
 							Person::SecondPersonPlural => 'erez',
 							Person::ThirdPersonPlural => 'eront'
-					)
-			),
-			Mood::Subjonctif => array(
-					Tense::Imparfait => array( // = like ending-IR but this verb uses ending_ir_without_iss!
+					]
+			],
+			Mood::Subjonctif => [
+					Tense::Imparfait => [ // = like ending-IR but this verb uses ending_ir_without_iss!
 							Person::FirstPersonSingular => 'isse',
 							Person::SecondPersonSingular => 'isses',
 							Person::ThirdPersonSingular => 'ît',
 							Person::FirstPersonPlural => 'issions',
 							Person::SecondPersonPlural => 'issiez',
 							Person::ThirdPersonPlural => 'issent'
-					)
-			),
-			Mood::Conditionnel => array( // replace first letter i -> er
-					Tense::Present => array(
+					]
+			],
+			Mood::Conditionnel => [ // replace first letter i -> er
+					Tense::Present => [
 							Person::FirstPersonSingular => 'erais',
 							Person::SecondPersonSingular => 'erais',
 							Person::ThirdPersonSingular => 'erait',
 							Person::FirstPersonPlural => 'erions',
 							Person::SecondPersonPlural => 'eriez',
 							Person::ThirdPersonPlural => 'eraient'
-					)
-			),
-			Mood::Imperatif => array(// like regular verbs ending with -er
-					Tense::Present => array(
+					]
+			],
+			Mood::Imperatif => [// like regular verbs ending with -er
+					Tense::Present => [
 							Person::SecondPersonSingular => 'e'
-					)
-			)
-	);
+					]
+			]
+	];
 	$ending  = ending_array_defines($endings, $person, $tense, $mood);
 	if ($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -523,13 +523,13 @@ function ending_vetir(Person $person, Tense $tense, Mood $mood, EndingWith $endi
 {
     assert($exceptionModel->getValue() === ExceptionModel::VETIR);
     assert($endingwith->getValue() === EndingWith::IR);
-    $endings = array(
-        Mood::Indicatif => array( // without 'i' at beginning like regular
-            Tense::Present => array(
+    $endings = [
+        Mood::Indicatif => [ // without 'i' at beginning like regular
+            Tense::Present => [
                 Person::ThirdPersonSingular => ''
-            )
-        )
-    );
+            ]
+        ]
+    ];
     $ending  = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
         return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -541,18 +541,18 @@ function ending_bouillir(Person $person, Tense $tense, Mood $mood, EndingWith $e
 {
 	assert($exceptionModel->getValue() === ExceptionModel::BOUILLIR);
 	assert($endingwith->getValue() === EndingWith::IR);
-	$endings = array(
-			Mood::Subjonctif => array( // changing first letter iî into u/û, else like ending-IR
-					Tense::Imparfait => array( // changing first letter iî into u/û, else like ending-IR
+	$endings = [
+			Mood::Subjonctif => [ // changing first letter iî into u/û, else like ending-IR
+					Tense::Imparfait => [ // changing first letter iî into u/û, else like ending-IR
 							Person::FirstPersonSingular => 'isse',
 							Person::SecondPersonSingular => 'isses',
 							Person::ThirdPersonSingular => 'ît',
 							Person::FirstPersonPlural => 'issions',
 							Person::SecondPersonPlural => 'issiez',
 							Person::ThirdPersonPlural => 'issent'
-					)
-			)
-	);
+					]
+			]
+	];
 	$ending  = ending_array_defines($endings, $person, $tense, $mood);
 	if ($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -563,57 +563,57 @@ function ending_enir(Person $person, Tense $tense, Mood $mood, EndingWith $endin
 {
 	assert($exceptionModel->getValue() === ExceptionModel::ENIR);
 	assert($endingwith->getValue() === EndingWith::IR);
-	$endings = array(
-			Mood::Indicatif => array(
-					Tense::Present => array( 
+	$endings = [
+			Mood::Indicatif => [
+					Tense::Present => [ 
 							Person::ThirdPersonPlural => 'nent' //irregular
-					),
-					Tense::Passe => array( 
+					],
+					Tense::Passe => [ 
 							Person::FirstPersonSingular => 'ins',
 							Person::SecondPersonSingular => 'ins',
 							Person::ThirdPersonSingular => 'int',
 							Person::FirstPersonPlural => 'înmes',
 							Person::SecondPersonPlural => 'întes',
 							Person::ThirdPersonPlural => 'inrent'
-					),
-					Tense::Futur => array(// replace first letter i -> d
+					],
+					Tense::Futur => [// replace first letter i -> d
 							Person::FirstPersonSingular => 'drai',
 							Person::SecondPersonSingular => 'dras',
 							Person::ThirdPersonSingular => 'dra',
 							Person::FirstPersonPlural => 'drons',
 							Person::SecondPersonPlural => 'drez',
 							Person::ThirdPersonPlural => 'dront'
-					)
-			),
-			Mood::Subjonctif => array( 
-					Tense::Present => array( 
+					]
+			],
+			Mood::Subjonctif => [ 
+					Tense::Present => [ 
 							Person::FirstPersonSingular => 'ne',
 							Person::SecondPersonSingular => 'nes',
 							Person::ThirdPersonSingular => 'ne',
 							Person::FirstPersonPlural => 'ions',//regular?
 							Person::SecondPersonPlural => 'iez',//regular?
 							Person::ThirdPersonPlural => 'nent'
-					),
-					Tense::Imparfait => array( 
+					],
+					Tense::Imparfait => [ 
 							Person::FirstPersonSingular => 'insse',
 							Person::SecondPersonSingular => 'insses',
 							Person::ThirdPersonSingular => 'înt',
 							Person::FirstPersonPlural => 'inssions',
 							Person::SecondPersonPlural => 'inssiez',
 							Person::ThirdPersonPlural => 'inssent'
-					)
-			),
-			Mood::Conditionnel => array( // replace first letter i -> d
-					Tense::Present => array(
+					]
+			],
+			Mood::Conditionnel => [ // replace first letter i -> d
+					Tense::Present => [
 							Person::FirstPersonSingular => 'drais',
 							Person::SecondPersonSingular => 'drais',
 							Person::ThirdPersonSingular => 'drait',
 							Person::FirstPersonPlural => 'drions',
 							Person::SecondPersonPlural => 'driez',
 							Person::ThirdPersonPlural => 'draient'
-					)
-			)
-	);
+					]
+			]
+	];
 	$ending  = ending_array_defines($endings, $person, $tense, $mood);
 	if ($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -625,48 +625,48 @@ function ending_saillir(Person $person, Tense $tense, Mood $mood, EndingWith $en
 {
 	assert($exceptionModel->getValue() === ExceptionModel::SAILLIR);
 	assert($endingwith->getValue() === EndingWith::IR);
-	$endings = array(
-			Mood::Indicatif => array(
-					Tense::Present => array( // like regular verbs ending with -er
+	$endings = [
+			Mood::Indicatif => [
+					Tense::Present => [ // like regular verbs ending with -er
 							Person::FirstPersonSingular => 'e',
 							Person::SecondPersonSingular => 'es',
 							Person::ThirdPersonSingular => 'e'
-					),
-					Tense::Futur => array(// replace first letter i -> er
+					],
+					Tense::Futur => [// replace first letter i -> er
 							Person::FirstPersonSingular => 'erai',
 							Person::SecondPersonSingular => 'eras',
 							Person::ThirdPersonSingular => 'era',
 							Person::FirstPersonPlural => 'erons',
 							Person::SecondPersonPlural => 'erez',
 							Person::ThirdPersonPlural => 'eront'
-					)
-			),
-			Mood::Subjonctif => array( 
-					Tense::Imparfait => array( // changing first letter iî into u/û, else like ending-IR
+					]
+			],
+			Mood::Subjonctif => [ 
+					Tense::Imparfait => [ // changing first letter iî into u/û, else like ending-IR
 							Person::FirstPersonSingular => 'isse',
 							Person::SecondPersonSingular => 'isses',
 							Person::ThirdPersonSingular => 'ît',
 							Person::FirstPersonPlural => 'issions',
 							Person::SecondPersonPlural => 'issiez',
 							Person::ThirdPersonPlural => 'issent'
-					)
-			),
-			Mood::Conditionnel => array( // replace first letter i -> er
-					Tense::Present => array(
+					]
+			],
+			Mood::Conditionnel => [ // replace first letter i -> er
+					Tense::Present => [
 							Person::FirstPersonSingular => 'erais',
 							Person::SecondPersonSingular => 'erais',
 							Person::ThirdPersonSingular => 'erait',
 							Person::FirstPersonPlural => 'erions',
 							Person::SecondPersonPlural => 'eriez',
 							Person::ThirdPersonPlural => 'eraient'
-					)
-			),
-			Mood::Imperatif => array(// like regular verbs ending with -er
-					Tense::Present => array(
+					]
+			],
+			Mood::Imperatif => [// like regular verbs ending with -er
+					Tense::Present => [
 							Person::SecondPersonSingular => 'e'
-					)
-			)
-	);
+					]
+			]
+	];
 	$ending  = ending_array_defines($endings, $person, $tense, $mood);
 	if ($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -676,28 +676,28 @@ function ending_saillir(Person $person, Tense $tense, Mood $mood, EndingWith $en
 
 function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb)
 {
-    $endings = array(
-        Mood::Indicatif => array(
-            Tense::Futur => array( // without first letter i, else like ending-IR
+    $endings = [
+        Mood::Indicatif => [
+            Tense::Futur => [ // without first letter i, else like ending-IR
                 Person::FirstPersonSingular => 'rai',
                 Person::SecondPersonSingular => 'ras',
                 Person::ThirdPersonSingular => 'ra',
                 Person::FirstPersonPlural => 'rons',
                 Person::SecondPersonPlural => 'rez',
                 Person::ThirdPersonPlural => 'ront'
-            )
-        ),
-        Mood::Conditionnel => array( // without first letter i, else like ending-IR
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Conditionnel => [ // without first letter i, else like ending-IR
+            Tense::Present => [
                 Person::FirstPersonSingular => 'rais',
                 Person::SecondPersonSingular => 'rais',
                 Person::ThirdPersonSingular => 'rait',
                 Person::FirstPersonPlural => 'rions',
                 Person::SecondPersonPlural => 'riez',
                 Person::ThirdPersonPlural => 'raient'
-            )
-        )
-    );
+            ]
+        ]
+    ];
     $ending  = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
         return $ending;
@@ -708,30 +708,30 @@ function ending_devoir(Person $person, Tense $tense, Mood $mood, EndingWith $end
 {
     assert($exceptionModel->getValue() === ExceptionModel::DEVOIR);
     assert($endingwith->getValue() === EndingWith::OIR);
-    $endings = array(
+    $endings = [
         
-        Mood::Indicatif => array(
-            Tense::Present => array(
+        Mood::Indicatif => [
+            Tense::Present => [
                 Person::FirstPersonSingular => 'ois',
                 Person::SecondPersonSingular => 'ois',
                 Person::ThirdPersonSingular => 'oit',
                 Person::ThirdPersonPlural => 'oivent'
-            )
-        ),
-        Mood::Subjonctif => array(
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Subjonctif => [
+            Tense::Present => [
                 Person::FirstPersonSingular => 'oive',
                 Person::SecondPersonSingular => 'oives',
                 Person::ThirdPersonSingular => 'oive',
                 Person::ThirdPersonPlural => 'oivent'
-            )
-        ),
-        Mood::Imperatif => array(
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Imperatif => [
+            Tense::Present => [
                 Person::SecondPersonSingular => 'ois'
-            )
-        )
-    );
+            ]
+        ]
+    ];
     $ending  = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
         return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -742,30 +742,30 @@ function ending_mouvoir(Person $person, Tense $tense, Mood $mood, EndingWith $en
 {
     assert($exceptionModel->getValue() === ExceptionModel::MOUVOIR);
     assert($endingwith->getValue() === EndingWith::OIR);
-    $endings = array(
+    $endings = [
         
-        Mood::Indicatif => array(
-            Tense::Present => array(
+        Mood::Indicatif => [
+            Tense::Present => [
                 Person::FirstPersonSingular => 'eus',
                 Person::SecondPersonSingular => 'eus',
                 Person::ThirdPersonSingular => 'eut',
                 Person::ThirdPersonPlural => 'euvent'
-            )
-        ),
-        Mood::Subjonctif => array(
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Subjonctif => [
+            Tense::Present => [
                 Person::FirstPersonSingular => 'euve',
                 Person::SecondPersonSingular => 'euves',
                 Person::ThirdPersonSingular => 'euve',
                 Person::ThirdPersonPlural => 'euvent'
-            )
-        ),
-        Mood::Imperatif => array(
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Imperatif => [
+            Tense::Present => [
                 Person::SecondPersonSingular => 'eus'
-            )
-        )
-    );
+            ]
+        ]
+    ];
     $ending  = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
         return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -776,17 +776,17 @@ function ending_pouvoir(Person $person, Tense $tense, Mood $mood, EndingWith $en
 {
     assert($exceptionModel->getValue() === ExceptionModel::POUVOIR);
     assert($endingwith->getValue() === EndingWith::OIR);
-    $endings = array(
+    $endings = [
         
-        Mood::Indicatif => array(
-            Tense::Present => array(
+        Mood::Indicatif => [
+            Tense::Present => [
                 Person::FirstPersonSingular => 'eux',
                 Person::SecondPersonSingular => 'eux',
                 Person::ThirdPersonSingular => 'eut',
                 Person::ThirdPersonPlural => 'euvent'
-            )
-        )
-    );
+            ]
+        ]
+    ];
     $ending  = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
         return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -797,21 +797,21 @@ function ending_savoir(Person $person, Tense $tense, Mood $mood, EndingWith $end
 {
     assert($exceptionModel->getValue() === ExceptionModel::SAVOIR);
     assert($endingwith->getValue() === EndingWith::OIR);
-    $endings = array(
+    $endings = [
         
-        Mood::Indicatif => array(
-            Tense::Present => array(
+        Mood::Indicatif => [
+            Tense::Present => [
                 Person::FirstPersonSingular => 'ais',
                 Person::SecondPersonSingular => 'ais',
                 Person::ThirdPersonSingular => 'ait'
-            )
-        ),
-        Mood::Imperatif => array(
-            Tense::Present => array(
+            ]
+        ],
+        Mood::Imperatif => [
+            Tense::Present => [
                 Person::SecondPersonSingular => 'e'
-            )
-        )
-    );
+            ]
+        ]
+    ];
     $ending  = ending_array_defines($endings, $person, $tense, $mood);
     if ($ending !== null) {
         return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -822,46 +822,46 @@ function ending_valoir(Person $person, Tense $tense, Mood $mood, EndingWith $end
 {
 	assert($exceptionModel->getValue() === ExceptionModel::VALOIR);
 	assert($endingwith->getValue() === EndingWith::OIR);
-	$endings = array(
-			Mood::Indicatif => array(
-					Tense::Present => array( 
+	$endings = [
+			Mood::Indicatif => [
+					Tense::Present => [ 
 							Person::FirstPersonSingular => 'x',
 							Person::SecondPersonSingular => 'x',
 							Person::ThirdPersonSingular => 't'
-					),
-					Tense::Futur => array(// replace first letter i -> d  maybe word_stem change later
+					],
+					Tense::Futur => [// replace first letter i -> d  maybe word_stem change later
 							Person::FirstPersonSingular => 'drai',
 							Person::SecondPersonSingular => 'dras',
 							Person::ThirdPersonSingular => 'dra',
 							Person::FirstPersonPlural => 'drons',
 							Person::SecondPersonPlural => 'drez',
 							Person::ThirdPersonPlural => 'dront'
-					)
-			),
-			Mood::Subjonctif => array(
-				Tense::Present => array(
+					]
+			],
+			Mood::Subjonctif => [
+				Tense::Present => [
 							Person::FirstPersonSingular => 'e',
 							Person::SecondPersonSingular => 'es',
 							Person::ThirdPersonSingular => 'e',
 							Person::ThirdPersonPlural => 'ent'
-            )
-        ),
-			Mood::Conditionnel => array( // replace first letter i -> d  maybe word_stem change later
-					Tense::Present => array(
+            ]
+        ],
+			Mood::Conditionnel => [ // replace first letter i -> d  maybe word_stem change later
+					Tense::Present => [
 							Person::FirstPersonSingular => 'drais',
 							Person::SecondPersonSingular => 'drais',
 							Person::ThirdPersonSingular => 'drait',
 							Person::FirstPersonPlural => 'drions',
 							Person::SecondPersonPlural => 'driez',
 							Person::ThirdPersonPlural => 'draient'
-					)
-			),
-        Mood::Imperatif => array(
-            Tense::Present => array(
+					]
+			],
+        Mood::Imperatif => [
+            Tense::Present => [
                 Person::SecondPersonSingular => 'x'
-            )
-        )
-	);
+            ]
+        ]
+	];
 	$ending  = ending_array_defines($endings, $person, $tense, $mood);
 	if ($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -872,46 +872,46 @@ function ending_voir(Person $person, Tense $tense, Mood $mood, EndingWith $endin
 {
 	assert($exceptionModel->getValue() === ExceptionModel::VOIR);
 	assert($endingwith->getValue() === EndingWith::OIR);
-	$endings = array( // NEW anpassen
-			Mood::Indicatif => array(
-					Tense::Present => array( 
+	$endings = [ // NEW anpassen
+			Mood::Indicatif => [
+					Tense::Present => [ 
 							Person::FirstPersonSingular => 'x',
 							Person::SecondPersonSingular => 'x',
 							Person::ThirdPersonSingular => 't'
-					),
-					Tense::Futur => array(// replace first letter i -> d  maybe word_stem change later
+					],
+					Tense::Futur => [// replace first letter i -> d  maybe word_stem change later
 							Person::FirstPersonSingular => 'drai',
 							Person::SecondPersonSingular => 'dras',
 							Person::ThirdPersonSingular => 'dra',
 							Person::FirstPersonPlural => 'drons',
 							Person::SecondPersonPlural => 'drez',
 							Person::ThirdPersonPlural => 'dront'
-					)
-			),
-			Mood::Subjonctif => array(
-				Tense::Present => array(
+					]
+			],
+			Mood::Subjonctif => [
+				Tense::Present => [
 							Person::FirstPersonSingular => 'e',
 							Person::SecondPersonSingular => 'es',
 							Person::ThirdPersonSingular => 'e',
 							Person::ThirdPersonPlural => 'ent'
-            )
-        ),
-			Mood::Conditionnel => array( // replace first letter i -> d  maybe word_stem change later
-					Tense::Present => array(
+            ]
+        ],
+			Mood::Conditionnel => [ // replace first letter i -> d  maybe word_stem change later
+					Tense::Present => [
 							Person::FirstPersonSingular => 'drais',
 							Person::SecondPersonSingular => 'drais',
 							Person::ThirdPersonSingular => 'drait',
 							Person::FirstPersonPlural => 'drions',
 							Person::SecondPersonPlural => 'driez',
 							Person::ThirdPersonPlural => 'draient'
-					)
-			),
-        Mood::Imperatif => array(
-            Tense::Present => array(
+					]
+			],
+        Mood::Imperatif => [
+            Tense::Present => [
                 Person::SecondPersonSingular => 'x'
-            )
-        )
-	);
+            ]
+        ]
+	];
 	$ending  = ending_array_defines($endings, $person, $tense, $mood);
 	if ($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
@@ -922,46 +922,46 @@ function ending_fuir(Person $person, Tense $tense, Mood $mood, EndingWith $endin
 {
 	assert($exceptionModel->getValue() === ExceptionModel::FUIR);
 	assert($endingwith->getValue() === EndingWith::IR);
-	$endings = array( // NEW anpassen
-			Mood::Indicatif => array(
-					Tense::Present => array( 
+	$endings = [ // NEW anpassen
+			Mood::Indicatif => [
+					Tense::Present => [ 
 							Person::FirstPersonSingular => 'x',
 							Person::SecondPersonSingular => 'x',
 							Person::ThirdPersonSingular => 't'
-					),
-					Tense::Futur => array(// replace first letter i -> d  maybe word_stem change later
+					],
+					Tense::Futur => [// replace first letter i -> d  maybe word_stem change later
 							Person::FirstPersonSingular => 'drai',
 							Person::SecondPersonSingular => 'dras',
 							Person::ThirdPersonSingular => 'dra',
 							Person::FirstPersonPlural => 'drons',
 							Person::SecondPersonPlural => 'drez',
 							Person::ThirdPersonPlural => 'dront'
-					)
-			),
-			Mood::Subjonctif => array(
-				Tense::Present => array(
+					]
+			],
+			Mood::Subjonctif => [
+				Tense::Present => [
 							Person::FirstPersonSingular => 'e',
 							Person::SecondPersonSingular => 'es',
 							Person::ThirdPersonSingular => 'e',
 							Person::ThirdPersonPlural => 'ent'
-            )
-        ),
-			Mood::Conditionnel => array( // replace first letter i -> d  maybe word_stem change later
-					Tense::Present => array(
+            ]
+        ],
+			Mood::Conditionnel => [ // replace first letter i -> d  maybe word_stem change later
+					Tense::Present => [
 							Person::FirstPersonSingular => 'drais',
 							Person::SecondPersonSingular => 'drais',
 							Person::ThirdPersonSingular => 'drait',
 							Person::FirstPersonPlural => 'drions',
 							Person::SecondPersonPlural => 'driez',
 							Person::ThirdPersonPlural => 'draient'
-					)
-			),
-        Mood::Imperatif => array(
-            Tense::Present => array(
+					]
+			],
+        Mood::Imperatif => [
+            Tense::Present => [
                 Person::SecondPersonSingular => 'x'
-            )
-        )
-	);
+            ]
+        ]
+	];
 	$ending  = ending_array_defines($endings, $person, $tense, $mood);
 	if ($ending !== null) {
 		return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];

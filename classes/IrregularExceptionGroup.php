@@ -1,42 +1,42 @@
 <?php
 class IrregularExceptionGroup {
-	public static $eler_ele = array('peler');
-	public static $eter_ete = array('acheter');	
+	public static $eler_ele = ['peler'];
+	public static $eter_ete = ['acheter'];	
 
-	public static $eler_elle = array('appeler');
-	public static $eter_ette = array('jeter');
+	public static $eler_elle = ['appeler'];
+	public static $eter_ette = ['jeter'];
 
-	public static $envoyer = array('envoyer');
+	public static $envoyer = ['envoyer'];
 
-	public static $cer = array('agacer');
-	public static $ger = array('manger');
+	public static $cer = ['agacer'];
+	public static $ger = ['manger'];
 
-	public static $e_akut_er = array('accélérer','espérer','sécher','redégénérer');
-	public static $e_er = array('peser');
+	public static $e_akut_er = ['accélérer','espérer','sécher','redégénérer'];
+	public static $e_er = ['peser'];
 
-	public static $enir = array('tenir');
-	public static $fuir = array('fuir');
-	public static $bouillir = array('bouillir');
-	public static $saillir = array('saillir');
-	public static $valoir = array('valoir');
-	public static $voir = array('voir','prévoir','pourvoir');
+	public static $enir = ['tenir'];
+	public static $fuir = ['fuir'];
+	public static $bouillir = ['bouillir'];
+	public static $saillir = ['saillir'];
+	public static $valoir = ['valoir'];
+	public static $voir = ['voir','prévoir','pourvoir'];
 	
-	public static $devoir = array('devoir','redevoir');
-	public static $mouvoir = array('autopromouvoir','mouvoir');
-	public static $pouvoir = array('pouvoir');
-	public static $savoir = array('resavoir','savoir');
+	public static $devoir = ['devoir','redevoir'];
+	public static $mouvoir = ['autopromouvoir','mouvoir'];
+	public static $pouvoir = ['pouvoir'];
+	public static $savoir = ['resavoir','savoir'];
 
-	public static $rir = array('couvrir');
-	public static $courir = array('courir');
-	public static $mourir = array('remourir','mourir');
-	public static $querir = array('acquérir');
+	public static $rir = ['couvrir'];
+	public static $courir = ['courir'];
+	public static $mourir = ['remourir','mourir'];
+	public static $querir = ['acquérir'];
 	
-	public static $dormir = array('dormir');
-	public static $tir = array('assentir');
-	public static $servir = array('servir');
-	public static $cueillir = array('cueillir');
+	public static $dormir = ['dormir'];
+	public static $tir = ['assentir'];
+	public static $servir = ['servir'];
+	public static $cueillir = ['cueillir'];
 	
-	public static $vetir = array('vêtir');
+	public static $vetir = ['vêtir'];
 	
 	public static $ohne_iss;
   static function init()

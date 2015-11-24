@@ -1,5 +1,5 @@
 <?php
-$infinitiveVerb = array (
+$infinitiveVerb = [
 'abrater',
 'accélérer',
 'acheter',
@@ -32,6 +32,6 @@ $infinitiveVerb = array (
 'sécher',
 'servir',
 'vêtir'
-);					
+];					
 $verbs1 = call_user_func_array('array_merge', $infinitiveVerb);
 ?>
