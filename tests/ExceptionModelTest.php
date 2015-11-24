@@ -1,93 +1,144 @@
 <?php
 require_once '../conjugate.php';
 class ExceptionModelTest extends PHPUnit_Framework_TestCase {
-
-
+	
 	/**
 	 * @dataProvider ExceptionModelTestProvider
 	 */
 	public function testConjugationModelTest($expectedResult, $infinitiveVerb) {
-	$this->assertEquals ( new ExceptionModel($expectedResult), finding_exception_model (new InfinitiveVerb($infinitiveVerb)));
+		$this->assertEquals ( new ExceptionModel ( $expectedResult ), finding_exception_model ( new InfinitiveVerb ( $infinitiveVerb ) ) );
 	}
 	public function ExceptionModelTestProvider() {
 		return array (
 				array (
 						ExceptionModel::Eler_Ele,
-						'peler',
+						'peler' 
 				),
 				array (
 						ExceptionModel::Eter_Ete,
-						'acheter',
-				),	
+						'acheter' 
+				),
 				
 				array (
 						ExceptionModel::Eler_Elle,
-						'appeler',
+						'appeler' 
 				),
 				array (
 						ExceptionModel::Eter_Ette,
-						'jeter',
+						'jeter' 
 				),
 				array (
 						ExceptionModel::E_Akut_Er,
-						'sécher',
+						'sécher' 
 				),
 				array (
 						ExceptionModel::E_Akut_Er,
-						'espérer',
+						'espérer' 
 				),
 				array (
 						ExceptionModel::E_Akut_Er,
-						'accélérer',
-				),	
+						'accélérer' 
+				),
 				array (
 						ExceptionModel::E_Er,
-						'peser',
-				),				
+						'peser' 
+				),
 				array (
 						ExceptionModel::CER,
-						'agacer',
+						'agacer' 
 				),
 				array (
 						ExceptionModel::GER,
-						'manger',
+						'manger' 
 				),
 				array (
 						ExceptionModel::ENVOYER,
-						'envoyer',
+						'envoyer' 
 				),
 				array (
 						ExceptionModel::DEVOIR,
-						'devoir',
+						'devoir' 
 				),
 				array (
 						ExceptionModel::MOUVOIR,
-						'mouvoir',
+						'mouvoir' 
 				),
 				array (
 						ExceptionModel::POUVOIR,
-						'pouvoir',
+						'pouvoir' 
 				),
 				array (
 						ExceptionModel::SAVOIR,
-						'savoir',
+						'savoir' 
 				),
 				array (
 						ExceptionModel::COURIR,
-						'courir',
+						'courir' 
 				),
 				array (
 						ExceptionModel::MOURIR,
-						'mourir',
+						'mourir' 
 				),
 				array (
 						ExceptionModel::QUERIR,
-						'acquérir',
+						'acquérir' 
+				),
+				array (
+						ExceptionModel::DORMIR,
+						'dormir' 
+				),
+				array (
+						ExceptionModel::TIR,
+						'assentir' 
+				),
+				array (
+						ExceptionModel::RIR,
+						'couvrir' 
+				),
+				array (
+						ExceptionModel::SERVIR,
+						'servir' 
+				),
+				array (
+						ExceptionModel::ENIR,
+						'tenir' 
+				),
+				array (
+						ExceptionModel::FUIR,
+						'fuir' 
+				),
+				array (
+						ExceptionModel::BOUILLIR,
+						'bouillir' 
+				),
+				array (
+						ExceptionModel::SAILLIR,
+						'saillir' 
+				),
+				array (
+						ExceptionModel::VALOIR,
+						'valoir' 
+				),
+				array (
+						ExceptionModel::VOIR,
+						'voir' 
+				),
+				array (
+						ExceptionModel::VOIR,
+						'prévoir' 
+				),
+				array (
+						ExceptionModel::VOIR,
+						'pourvoir' 
+				),
+				array (
+						ExceptionModel::CUEILLIR,
+						'cueillir' 
 				),
 				array (
 						ExceptionModel::VETIR,
-						'vêtir',
-				)
+						'vêtir' 
+				) 
 		);
 	}
 }

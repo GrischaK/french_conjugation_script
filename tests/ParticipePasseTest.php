@@ -2,23 +2,22 @@
 require_once '../conjugate.php';
 class ParticipePasseTest extends PHPUnit_Framework_TestCase {
 	
-
 	/**
 	 * @dataProvider ParticipePasseTestProvider
 	 */
 	public function testParticipePasse($expectedResult, $infinitiveVerb) {
-	$this->assertEquals ( $expectedResult, finding_participe_passe (new InfinitiveVerb( $infinitiveVerb)));
+		$this->assertEquals ( $expectedResult, finding_participe_passe ( new InfinitiveVerb ( $infinitiveVerb ) ) );
 	}
 	public function ParticipePasseTestProvider() {
 		return array (
 				array (
 						'aimé',
-						'aimer',
-				),			
+						'aimer' 
+				),
 				array (
 						'fini',
-						'finir',
-				)				
+						'finir' 
+				) 
 		);
 	}
 	
@@ -26,51 +25,107 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase {
 	 * @dataProvider UnregularParticipePasseTestProvider
 	 */
 	public function testUnregularParticipePasse($expectedResult, $infinitiveVerb) {
-	$this->assertEquals ( $expectedResult, finding_participe_passe (new InfinitiveVerb( $infinitiveVerb)));
+		$this->assertEquals ( $expectedResult, finding_participe_passe ( new InfinitiveVerb ( $infinitiveVerb ) ) );
 	}
 	public function UnregularParticipePasseTestProvider() {
 		return array (
 				array (
 						'mangé',
-						'manger',
-				),	
+						'manger' 
+				),
 				array (
 						'agacé',
-						'agacer',
-				),			
+						'agacer' 
+				),
 				array (
 						'dû',
-						'devoir',
-				),				
+						'devoir' 
+				),
 				array (
 						'mû',
-						'mouvoir',
+						'mouvoir' 
+				),
+				array (
+						'autopromû',
+						'autopromouvoir' 
 				),
 				array (
 						'pu',
-						'pouvoir',
-				),				
+						'pouvoir' 
+				),
+				array (
+						'redu',
+						'redevoir' 
+				),
+				array (
+						'dû',
+						'devoir' 
+				),
+				array (
+						'vu',
+						'voir' 
+				),
+				array (
+						'pourvu',
+						'pourvoir' 
+				),
+				array (
+						'prévu',
+						'prévoir' 
+				),
+				array (
+						'valu',
+						'valoir' 
+				),
+				array (
+						'fui',
+						'fuir' 
+				),
+				array (
+						'tenu',
+						'tenir' 
+				),
+				array (
+						'sailli',
+						'saillir' 
+				),
+				array (
+						'bouilli',
+						'bouillir' 
+				),
 				array (
 						'su',
-						'savoir',
+						'savoir' 
+				),
+				array (
+						'resu',
+						'resavoir' 
+				),
+				array (
+						'couvert',
+						'couvrir' 
 				),
 				array (
 						'couru',
-						'courir',
+						'courir' 
 				),
 				array (
 						'mort',
-						'mourir',
+						'mourir' 
+				),
+				array (
+						'remort',
+						'remourir' 
 				),
 				array (
 						'acquis',
-						'acquérir',
+						'acquérir' 
 				),
 				array (
 						'vêtu',
-						'vêtir',
-				),
+						'vêtir' 
+				) 
 		);
-	}	
+	}
 }
 ?>

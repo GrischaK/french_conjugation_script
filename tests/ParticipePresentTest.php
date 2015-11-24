@@ -1,58 +1,69 @@
 <?php
 require_once '../conjugate.php';
 class ParticipePresentTest extends PHPUnit_Framework_TestCase {
-
-
+	
 	/**
 	 * @dataProvider ParticipePresentTestProvider
 	 */
 	public function testParticipePresent($expectedResult, $infinitiveVerb) {
-		$this->assertEquals ( $expectedResult, finding_participe_present (new InfinitiveVerb( $infinitiveVerb)));
+		$this->assertEquals ( $expectedResult, finding_participe_present ( new InfinitiveVerb ( $infinitiveVerb ) ) );
 	}
 	public function ParticipePresentTestProvider() {
 		return array (
 				array (
 						'aimant',
-						'aimer',
-				),				
+						'aimer' 
+				),
 				array (
 						'finissant',
-						'finir',
+						'finir' 
 				),
-				//oir
+				// oir
 				array (
 						'devant',
-						'devoir',
-				),					
+						'devoir' 
+				),
 				array (
 						'mouvant',
-						'mouvoir',
-				),	
+						'mouvoir' 
+				),
 				array (
 						'pouvant',
-						'pouvoir',
-				),					
-				array ( 
+						'pouvoir' 
+				),
+				array (
 						'savant',
-						'savoir',
-				),	
-//
+						'savoir' 
+				),
+				// rir
 				array (
 						'acquérant',
-						'acquérir',
-				),	
+						'acquérir' 
+				),
 				array (
 						'courant',
-						'courir',
-				),					
+						'courir' 
+				),
 				array (
 						'mourant',
-						'mourir',
+						'mourir' 
+				),
+				array (
+						'fuyant',
+						'fuir' 
+				),
+				array (
+						'valant',
+						'valoir' 
+				),
+				array (
+						'voyant',
+						'voir' 
 				),
 				array (
 						'vêtant',
-						'vêtir',
-				),					
+						'vêtir' 
+				) 
 		);
 	}
 	
@@ -60,19 +71,19 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase {
 	 * @dataProvider UnregularParticipePresentTestProvider
 	 */
 	public function testUnregularParticipePresent($expectedResult, $infinitiveVerb) {
-		$this->assertEquals ( $expectedResult, finding_participe_present (new InfinitiveVerb( $infinitiveVerb)));
+		$this->assertEquals ( $expectedResult, finding_participe_present ( new InfinitiveVerb ( $infinitiveVerb ) ) );
 	}
 	public function UnregularParticipePresentTestProvider() {
 		return array (
 				array (
 						'mangeant',
-						'manger',
-				),	
+						'manger' 
+				),
 				array (
 						'agaçant',
-						'agacer',
-				),				
+						'agacer' 
+				) 
 		);
-	}	
+	}
 }
 ?>
