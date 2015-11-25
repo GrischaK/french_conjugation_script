@@ -1,6 +1,5 @@
 <?php
 $infinitiveVerb = [
-<<<<<<< HEAD
     'abrater',
     'abrier',
     'accélérer',

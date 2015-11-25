@@ -1,9 +1,6 @@
 <?php
 class IrregularExceptionGroup {
-<<<<<<< HEAD
     public static $aller = ['aller','raller','re-aller','s’en aller','sur-aller'];
-=======
->>>>>>> origin/master
 	public static $eler_ele = ['peler'];
 	public static $eter_ete = ['acheter'];	
 
@@ -11,7 +8,6 @@ class IrregularExceptionGroup {
 	public static $eter_ette = ['jeter'];
 
 	public static $envoyer = ['envoyer'];
-<<<<<<< HEAD
 	
 
 	public static $cer = ['agacer', 'apiécer', 'acquiescer'];
@@ -27,13 +23,6 @@ class IrregularExceptionGroup {
 	
 	public static $i_trema_er = ['paranoïer']; //regular
 	
-=======
-
-	public static $cer = ['agacer'];
-	public static $ger = ['manger'];
-
-	public static $e_akut_er = ['accélérer','espérer','sécher','redégénérer'];
->>>>>>> origin/master
 	public static $e_er = ['peser'];
 
 	public static $enir = ['tenir'];
