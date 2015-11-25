@@ -292,21 +292,31 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
     ])) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular)))) {
         $word_stem = word_stem_length($infinitiveVerb, 4) . 'ien';
     }
-    if ($exceptionmodel->getValue() === ExceptionModel::ALLER && (($mood->getValue() === Mood::Indicatif && in_array($person->getValue(), [
+    if ($exceptionmodel->getValue() === ExceptionModel::ALLER && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
         Person::FirstPersonSingular,
         Person::SecondPersonSingular,
         Person::ThirdPersonSingular,
         Person::ThirdPersonPlural
-    ]) || $tense->getValue() === Tense::Futur) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
+    ]) || $tense->getValue() === Tense::Futur) 
+            || ($mood->getValue() === Mood::Subjonctif 
+        && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
         Person::FirstPersonSingular,
         Person::SecondPersonSingular,
         Person::ThirdPersonSingular,
         Person::ThirdPersonPlural
-    ])) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular)))) {
+    ])) 
+            || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) 
+            || (($mood->getValue() === Mood::Imperatif 
+        && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular)))) {
         $word_stem = word_stem_length($infinitiveVerb, 5);
     }
     
-    if ($exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR && (($mood->getValue() === Mood::Indicatif &&  $tense->getValue() === Tense::Present || $tense->getValue() === Tense::Passe || $tense->getValue() === Tense::Futur) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present || $tense->getValue() === Tense::Imparfait ) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present)))) {
+    if ($exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR && (($mood->getValue() === Mood::Indicatif 
+        &&  $tense->getValue() === Tense::Present 
+        || $tense->getValue() === Tense::Passe || $tense->getValue() === Tense::Futur) 
+        || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present 
+        || $tense->getValue() === Tense::Imparfait ) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) 
+        || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present)))) {
         $word_stem = word_stem_length($infinitiveVerb, 5);
     }    
     
