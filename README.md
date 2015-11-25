@@ -1,5 +1,7 @@
 # French Conjugator
 
+[![Code Review](http://www.zomis.net/codereview/shield/?qid=111847)](http://codereview.stackexchange.com/q/111847/75443)
+
 Conjugation Script for all french verbs for my website.
 
 It isn't finished yet.
