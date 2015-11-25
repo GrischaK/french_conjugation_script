@@ -10,28 +10,28 @@ class ConjugationModelTest extends PHPUnit_Framework_TestCase {
 	$this->assertEquals ( new ConjugationModel($expectedResult), finding_conjugation_model (new InfinitiveVerb($infinitiveVerb)));
 	}
 	public function ConjugationModelTestProvider() {
-		return array (
-				array (
+		return [
+				[
 						ConjugationModel::Reflexive,
 						'aimer',
-				),
-				array (
+				],
+				[
 						ConjugationModel::Reflexive,
 						'lever',
-				),
-				array (
+				],
+				[
 						ConjugationModel::NonReflexive,
 						'lire',
-				),			
-				array (
+				],			
+				[
 						ConjugationModel::OnlyReflexive,
 						'abrater',
-				),
-				array (
+				],
+				[
 						ConjugationModel::OnlyReflexive,
 						'empommer',
-				)
-		);
+				]
+		];
 	}
 }
 

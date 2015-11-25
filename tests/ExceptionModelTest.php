@@ -1,95 +1,185 @@
 <?php
 require_once '../conjugate.php';
-class ExceptionModelTest extends PHPUnit_Framework_TestCase {
 
+class ExceptionModelTest extends PHPUnit_Framework_TestCase
+{
 
-	/**
-	 * @dataProvider ExceptionModelTestProvider
-	 */
-	public function testConjugationModelTest($expectedResult, $infinitiveVerb) {
-	$this->assertEquals ( new ExceptionModel($expectedResult), finding_exception_model (new InfinitiveVerb($infinitiveVerb)));
-	}
-	public function ExceptionModelTestProvider() {
-		return array (
-				array (
-						ExceptionModel::Eler_Ele,
-						'peler',
-				),
-				array (
-						ExceptionModel::Eter_Ete,
-						'acheter',
-				),	
-				
-				array (
-						ExceptionModel::Eler_Elle,
-						'appeler',
-				),
-				array (
-						ExceptionModel::Eter_Ette,
-						'jeter',
-				),
-				array (
-						ExceptionModel::E_Akut_Er,
-						'sécher',
-				),
-				array (
-						ExceptionModel::E_Akut_Er,
-						'espérer',
-				),
-				array (
-						ExceptionModel::E_Akut_Er,
-						'accélérer',
-				),	
-				array (
-						ExceptionModel::E_Er,
-						'peser',
-				),				
-				array (
-						ExceptionModel::CER,
-						'agacer',
-				),
-				array (
-						ExceptionModel::GER,
-						'manger',
-				),
-				array (
-						ExceptionModel::ENVOYER,
-						'envoyer',
-				),
-				array (
-						ExceptionModel::DEVOIR,
-						'devoir',
-				),
-				array (
-						ExceptionModel::MOUVOIR,
-						'mouvoir',
-				),
-				array (
-						ExceptionModel::POUVOIR,
-						'pouvoir',
-				),
-				array (
-						ExceptionModel::SAVOIR,
-						'savoir',
-				),
-				array (
-						ExceptionModel::COURIR,
-						'courir',
-				),
-				array (
-						ExceptionModel::MOURIR,
-						'mourir',
-				),
-				array (
-						ExceptionModel::QUERIR,
-						'acquérir',
-				),
-				array (
-						ExceptionModel::VETIR,
-						'vêtir',
-				)
-		);
-	}
+    /**
+     * @dataProvider ExceptionModelTestProvider
+     */
+    public function testConjugationModelTest($expectedResult, $infinitiveVerb)
+    {
+        $this->assertEquals(new ExceptionModel($expectedResult), finding_exception_model(new InfinitiveVerb($infinitiveVerb)));
+    }
+
+    public function ExceptionModelTestProvider()
+    {
+        return [
+            [
+                ExceptionModel::ALLER,
+                'aller'
+            ],
+            [
+                ExceptionModel::Eler_Ele,
+                'peler'
+            ],
+            [
+                ExceptionModel::Eter_Ete,
+                'acheter'
+            ],
+            
+            [
+                ExceptionModel::Eler_Elle,
+                'appeler'
+            ],
+            [
+                ExceptionModel::Eter_Ette,
+                'jeter'
+            ],
+            [
+                ExceptionModel::E_Akut_ER,
+                'sécher'
+            ],
+            [
+                ExceptionModel::E_Akut_ER,
+                'espérer'
+            ],
+            [
+                ExceptionModel::E_Akut_ER,
+                'accélérer'
+            ],
+            [
+                ExceptionModel::E_Akut_CER,
+                'apiécer'
+            ],
+            [
+                ExceptionModel::E_Akut_GER,
+                'agréger'
+            ],
+            [
+                ExceptionModel::E_Akut_IER,
+                'planchéier'
+            ],
+            [
+                ExceptionModel::E_Akut_YER,
+                'abréyer'
+            ],
+            [
+                ExceptionModel::I_Trema_ER,
+                'paranoïer'
+            ],
+            
+            [
+                ExceptionModel::E_Er,
+                'peser'
+            ],
+            
+            [
+                ExceptionModel::CER,
+                'agacer'
+            ],
+            [
+                ExceptionModel::GER,
+                'manger'
+            ],
+            [
+                ExceptionModel::IER,
+                'abrier'
+            ],
+            [
+                ExceptionModel::YER,
+                'payer'
+            ],
+            [
+                ExceptionModel::ENVOYER,
+                'envoyer'
+            ],
+            [
+                ExceptionModel::DEVOIR,
+                'devoir'
+            ],
+            [
+                ExceptionModel::MOUVOIR,
+                'mouvoir'
+            ],
+            [
+                ExceptionModel::POUVOIR,
+                'pouvoir'
+            ],
+            [
+                ExceptionModel::SAVOIR,
+                'savoir'
+            ],
+            [
+                ExceptionModel::COURIR,
+                'courir'
+            ],
+            [
+                ExceptionModel::MOURIR,
+                'mourir'
+            ],
+            [
+                ExceptionModel::QUERIR,
+                'acquérir'
+            ],
+            [
+                ExceptionModel::DORMIR,
+                'dormir'
+            ],
+            [
+                ExceptionModel::TIR,
+                'assentir'
+            ],
+            [
+                ExceptionModel::RIR,
+                'couvrir'
+            ],
+            [
+                ExceptionModel::SERVIR,
+                'servir'
+            ],
+            [
+                ExceptionModel::ENIR,
+                'tenir'
+            ],
+            [
+                ExceptionModel::FUIR,
+                'fuir'
+            ],
+            [
+                ExceptionModel::BOUILLIR,
+                'bouillir'
+            ],
+            [
+                ExceptionModel::SAILLIR,
+                'saillir'
+            ],
+            [
+                ExceptionModel::VALOIR,
+                'valoir'
+            ],
+            [
+                ExceptionModel::VOIR,
+                'voir'
+            ],
+            [
+                ExceptionModel::VOIR,
+                'prévoir'
+            ],
+            [
+                ExceptionModel::VOIR,
+                'pourvoir'
+            ],
+            [
+                ExceptionModel::CUEILLIR,
+                'cueillir'
+            ],
+            [
+                ExceptionModel::VETIR,
+                'vêtir'
+            ]
+        ];
+    }
 }
 
 ?>
