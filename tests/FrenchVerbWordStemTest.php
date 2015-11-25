@@ -8,14 +8,14 @@ class FrenchVerbWordStemTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals ( $expectedResult, word_stem ( new InfinitiveVerb( $infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood) ) );
 	}
 	public function regularWordStemProvider() {
-		return array (
-				array (
+		return [
+				[
 						'aim',
 						'aimer',
 						'FirstPersonSingular',
 						'Present',
 						'Indicatif'
-				)
-		);
+				]
+		];
 	}
 }
