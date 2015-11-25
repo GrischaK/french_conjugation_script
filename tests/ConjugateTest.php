@@ -1,7 +1,6 @@
 <?php
 require_once '../conjugate.php';
 
-						'FirstPersonSingular',
 class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
 {
 
