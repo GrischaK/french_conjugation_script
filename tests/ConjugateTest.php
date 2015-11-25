@@ -22,7 +22,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Present',
                 'FirstPersonSingular',
                 'Indicatif'
-            ],          
+            ],
             [
                 'aimes',
                 'aimer',
@@ -252,6 +252,216 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
             ]
         ];
     }
+
+    /**
+     * @dataProvider I_TREMA_R_Provider
+     */
+    public function testI_TREMA_R_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function I_TREMA_R_Provider()
+    {
+        return [
+            
+            [
+                'haïs',
+                'haïr',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'haïs',
+                'haïr',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'haït',
+                'haïr',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'haïssons',
+                'haïr',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'haïssez',
+                'haïr',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'haïssent',
+                'haïr',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [ // test
+                'haïs',
+                'haïr',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'haïrai',
+                'haïr',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'haïras',
+                'haïr',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'haïra',
+                'haïr',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'haïrons',
+                'haïr',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'haïrez',
+                'haïr',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'haïront',
+                'haïr',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'haïsse',
+                'haïr',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'haïsses',
+                'haïr',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'haïsse',
+                'haïr',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'haïssions',
+                'haïr',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'haïssiez',
+                'haïr',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'haïssent',
+                'haïr',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [ // test
+                'haïsse',
+                'haïr',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'haïrais',
+                'haïr',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'haïrais',
+                'haïr',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'haïrait',
+                'haïr',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'haïrions',
+                'haïr',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'haïriez',
+                'haïr',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'haïraient',
+                'haïr',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'haïs',
+                'haïr',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ]
+        ];
+    }
     // UNREGULAR EXCEPTION MODELS
     
     /**
@@ -308,7 +518,20 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-            
+            [ // regular
+                'allais',
+                'aller',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular
+                'allions',
+                'aller',
+                'Imparfait',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
             [ // regular
                 'allai',
                 'aller',
@@ -316,7 +539,13 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-            
+            [ // regular
+                'allâmes',
+                'aller',
+                'Passe',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
             [
                 'irai',
                 'aller',
@@ -578,7 +807,604 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    }  
+    }
+
+    /**
+     * @dataProvider ETRE_Provider
+     */
+    public function testETRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function ETRE_Provider()
+    {
+        return [
+            
+            [
+                'suis',
+                'être',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'es',
+                'être',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'est',
+                'être',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'sommes',
+                'être',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'êtes',
+                'être',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'sont',
+                'être',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            [ // test
+                'étais',
+                'être',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'fus',
+                'être',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'fus',
+                'être',
+                'Passe',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'fut',
+                'être',
+                'Passe',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'fûmes',
+                'être',
+                'Passe',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'fûtes',
+                'être',
+                'Passe',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'furent',
+                'être',
+                'Passe',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'serai',
+                'être',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'seras',
+                'être',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'sera',
+                'être',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'serons',
+                'être',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'serez',
+                'être',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'seront',
+                'être',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'sois',
+                'être',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'sois',
+                'être',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'soit',
+                'être',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'soyons',
+                'être',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'soyez',
+                'être',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'soient',
+                'être',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            
+            [
+                'fusse',
+                'être',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'fusses',
+                'être',
+                'Imparfait',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'fût',
+                'être',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'fussions',
+                'être',
+                'Imparfait',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'fussiez',
+                'être',
+                'Imparfait',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'fussent',
+                'être',
+                'Imparfait',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            
+            [
+                'serais',
+                'être',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'serais',
+                'être',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'serait',
+                'être',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'serions',
+                'être',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'seriez',
+                'être',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'seraient',
+                'être',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'sois',
+                'être',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'soyons',
+                'être',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'soyez',
+                'être',
+                'Present',
+                'ThirdPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider AVOIR_Provider
+     */
+    public function testAVOIR_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function AVOIR_Provider()
+    {
+        return [
+            
+            [
+                'ai',
+                'avoir',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'as',
+                'avoir',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'a',
+                'avoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular
+                'avons',
+                'avoir',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular
+                'avez',
+                'avoir',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'ont',
+                'avoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'eus',
+                'avoir',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'eus',
+                'avoir',
+                'Passe',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'eut',
+                'avoir',
+                'Passe',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular
+                'eûmes',
+                'avoir',
+                'Passe',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular
+                'eûtes',
+                'avoir',
+                'Passe',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'eurent',
+                'avoir',
+                'Passe',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'aurai',
+                'avoir',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'auras',
+                'avoir',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'aura',
+                'avoir',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'aurons',
+                'avoir',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'aurez',
+                'avoir',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'auront',
+                'avoir',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'aie',
+                'avoir',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'aies',
+                'avoir',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'ait',
+                'avoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'ayons',
+                'avoir',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'ayez',
+                'avoir',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'aient',
+                'avoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [ // test
+                'eusse',
+                'avoir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'eusses',
+                'avoir',
+                'Imparfait',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'eût',
+                'avoir',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'eussions',
+                'avoir',
+                'Imparfait',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'eussiez',
+                'avoir',
+                'Imparfait',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'eussent',
+                'avoir',
+                'Imparfait',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            
+            [
+                'aurais',
+                'avoir',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'aurais',
+                'avoir',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'aurait',
+                'avoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'aurions',
+                'avoir',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'auriez',
+                'avoir',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'auraient',
+                'avoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'aie',
+                'avoir',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'ayons',
+                'avoir',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'ayez',
+                'avoir',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
     /**
      * @dataProvider Eler_Eler_Provider
      */
@@ -1926,28 +2752,32 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
             ]
         ];
     }
+
     /**
      * @dataProvider YER_Provider
      */
-    public function testYER_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testYER_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function YER_Provider() {
+
+    public function YER_Provider()
+    {
         return [
             [
-            'essuye / essuie',
-            'essuyer',
-            'Present',
-            'FirstPersonSingular',
-            'Indicatif'
-                ],
+                'essuye / essuie',
+                'essuyer',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
             [
-            'noye / noie',
-            'noyer',
-            'Present',
-            'FirstPersonSingular',
-            'Indicatif'
-                ],            
+                'noye / noie',
+                'noyer',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
             [
                 'paye / paie',
                 'payer',
@@ -1969,14 +2799,14 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-            [// only regular form
+            [ // only regular form
                 'payons',
                 'payer',
                 'Present',
                 'FirstPersonPlural',
                 'Indicatif'
             ],
-            [// only regular form
+            [ // only regular form
                 'payez',
                 'payer',
                 'Present',
@@ -1990,7 +2820,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [ // only regular form
                 'payai',
                 'payer',
@@ -1998,7 +2828,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'payerai / paierai',
                 'payer',
@@ -2020,7 +2850,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'payerons / paierons',
                 'payer',
@@ -2042,7 +2872,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'paye / paie',
                 'payer',
@@ -2064,14 +2894,14 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Subjonctif'
             ],
-            [// only regular form
+            [ // only regular form
                 'payions',
                 'payer',
                 'Present',
                 'FirstPersonPlural',
                 'Subjonctif'
             ],
-            [// only regular form
+            [ // only regular form
                 'payiez',
                 'payer',
                 'Present',
@@ -2085,14 +2915,14 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Subjonctif'
             ],
-            [// only regular form
+            [ // only regular form
                 'payasse',
                 'payer',
                 'Imparfait',
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'payerais / paierais',
                 'payer',
@@ -2135,7 +2965,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'paye / paie',
                 'payer',
@@ -2145,6 +2975,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
             ]
         ];
     }
+
     /**
      * @dataProvider E_Akut_ER_Provider
      */
