@@ -1,4 +1,4 @@
-# french_conjugation
+# French Conjugator
 
 Conjugation Script for all french verbs for my website.
 
