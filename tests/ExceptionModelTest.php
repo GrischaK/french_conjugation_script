@@ -20,6 +20,14 @@ class ExceptionModelTest extends PHPUnit_Framework_TestCase
                 'aller'
             ],
             [
+                ExceptionModel::AVOIR_IRR,
+                'avoir'
+            ],
+            [
+                ExceptionModel::ETRE_IRR,
+                'être'
+            ],
+            [
                 ExceptionModel::Eler_Ele,
                 'peler'
             ],

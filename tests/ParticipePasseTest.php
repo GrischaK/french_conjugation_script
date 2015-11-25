@@ -22,6 +22,10 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase
             [
                 'fini',
                 'finir'
+            ],
+            [
+                'haï',
+                'haïr'
             ]
         ];
     }
@@ -42,9 +46,18 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase
                 'manger'
             ],
             [
-                'allé',
-                'aller'
+                'eu',
+                'avoir'
             ],
+            [
+                'reu',
+                'ravoir'
+            ],
+            [
+                'été',
+                'être'
+            ],
+            
             [
                 'agacé',
                 'agacer'

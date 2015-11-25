@@ -23,10 +23,25 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase
                 'finissant',
                 'finir'
             ],
-            
+            [
+                'haïssant',
+                'haïr'
+            ],
             [
                 'allant',
                 'aller'
+            ],
+            [
+                'ayant',
+                'avoir'
+            ],
+            [
+                'rayant',
+                'ravoir'
+            ],
+            [
+                'étant',
+                'être'
             ],
             // oir
             [
