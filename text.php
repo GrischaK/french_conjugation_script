@@ -4,7 +4,7 @@ Hier findet man alles, was über den Konjugationstabellen steht.
 */ 
 $regelmaessig = in_array($infinitiveVerb, $unregelmaessige_verben) ? 'unregelmäßig' : 'regelmäßig'; 
 $reflexiv = in_array($infinitiveVerb, $verbes_pronominaux) ? 'reflexives' : 'nicht reflexives';
-$conditions = array();
+$conditions = [];
 if (in_array($infinitiveVerb, $verbes_transitifs)) {
   $conditions[] = 'transitives';
 }
@@ -17,10 +17,10 @@ if (!in_array($infinitiveVerb, $verbes_transitifs) and !in_array($infinitiveVerb
 $transitiv = implode(' oder ', $conditions);
 
 //$substr_er = array_filter($infinitiveVerb, function($value) { return substr($value, -2) == 'er'; });
-  if ((substr ( $infinitiveVerb, - 2, 2 ) == 'er') &&  (!in_array($infinitiveVerb,array('aller','raller','re-aller','saisir-arrêter','saisir-brandonner','saisir-exécuter','s’en aller','sur-aller')))) {
+  if ((substr ( $infinitiveVerb, - 2, 2 ) == 'er') &&  (!in_array($infinitiveVerb,['aller','raller','re-aller','saisir-arrêter','saisir-brandonner','saisir-exécuter','s’en aller','sur-aller']))) {
     $gruppe = 'der 1. Verbgruppe';
   } 
-  elseif ((substr ( $infinitiveVerb, - 2, 2 ) == 'ir') or (in_array(mb_substr($infinitiveVerb, - 2, 2, "utf-8"), array("ïr"))) && !in_array($infinitiveVerb, $unregel_ir)) {
+  elseif ((substr ( $infinitiveVerb, - 2, 2 ) == 'ir') or (in_array(mb_substr($infinitiveVerb, - 2, 2, "utf-8"), ["ïr"])) && !in_array($infinitiveVerb, $unregel_ir)) {
     $gruppe = 'der 2. Verbgruppe';
   } 
   elseif ($infinitiveVerb == 'saisir-brandonner') {

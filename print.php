@@ -1,154 +1,154 @@
 <?php
 require_once 'conjugate.php';
 function print_persons(InfinitiveVerb $infinitiveVerb, Tense $tense, Mood $mood) {
-	$persons = array (
-			Mood::Indicatif => array (
-					Tense::Present => array (
+	$persons = [
+			Mood::Indicatif => [
+					Tense::Present => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Imparfait => array (
+					],
+					Tense::Imparfait => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Passe => array (
+					],
+					Tense::Passe => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Futur => array (
+					],
+					Tense::Futur => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Passe_compose => array (
+					],
+					Tense::Passe_compose => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Plus_que_parfait => array (
+					],
+					Tense::Plus_que_parfait => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Passe_anterieur => array (
+					],
+					Tense::Passe_anterieur => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Futur_anterieur => array (
+					],
+					Tense::Futur_anterieur => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Futur_compose => array (
+					],
+					Tense::Futur_compose => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					) 
-			),
-			Mood::Subjonctif => array (
-					Tense::Present => array (
+					] 
+			],
+			Mood::Subjonctif => [
+					Tense::Present => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Imparfait => array (
+					],
+					Tense::Imparfait => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Passe => array (
+					],
+					Tense::Passe => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Plus_que_parfait => array (
+					],
+					Tense::Plus_que_parfait => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					) 
-			),
-			Mood::Conditionnel => array (
-					Tense::Present => array (
+					] 
+			],
+			Mood::Conditionnel => [
+					Tense::Present => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Premiere_Forme => array (
+					],
+					Tense::Premiere_Forme => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					),
-					Tense::Deuxieme_Forme => array (
+					],
+					Tense::Deuxieme_Forme => [
 							Person::FirstPersonSingular,
 							Person::SecondPersonSingular,
 							Person::ThirdPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					) 
-			),
-			Mood::Imperatif => array (
-					Tense::Present => array (
+					] 
+			],
+			Mood::Imperatif => [
+					Tense::Present => [
 							Person::FirstPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural 
-					),
-					Tense::Passe => array (
+					],
+					Tense::Passe => [
 							Person::FirstPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural 
-					) 
-			) 
-	);
+					] 
+			] 
+	];
 	foreach ( $persons [$mood->getValue ()] [$tense->getValue ()] as $person ) {
 		//$output = conjugation_phrase ( $infinitiveVerb, new Person ( $person ), $tense, $mood );
 		$conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, new Person($person), $tense, $mood);
@@ -225,7 +225,7 @@ function colspan_number($mood, $tense) {
 	return $colspan;
 }
 function print_tenses(InfinitiveVerb $infinitiveVerb, Mood $mood, $tenses) {
-	$th_of_tense = array (
+	$th_of_tense = [
 			Tense::Present =>'Présent',
 			Tense::Imparfait =>'Imparfait',
 			Tense::Passe => ($mood->getValue() == Mood::Indicatif ? 'Passé simple' : 'Passé'),
@@ -237,7 +237,7 @@ function print_tenses(InfinitiveVerb $infinitiveVerb, Mood $mood, $tenses) {
 			Tense::Futur_compose =>'Futur composé (Futur proche)',
 			Tense::Premiere_Forme =>'Passé première forme',
 			Tense::Deuxieme_Forme =>'Passé deuxième forme'
-	);
+	];
 	foreach ( $tenses [$mood->getValue ()] as $tense ) {
 		echo "\t\t".'<tr class="border">' . PHP_EOL;
 		echo "\t\t\t".'<th colspan="'.colspan_number($mood, new Tense($tense)).'">'.$th_of_tense[$tense].'</th>' . PHP_EOL;
@@ -246,59 +246,59 @@ function print_tenses(InfinitiveVerb $infinitiveVerb, Mood $mood, $tenses) {
 	}
 }
 function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Mood $mood) {
-	$tenses = array (
-			Mood::Indicatif => array (
+	$tenses = [
+			Mood::Indicatif => [
 					Tense::Present,
 					Tense::Imparfait,
 					Tense::Passe,
 					Tense::Futur 
-			),
-			Mood::Subjonctif => array (
+			],
+			Mood::Subjonctif => [
 					Tense::Present,
 					Tense::Imparfait 
-			),
-			Mood::Conditionnel => array (
+			],
+			Mood::Conditionnel => [
 					Tense::Present 
-			),
-			Mood::Imperatif => array (
+			],
+			Mood::Imperatif => [
 					Tense::Present 
-			) 
-	);
+			] 
+	];
 	print_tenses ( $infinitiveVerb, $mood, $tenses );
 }
 function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Mood $mood) {
-	$tenses = array (
-			Mood::Indicatif => array (
+	$tenses = [
+			Mood::Indicatif => [
 					Tense::Passe_compose,
 					Tense::Plus_que_parfait,
 					Tense::Passe_anterieur,
 					Tense::Futur_anterieur,
 					Tense::Futur_compose 
-			),
-			Mood::Subjonctif => array (
+			],
+			Mood::Subjonctif => [
 					Tense::Passe,
 					Tense::Plus_que_parfait 
-			),
-			Mood::Conditionnel => array (
+			],
+			Mood::Conditionnel => [
 					Tense::Premiere_Forme,
 					Tense::Deuxieme_Forme 
-			),
-			Mood::Imperatif => array (
+			],
+			Mood::Imperatif => [
 					Tense::Passe 
-			) 
-	);
+			] 
+	];
 	print_tenses ( $infinitiveVerb, $mood, $tenses );
 }
 function print_modes(InfinitiveVerb $infinitiveVerb) {
-	$tenses = array (
+	$tenses = [
 			Tense::Present,
 			Tense::Passe 
-	);
-	$modes = array (
+	];
+	$modes = [
 			Mode::Infinitif =>'Infinitif',
 			Mode::Gerondif =>'Gérondif',
 			Mode::Participe =>'Participe',
-	);
+	];
 	echo "\t\t".'<tr>' . PHP_EOL;
 	echo "\t\t\t".'<th class="titel">Mode</th>' . PHP_EOL;
 	echo "\t\t\t".'<th class="titel">Présent</th>' . PHP_EOL;
@@ -315,18 +315,18 @@ function print_modes(InfinitiveVerb $infinitiveVerb) {
 	}
 }
 function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb) {
-	$moods = array (
+	$moods = [
 			Mood::Indicatif,
 			Mood::Subjonctif,
 			Mood::Conditionnel,
 			Mood::Imperatif 
-	);
-	$h2_of_mood = array (
+	];
+	$h2_of_mood = [
 			Mood::Indicatif =>'Indicatif',
 			Mood::Subjonctif =>'Subjonctif',
 			Mood::Conditionnel =>'Conditionnel',
 			Mood::Imperatif =>'Imperatif',
-	);
+	];
 	foreach ( $moods as $mood ) {
 		echo '<h2 class="home"><a id="'.strtolower($h2_of_mood[$mood]).'"></a>'.$h2_of_mood[$mood].'</h2>' . PHP_EOL;
 		echo "\t".'<hr class="linie" />' . PHP_EOL;

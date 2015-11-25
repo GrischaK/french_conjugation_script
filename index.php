@@ -18,15 +18,15 @@ include($_SERVER['DOCUMENT_ROOT']."/data/before_content.php");
 }
 </style> 
 <?php
-$kategorien=array(
+$kategorien=[
 "erste-gruppe","zweite-gruppe","dritte-gruppe",
 "hifsverb-avoir","hilfsverb-etre","hilfsverb-avoir-etre",
 "reflexiv","irreflexiv","ausschließlich-reflexiven-Verben","transitiv","intransitiv",'altfrannzösische-Sprache','defekte Verben','unpersönliche Verben',
 
 "endung-cer","endung-ier","endung-ger","endung-eler_ele","endung-eler_elle","endung-eter_ete","endung-eter_ette","endung-yer_ie","endung-é_er","endung-écer","endung-éger","endung-éyer","endung-envoyer",
 "endung-vouloir","endung-avoir_ravoir","endung-voir","endung-cevoir","endung-devoir","endung-mouvoir","endung-pleuvoir","endung-pouvoir","endung-savoir","endung-falloir","endung-seoir","endung-valoir","endung-haïr",
-"endung-indre","endung-battre","endung-crire","endung-mettre","endung-prendre","endung-rompre","endung-être","endung-aire","endung-faire");
-$titles=array();
+"endung-indre","endung-battre","endung-crire","endung-mettre","endung-prendre","endung-rompre","endung-être","endung-aire","endung-faire"];
+$titles=[];
 for($a=0;$a<count($kategorien);$a++){
 	if($a<3){
 		$temp=explode("-",$kategorien[$a]);
