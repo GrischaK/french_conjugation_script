@@ -1,5 +1,6 @@
 <?php
 $infinitiveVerb = [
+<<<<<<< HEAD
     'abrater',
     'abrier',
     'accélérer',
@@ -49,5 +50,40 @@ $infinitiveVerb = [
     'servir',
     'vêtir'
 ];
+=======
+'abrater',
+'accélérer',
+'acheter',
+'agacer',
+'aimer',
+'acquérir',
+'appeler',
+'assentir',
+'autopromouvoir',
+'courir',
+'couvrir',
+'cueillir',
+'devor',
+'dormir',
+'empommer',
+'envoyer',
+'espérer',
+'jeter',
+'manger',
+'mourir',
+'mouvoir',
+'lever',
+'peler',
+'peser',
+'redégénérer',
+'redevoir',
+'remourir',
+'resavoir',
+'savoir',
+'sécher',
+'servir',
+'vêtir'
+];					
+>>>>>>> origin/master
 $verbs1 = call_user_func_array('array_merge', $infinitiveVerb);
 ?>
