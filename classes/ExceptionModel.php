@@ -3,6 +3,9 @@ class ExceptionModel extends Enum {
 	const NO_EXCEPTIONS = 'no exceptions';
 	//const WITHOUT_ISS_ENDING = 'without iss-ending';
 	const ALLER = 'aller';
+	const AVOIR_IRR = 'avoir_irr';
+	const ETRE_IRR = 'etre_irr';
+	
 	
 	const Eler_Ele = 'peler';
 	const Eter_Ete = 'acheter';
