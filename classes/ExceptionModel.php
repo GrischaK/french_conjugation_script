@@ -57,7 +57,5 @@ class ExceptionModel extends Enum {
 	const VETIR = 'vetir';	
 	const FUIR = 'fuir';	
 	const SERVIR = 'servir';	
-
-
 }
 ?>

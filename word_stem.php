@@ -35,7 +35,55 @@ function replace_akut($str, $replace, $replaceWith)
 
 function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood)
 {
-  
+    $exceptionmodel = finding_exception_model($infinitiveVerb);
+    $word_stem = word_stem_length($infinitiveVerb, 2);
+    
+    // Precompute condition parts start
+$exceptionVal = $exceptionmodel->getValue();
+foreach(ExceptionModel::getConstants() as $constName => $constValue) {
+    ${'exceptionIs' . $constName} = $exceptionVal === $constValue;
+}
+
+$tenseVal = $tense->getValue();
+foreach (Tense::getConstants() as $constName => $constValue) {
+    ${'tenseIs' . $constName} = $exception === $constValue;
+}
+    
+    $moodVal =  $mood->getValue();
+    $moodIsIndicatif = $moodVal == Mood::Indicatif;
+    $moodIsConditionnel = $moodVal === Mood::Conditionnel;
+    $moodIsSubjonctif =  $moodVal === Mood::Subjonctif;
+    $moodIsImperatif =  $moodVal === Mood::Imperatif;
+    
+ 
+    
+    $personVal = $person->getValue();
+    $personIs_2S = $personVal == Person::SecondPersonSingular;
+    $personIs_1P = $personVal == Person::FirstPersonPlural;
+    $personIs_1S_2S_3S = in_array($personVal, [
+        Person::FirstPersonSingular,
+        Person::SecondPersonSingular,
+        Person::ThirdPersonSingular
+    ]);
+    $personIs_1P_2P = in_array($personVal, [
+        Person::FirstPersonPlural,
+        Person::SecondPersonPlural
+    ]);    
+    $personIs_1S_2S_3S_3P = in_array($personVal, [
+        Person::FirstPersonSingular,
+        Person::SecondPersonSingular,
+        Person::ThirdPersonSingular,
+        Person::ThirdPersonPlural
+    ]);
+    $personIs_1S_2S_3S_1P_2P= in_array($personVal, [
+        Person::FirstPersonSingular,
+        Person::SecondPersonSingular,
+        Person::ThirdPersonSingular,
+        Person::FirstPersonPlural,
+        Person::SecondPersonPlural
+    ]);
+    
+    // Precompute condition parts end    
     if ($exceptionIsFUIR)
     {
         $word_stem = word_stem_length($infinitiveVerb, 1);
