@@ -127,6 +127,26 @@ class ExceptionModelTest extends PHPUnit_Framework_TestCase
                 'mourir'
             ],
             [
+                ExceptionModel::MOURIR,
+                'mourir'
+            ],
+            [
+                ExceptionModel::CHOIR,
+                'choir'
+            ],
+            [
+                ExceptionModel::CEVOIR,
+                'apercevoir'
+            ],
+            [
+                ExceptionModel::SEOIR,
+                'seoir'
+            ],
+            [
+                ExceptionModel::VOULOIR,
+                'vouloir'
+            ],
+            [
                 ExceptionModel::QUERIR,
                 'acquérir'
             ],
