@@ -53,4 +53,13 @@ abstract class Enum {
 		}
 	}
 }
+function __call($func, $param) {
+    $func_prefix = substr($func, 0, 2);
+    $func_const = substr($func, 2);
+
+    if ($func_prefix == "is") {
+        $reflection = new ReflectionClass(get_class($this));
+        return $this->getValue() === $reflection->getConstant($func_const); //${$this::$func_const};
+    }
+}
 ?>

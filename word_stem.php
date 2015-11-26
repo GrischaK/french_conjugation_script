@@ -50,10 +50,7 @@ foreach (Mood::getConstants() as $constName => $constValue) {
 $tenseVal = $tense->getValue();
 foreach (Tense::getConstants() as $constName => $constValue) {
     ${'tenseIs' . $constName} = $tenseVal === $constValue;
-}
-    
-    
-    
+} 
     $personVal = $person->getValue();
     $personIs_2S = $personVal == Person::SecondPersonSingular;
     $personIs_1P = $personVal == Person::FirstPersonPlural;
@@ -345,26 +342,10 @@ function participe_present_word_stem(InfinitiveVerb $infinitiveVerb)
     $exceptionmodel = finding_exception_model($infinitiveVerb); // without this line Undefined variable
     $word_stem = word_stem_length($infinitiveVerb, 2); // without this line Undefined variable
 
-    $exceptionIsCER = $exceptionmodel->getValue() === ExceptionModel::CER;
-    $exceptionIsGER = $exceptionmodel->getValue() === ExceptionModel::GER;
-    $exceptionIsDEVOIR = $exceptionmodel->getValue() === ExceptionModel::DEVOIR;
-    $exceptionIsMOUVOIR = $exceptionmodel->getValue() === ExceptionModel::MOUVOIR;
-    $exceptionIsPOUVOIR = $exceptionmodel->getValue() === ExceptionModel::POUVOIR;
-    $exceptionIsSAVOIR = $exceptionmodel->getValue() === ExceptionModel::SAVOIR;
-    $exceptionIsVALOIR = $exceptionmodel->getValue() === ExceptionModel::VALOIR;
-    $exceptionIsSAVOIR = $exceptionmodel->getValue() === ExceptionModel::SAVOIR;
-    $exceptionIsVALOIR = $exceptionmodel->getValue() === ExceptionModel::VALOIR;
-    $exceptionIsVOIR= $exceptionmodel->getValue() === ExceptionModel::VOIR;
-    $exceptionIsFUIR = $exceptionmodel->getValue() === ExceptionModel::FUIR;
-    $exceptionIsAVOIR_IRR = $exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR;
-    $exceptionIsETRE_IRR = $exceptionmodel->getValue() === ExceptionModel::ETRE_IRR;
-    $exceptionIsMOURIR = $exceptionmodel->getValue() === ExceptionModel::MOURIR;
-    $exceptionIsQUERIR = $exceptionmodel->getValue() === ExceptionModel::QUERIR;
-    $exceptionIsDORMIR = $exceptionmodel->getValue() === ExceptionModel::DORMIR;
-    $exceptionIsTIR = $exceptionmodel->getValue() === ExceptionModel::TIR;
-    $exceptionIsSERVIR = $exceptionmodel->getValue() === ExceptionModel::SERVIR;
-    $exceptionIsCEVOIR = $exceptionmodel->getValue() === ExceptionModel::CEVOIR;
-
+$exceptionVal = $exceptionmodel->getValue();
+foreach(ExceptionModel::getConstants() as $constName => $constValue) {
+    ${'exceptionIs' . $constName} = $exceptionVal === $constValue;
+}
   
     if ($exceptionIsCER || $exceptionIsGER)
     {
@@ -406,19 +387,11 @@ function participe_passe_word_stem(InfinitiveVerb $infinitiveVerb)
     $exceptionmodel = finding_exception_model($infinitiveVerb); // without this line Undefined variable
     $word_stem = word_stem_length($infinitiveVerb, 2); // regular case
 
-    $exceptionIsRIR = $exceptionmodel->getValue() === ExceptionModel::RIR;    
-    $exceptionIsDEVOIR = $exceptionmodel->getValue() === ExceptionModel::DEVOIR;
-    $exceptionIsMOUVOIR = $exceptionmodel->getValue() === ExceptionModel::MOUVOIR;
-    $exceptionIsPOUVOIR = $exceptionmodel->getValue() === ExceptionModel::POUVOIR;
-    $exceptionIsVALOIR = $exceptionmodel->getValue() === ExceptionModel::VALOIR;
-    $exceptionIsSAVOIR = $exceptionmodel->getValue() === ExceptionModel::SAVOIR;
-    $exceptionIsVALOIR = $exceptionmodel->getValue() === ExceptionModel::VALOIR;
-    $exceptionIsCEVOIR = $exceptionmodel->getValue() === ExceptionModel::CEVOIR;
-    $exceptionIsVOIR= $exceptionmodel->getValue() === ExceptionModel::VOIR;
-    $exceptionIsAVOIR_IRR = $exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR;
-    $exceptionIsETRE_IRR = $exceptionmodel->getValue() === ExceptionModel::ETRE_IRR;
-    $exceptionIsQUERIR = $exceptionmodel->getValue() === ExceptionModel::QUERIR;
-    $exceptionIsMOURIR = $exceptionmodel->getValue() === ExceptionModel::MOURIR;    
+$exceptionVal = $exceptionmodel->getValue();
+foreach(ExceptionModel::getConstants() as $constName => $constValue) {
+    ${'exceptionIs' . $constName} = $exceptionVal === $constValue;
+}
+
     
     if ($exceptionIsRIR || $exceptionIsVALOIR || $exceptionIsVOIR)    
     {
