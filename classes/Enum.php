@@ -61,5 +61,6 @@ function __call($func, $param) {
         $reflection = new ReflectionClass(get_class($this));
         return $this->getValue() === $reflection->getConstant($func_const); //${$this::$func_const};
     }
+    
 }
 ?>
