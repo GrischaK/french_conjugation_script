@@ -55,7 +55,6 @@ foreach (Tense::getConstants() as $constName => $constValue) {
     $moodIsSubjonctif =  $moodVal === Mood::Subjonctif;
     $moodIsImperatif =  $moodVal === Mood::Imperatif;
     
- 
     
     $personVal = $person->getValue();
     $personIs_2S = $personVal == Person::SecondPersonSingular;
