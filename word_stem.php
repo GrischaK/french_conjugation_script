@@ -37,36 +37,104 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
 {
     $exceptionmodel = finding_exception_model($infinitiveVerb);
     $word_stem = word_stem_length($infinitiveVerb, 2);
-    if (in_array($exceptionmodel->getValue(), [
-        ExceptionModel::Eler_Ele,
-        ExceptionModel::Eter_Ete
-    ]) && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
+    
+    // Precompute condition parts start
+    $exceptionIsFUIR = $exceptionmodel->getValue() === ExceptionModel::FUIR;
+    $exceptionIsDEVOIR = $exceptionmodel->getValue() === ExceptionModel::DEVOIR;
+    $exceptionIsMOUVOIR = $exceptionmodel->getValue() === ExceptionModel::MOUVOIR;
+    $exceptionIsPOUVOIR = $exceptionmodel->getValue() === ExceptionModel::POUVOIR;
+    $exceptionIsSAVOIR = $exceptionmodel->getValue() === ExceptionModel::SAVOIR;
+    $exceptionIsVALOIR = $exceptionmodel->getValue() === ExceptionModel::VALOIR;
+    $exceptionIsAVOIR_IRR = $exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR;
+    $exceptionIsETRE_IRR = $exceptionmodel->getValue() === ExceptionModel::ETRE_IRR;
+    $exceptionIsEler_Ele = $exceptionmodel->getValue() === ExceptionModel::Eler_Ele;
+    $exceptionIsEter_Ete = $exceptionmodel->getValue() === ExceptionModel::Eter_Ete;
+    $exceptionIsEler_Elle = $exceptionmodel->getValue() === ExceptionModel::Eler_Elle;
+    $exceptionIsEter_Ette = $exceptionmodel->getValue() === ExceptionModel::Eter_Ette;
+    $exceptionIsCER = $exceptionmodel->getValue() === ExceptionModel::CER;
+    $exceptionIsGER = $exceptionmodel->getValue() === ExceptionModel::GER;
+    $exceptionIsE_Er = $exceptionmodel->getValue() === ExceptionModel::E_Er;  
+    $exceptionIsE_Akut_ER = $exceptionmodel->getValue() === ExceptionModel::E_Akut_ER;    
+    $exceptionIsE_Akut_CER = $exceptionmodel->getValue() === ExceptionModel::E_Akut_CER;
+    $exceptionIsE_Akut_GER = $exceptionmodel->getValue() === ExceptionModel::E_Akut_GER;  
+    $exceptionIsE_Akut_YER = $exceptionmodel->getValue() === ExceptionModel::E_Akut_YER;
+    $exceptionIsMOURIR = $exceptionmodel->getValue() === ExceptionModel::MOURIR;    
+    $exceptionIsQUERIR = $exceptionmodel->getValue() === ExceptionModel::QUERIR;
+    $exceptionIsBOUILLIR = $exceptionmodel->getValue() === ExceptionModel::BOUILLIR;    
+    
+    $exceptionIsENVOYER = $exceptionmodel->getValue() === ExceptionModel::ENVOYER;    
+    $exceptionIsValoir = $exceptionmodel->getValue() === ExceptionModel::VALOIR;    
+
+    
+    $moodVal =  $mood->getValue();
+    $moodIsIndicatif = $moodVal == Mood::Indicatif;
+    $moodIsConditionnel = $moodVal === Mood::Conditionnel;
+    $moodIsSubjonctif =  $moodVal === Mood::Subjonctif;
+    $moodIsImperatif =  $moodVal === Mood::Imperatif;
+    
+    $tenseVal = $tense->getValue();
+    $tenseIsPresent = $tenseVal=== Tense::Present;
+    $tenseIsImparfait = $tenseVal=== Tense::Imparfait;
+    $tenseIsPasse= $tenseVal=== Tense::Passe;
+    $tenseIsFutur = $tenseVal === Tense::Futur;
+    
+    $personVal = $person->getValue();
+    $personIs_2S = $personVal == Person::SecondPersonSingular;
+    $personIs_1P = $personVal == Person::FirstPersonPlural;
+    $personIs_1S_2S_3S = in_array($personVal, [
+        Person::FirstPersonSingular,
+        Person::SecondPersonSingular,
+        Person::ThirdPersonSingular
+    ]);
+    $personIs_1S_2S_3S_3P = in_array($personVal, [
         Person::FirstPersonSingular,
         Person::SecondPersonSingular,
         Person::ThirdPersonSingular,
         Person::ThirdPersonPlural
-    ]) || $tense->getValue() === Tense::Futur) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
+    ]);
+    $personIs_1S_2S_3S_1P_2P= in_array($personVal, [
         Person::FirstPersonSingular,
         Person::SecondPersonSingular,
         Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ])) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) || ($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular))) {
+        Person::FirstPersonPlural,
+        Person::SecondPersonPlural
+    ]);
+    
+    // Precompute condition parts end    
+    if ($exceptionIsFUIR)
+    {
+        $word_stem = word_stem_length($infinitiveVerb, 1);
+    }
+    if ($exceptionIsDEVOIR
+        || $exceptionIsMOUVOIR
+        || $exceptionIsPOUVOIR
+        || $exceptionIsSAVOIR
+        || $exceptionIsVALOIR
+        || $exceptionIsAVOIR_IRR)
+    {
+        $word_stem = word_stem_length($infinitiveVerb, 3);
+    }
+    if ($exceptionIsETRE_IRR)
+    {
+        $word_stem = word_stem_length($infinitiveVerb, 4);
+    }
+    
+    if (($exceptionIsEler_Ele || $exceptionIsEter_Ete)
+        && (   ($moodIsIndicatif && $tenseIsPresent && $personIs_1S_2S_3S_3P)
+            || $tenseIsFutur
+            || ($moodIsSubjonctif && $tenseIsPresent && $personIs_1S_2S_3S_3P)
+            || ($moodIsConditionnel && $tenseIsPresent)
+            || ($moodIsImperatif && $tenseIsPresent && $personIs_2S)))
+    {
         $word_stem = substr_replace($word_stem, 'è', - 2, 1);
     }
-    if (in_array($exceptionmodel->getValue(), [
-        ExceptionModel::Eler_Elle,
-        ExceptionModel::Eter_Ette
-    ]) && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ]) || $tense->getValue() === Tense::Futur) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ])) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) || ($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular))) {
+    if (($exceptionIsEler_Elle || $exceptionIsEter_Ette)
+        && (   ($moodIsIndicatif && $tenseIsPresent && $personIs_1S_2S_3S_3P)
+            || $tenseIsFutur
+            || ($moodIsSubjonctif && $tenseIsPresent && $personIs_1S_2S_3S_3P)
+            || ($moodIsConditionnel && $tenseIsPresent)
+            || ($moodIsImperatif && $tenseIsPresent && $personIs_2S)))
+    {
         if (substr(word_stem_length($infinitiveVerb, 2), - 1) == 'l') {
             $word_stem = $word_stem . 'l';
         }
@@ -74,138 +142,77 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
             $word_stem = $word_stem . 't';
         }
     }
-    
-    if (in_array($exceptionmodel->getValue(), [
-        ExceptionModel::CER,
-        ExceptionModel::GER,
-        ExceptionModel::E_Akut_CER,
-        ExceptionModel::E_Akut_GER
-    ]) && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::FirstPersonPlural || $tense->getValue() === Tense::Imparfait && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ]) || $tense->getValue() === Tense::Passe && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::FirstPersonPlural,
-        Person::SecondPersonPlural
-    ])) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Imparfait) || ($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::FirstPersonPlural))) {
+    if (($exceptionIsCER || $exceptionIsGER || $exceptionIsE_Akut_CER || $exceptionIsE_Akut_GER)
+        && (   ($moodIsIndicatif && $tenseIsPresent && $personIs_1P)
+            || ($moodIsIndicatif && $tenseIsImparfait && $personIs_1S_2S_3S_3P)
+            || ($moodIsIndicatif && $tenseIsPasse && $personIs_1S_2S_3S_1P_2P)
+            || ($moodIsSubjonctif && $tenseIsImparfait)
+            || ($moodIsConditionnel && $tenseIsPresent)
+            || ($moodIsImperatif && $tenseIsPresent && $personIs_1P)))
+    {
         if (substr(word_stem_length($infinitiveVerb, 2), - 1) == 'c') {
             $word_stem = substr_replace($word_stem, 'ç', - 1);
         }
         if (substr(word_stem_length($infinitiveVerb, 2), - 1) == 'g') {
             $word_stem = $word_stem . 'e';
         }
-    }
-    
-    if ($exceptionmodel->getValue() === ExceptionModel::ENVOYER && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Futur) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present))) {
-        $word_stem = substr_replace($word_stem, 'enver', - 5, 5);
-    }
-    
-    if ($exceptionmodel->getValue() === ExceptionModel::ENVOYER && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ])) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ])) || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular)))) {
-        $word_stem = substr_replace($word_stem, 'i', - 1);
-    }
-    
-    if (in_array($exceptionmodel->getValue(), [
-        ExceptionModel::E_Akut_ER,
-        ExceptionModel::E_Akut_CER,
-        ExceptionModel::E_Akut_GER,
-        ExceptionModel::E_Akut_YER
-    ]) && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ]) || $tense->getValue() === Tense::Futur) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ])) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) || ($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular))) {
+    } 
+    if (($exceptionIsE_Akut_ER || $exceptionIsE_Akut_CER || $exceptionIsE_Akut_GER || $exceptionIsE_Akut_YER)
+        && (   (($moodIsIndicatif || $moodIsSubjonctif) && $tenseIsPresent && $personIs_1S_2S_3S_3P) // summarized 2 lines
+            || $tenseIsFutur
+            || ($moodIsConditionnel && $tenseIsPresent)
+            || ($moodIsImperatif && $tenseIsPresent && $personIs_2S)))
+    {
         $word_stem = replace_akut($word_stem, 'é', 'è');
-    }
-    if ($exceptionmodel->getValue() === ExceptionModel::E_Er && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ]) || $tense->getValue() === Tense::Futur) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ])) || (($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present)) || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular)))) {
+    }    
+    if ($exceptionIsE_Er
+        && (   (($moodIsIndicatif || $moodIsSubjonctif) && $tenseIsPresent && $personIs_1S_2S_3S_3P) // summarized 2 lines
+            || $tenseIsFutur
+            || ($moodIsConditionnel && $tenseIsPresent)
+            || ($moodIsImperatif && $tenseIsPresent && $personIs_2S)))
+    {
         $word_stem = replace_akut($word_stem, 'e', 'è');
-    }
-    
-    if ($exceptionmodel->getValue() === ExceptionModel::MOURIR && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ])) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ])) || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular)))) {
+    } 
+    if ($exceptionIsMOURIR 
+        && (   (($moodIsIndicatif || $moodIsSubjonctif) && $tenseIsPresent && $personIs_1S_2S_3S_3P) // summarized 2 lines
+            || ($moodIsImperatif && $tenseIsPresent && $personIs_2S)))
+    {
         $word_stem = word_stem_length($infinitiveVerb, 5) . 'eur';
-    }
-    
-    if ($exceptionmodel->getValue() === ExceptionModel::QUERIR && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ])) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ]) || $tense->getValue() === Tense::Imparfait) || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular)))) {
-        $word_stem = word_stem_length($infinitiveVerb, 4);
-    }
-    if ($exceptionmodel->getValue() === ExceptionModel::QUERIR && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Futur) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present))) {
-        $word_stem = word_stem_length($infinitiveVerb, 4) . 'er';
-    }
-    if ($exceptionmodel->getValue() === ExceptionModel::BOUILLIR && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ])) || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular)))) {
+    }   
+    if ($exceptionIsBOUILLIR
+        && (   ($moodIsIndicatif && $tenseIsPresent && $personIs_1S_2S_3S_3P) 
+            || ($moodIsImperatif && $tenseIsPresent && $personIs_2S)))
+    {
         $word_stem = word_stem_length($infinitiveVerb, 5);
     }
-    if (in_array($exceptionmodel->getValue(), [
-        ExceptionModel::FUIR
-    ])) {
-        $word_stem = word_stem_length($infinitiveVerb, 1);
-    }
-    if (in_array($exceptionmodel->getValue(), [
-        ExceptionModel::DEVOIR,
-        ExceptionModel::MOUVOIR,
-        ExceptionModel::POUVOIR,
-        ExceptionModel::SAVOIR,
-        ExceptionModel::VALOIR,
-        ExceptionModel::AVOIR_IRR
-    ])) {
-        $word_stem = word_stem_length($infinitiveVerb, 3);
-    }
-    if ($exceptionmodel->getValue() === ExceptionModel::ETRE_IRR) {
+    if ($exceptionIsQUERIR
+        && (   (($moodIsIndicatif || $moodIsSubjonctif) && $tenseIsPresent && $personIs_1S_2S_3S_3P) // summarized 2 lines
+            || ($moodIsSubjonctif && $tenseIsImparfait)
+            || ($moodIsImperatif && $tenseIsPresent && $personIs_2S)))
+    {
         $word_stem = word_stem_length($infinitiveVerb, 4);
     }
+    if ($exceptionIsQUERIR
+        && (   ($moodIsIndicatif && $tenseIsFutur)
+            || ($moodIsConditionnel && $tenseIsPresent)))
+    {
+        $word_stem = word_stem_length($infinitiveVerb, 4) . 'er';
+    }    
+    if ($exceptionIsENVOYER
+        && (   ($moodIsIndicatif && $tenseIsFutur)
+            || ($moodIsConditionnel && $tenseIsPresent)))
+    {
+        $word_stem = substr_replace($word_stem, 'enver', - 5, 5);
+    }
+    if ($exceptionIsENVOYER
+        && (   ($moodIsIndicatif && $tenseIsPresent && $personIs_1S_2S_3S_3P)
+            || ($moodIsSubjonctif && $tenseIsPresent && $personIs_1S_2S_3S_3P)
+            || ($moodIsImperatif && $tenseIsPresent && $personIs_2S)))
+    {
+        $word_stem = substr_replace($word_stem, 'i', - 1);
+    }
+     
+
     if ($exceptionmodel->getValue() === ExceptionModel::DEVOIR && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
         Person::FirstPersonSingular,
         Person::SecondPersonSingular,
@@ -297,44 +304,35 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
         Person::SecondPersonSingular,
         Person::ThirdPersonSingular,
         Person::ThirdPersonPlural
-    ]) || $tense->getValue() === Tense::Futur) 
-            || ($mood->getValue() === Mood::Subjonctif 
-        && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
+    ]) || $tense->getValue() === Tense::Futur) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
         Person::FirstPersonSingular,
         Person::SecondPersonSingular,
         Person::ThirdPersonSingular,
         Person::ThirdPersonPlural
-    ])) 
-            || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) 
-            || (($mood->getValue() === Mood::Imperatif 
-        && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular)))) {
+    ])) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular)))) {
         $word_stem = word_stem_length($infinitiveVerb, 5);
     }
     
-    if ($exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR && (($mood->getValue() === Mood::Indicatif 
-        &&  $tense->getValue() === Tense::Present 
-        || $tense->getValue() === Tense::Passe || $tense->getValue() === Tense::Futur) 
-        || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present 
-        || $tense->getValue() === Tense::Imparfait ) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) 
-        || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present)))) {
+    if ($exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present || $tense->getValue() === Tense::Passe || $tense->getValue() === Tense::Futur) || ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present || $tense->getValue() === Tense::Imparfait) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present)))) {
         $word_stem = word_stem_length($infinitiveVerb, 5);
-    }    
+    }
     
-    if ($exceptionmodel->getValue() === ExceptionModel::VALOIR && (($mood->getValue() === Mood::Indicatif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular
-    ]) || $tense->getValue() === Tense::Futur) || ($mood->getValue() === Mood::Conditionnel && $tense->getValue() === Tense::Present) || (($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $person->getValue() === Person::SecondPersonSingular)))) {
-        $word_stem = word_stem_length($infinitiveVerb, 4) . 'u';
-    }
-    if ($exceptionmodel->getValue() === ExceptionModel::VALOIR && ($mood->getValue() === Mood::Subjonctif && $tense->getValue() === Tense::Present && in_array($person->getValue(), [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ]))) {
-        $word_stem = word_stem_length($infinitiveVerb, 4) . 'ill';
-    }
+    
+    
+if ($exceptionIsValoir
+    && (   ($moodIsIndicatif && $tenseIsPresent && $personIs_1S_2S_3S)
+        || $tenseIsFutur
+        || ($moodIsConditionnel && $tenseIsPresent)
+        || ($moodIsImperatif && $tenseIsPresent && $personIs_2S)))
+{
+    $word_stem = word_stem_length($infinitiveVerb, 4) . 'u';
+}
+
+if ($exceptionIsValoir
+    && ($moodIsSubjonctif && $tenseIsPresent && $personIs_1S_2S_3S_3P))
+{
+    $word_stem = word_stem_length($infinitiveVerb, 4) . 'ill';
+}
     
     if (in_array($exceptionmodel->getValue(), [
         ExceptionModel::FUIR,
