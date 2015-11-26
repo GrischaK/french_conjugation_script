@@ -4258,7 +4258,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                'peux',
+                'peux / puis',
                 'pouvoir',
                 'Present',
                 'FirstPersonSingular',
