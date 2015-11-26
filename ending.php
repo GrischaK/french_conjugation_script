@@ -1187,6 +1187,41 @@ function ending_oir(Person $person, Tense $tense, Mood $mood, EndingWith $ending
     }
     return ending_ir($person, $tense, $mood, new EndingWith(EndingWith::IR), $exceptionModel, $infinitiveVerb);
 }
+function ending_cevoir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb)
+{
+    assert($exceptionModel->getValue() === ExceptionModel::CEVOIR);
+    assert($endingwith->getValue() === EndingWith::OIR);
+    $endings = [
+
+        Mood::Indicatif => [
+            Tense::Present => [
+                Person::FirstPersonSingular => 'ois',
+                Person::SecondPersonSingular => 'ois',
+                Person::ThirdPersonSingular => 'oit',
+                Person::ThirdPersonPlural => 'oivent'
+            ]
+        ],
+        Mood::Subjonctif => [
+            Tense::Present => [
+                Person::FirstPersonSingular => 'oive',
+                Person::SecondPersonSingular => 'oives',
+                Person::ThirdPersonSingular => 'oive',
+                Person::ThirdPersonPlural => 'oivent'
+            ]
+        ],
+       
+        Mood::Imperatif => [
+            Tense::Present => [
+                Person::SecondPersonSingular => 'ois'
+            ]
+        ]
+    ];
+    $ending = ending_array_defines($endings, $person, $tense, $mood);
+    if ($ending !== null) {
+        return $endings[$mood->getValue()][$tense->getValue()][$person->getValue()];
+    }
+    return ending_oir($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
+}
 
 function ending_devoir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb)
 {

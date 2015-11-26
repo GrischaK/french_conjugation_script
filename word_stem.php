@@ -35,80 +35,7 @@ function replace_akut($str, $replace, $replaceWith)
 
 function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood)
 {
-    $exceptionmodel = finding_exception_model($infinitiveVerb);
-    $word_stem = word_stem_length($infinitiveVerb, 2);
-    
-    // Precompute condition parts start
-    $exceptionIsFUIR = $exceptionmodel->getValue() === ExceptionModel::FUIR;
-    $exceptionIsDEVOIR = $exceptionmodel->getValue() === ExceptionModel::DEVOIR;
-    $exceptionIsMOUVOIR = $exceptionmodel->getValue() === ExceptionModel::MOUVOIR;
-    $exceptionIsPOUVOIR = $exceptionmodel->getValue() === ExceptionModel::POUVOIR;
-    $exceptionIsSAVOIR = $exceptionmodel->getValue() === ExceptionModel::SAVOIR;
-    $exceptionIsVALOIR = $exceptionmodel->getValue() === ExceptionModel::VALOIR;
-    $exceptionIsAVOIR_IRR = $exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR;
-    $exceptionIsETRE_IRR = $exceptionmodel->getValue() === ExceptionModel::ETRE_IRR;
-    $exceptionIsEler_Ele = $exceptionmodel->getValue() === ExceptionModel::Eler_Ele;
-    $exceptionIsEter_Ete = $exceptionmodel->getValue() === ExceptionModel::Eter_Ete;
-    $exceptionIsEler_Elle = $exceptionmodel->getValue() === ExceptionModel::Eler_Elle;
-    $exceptionIsEter_Ette = $exceptionmodel->getValue() === ExceptionModel::Eter_Ette;
-    $exceptionIsCER = $exceptionmodel->getValue() === ExceptionModel::CER;
-    $exceptionIsGER = $exceptionmodel->getValue() === ExceptionModel::GER;
-    $exceptionIsE_Er = $exceptionmodel->getValue() === ExceptionModel::E_Er;  
-    $exceptionIsE_Akut_ER = $exceptionmodel->getValue() === ExceptionModel::E_Akut_ER;    
-    $exceptionIsE_Akut_CER = $exceptionmodel->getValue() === ExceptionModel::E_Akut_CER;
-    $exceptionIsE_Akut_GER = $exceptionmodel->getValue() === ExceptionModel::E_Akut_GER;  
-    $exceptionIsE_Akut_YER = $exceptionmodel->getValue() === ExceptionModel::E_Akut_YER;
-    $exceptionIsMOURIR = $exceptionmodel->getValue() === ExceptionModel::MOURIR;  
-    $exceptionIsQUERIR = $exceptionmodel->getValue() === ExceptionModel::QUERIR;    
-    $exceptionIsDORMIR = $exceptionmodel->getValue() === ExceptionModel::DORMIR;
-    $exceptionIsTIR = $exceptionmodel->getValue() === ExceptionModel::TIR;    
-    $exceptionIsSERVIR = $exceptionmodel->getValue() === ExceptionModel::SERVIR;
-    $exceptionIsBOUILLIR = $exceptionmodel->getValue() === ExceptionModel::BOUILLIR;    
-    $exceptionIsENVOYER = $exceptionmodel->getValue() === ExceptionModel::ENVOYER;       
-    $exceptionIsALLER = $exceptionmodel->getValue() === ExceptionModel::ALLER;
-    $exceptionIsENIR = $exceptionmodel->getValue() === ExceptionModel::ENIR;
-    $exceptionIsVOIR= $exceptionmodel->getValue() === ExceptionModel::VOIR;
-
-    
-    $moodVal =  $mood->getValue();
-    $moodIsIndicatif = $moodVal == Mood::Indicatif;
-    $moodIsConditionnel = $moodVal === Mood::Conditionnel;
-    $moodIsSubjonctif =  $moodVal === Mood::Subjonctif;
-    $moodIsImperatif =  $moodVal === Mood::Imperatif;
-    
-    $tenseVal = $tense->getValue();
-    $tenseIsPresent = $tenseVal=== Tense::Present;
-    $tenseIsImparfait = $tenseVal=== Tense::Imparfait;
-    $tenseIsPasse= $tenseVal=== Tense::Passe;
-    $tenseIsFutur = $tenseVal === Tense::Futur;
-    
-    $personVal = $person->getValue();
-    $personIs_2S = $personVal == Person::SecondPersonSingular;
-    $personIs_1P = $personVal == Person::FirstPersonPlural;
-    $personIs_1S_2S_3S = in_array($personVal, [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular
-    ]);
-    $personIs_1P_2P = in_array($personVal, [
-        Person::FirstPersonPlural,
-        Person::SecondPersonPlural
-    ]);    
-    $personIs_1S_2S_3S_3P = in_array($personVal, [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::ThirdPersonPlural
-    ]);
-    $personIs_1S_2S_3S_1P_2P= in_array($personVal, [
-        Person::FirstPersonSingular,
-        Person::SecondPersonSingular,
-        Person::ThirdPersonSingular,
-        Person::FirstPersonPlural,
-        Person::SecondPersonPlural
-    ]);
-    
-    // Precompute condition parts end    
+  
     if ($exceptionIsFUIR)
     {
         $word_stem = word_stem_length($infinitiveVerb, 1);
@@ -118,6 +45,7 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
         || $exceptionIsPOUVOIR
         || $exceptionIsSAVOIR
         || $exceptionIsVALOIR
+        || $exceptionIsCEVOIR        
         || $exceptionIsAVOIR_IRR)
     {
         $word_stem = word_stem_length($infinitiveVerb, 3);
@@ -249,6 +177,15 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
     {
         $word_stem = word_stem_length($infinitiveVerb, 6);
     }   
+    if ($exceptionIsCEVOIR
+        && (   (($moodIsIndicatif || $moodIsSubjonctif) && $tenseIsPresent && $personIs_1S_2S_3S_3P) // summarized 2 lines
+            || $tenseIsPasse
+            || ($moodIsSubjonctif && $tenseIsImparfait)
+            || ($moodIsImperatif && $tenseIsPresent && $personIs_2S)))
+    {
+        $word_stem = word_stem_length($infinitiveVerb, 6).'ç';
+    }    
+    
     if (($exceptionIsDORMIR || $exceptionIsTIR || $exceptionIsSERVIR)
         && (   ($moodIsIndicatif && $tenseIsPresent && $personIs_1S_2S_3S) 
             || ($moodIsImperatif && $tenseIsPresent && $personIs_2S)))
@@ -381,6 +318,7 @@ function participe_present_word_stem(InfinitiveVerb $infinitiveVerb)
     $exceptionIsDORMIR = $exceptionmodel->getValue() === ExceptionModel::DORMIR;
     $exceptionIsTIR = $exceptionmodel->getValue() === ExceptionModel::TIR;
     $exceptionIsSERVIR = $exceptionmodel->getValue() === ExceptionModel::SERVIR;
+    $exceptionIsCEVOIR = $exceptionmodel->getValue() === ExceptionModel::CEVOIR;
 
   
     if ($exceptionIsCER || $exceptionIsGER)
@@ -393,7 +331,7 @@ function participe_present_word_stem(InfinitiveVerb $infinitiveVerb)
         }
     }
     
-    if ($exceptionIsDEVOIR || $exceptionIsMOUVOIR || $exceptionIsPOUVOIR || $exceptionIsSAVOIR || $exceptionIsVALOIR)
+    if ($exceptionIsDEVOIR || $exceptionIsMOUVOIR || $exceptionIsPOUVOIR || $exceptionIsSAVOIR || $exceptionIsCEVOIR || $exceptionIsVALOIR)
     {
         $word_stem = word_stem_length($infinitiveVerb, 3);
     }
@@ -430,6 +368,7 @@ function participe_passe_word_stem(InfinitiveVerb $infinitiveVerb)
     $exceptionIsVALOIR = $exceptionmodel->getValue() === ExceptionModel::VALOIR;
     $exceptionIsSAVOIR = $exceptionmodel->getValue() === ExceptionModel::SAVOIR;
     $exceptionIsVALOIR = $exceptionmodel->getValue() === ExceptionModel::VALOIR;
+    $exceptionIsCEVOIR = $exceptionmodel->getValue() === ExceptionModel::CEVOIR;
     $exceptionIsVOIR= $exceptionmodel->getValue() === ExceptionModel::VOIR;
     $exceptionIsAVOIR_IRR = $exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR;
     $exceptionIsETRE_IRR = $exceptionmodel->getValue() === ExceptionModel::ETRE_IRR;
@@ -445,7 +384,10 @@ function participe_passe_word_stem(InfinitiveVerb $infinitiveVerb)
     {
         $word_stem = word_stem_length($infinitiveVerb, 4);
     }
-
+    if ($exceptionIsCEVOIR)
+    {
+        $word_stem = word_stem_length($infinitiveVerb, 6).'ç';
+    }
     if ($exceptionIsDEVOIR || $exceptionIsMOURIR || $exceptionIsAVOIR_IRR || $exceptionIsSAVOIR)
     {   
 

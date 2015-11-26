@@ -32,6 +32,11 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase
                 'aller'
             ],
             [
+                'étant',
+                'être'
+            ],
+            // oir
+            [
                 'ayant',
                 'avoir'
             ],
@@ -40,10 +45,9 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase
                 'ravoir'
             ],
             [
-                'étant',
-                'être'
+                'apercevant',
+                'apercevoir'
             ],
-            // oir
             [
                 'devant',
                 'devoir'

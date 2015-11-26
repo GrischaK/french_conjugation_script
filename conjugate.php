@@ -560,6 +560,7 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
         ExceptionModel::POUVOIR,
         ExceptionModel::SAVOIR,
         ExceptionModel::VOIR,
+        ExceptionModel::CEVOIR,
         ExceptionModel::VALOIR,
         ExceptionModel::ENIR
     ]))

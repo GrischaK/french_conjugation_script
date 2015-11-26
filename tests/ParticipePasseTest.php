@@ -79,6 +79,10 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase
                 'pouvoir'
             ],
             [
+                'aperçu',
+                'apercevoir'
+            ],            
+            [
                 'redu',
                 'redevoir'
             ],

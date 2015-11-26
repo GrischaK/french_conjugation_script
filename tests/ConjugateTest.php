@@ -4561,6 +4561,215 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider CEVOIR_Provider
+     */
+    public function testCEVOIR_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function CEVOIR_Provider()
+    {
+        return [
+            
+            [
+                'aperçois',
+                'apercevoir',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'aperçois',
+                'apercevoir',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'aperçoit',
+                'apercevoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular
+                'apercevons',
+                'apercevoir',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular
+                'apercevez',
+                'apercevoir',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'aperçoivent',
+                'apercevoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'aperçus',
+                'apercevoir',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'aperçus',
+                'apercevoir',
+                'Passe',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'aperçut',
+                'apercevoir',
+                'Passe',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'aperçûmes',
+                'apercevoir',
+                'Passe',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'aperçûtes',
+                'apercevoir',
+                'Passe',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'aperçurent',
+                'apercevoir',
+                'Passe',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [ // regular
+                'apercevrai',
+                'apercevoir',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'aperçoive',
+                'apercevoir',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'aperçoives',
+                'apercevoir',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'aperçoive',
+                'apercevoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [ // regular
+                'apercevions',
+                'apercevoir',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [ // regular
+                'aperceviez',
+                'apercevoir',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'aperçoivent',
+                'apercevoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'aperçusse',
+                'apercevoir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'aperçusses',
+                'apercevoir',
+                'Imparfait',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'aperçût',
+                'apercevoir',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'aperçussions',
+                'apercevoir',
+                'Imparfait',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'aperçussiez',
+                'apercevoir',
+                'Imparfait',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'aperçussent',
+                'apercevoir',
+                'Imparfait',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            
+            [ // regular
+                'apercevrais',
+                'apercevoir',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            
+            [
+                'aperçois',
+                'apercevoir',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
      * @dataProvider RIR_Provider
      */
     public function testRIR_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
