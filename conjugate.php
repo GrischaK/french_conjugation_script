@@ -112,6 +112,18 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb)
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$mouvoir)) {
         $exceptionmodel = ExceptionModel::MOUVOIR;
     }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$choir)) {
+        $exceptionmodel = ExceptionModel::CHOIR;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$cevoir)) {
+        $exceptionmodel = ExceptionModel::CEVOIR;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$seoir)) {
+        $exceptionmodel = ExceptionModel::SEOIR;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$vouloir)) {
+        $exceptionmodel = ExceptionModel::VOULOIR;
+    }    
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$pouvoir)) {
         $exceptionmodel = ExceptionModel::POUVOIR;
     }

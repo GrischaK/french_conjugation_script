@@ -33,6 +33,13 @@ class ExceptionModel extends Enum {
 	const MOUVOIR = 'mouvoir';
 	const POUVOIR = 'pouvoir';
 	const SAVOIR = 'savoir';
+	const VALOIR = 'valoir';
+	const VOIR = 'voir';	
+
+	const CHOIR = 'choir';
+	const CEVOIR = 'cevoir';
+    const SEOIR = 'seoir';
+    const VOULOIR = 'vouloir';	
 	
 // RIR
 	const RIR = 'rir';
@@ -40,20 +47,17 @@ class ExceptionModel extends Enum {
 	const MOURIR = 'mourir';
 	const QUERIR = 'querir';
 	
+		
 	const DORMIR = 'dormir';
-	const TIR = 'tir';
-	const SERVIR = 'servir';
-	const CUEILLIR = 'cueillir';
-
-	const VETIR = 'vetir';
-	
-	//const SEOIR = 'seoir';
-	const ENIR = 'enir';
-	const FUIR = 'fuir';
+	const ENIR = 'enir';	
 	const BOUILLIR = 'bouillir';
+	const CUEILLIR = 'cueillir';	
 	const SAILLIR = 'saillir';
-	const VALOIR = 'valoir';
-	const VOIR = 'voir';
+	const TIR = 'tir';
+	const VETIR = 'vetir';	
+	const FUIR = 'fuir';	
+	const SERVIR = 'servir';	
+
 
 }
 ?>

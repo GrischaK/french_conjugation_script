@@ -113,6 +113,19 @@ class IrregularExceptionGroup
     public static $valoir = [
         'valoir'
     ];
+ 
+    public static $choir = [
+        'choir'
+    ];
+    public static $cevoir = [
+        'apercevoir'
+    ];
+    public static $seoir = [
+        'seoir'
+    ];
+    public static $vouloir = [
+        'vouloir'
+    ];
 
     public static $voir = [
         'voir',
