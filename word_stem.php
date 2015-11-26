@@ -43,17 +43,15 @@ $exceptionVal = $exceptionmodel->getValue();
 foreach(ExceptionModel::getConstants() as $constName => $constValue) {
     ${'exceptionIs' . $constName} = $exceptionVal === $constValue;
 }
-
+$moodVal = $mood->getValue();
+foreach (Mood::getConstants() as $constName => $constValue) {
+    ${'moodIs' . $constName} = $moodVal === $constValue;
+}
 $tenseVal = $tense->getValue();
 foreach (Tense::getConstants() as $constName => $constValue) {
-    ${'tenseIs' . $constName} = $exception === $constValue;
+    ${'tenseIs' . $constName} = $tenseVal === $constValue;
 }
     
-    $moodVal =  $mood->getValue();
-    $moodIsIndicatif = $moodVal == Mood::Indicatif;
-    $moodIsConditionnel = $moodVal === Mood::Conditionnel;
-    $moodIsSubjonctif =  $moodVal === Mood::Subjonctif;
-    $moodIsImperatif =  $moodVal === Mood::Imperatif;
     
     
     $personVal = $person->getValue();
