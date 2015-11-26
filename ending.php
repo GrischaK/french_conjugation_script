@@ -31,6 +31,14 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
             return ending_rir($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
         case ExceptionModel::MOURIR:
             return ending_mourir($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
+        case ExceptionModel::CEVOIR:
+            return ending_cevoir($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
+        case ExceptionModel::CHOIR:
+            return ending_choir($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
+        case ExceptionModel::SEOIR:
+            return ending_seoir($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
+        case ExceptionModel::VOULOIR:
+            return ending_vouloir($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
         case ExceptionModel::QUERIR:
             return ending_querir($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
         case ExceptionModel::CUEILLIR:
@@ -536,8 +544,7 @@ function ending_avoir(Person $person, Tense $tense, Mood $mood, EndingWith $endi
                 Person::SecondPersonPlural => 'eussiez',
                 Person::ThirdPersonPlural => 'eussent'
             ]
-        ]
-        ,
+        ],
         Mood::Conditionnel => [
             Tense::Present => [ // a + i-> u
                 Person::FirstPersonSingular => 'aurais',
@@ -1255,11 +1262,13 @@ function ending_pouvoir(Person $person, Tense $tense, Mood $mood, EndingWith $en
 {
     assert($exceptionModel->getValue() === ExceptionModel::POUVOIR);
     assert($endingwith->getValue() === EndingWith::OIR);
+    $red_slash = '/';
+    $word_stem = word_stem_length($infinitiveVerb, 6);
     $endings = [
         
         Mood::Indicatif => [
             Tense::Present => [
-                Person::FirstPersonSingular => 'eux',
+                Person::FirstPersonSingular => 'eux ' . $red_slash . ' ' . $word_stem . 'uis',
                 Person::SecondPersonSingular => 'eux',
                 Person::ThirdPersonSingular => 'eut',
                 Person::ThirdPersonPlural => 'euvent'
