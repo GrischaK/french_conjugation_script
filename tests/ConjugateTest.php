@@ -3606,6 +3606,13 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
+                'assois',
+                'asseoir',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
                 'dois',
                 'devoir',
                 'Present',
@@ -4247,6 +4254,342 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider VOULOIR_Provider
+     */
+    public function testVOULOIR_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function VOULOIR_Provider()
+    {
+        return [
+            [
+                'veux',
+                'vouloir',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'veux',
+                'vouloir',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'veut',
+                'vouloir',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // with word_stem_ending_oir
+                'voulons',
+                'vouloir',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // with word_stem_ending_oir
+                'voulez',
+                'vouloir',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'veulent',
+                'vouloir',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            [ // with word_stem_ending_oir
+                'voulais',
+                'vouloir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // with word_stem_ending_oir
+                'voulais',
+                'vouloir',
+                'Imparfait',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [ // with word_stem_ending_oir
+                'voulait',
+                'vouloir',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // with word_stem_ending_oir
+                'voulions',
+                'vouloir',
+                'Imparfait',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // with word_stem_ending_oir
+                'vouliez',
+                'vouloir',
+                'Imparfait',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [ // with word_stem_ending_oir
+                'voulaient',
+                'vouloir',
+                'Imparfait',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'voulus',
+                'vouloir',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'voulus',
+                'vouloir',
+                'Passe',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'voulut',
+                'vouloir',
+                'Passe',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'voulûmes',
+                'vouloir',
+                'Passe',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'voulûtes',
+                'vouloir',
+                'Passe',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'voulurent',
+                'vouloir',
+                'Passe',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            [ // word_stem vouloir + changed oir ending
+                'voudrai',
+                'vouloir',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // word_stem vouloir + changed oir ending
+                'voudras',
+                'vouloir',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [ // word_stem vouloir + changed oir ending
+                'voudra',
+                'vouloir',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [ // word_stem vouloir + changed oir ending
+                'voudrons',
+                'vouloir',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // word_stem vouloir + changed oir ending
+                'voudrez',
+                'vouloir',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [ // word_stem pour + changed oir ending
+                'voudront',
+                'vouloir',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'veuille',
+                'vouloir',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'veuilles',
+                'vouloir',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'veuille',
+                'vouloir',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [ // regular
+                'voulions',
+                'vouloir',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [ // regular
+                'vouliez',
+                'vouloir',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'veuillent',
+                'vouloir',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            
+            [
+                'voulusse',
+                'vouloir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'voulusses',
+                'vouloir',
+                'Imparfait',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'voulût',
+                'vouloir',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'voulussions',
+                'vouloir',
+                'Imparfait',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'voulussiez',
+                'vouloir',
+                'Imparfait',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'voulussent',
+                'vouloir',
+                'Imparfait',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            
+            [ // word_stem vouloir + changed oir ending
+                'voudrais',
+                'vouloir',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [ // word_stem vouloir + changed oir ending
+                'voudrais',
+                'vouloir',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [ // word_stem vouloir + changed oir ending
+                'voudrait',
+                'vouloir',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [ // word_stem vouloir + changed oir ending
+                'voudrions',
+                'vouloir',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [ // word_stem vouloir + changed oir ending
+                'voudriez',
+                'vouloir',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [ // word_stem vouloir + changed oir ending
+                'voudraient',
+                'vouloir',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'veux / veuille',
+                'vouloir',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'voulons / veuillons',
+                'vouloir',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'voulez / veuillez',
+                'vouloir',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
      * @dataProvider Pouvoir_Provider
      */
     public function testPouvoir_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
@@ -4764,6 +5107,747 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'apercevoir',
                 'Present',
                 'SecondPersonSingular',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider CHOIR_Provider
+     */
+    public function testCHOIR_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function CHOIR_Provider()
+    {
+        return [
+            
+            [
+                'chois',
+                'choir',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'chois',
+                'choir',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'choit',
+                'choir',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular rare should be italic
+                'choyons',
+                'choir',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular rare should be italic
+                'choyez',
+                'choir',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'choient',
+                'choir',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'chus',
+                'choir',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'chus',
+                'choir',
+                'Passe',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'chut',
+                'choir',
+                'Passe',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'chûmes',
+                'choir',
+                'Passe',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'chûtes',
+                'choir',
+                'Passe',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'churent',
+                'choir',
+                'Passe',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [ // regular
+                'choirai',
+                'choir',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [ // rare should be italic
+                'choie',
+                'choir',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [ // rare should be italic
+                'choies',
+                'choir',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [ // rare should be italic
+                'choie',
+                'choir',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [ // regular rare should be italic
+                'choyions',
+                'choir',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [ // regular rare should be italic
+                'choyiez',
+                'choir',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [ // rare should be italic
+                'choient',
+                'choir',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [ // regular
+                'chusse',
+                'choir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'chusses',
+                'choir',
+                'Imparfait',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'chût',
+                'choir',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'chussions',
+                'choir',
+                'Imparfait',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'chussiez',
+                'choir',
+                'Imparfait',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'chussent',
+                'choir',
+                'Imparfait',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            
+            [ // regular OIR
+                'choirais',
+                'choir',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [ // regular OIR
+                'choirions',
+                'choir',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'chois',
+                'choir',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider SEOIR_Provider
+     */
+    public function testSEOIR_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function SEOIR_Provider()
+    {
+        return [
+            
+            [
+                'assois',
+                'asseoir',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assois',
+                'asseoir',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assoit',
+                'asseoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assoyons',
+                'asseoir',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoyez',
+                'asseoir',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoient',
+                'asseoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoyais',
+                'asseoir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assoyaient',
+                'asseoir',
+                'Imparfait',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assis',
+                'asseoir',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assîmes',
+                'asseoir',
+                'Passe',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assirent',
+                'asseoir',
+                'Passe',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoirai',
+                'asseoir',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assoiras',
+                'asseoir',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assoira',
+                'asseoir',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'assoirons',
+                'asseoir',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoirez',
+                'asseoir',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoiront',
+                'asseoir',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'assoie',
+                'asseoir',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'assoies',
+                'asseoir',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'assoie',
+                'asseoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'assoyions',
+                'asseoir',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'assoyiez',
+                'asseoir',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'assoient',
+                'asseoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'assisse',
+                'asseoir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'assisses',
+                'asseoir',
+                'Imparfait',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'assissent',
+                'asseoir',
+                'Imparfait',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'assoirais',
+                'asseoir',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'assoirais',
+                'asseoir',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'assoirait',
+                'asseoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'assoirions',
+                'asseoir',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'assoiriez',
+                'asseoir',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'assoiraient',
+                'asseoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'assois',
+                'asseoir',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'assoyons',
+                'asseoir',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'assoyez',
+                'asseoir',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider SOIR_Provider
+     */
+    public function testSOIR_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function SOIR_Provider()
+    {
+        return [
+            
+            [
+                'assois',
+                'assoir',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assois',
+                'assoir',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assoit',
+                'assoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assoyons',
+                'assoir',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoyez',
+                'assoir',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoient',
+                'assoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoyais',
+                'assoir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assoyaient',
+                'assoir',
+                'Imparfait',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assis',
+                'assoir',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assîmes',
+                'assoir',
+                'Passe',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assirent',
+                'asseoir',
+                'Passe',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoirai',
+                'assoir',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assoiras',
+                'assoir',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'assoira',
+                'assoir',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'assoirons',
+                'assoir',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoirez',
+                'assoir',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'assoiront',
+                'assoir',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'assoie',
+                'assoir',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'assoies',
+                'assoir',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'assoie',
+                'assoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'assoyions',
+                'assoir',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'assoyiez',
+                'assoir',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'assoient',
+                'assoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'assisse',
+                'assoir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'assisses',
+                'assoir',
+                'Imparfait',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'assissent',
+                'assoir',
+                'Imparfait',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'assoirais',
+                'assoir',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'assoirais',
+                'assoir',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'assoirait',
+                'assoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'assoirions',
+                'assoir',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'assoiriez',
+                'assoir',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'assoiraient',
+                'assoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'assois',
+                'assoir',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'assoyons',
+                'assoir',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'assoyez',
+                'assoir',
+                'Present',
+                'SecondPersonPlural',
                 'Imperatif'
             ]
         ];
@@ -5854,6 +6938,243 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'bouillir',
                 'Present',
                 'SecondPersonSingular',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider faillir_Provider
+     */
+    public function testfaillir_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function faillir_Provider()
+    {
+        return [
+            
+            [
+                'faux',
+                'faillir',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'faux',
+                'faillir',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'faut',
+                'faillir',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular
+                'faillons',
+                'faillir',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular
+                'faillez',
+                'faillir',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular
+                'faillent',
+                'faillir',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [ // regular
+                'faillais',
+                'faillir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular
+                'faillis',
+                'faillir',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [ // regular
+                'faillirai',
+                'faillir',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular
+                'failliras',
+                'faillir',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular
+                'faillira',
+                'faillir',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [ // regular
+                'faillirons',
+                'faillir',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular
+                'faillirez',
+                'faillir',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular
+                'failliront',
+                'faillir',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [ // regular
+                'faille',
+                'faillir',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [ // regular
+                'failles',
+                'faillir',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [ // regular
+                'faille',
+                'faillir',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [ // regular
+                'faillissions',
+                'faillir',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [ // regular
+                'faillissiez',
+                'faillir',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [ // regular
+                'faillissent',
+                'faillir',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [ // regular
+                'faillisse',
+                'faillir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [ // regular
+                'faillirais',
+                'faillir',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [ // regular
+                'faillirais',
+                'faillir',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [ // regular
+                'faillirait',
+                'faillir',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [ // regular
+                'faillirions',
+                'faillir',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [ // regular
+                'failliriez',
+                'faillir',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [ // regular
+                'failliraient',
+                'faillir',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'faux',
+                'faillir',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'faux',
+                'faillir',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [ // regular
+                'faillons',
+                'faillir',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [ // regular
+                'faillez',
+                'faillir',
+                'Present',
+                'SecondPersonPlural',
                 'Imperatif'
             ]
         ];
