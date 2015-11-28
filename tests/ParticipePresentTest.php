@@ -49,6 +49,22 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase
                 'apercevoir'
             ],
             [
+                'assoyant',
+                'asseoir'
+            ],
+            [
+                'assoyant',
+                'assoir'
+            ],
+            [
+                'faillant',
+                'faillir'
+            ],
+            [
+                'voulant',
+                'vouloir'
+            ],
+            [
                 'devant',
                 'devoir'
             ],

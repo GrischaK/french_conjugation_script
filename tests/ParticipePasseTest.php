@@ -81,7 +81,7 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase
             [
                 'aperçu',
                 'apercevoir'
-            ],            
+            ],
             [
                 'redu',
                 'redevoir'
@@ -105,6 +105,26 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase
             [
                 'valu',
                 'valoir'
+            ],
+            [
+                'chu',
+                'choir'
+            ],
+            [
+                'assis',
+                'asseoir'
+            ],
+            [
+                'assis',
+                'assoir'
+            ],
+            [
+                'failli',
+                'faillir'
+            ],
+            [
+                'voulu',
+                'vouloir'
             ],
             [
                 'fui',

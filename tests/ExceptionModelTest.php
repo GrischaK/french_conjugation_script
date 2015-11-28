@@ -140,7 +140,7 @@ class ExceptionModelTest extends PHPUnit_Framework_TestCase
             ],
             [
                 ExceptionModel::SEOIR,
-                'seoir'
+                'asseoir'
             ],
             [
                 ExceptionModel::VOULOIR,
@@ -201,6 +201,10 @@ class ExceptionModelTest extends PHPUnit_Framework_TestCase
             [
                 ExceptionModel::CUEILLIR,
                 'cueillir'
+            ],
+            [
+                ExceptionModel::FAILLIR,
+                'faillir'
             ],
             [
                 ExceptionModel::VETIR,
