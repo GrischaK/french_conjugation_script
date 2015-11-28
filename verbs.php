@@ -35,8 +35,8 @@ $infinitiveVerb = [
     'vouloir',
     'choir',
     'apercevoir',
-    
-    
+    'faillir',
+    'assoir',
     'lever',
     'manger',
     'mourir',
