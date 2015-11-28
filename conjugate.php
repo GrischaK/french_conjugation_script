@@ -141,15 +141,16 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb)
     }
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$querir)) {
         $exceptionmodel = ExceptionModel::QUERIR;
-    }
-    
+    }   
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$enir)) {
         $exceptionmodel = ExceptionModel::ENIR;
     }
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$fuir)) {
         $exceptionmodel = ExceptionModel::FUIR;
     }
-    
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$faillir)) {
+        $exceptionmodel = ExceptionModel::FAILLIR;
+    }    
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$bouillir)) {
         $exceptionmodel = ExceptionModel::BOUILLIR;
     }
@@ -531,6 +532,7 @@ function finding_participe_present(InfinitiveVerb $infinitiveVerb)
         ExceptionModel::COURIR,
         ExceptionModel::MOURIR,
         ExceptionModel::QUERIR,
+        ExceptionModel::FAILLIR,
         ExceptionModel::FUIR,
         ExceptionModel::VETIR
     ]))
@@ -555,6 +557,7 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
         // beginning unregular
     $exceptionmodel = finding_exception_model($infinitiveVerb); // without this line Undefined variable
     if (in_array(finding_exception_model($infinitiveVerb)->getValue(), [
+        ExceptionModel::CHOIR,        
         ExceptionModel::COURIR,
         ExceptionModel::VETIR,
         ExceptionModel::POUVOIR,
@@ -562,6 +565,7 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
         ExceptionModel::VOIR,
         ExceptionModel::CEVOIR,
         ExceptionModel::VALOIR,
+        ExceptionModel::VOULOIR,
         ExceptionModel::ENIR
     ]))
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'u';
@@ -574,9 +578,10 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'ert';
     if ($exceptionmodel->getValue() === ExceptionModel::MOURIR)
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'ort';
-    if ($exceptionmodel->getValue() === ExceptionModel::QUERIR)
+    if ($exceptionmodel->isQUERIR() || $exceptionmodel->isSEOIR())
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'is';
-    
+    if ($exceptionmodel->isSEOIR() && (in_array($infinitiveVerb, ['assoir','rassoir','réassoir','s’assoir','sursoir'])))
+        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'sis';    
     if ($exceptionmodel->getValue() === ExceptionModel::DEVOIR && substr($infinitiveVerb, - 8) == 'redevoir')
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'u';
     if ($exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR)

@@ -121,7 +121,8 @@ class IrregularExceptionGroup
         'apercevoir'
     ];
     public static $seoir = [
-        'seoir'
+        'asseoir',
+        'assoir'
     ];
     public static $vouloir = [
         'vouloir'
@@ -180,7 +181,9 @@ class IrregularExceptionGroup
     public static $servir = [
         'servir'
     ];
-
+    public static $faillir = [
+        'faillir'
+    ];
     public static $cueillir = [
         'cueillir'
     ];
@@ -193,7 +196,7 @@ class IrregularExceptionGroup
 
     static function init()
     {
-        self::$ohne_iss = array_merge(self::$avoir_irr, self::$enir, self::$fuir, self::$bouillir, self::$saillir, self::$cevoir,self::$valoir, self::$voir, self::$dormir, self::$tir, self::$servir, self::$cueillir, self::$rir, self::$servir, self::$courir, self::$mourir, self::$querir, self::$vetir, self::$devoir, self::$mouvoir, self::$pouvoir, self::$savoir, self::$vetir);
+        self::$ohne_iss = array_merge(self::$avoir_irr, self::$enir, self::$fuir, self::$bouillir, self::$saillir, self::$cevoir,self::$choir,self::$seoir,self::$valoir, self::$voir, self::$dormir, self::$tir, self::$servir, self::$faillir,self::$cueillir, self::$rir, self::$servir, self::$courir, self::$mourir, self::$querir, self::$vetir, self::$devoir, self::$mouvoir, self::$vouloir, self::$pouvoir, self::$savoir, self::$vetir);
     }
 }
 IrregularExceptionGroup::init();

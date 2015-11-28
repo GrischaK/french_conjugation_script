@@ -52,6 +52,7 @@ class ExceptionModel extends Enum {
 	const ENIR = 'enir';	
 	const BOUILLIR = 'bouillir';
 	const CUEILLIR = 'cueillir';	
+	const FAILLIR = 'faillir';	
 	const SAILLIR = 'saillir';
 	const TIR = 'tir';
 	const VETIR = 'vetir';	
