@@ -118,6 +118,12 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb)
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$cevoir)) {
         $exceptionmodel = ExceptionModel::CEVOIR;
     }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$pleuvoir)) {
+        $exceptionmodel = ExceptionModel::PLEUVOIR;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$falloir)) {
+        $exceptionmodel = ExceptionModel::FALLOIR;
+    }    
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$seoir)) {
         $exceptionmodel = ExceptionModel::SEOIR;
     }
@@ -142,6 +148,9 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb)
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$querir)) {
         $exceptionmodel = ExceptionModel::QUERIR;
     }   
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$fleurir)) {
+        $exceptionmodel = ExceptionModel::FLEURIR;
+    }    
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$enir)) {
         $exceptionmodel = ExceptionModel::ENIR;
     }
@@ -482,7 +491,8 @@ function conjugate(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
         'abrier',
         'rocouier',
         'planchéier',
-        'paranoïer'
+        'paranoïer',
+       'fleurir'
     ])) // should be replaced with static $ier + $e_akut_ier+ $i_trema_er
 { // example used it: $fuir verbs
         
@@ -537,12 +547,17 @@ function finding_participe_present(InfinitiveVerb $infinitiveVerb)
         ExceptionModel::VETIR
     ]))
         $participe_present = participe_present_word_stem($infinitiveVerb) . 'ant';
+         $word_stem = word_stem_length($infinitiveVerb, 5).'or';
         // beginning unregular
     $exceptionmodel = finding_exception_model($infinitiveVerb); // without this line Undefined variable
     if ($exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR)
         $participe_present = participe_present_word_stem($infinitiveVerb) . 'ayant';
     if ($exceptionmodel->getValue() === ExceptionModel::ETRE_IRR)
         $participe_present = participe_present_word_stem($infinitiveVerb) . 'étant';
+    if ($exceptionmodel->getValue() === ExceptionModel::FLEURIR)
+        
+            $participe_present = participe_present_word_stem($infinitiveVerb). 'issant / '.$word_stem.'issant';    
+        
     return $participe_present;
 }
 
@@ -566,7 +581,9 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
         ExceptionModel::CEVOIR,
         ExceptionModel::VALOIR,
         ExceptionModel::VOULOIR,
-        ExceptionModel::ENIR
+        ExceptionModel::ENIR,
+        ExceptionModel::FALLOIR,
+        ExceptionModel::PLEUVOIR
     ]))
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'u';
     if (in_array($exceptionmodel->getValue(), [

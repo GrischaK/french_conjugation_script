@@ -84,7 +84,9 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
         || $exceptionmodel->isMOUVOIR()
         || $exceptionmodel->isPOUVOIR()
         || $exceptionmodel->isSAVOIR()   
-        || $exceptionmodel->isVALOIR()        
+        || $exceptionmodel->isVALOIR()   
+        || $exceptionmodel->isPLEUVOIR()
+        || $exceptionmodel->isFALLOIR()
         || $exceptionmodel->isVOULOIR())
     {
         $word_stem = word_stem_length($infinitiveVerb, 3);
@@ -253,7 +255,17 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
             $word_stem = substr_replace($word_stem, 'oy', 3);
         }
     }
-    
+    if ($exceptionmodel->isPLEUVOIR())
+    {
+        if (($mood->isIndicatif() && $tense->isPresent() && $personIs_1S_2S_3S)
+            || ($mood->isImperatif() && $tense->isPresent() && $personIs_2S)){
+            $word_stem = word_stem_length($infinitiveVerb, 4);
+        }
+        if (($mood->isIndicatif() && $tense->isPasse()) // onky 3S is not defektif
+            || ($mood->isSubjonctif() && $tense->isImparfait())){// onky 3S is not defektif
+            $word_stem = word_stem_length($infinitiveVerb, 6);
+        }        
+    }        
     if (($exceptionmodel->isCHOIR())
         && (   (($mood->isIndicatif() || $mood->isSubjonctif()) && $tense->isPresent() && $personIs_1P_2P)))
     {
@@ -356,6 +368,20 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
             $word_stem = $word_stem.'iss';
         }        
     }
+    if ($exceptionmodel->isFALLOIR())
+    {
+        if  ((($mood->isIndicatif() || ($mood->isSubjonctif())) && $tense->isPresent()))
+        {
+            $word_stem = word_stem_length($infinitiveVerb, 5);
+        }     
+        if  (($mood->isIndicatif() && $tense->isFutur())
+            || ($mood->isConditionnel() && $tense->isPresent()))
+        {
+            $word_stem = word_stem_length($infinitiveVerb, 5);
+            $word_stem = $word_stem.'ud';
+        }
+        
+    }    
     if ($exceptionmodel->isVOULOIR()
         && (   ($mood->isIndicatif() && $tense->isPresent() && $personIs_1S_2S_3S_3P)
             || ($mood->isImperatif() && $tense->isPresent())))
@@ -463,6 +489,8 @@ function participe_present_word_stem(InfinitiveVerb $infinitiveVerb)
         || $exceptionmodel->isSAVOIR() 
         || $exceptionmodel->isVOULOIR()
         || $exceptionmodel->isCEVOIR() 
+        || $exceptionmodel->isFALLOIR()
+        || $exceptionmodel->isPLEUVOIR()
         || $exceptionmodel->isVALOIR())
     {
         $word_stem = word_stem_length($infinitiveVerb, 3);
@@ -504,6 +532,7 @@ function participe_passe_word_stem(InfinitiveVerb $infinitiveVerb)
         || $exceptionmodel->isRIR()
         || $exceptionmodel->isVALOIR() 
         || $exceptionmodel->isVOIR()
+        || $exceptionmodel->isFALLOIR()
         || $exceptionmodel->isVOULOIR())
     {
         $word_stem = word_stem_length($infinitiveVerb, 3);
@@ -526,7 +555,7 @@ function participe_passe_word_stem(InfinitiveVerb $infinitiveVerb)
 
         $word_stem = word_stem_length($infinitiveVerb, 5);
     } 
-    if ($exceptionmodel->isMOUVOIR() || $exceptionmodel->isPOUVOIR())
+    if ($exceptionmodel->isMOUVOIR() || $exceptionmodel->isPOUVOIR() || $exceptionmodel->isPLEUVOIR())
     {    
         $word_stem = word_stem_length($infinitiveVerb, 6);
     }

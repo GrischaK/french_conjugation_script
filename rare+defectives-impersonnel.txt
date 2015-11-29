@@ -1,0 +1,58 @@
+$exceptionmodel->isCHOIR()
+ défectif means don't show like PHP unset function or "-"
+rare -> italic and gre
+
+défectif 
+- Indicatif Imparfait
+- Impératif Présent
+- Participe Présent 	
+- Gérondif Présent
+rare
+- Indicatif Présent 1P+2P
+- Subjonctif Présent
+
+$exceptionmodel->isFAILLIR()
+- Indicatif Présent
+- Indicatif Imparfait
+- Impératif Futur 
+- Subjonctif Présent
+- Subjonctif Imparfait
+- Conditionnel Présent
++ 2+3 forms  ->  
+ - faire défaut », 3e groupe  
+ - faire défaut », 3e groupe, 2e forme  
+ - faire faillite », 2e groupe
+-----------------
+$exceptionmodel->isPOUVOIR
+
+défectif
+- Impératif  Présent
+
+
+// 2 forms
+$red_slash = '/';
+
+$exceptionmodel->isSEOIR
+all forms, but Subjonctif Imparfait and Indicatif Passé simple same
+
+$exceptionmodel->isPOUVOIR
+ - Indicatif Présent 1S
+ 
+$exceptionmodel->isVOULOIR
+ - Imperatif Présent 
+ 
+$exceptionmodel->isYER
+ - Indicatif Présent  1S 2S 3S 3P
+ - Indicatif Futur  
+ - Indicatif Subjonctif  1S 2S 3S 3P
+ - Conditionnel Present  
+ - Imperatif Present  2S
+ 
+ 
+ 
+ impersonnel
+$exceptionmodel->isFALLOIR -> no Participe Présent
+$exceptionmodel->isPLEUVOIR
+- all tenses only 3S
+- no Imperatif 
+- no Gérondif

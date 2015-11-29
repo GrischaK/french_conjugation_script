@@ -30,7 +30,9 @@ class ExceptionModel extends Enum {
 		
 // OIR	
 	const DEVOIR = 'devoir';
+	const FALLOIR = 'falloir';	
 	const MOUVOIR = 'mouvoir';
+	const PLEUVOIR = 'pleuvoir';	
 	const POUVOIR = 'pouvoir';
 	const SAVOIR = 'savoir';
 	const VALOIR = 'valoir';
@@ -44,6 +46,7 @@ class ExceptionModel extends Enum {
 // RIR
 	const RIR = 'rir';
 	const COURIR = 'courir';
+	const FLEURIR = 'fleurir';	
 	const MOURIR = 'mourir';
 	const QUERIR = 'querir';
 	
@@ -57,6 +60,6 @@ class ExceptionModel extends Enum {
 	const TIR = 'tir';
 	const VETIR = 'vetir';	
 	const FUIR = 'fuir';	
-	const SERVIR = 'servir';	
+	const SERVIR = 'servir';
 }
 ?>
