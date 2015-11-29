@@ -1,4 +1,4 @@
-# French Conjugator
+# French Verb Conjugation
 
 [![Code Review](http://www.zomis.net/codereview/shield/?qid=111847)](http://codereview.stackexchange.com/q/111847/75443)
 
