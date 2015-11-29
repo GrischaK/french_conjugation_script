@@ -5854,6 +5854,133 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider FALLOIR_Provider
+     */
+    public function testFALLOIR_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function FALLOIR_Provider()
+    {
+        return [
+            [
+                'faut',
+                'falloir',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'fallait',
+                'falloir',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'faudra',
+                'falloir',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'fallut',
+                'falloir',
+                'Passe',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'faille',
+                'falloir',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'fallût',
+                'falloir',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'faudrait',
+                'falloir',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider PLEUVOIR_Provider
+     */
+    public function testPLEUVOR_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function PLEUVOIR_Provider()
+    {
+        return [         
+            [
+                'pleut',
+                'pleuvoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],                    
+            [
+                'plut',
+                'pleuvoir',
+                'Passe',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],          
+            [
+                'pleuvra',
+                'pleuvoir',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],               
+            [
+                'pleuve',
+                'pleuvoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+           
+            [
+                'pleuvent',
+                'pleuvoir',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'plût',
+                'pleuvoir',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],          
+            [
+                'pleuvrait',
+                'pleuvoir',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ], 
+        ];
+    }
+
+    /**
      * @dataProvider RIR_Provider
      */
     public function testRIR_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
@@ -6651,6 +6778,105 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Present',
                 'SecondPersonSingular',
                 'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider FLEURIR_Provider
+     */
+    public function testFLEURI_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function FLEURIR_Provider()
+    {
+        return [
+            
+            [ // regular
+                'fleuris',
+                'fleurir',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular
+                'fleuris',
+                'fleurir',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular
+                'fleurit',
+                'fleurir',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular
+                'fleurissons',
+                'fleurir',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular
+                'fleurissez',
+                'fleurir',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular
+                'fleurissent',
+                'fleurir',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular with 2 different word_stems
+                'fleurissais / florissais',
+                'fleurir',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular with 2 different word_stems
+                'fleurissais / florissais',
+                'fleurir',
+                'Imparfait',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular with 2 different word_stems
+                'fleurissait / florissait',
+                'fleurir',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // regular with 2 different word_stems
+                'fleurissions / florissions',
+                'fleurir',
+                'Imparfait',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular with 2 different word_stems
+                'fleurissiez / florissiez',
+                'fleurir',
+                'Imparfait',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [ // regular with 2 different word_stems
+                'fleurissaient / florissaient',
+                'fleurir',
+                'Imparfait',
+                'ThirdPersonPlural',
+                'Indicatif'
             ]
         ];
     }

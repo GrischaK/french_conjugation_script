@@ -209,6 +209,18 @@ class ExceptionModelTest extends PHPUnit_Framework_TestCase
             [
                 ExceptionModel::VETIR,
                 'vêtir'
+            ],
+            [
+                ExceptionModel::FLEURIR,
+                'fleurir'
+            ],
+            [
+                ExceptionModel::PLEUVOIR,
+                'pleuvoir'
+            ],
+            [
+                ExceptionModel::FALLOIR,
+                'falloir'
             ]
         ];
     }

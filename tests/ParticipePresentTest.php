@@ -57,6 +57,18 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase
                 'assoir'
             ],
             [
+                'fallant',
+                'falloir'
+            ],
+            [
+                'pleuvant',
+                'pleuvoir'
+            ],
+            [
+                'fleurissant / florissant',
+                'fleurir'
+            ],
+            [
                 'faillant',
                 'faillir'
             ],

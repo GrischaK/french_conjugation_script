@@ -119,6 +119,18 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase
                 'assoir'
             ],
             [
+                'fallu',
+                'falloir'
+            ],
+            [
+                'plu',
+                'pleuvoir'
+            ],
+            [
+                'fleuri',
+                'fleurir'
+            ],
+            [
                 'failli',
                 'faillir'
             ],
