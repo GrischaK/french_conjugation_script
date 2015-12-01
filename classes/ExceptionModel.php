@@ -61,5 +61,21 @@ class ExceptionModel extends Enum {
 	const VETIR = 'vetir';	
 	const FUIR = 'fuir';	
 	const SERVIR = 'servir';
+	
+//
+	const FAIRE = 'faire';
+	const PLAIRE = 'plaire';
+	const RAIRE = 'raire';
+	const TAIRE = 'taire';
+	
+	const VAINCRE = 'vaincre';	
+	const DRE = 'dre';
+	const PRENDRE = 'prendre';
+	const INDRE = 'indre';
+	const OINDRE = 'oindre'; // the rules like -indre ...
+	const COUDRE = 'coudre';
+	const MOUDRE = 'moudre';
+	const SOUDRE = 'soudre';
+	const RESOUDRE = 'resoudre';	
 }
 ?>
