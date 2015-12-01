@@ -76,6 +76,21 @@ class ExceptionModel extends Enum {
 	const COUDRE = 'coudre';
 	const MOUDRE = 'moudre';
 	const SOUDRE = 'soudre';
-	const RESOUDRE = 'resoudre';	
+	const RESOUDRE = 'resoudre';
+	
+	const OCCIRE = 'occire';
+	const CIRCONCIRE = 'circoncire';
+	const DIRE = 'dire';	
+	const MAUDIRE = 'maudire';	
+	const SUFFIRE = 'suffire';
+	const CONFIRE = 'confire';
+	const LIRE = 'lire';
+	const BOIRE = 'boire';
+	const CROIRE = 'croire';
+	const RIRE = 'rire';
+	const CRIRE = 'crire';
+	const FRIRE = 'frire';
+	const UIRE = 'uire';
+	const BRUIRE = 'bruire';
 }
 ?>

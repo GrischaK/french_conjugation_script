@@ -261,6 +261,62 @@ class IrregularExceptionGroup
         'résoudre'
     ];
 
+    public static $occire = [
+        'occire'
+    ];
+
+    public static $circoncire = [
+        'circoncire'
+    ];
+
+    public static $dire = [
+        'dire'
+    ];
+
+    public static $maudire = [
+        'maudire'
+    ];
+
+    public static $suffire = [
+        'suffire'
+    ];
+
+    public static $confire = [
+        'confire'
+    ];
+
+    public static $lire = [
+        'lire'
+    ];
+
+    public static $boire = [
+        'boire'
+    ];
+
+    public static $croire = [
+        'croire'
+    ];
+
+    public static $rire = [
+        'rire'
+    ];
+
+    public static $crire = [
+        'écrire'
+    ];
+
+    public static $frire = [
+        'frire'
+    ];
+
+    public static $uire = [
+        'cuire'
+    ];
+
+    public static $bruire = [
+        'bruire'
+    ];
+
     public static $ohne_iss;
 
     static function init()

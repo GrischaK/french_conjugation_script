@@ -165,7 +165,6 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb)
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$saillir)) {
         $exceptionmodel = ExceptionModel::SAILLIR;
     }
-    
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$valoir)) {
         $exceptionmodel = ExceptionModel::VALOIR;
     }
@@ -225,6 +224,49 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb)
     }
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$resoudre)) {
         $exceptionmodel = ExceptionModel::RESOUDRE;
+    }
+    
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$occire)) {
+        $exceptionmodel = ExceptionModel::OCCIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$circoncire)) {
+        $exceptionmodel = ExceptionModel::CIRCONCIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$dire)) {
+        $exceptionmodel = ExceptionModel::DIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$maudire)) {
+        $exceptionmodel = ExceptionModel::MAUDIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$suffire)) {
+        $exceptionmodel = ExceptionModel::SUFFIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$confire)) {
+        $exceptionmodel = ExceptionModel::CONFIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$lire)) {
+        $exceptionmodel = ExceptionModel::LIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$boire)) {
+        $exceptionmodel = ExceptionModel::BOIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$croire)) {
+        $exceptionmodel = ExceptionModel::CROIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$rire)) {
+        $exceptionmodel = ExceptionModel::RIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$crire)) {
+        $exceptionmodel = ExceptionModel::CRIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$frire)) {
+        $exceptionmodel = ExceptionModel::FRIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$uire)) {
+        $exceptionmodel = ExceptionModel::UIRE;
+    }
+    if (in_array($infinitiveVerb, IrregularExceptionGroup::$bruire)) {
+        $exceptionmodel = ExceptionModel::BRUIRE;
     }
     return new ExceptionModel($exceptionmodel);
 }
@@ -519,11 +561,12 @@ function conjugate(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
     $conjugated_verb = word_stem($infinitiveVerb, $person, $tense, $mood) . ending($person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb);
     
     $word_stem_last_char = mb_substr(word_stem($infinitiveVerb, $person, $tense, $mood), - 1);
+    $word_stem_last_2chars = mb_substr(word_stem($infinitiveVerb, $person, $tense, $mood), - 2);
     $ending_first_char = mb_substr(ending($person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb), 0, 1);
     $i_variants = [
         'i',
         'î',
-        'ï'
+        'ï',
     ];
     if (in_array($word_stem_last_char, $i_variants) && in_array($ending_first_char, $i_variants) && ! in_array($infinitiveVerb, [
         'abrier',
@@ -531,15 +574,25 @@ function conjugate(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
         'planchéier',
         'paranoïer',
         'fleurir'
-    ])) // should be replaced with static $ier + $e_akut_ier+ $i_trema_er
+    ])) // should be replaced with static $ier + $e_akut_ier + $i_trema_er 
 { // example used it: $fuir verbs
         return mb_substr(word_stem($infinitiveVerb, $person, $tense, $mood), 0, - 1) . ending($person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb); // delete last char in word_stem
     }
+    if (in_array($word_stem_last_2chars, ['oi']) && in_array($ending_first_char, ['u'])) // should be replaced with static $boire
+    { // example used it: $boire verbs for Indicative Passe+Subjontif Imparfait
+    return mb_substr(word_stem($infinitiveVerb, $person, $tense, $mood), 0, - 2) . ending($person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb); // delete last char i
+    }
+    if (in_array($word_stem_last_char, ['i']) && in_array($ending_first_char, ['u','y'])) // should be replaced with static $lire
+    { // example used it: $lire verbs for Indicative Passe+Subjontif Imparfait
+    return mb_substr(word_stem($infinitiveVerb, $person, $tense, $mood), 0, - 1) . ending($person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb); // delete last char in word_stem
+    }
+ 
     if (in_array($word_stem_last_char, [
         'c', // used in VAINCRE
-        'd', // used in COUDRE + DRE, 
-        't' // used in VETIR
-    ]) && $ending_first_char == 't') {
+        'd', // used in COUDRE + DRE,
+        't'
+    ] // used in VETIR
+) && $ending_first_char == 't') {
         return word_stem($infinitiveVerb, $person, $tense, $mood) . mb_substr(ending($person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb), 0, - 1); // delete ending string
     } else
         return $conjugated_verb;
@@ -657,15 +710,26 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
     if ($exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR)
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'eu';
     if ($exceptionmodel->getValue() === ExceptionModel::ETRE_IRR)
-        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'été';
-    if ($exceptionmodel->getValue() === ExceptionModel::SOUDRE)
+        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'été';   
+    if ($exceptionmodel->isSOUDRE() 
+        || $exceptionmodel->isOCCIRE()
+        || $exceptionmodel->isCIRCONCIRE())
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 's';
-    
+        if ($exceptionmodel->isRIRE() 
+            || $exceptionmodel->isSUFFIRE())
+            $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'i';        
     if (in_array(finding_exception_model($infinitiveVerb)->getValue(), [
         ExceptionModel::FAIRE,
         ExceptionModel::RAIRE,
         ExceptionModel::INDRE,
-        ExceptionModel::OINDRE
+        ExceptionModel::OINDRE,
+        ExceptionModel::DIRE,
+        ExceptionModel::MAUDIRE,
+        ExceptionModel::CONFIRE,
+        ExceptionModel::CRIRE,
+        ExceptionModel::FRIRE,
+        ExceptionModel::UIRE,
+        ExceptionModel::BRUIRE
     ]))
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 't';
     return $participe_passe;
@@ -899,5 +963,5 @@ function conjugation_phrase(InfinitiveVerb $infinitiveVerb, Person $person, Tens
     $visitor = new GoogleTTSConjugationPhraseVisitor();
     return $conjugationPhrase->accept($visitor);
 }
-$variable = conjugate(new InfinitiveVerb('aimer'), new Person(Person::FirstPersonSingular), new Tense(Tense::Present), new Mood(Mood::Indicatif), new EndingWith(EndingWith::ER));
+// $variable = conjugate(new InfinitiveVerb('aimer'), new Person(Person::FirstPersonSingular), new Tense(Tense::Present), new Mood(Mood::Indicatif), new EndingWith(EndingWith::ER));
 ?>

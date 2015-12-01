@@ -417,6 +417,11 @@ $tense->isPasse() || $tense->isFutur() || ($mood->isSubjonctif() && $tense->isIm
             || ($mood->isImperatif() && $tense->isPresent()) && $personIs_1P_2P) {
                 $word_stem = substr_replace($word_stem, 'lv', - 2);
             }
+    }  
+    if ($exceptionmodel->isBOIRE()) {
+        if ($mood->isIndicatif() && ($tense->isImparfait())) {
+                $word_stem = substr_replace($word_stem, 'u', -2);
+            }
     }    
     return $word_stem;
 }
@@ -426,16 +431,17 @@ function participe_present_word_stem(InfinitiveVerb $infinitiveVerb)
     $exceptionmodel = finding_exception_model($infinitiveVerb); // without this line Undefined variable
     $word_stem = word_stem_length($infinitiveVerb, 2); // without this line Undefined variable
     
-    if ($exceptionmodel->isCER() || $exceptionmodel->isGER()) {
+    if ($exceptionmodel->isCER() 
+        || $exceptionmodel->isGER()) {
         if (substr(word_stem_length($infinitiveVerb, 2), - 1) == 'c') {
             $word_stem = substr_replace($word_stem, 'ç', - 1);
         }
         if (substr(word_stem_length($infinitiveVerb, 2), - 1) == 'g') {
             $word_stem = $word_stem . 'e';
         }
-    }
-    
-    if ($exceptionmodel->isDEVOIR() || $exceptionmodel->isMOUVOIR() 
+    }   
+    if ($exceptionmodel->isDEVOIR() 
+        || $exceptionmodel->isMOUVOIR() 
         || $exceptionmodel->isPOUVOIR() 
         || $exceptionmodel->isSAVOIR() 
         || $exceptionmodel->isVOULOIR() 
@@ -455,33 +461,61 @@ function participe_present_word_stem(InfinitiveVerb $infinitiveVerb)
     if ($exceptionmodel->isAVOIR_IRR()) {
         $word_stem = word_stem_length($infinitiveVerb, 5);
     }
-    if ($exceptionmodel->isFUIR() || $exceptionmodel->isVOIR()) {
+    if ($exceptionmodel->isFUIR() 
+        || $exceptionmodel->isVOIR()) {
         $word_stem = word_stem_length($infinitiveVerb, 2) . 'y';
     }
-    if ($exceptionmodel->isFAIRE() || $exceptionmodel->isPLAIRE() || $exceptionmodel->isTAIRE()) {
+    if ($exceptionmodel->isFAIRE() 
+        || $exceptionmodel->isPLAIRE() 
+        || $exceptionmodel->isTAIRE()) {
         $word_stem = word_stem_length($infinitiveVerb, 2) . 's';
     }
-    if ($exceptionmodel->isDORMIR() || $exceptionmodel->isTIR() || $exceptionmodel->isSERVIR() || $exceptionmodel->isPRENDRE()) {
+    if ($exceptionmodel->isDORMIR() 
+        || $exceptionmodel->isTIR() 
+        || $exceptionmodel->isSERVIR() 
+        || $exceptionmodel->isPRENDRE()) {
         $word_stem = word_stem_length($infinitiveVerb, 3);
     }
     if ($exceptionmodel->isVAINCRE()) {
         $word_stem = substr_replace($word_stem, 'qu', -1);
     }    
-    if ($exceptionmodel->isRAIRE()) {
+    if ($exceptionmodel->isRAIRE() 
+        || $exceptionmodel->isCROIRE()) {
         $word_stem = substr_replace($word_stem, 'y', - 1);
     } 
     if ($exceptionmodel->isMOUDRE()) {
         $word_stem = substr_replace($word_stem, 'l', - 1);
     }
-    if ($exceptionmodel->isCOUDRE()) {
+    if ($exceptionmodel->isCOUDRE() 
+        || $exceptionmodel->isOINDRE()) {
         $word_stem = substr_replace($word_stem, 's', - 1);
     }   
-    if ($exceptionmodel->isINDRE() || $exceptionmodel->isOINDRE()) {
+    if ($exceptionmodel->isINDRE() 
+        || $exceptionmodel->isOINDRE()) {
         $word_stem = substr_replace($word_stem, 'gn', - 2);
     }    
-    if ($exceptionmodel->isSOUDRE() || $exceptionmodel->isRESOUDRE()) {
+    if ($exceptionmodel->isSOUDRE() 
+        || $exceptionmodel->isRESOUDRE()) {
         $word_stem = substr_replace($word_stem, 'lv', - 2);
-    }    
+    }
+    if ($exceptionmodel->isSUFFIRE() 
+        || $exceptionmodel->isCIRCONCIRE()
+        || $exceptionmodel->isDIRE()
+        || $exceptionmodel->isCONFIRE()
+        || $exceptionmodel->isLIRE()
+        || $exceptionmodel->isUIRE()) {
+        $word_stem = word_stem_length($infinitiveVerb, 2).'s';
+    }  
+    if ($exceptionmodel->isMAUDIRE()
+        || $exceptionmodel->isBRUIRE()) {
+        $word_stem = word_stem_length($infinitiveVerb, 2).'ss';
+        }    
+    if ($exceptionmodel->isCRIRE()) {
+        $word_stem = word_stem_length($infinitiveVerb, 2).'v';
+        }  
+    if ($exceptionmodel->isBOIRE()) {
+        $word_stem = word_stem_length($infinitiveVerb, 4).'uv';
+            }        
     return $word_stem;
 }
 
@@ -498,7 +532,10 @@ function participe_passe_word_stem(InfinitiveVerb $infinitiveVerb)
         || $exceptionmodel->isVOULOIR()
         || $exceptionmodel->isINDRE()
         || $exceptionmodel->isOINDRE()
-        || $exceptionmodel->isSOUDRE()) {
+        || $exceptionmodel->isSOUDRE()
+        || $exceptionmodel->isSUFFIRE()        
+        || $exceptionmodel->isLIRE()
+        || $exceptionmodel->isRIRE()) {
         $word_stem = word_stem_length($infinitiveVerb, 3);
     }
     
@@ -506,7 +543,9 @@ function participe_passe_word_stem(InfinitiveVerb $infinitiveVerb)
         || $exceptionmodel->isQUERIR() 
         || $exceptionmodel->isSEOIR() 
         || $exceptionmodel->isPLAIRE()
-        || $exceptionmodel->isTAIRE()) {
+        || $exceptionmodel->isTAIRE()
+        || $exceptionmodel->isCROIRE()        
+        || $exceptionmodel->isBOIRE()) {
         $word_stem = word_stem_length($infinitiveVerb, 4);
     }
     
@@ -527,12 +566,12 @@ function participe_passe_word_stem(InfinitiveVerb $infinitiveVerb)
     if ($exceptionmodel->isMOUDRE()) {
         $word_stem = substr_replace($word_stem, 'l', - 1);
     }
-    if ($exceptionmodel->isCOUDRE()) {
+    if ($exceptionmodel->isCOUDRE()) { 
         $word_stem = substr_replace($word_stem, 's', - 1);
     }     
     if ($exceptionmodel->isRESOUDRE()) {
         $word_stem = substr_replace($word_stem, 'l', - 2);
-    }     
+    }   
     return $word_stem;
 }
 ?>
