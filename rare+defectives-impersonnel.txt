@@ -48,6 +48,15 @@ $exceptionmodel->isYER
  - Conditionnel Present  
  - Imperatif Present  2S
  
+$exceptionmodel->isRAIRE()
+- Indicatif Imparfait
+- Subjonctif Imparfait
+
+$exceptionmodel->isSOUDRE()
+- Indicatif Passé
+- Subjonctif Imparfait
+ 
+résoudre 2 more variatns? 
  
  
  impersonnel
