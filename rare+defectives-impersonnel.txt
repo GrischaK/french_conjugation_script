@@ -56,8 +56,14 @@ $exceptionmodel->isSOUDRE()
 - Indicatif Passé
 - Subjonctif Imparfait
  
-résoudre 2 more variatns? 
+$exceptionmodel->isRESOUDRE -> 2 more variants
+$exceptionmodel->isBRUIRE  --> 1 more variant
+
+$exceptionmodel->isOCCIRE()
+- most forms are  défectif
  
+$exceptionmodel->isFRIRE()
+- most forms are  défectif 
  
  impersonnel
 $exceptionmodel->isFALLOIR -> no Participe Présent
