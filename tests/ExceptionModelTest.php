@@ -221,6 +221,55 @@ class ExceptionModelTest extends PHPUnit_Framework_TestCase
             [
                 ExceptionModel::FALLOIR,
                 'falloir'
+            ],
+            [
+                ExceptionModel::FAIRE,
+                'faire'
+            ],
+            [
+                ExceptionModel::PLAIRE,
+                'plaire'
+            ],
+            [
+                ExceptionModel::RAIRE,
+                'braire'
+            ],
+            
+            [
+                ExceptionModel::VAINCRE,
+                'vaincre'
+            ],
+            [
+                ExceptionModel::DRE,
+                'attendre'
+            ],
+            [
+                ExceptionModel::PRENDRE,
+                'prendre'
+            ],
+            [
+                ExceptionModel::INDRE,
+                'plaindre'
+            ],
+            [
+                ExceptionModel::OINDRE,
+                'joindre'
+            ],
+            [
+                ExceptionModel::COUDRE,
+                'coudre'
+            ],
+            [
+                ExceptionModel::MOUDRE,
+                'moudre'
+            ],
+            [
+                ExceptionModel::SOUDRE,
+                'absoudre'
+            ],
+            [
+                ExceptionModel::RESOUDRE,
+                'résoudre'
             ]
         ];
     }

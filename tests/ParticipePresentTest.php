@@ -120,6 +120,58 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase
             [
                 'vêtant',
                 'vêtir'
+            ],
+            [
+                'faisant',
+                'faire'
+            ],
+            [
+                'brayant',
+                'braire'
+            ],
+            [
+                'plaisant',
+                'plaire'
+            ],
+            [
+                'taisant',
+                'taire'
+            ],
+            [
+                'vainquant',
+                'vaincre'
+            ],
+            [
+                'attendant',
+                'attendre'
+            ],
+            [
+                'prenant',
+                'prendre'
+            ],
+            [
+                'plaignant',
+                'plaindre'
+            ],
+            [
+                'joignant',
+                'joindre'
+            ],
+            [
+                'cousant',
+                'coudre'
+            ],
+            [
+                'moulant',
+                'moudre'
+            ],
+            [
+                'absolvant',
+                'absoudre'
+            ],
+            [
+                'résolvant',
+                'résoudre'
             ]
         ];
     }

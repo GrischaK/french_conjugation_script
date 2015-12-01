@@ -32,6 +32,10 @@ class InfinitiveEndingTest extends PHPUnit_Framework_TestCase
                 'être'
             ],
             [
+                EndingWith::RE,
+                'plaire'
+            ],           
+            [
                 EndingWith::OIR,
                 'cevoir'
             ],
