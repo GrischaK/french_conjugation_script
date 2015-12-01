@@ -9501,15 +9501,19 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
             ]
         ];
     }
+
     /**
      * @dataProvider INDRE_Provider
      */
-    public function testINDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testINDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function INDRE_Provider() {
+
+    public function INDRE_Provider()
+    {
         return [
-    
+            
             [
                 'plains',
                 'plaindre',
@@ -9552,7 +9556,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'plaignais',
                 'plaindre',
@@ -9560,7 +9564,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'plaignis',
                 'plaindre',
@@ -9568,7 +9572,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'plaindrai',
                 'plaindre',
@@ -9590,7 +9594,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'plaindrons',
                 'plaindre',
@@ -9612,7 +9616,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'plaigne',
                 'plaindre',
@@ -9662,7 +9666,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'plaindrais',
                 'plaindre',
@@ -9705,7 +9709,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'plains',
                 'plaindre',
@@ -9729,15 +9733,19 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
             ]
         ];
     }
+
     /**
      * @dataProvider OINDRE_Provider
      */
-    public function testOINDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testOINDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function OINDRE_Provider() {
+
+    public function OINDRE_Provider()
+    {
         return [
-    
+            
             [
                 'joins',
                 'joindre',
@@ -9780,7 +9788,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'joignais',
                 'joindre',
@@ -9788,7 +9796,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'joignis',
                 'joindre',
@@ -9796,7 +9804,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'joindrai',
                 'joindre',
@@ -9818,7 +9826,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'joindrons',
                 'joindre',
@@ -9840,7 +9848,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'joigne',
                 'joindre',
@@ -9890,7 +9898,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'joindrais',
                 'joindre',
@@ -9933,7 +9941,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'joins',
                 'joindre',
@@ -9956,16 +9964,20 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    }  
+    }
+
     /**
      * @dataProvider COUDRE_Provider
      */
-    public function testCOUDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testCOUDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function COUDRE_Provider() {
+
+    public function COUDRE_Provider()
+    {
         return [
-    
+            
             [
                 'couds',
                 'coudre',
@@ -10008,7 +10020,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'cousais',
                 'coudre',
@@ -10016,7 +10028,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'cousis',
                 'coudre',
@@ -10024,7 +10036,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'coudrai',
                 'coudre',
@@ -10046,7 +10058,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'coudrons',
                 'coudre',
@@ -10068,7 +10080,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'couse',
                 'coudre',
@@ -10118,7 +10130,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'coudrais',
                 'coudre',
@@ -10161,7 +10173,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'couds',
                 'coudre',
@@ -10184,16 +10196,20 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    }  
+    }
+
     /**
      * @dataProvider MOUDRE_Provider
      */
-    public function testMOUDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testMOUDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function MOUDRE_Provider() {
+
+    public function MOUDRE_Provider()
+    {
         return [
-    
+            
             [
                 'mouds',
                 'moudre',
@@ -10236,7 +10252,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'moulais',
                 'moudre',
@@ -10244,7 +10260,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'moulus',
                 'moudre',
@@ -10252,7 +10268,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'moudrai',
                 'moudre',
@@ -10274,7 +10290,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'moudrons',
                 'moudre',
@@ -10296,7 +10312,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'moule',
                 'moudre',
@@ -10346,7 +10362,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'moudrais',
                 'moudre',
@@ -10389,7 +10405,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'mouds',
                 'moudre',
@@ -10412,16 +10428,20 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    }    
+    }
+
     /**
      * @dataProvider SOUDRE_Provider
      */
-    public function testSOUDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testSOUDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function SOUDRE_Provider() {
+
+    public function SOUDRE_Provider()
+    {
         return [
-    
+            
             [
                 'absous',
                 'absoudre',
@@ -10464,7 +10484,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'absolvais',
                 'absoudre',
@@ -10472,7 +10492,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'absolus',
                 'absoudre',
@@ -10480,7 +10500,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'absoudrai',
                 'absoudre',
@@ -10502,7 +10522,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'absoudrons',
                 'absoudre',
@@ -10524,7 +10544,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'absolve',
                 'absoudre',
@@ -10574,7 +10594,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'absoudrais',
                 'absoudre',
@@ -10617,7 +10637,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'absous',
                 'absoudre',
@@ -10640,16 +10660,20 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    }   
+    }
+
     /**
      * @dataProvider RESOUDRE_Provider
      */
-    public function testRESOUDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testRESOUDRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function RESOUDRE_Provider() {
+
+    public function RESOUDRE_Provider()
+    {
         return [
-    
+            
             [
                 'résous',
                 'résoudre',
@@ -10692,7 +10716,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'résolvais',
                 'résoudre',
@@ -10700,7 +10724,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'résolus',
                 'résoudre',
@@ -10708,7 +10732,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'résoudrai',
                 'résoudre',
@@ -10730,7 +10754,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'résoudrons',
                 'résoudre',
@@ -10752,7 +10776,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'résolve',
                 'résoudre',
@@ -10802,7 +10826,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'résoudrais',
                 'résoudre',
@@ -10845,7 +10869,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'résous',
                 'résoudre',
@@ -10868,10 +10892,11 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    }    
+    }
+
     /**
      * @dataProvider FAIRE_Provider
-     */    
+     */
     public function testFAIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
     {
         $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
@@ -11794,6 +11819,2892 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
         ];
     }
 
+    /**
+     * @dataProvider CIRCONCIRE_Provider
+     */
+    public function testCIRCONCIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function CIRCONCIRE_Provider()
+    {
+        return [
+            
+            [
+                'circoncis',
+                'circoncire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'circoncis',
+                'circoncire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'circoncit',
+                'circoncire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'circoncisons',
+                'circoncire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'circoncisez',
+                'circoncire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'circoncisent',
+                'circoncire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'circoncisais',
+                'circoncire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'circoncis',
+                'circoncire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'circoncirai',
+                'circoncire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'circonciras',
+                'circoncire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'circoncira',
+                'circoncire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'circoncirons',
+                'circoncire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'circoncirez',
+                'circoncire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'circonciront',
+                'circoncire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'circoncise',
+                'circoncire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'circoncises',
+                'circoncire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'circoncise',
+                'circoncire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'circoncisions',
+                'circoncire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'circoncisiez',
+                'circoncire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'circoncisent',
+                'circoncire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'circoncisse',
+                'circoncire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'circoncirais',
+                'circoncire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'circoncirais',
+                'circoncire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'circoncirait',
+                'circoncire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'circoncirions',
+                'circoncire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'circonciriez',
+                'circoncire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'circonciraient',
+                'circoncire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'circoncis',
+                'circoncire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'circoncisons',
+                'circoncire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'circoncisez',
+                'circoncire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider DIRE_Provider
+     */
+    public function testDIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function DIRE_Provider()
+    {
+        return [
+            
+            [
+                'dis',
+                'dire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'dis',
+                'dire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'dit',
+                'dire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'disons',
+                'dire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'disez',
+                'dire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'disent',
+                'dire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'disais',
+                'dire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'dis',
+                'dire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'dirai',
+                'dire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'diras',
+                'dire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'dira',
+                'dire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'dirons',
+                'dire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'direz',
+                'dire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'diront',
+                'dire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'dise',
+                'dire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'dises',
+                'dire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'dise',
+                'dire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'disions',
+                'dire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'disiez',
+                'dire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'disent',
+                'dire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'disse',
+                'dire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'dirais',
+                'dire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'dirais',
+                'dire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'dirait',
+                'dire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'dirions',
+                'dire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'diriez',
+                'dire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'diraient',
+                'dire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'dis',
+                'dire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'disons',
+                'dire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'dites',
+                'dire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider MAUDIRE_Provider
+     */
+    public function testMAUDIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function MAUDIRE_Provider()
+    {
+        return [
+            
+            [
+                'maudis',
+                'maudire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'maudis',
+                'maudire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'maudit',
+                'maudire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'maudissons',
+                'maudire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'maudissez',
+                'maudire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'maudissent',
+                'maudire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'maudissais',
+                'maudire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'maudis',
+                'maudire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'maudirai',
+                'maudire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'maudiras',
+                'maudire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'maudira',
+                'maudire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'maudirons',
+                'maudire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'maudirez',
+                'maudire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'maudiront',
+                'maudire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'maudisse',
+                'maudire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'maudisses',
+                'maudire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'maudisse',
+                'maudire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'maudissions',
+                'maudire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'maudissiez',
+                'maudire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'maudissent',
+                'maudire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'maudisse',
+                'maudire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'maudirais',
+                'maudire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'maudirais',
+                'maudire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'maudirait',
+                'maudire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'maudirions',
+                'maudire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'maudiriez',
+                'maudire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'maudiraient',
+                'maudire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'maudis',
+                'maudire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'maudissons',
+                'maudire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'maudissez',
+                'maudire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider SUFFIRE_Provider
+     */
+    public function testSUFFIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function SUFFIRE_Provider()
+    {
+        return [
+            
+            [
+                'suffis',
+                'suffire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'suffis',
+                'suffire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'suffit',
+                'suffire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'suffisons',
+                'suffire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'suffisez',
+                'suffire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'suffisent',
+                'suffire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'suffisais',
+                'suffire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'suffis',
+                'suffire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'suffirai',
+                'suffire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'suffiras',
+                'suffire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'suffira',
+                'suffire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'suffirons',
+                'suffire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'suffirez',
+                'suffire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'suffiront',
+                'suffire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'suffise',
+                'suffire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'suffises',
+                'suffire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'suffise',
+                'suffire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'suffisions',
+                'suffire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'suffisiez',
+                'suffire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'suffisent',
+                'suffire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'suffisse',
+                'suffire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'suffirais',
+                'suffire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'suffirais',
+                'suffire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'suffirait',
+                'suffire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'suffirions',
+                'suffire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'suffiriez',
+                'suffire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'suffiraient',
+                'suffire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'suffis',
+                'suffire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'suffisons',
+                'suffire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'suffisez',
+                'suffire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider CONFIRE_Provider
+     */
+    public function testCONFIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function CONFIRE_Provider()
+    {
+        return [
+            
+            [
+                'confis',
+                'confire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'confis',
+                'confire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'confit',
+                'confire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'confisons',
+                'confire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'confisez',
+                'confire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'confisent',
+                'confire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'confisais',
+                'confire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'confis',
+                'confire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'confirai',
+                'confire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'confiras',
+                'confire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'confira',
+                'confire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'confirons',
+                'confire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'confirez',
+                'confire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'confiront',
+                'confire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'confise',
+                'confire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'confises',
+                'confire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'confise',
+                'confire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'confisions',
+                'confire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'confisiez',
+                'confire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'confisent',
+                'confire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'confisse',
+                'confire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'confirais',
+                'confire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'confirais',
+                'confire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'confirait',
+                'confire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'confirions',
+                'confire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'confiriez',
+                'confire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'confiraient',
+                'confire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'confis',
+                'confire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'confisons',
+                'confire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'confisez',
+                'confire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider LIRE_Provider
+     */
+    public function testLIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function LIRE_Provider()
+    {
+        return [
+            
+            [
+                'lis',
+                'lire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'lis',
+                'lire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'lit',
+                'lire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'lisons',
+                'lire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'lisez',
+                'lire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'lisent',
+                'lire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'lisais',
+                'lire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'lus',
+                'lire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'lirai',
+                'lire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'liras',
+                'lire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'lira',
+                'lire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'lirons',
+                'lire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'lirez',
+                'lire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'liront',
+                'lire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'lise',
+                'lire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'lises',
+                'lire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'lise',
+                'lire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'lisions',
+                'lire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'lisiez',
+                'lire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'lisent',
+                'lire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'lusse',
+                'lire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'lirais',
+                'lire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'lirais',
+                'lire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'lirait',
+                'lire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'lirions',
+                'lire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'liriez',
+                'lire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'liraient',
+                'lire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'lis',
+                'lire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'lisons',
+                'lire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'lisez',
+                'lire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+    /**
+     * @dataProvider BOIRE_Provider
+     */
+    public function testBOIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
+        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    }
+    public function BOIRE_Provider() {
+        return [
+    
+            [
+                'bois',
+                'boire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'bois',
+                'boire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'boit',
+                'boire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'boivons',
+                'boire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'boivez',
+                'boire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'boivent',
+                'boire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'buvais',
+                'boire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'bus',
+                'boire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'boirai',
+                'boire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'boiras',
+                'boire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'boira',
+                'boire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'boirons',
+                'boire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'boirez',
+                'boire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'boiront',
+                'boire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'boive',
+                'boire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'boives',
+                'boire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'boive',
+                'boire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'boivions',
+                'boire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'boiviez',
+                'boire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'boivent',
+                'boire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'busse',
+                'boire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+    
+            [
+                'boirais',
+                'boire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'boirais',
+                'boire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'boirait',
+                'boire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'boirions',
+                'boire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'boiriez',
+                'boire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'boiraient',
+                'boire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+    
+            [
+                'bois',
+                'boire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'boivons',
+                'boire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'boivez',
+                'boire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+    /**
+     * @dataProvider CROIRE_Provider
+     */
+    public function testCROIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
+        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    }
+    public function CROIRE_Provider() {
+        return [
+    
+            [
+                'crois',
+                'croire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'crois',
+                'croire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'croit',
+                'croire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'croyons',
+                'croire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'croyez',
+                'croire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'croient',
+                'croire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'croyais',
+                'croire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'crus',
+                'croire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'croirai',
+                'croire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'croiras',
+                'croire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'croira',
+                'croire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'croirons',
+                'croire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'croirez',
+                'croire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'croiront',
+                'croire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'croie',
+                'croire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'croies',
+                'croire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'croie',
+                'croire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'croyions',
+                'croire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'croyiez',
+                'croire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'croient',
+                'croire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'crusse',
+                'croire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+    
+            [
+                'croirais',
+                'croire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'croirais',
+                'croire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'croirait',
+                'croire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'croirions',
+                'croire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'croiriez',
+                'croire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'croiraient',
+                'croire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+    
+            [
+                'crois',
+                'croire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'croyons',
+                'croire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'croyez',
+                'croire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    } 
+    /**
+     * @dataProvider RIRE_Provider
+     */
+    public function testRIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
+        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    }
+    public function RIRE_Provider() {
+        return [
+    
+            [
+                'ris',
+                'rire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'ris',
+                'rire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'rit',
+                'rire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'rions',
+                'rire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'riez',
+                'rire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'rient',
+                'rire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'riais',
+                'rire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'ris',
+                'rire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'rirai',
+                'rire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'riras',
+                'rire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'rira',
+                'rire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'rirons',
+                'rire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'rirez',
+                'rire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'riront',
+                'rire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'rie',
+                'rire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'ries',
+                'rire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'rie',
+                'rire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'rissions',
+                'rire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'rissiez',
+                'rire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'rissent',
+                'rire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'risse',
+                'rire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+    
+            [
+                'rirais',
+                'rire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'rirais',
+                'rire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'rirait',
+                'rire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'ririons',
+                'rire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'ririez',
+                'rire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'riraient',
+                'rire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+    
+            [
+                'ris',
+                'rire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'rions',
+                'rire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'riez',
+                'rire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }   
+    /**
+     * @dataProvider CRIRE_Provider
+     */
+    public function testCRIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
+        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    }
+    public function CRIRE_Provider() {
+        return [
+    
+            [
+                'écris',
+                'écrire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'écris',
+                'écrire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'écrit',
+                'écrire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'écrivons',
+                'écrire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'écrivez',
+                'écrire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'écrivent',
+                'écrire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'écrivais',
+                'écrire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'écris',
+                'écrire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'écrirai',
+                'écrire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'écriras',
+                'écrire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'écrira',
+                'écrire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'écrirons',
+                'écrire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'écrirez',
+                'écrire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'écriront',
+                'écrire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'écrive',
+                'écrire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'écrives',
+                'écrire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'écrive',
+                'écrire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'écrivions',
+                'écrire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'écriviez',
+                'écrire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'écrivent',
+                'écrire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'écrivisse',
+                'écrire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+    
+            [
+                'écrirais',
+                'écrire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'écrirais',
+                'écrire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'écrirait',
+                'écrire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'écririons',
+                'écrire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'écririez',
+                'écrire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'écriraient',
+                'écrire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+    
+            [
+                'écris',
+                'écrire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'écrivons',
+                'écrire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'écrivez',
+                'écrire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    } 
+    /**
+     * @dataProvider FRIRE_Provider
+     */
+    public function testFRIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
+        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    }
+    public function FRIRE_Provider() {
+        return [
+    
+            [
+                'fris',
+                'frire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'fris',
+                'frire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'frit',
+                'frire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+  
+            [
+                'frirai',
+                'frire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'friras',
+                'frire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'frira',
+                'frire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'frirons',
+                'frire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'frirez',
+                'frire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'friront',
+                'frire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'frirais',
+                'frire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'frirais',
+                'frire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'frirait',
+                'frire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'fririons',
+                'frire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'fririez',
+                'frire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'friraient',
+                'frire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+    
+            [
+                'fris',
+                'frire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ]
+        ];
+    }  
+    /**
+     * @dataProvider UIRE_Provider
+     */
+    public function testUIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
+        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    }
+    public function UIRE_Provider() {
+        return [
+    
+            [
+                'cuis',
+                'cuire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'cuis',
+                'cuire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'cuit',
+                'cuire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'cuisons',
+                'cuire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'cuisez',
+                'cuire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'cuisent',
+                'cuire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'cuisais',
+                'cuire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'cuisis',
+                'cuire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'cuirai',
+                'cuire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'cuiras',
+                'cuire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'cuira',
+                'cuire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'cuirons',
+                'cuire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'cuirez',
+                'cuire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'cuiront',
+                'cuire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'cuise',
+                'cuire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'cuises',
+                'cuire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'cuise',
+                'cuire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'cuisions',
+                'cuire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'cuisiez',
+                'cuire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'cuisent',
+                'cuire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'cuisisse',
+                'cuire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+    
+            [
+                'cuirais',
+                'cuire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'cuirais',
+                'cuire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'cuirait',
+                'cuire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'cuirions',
+                'cuire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'cuiriez',
+                'cuire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'cuiraient',
+                'cuire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+    
+            [
+                'cuis',
+                'cuire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'cuisons',
+                'cuire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'cuisez',
+                'cuire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    } 
+    /**
+     * @dataProvider BRUIRE_Provider
+     */
+    public function testBRUIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
+        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    }
+    public function BRUIRE_Provider() {
+        return [
+    
+            [
+                'bruis',
+                'bruire',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'bruis',
+                'bruire',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'bruit',
+                'bruire',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'bruissons',
+                'bruire',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'bruissez',
+                'bruire',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'bruissent',
+                'bruire',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'bruissais',
+                'bruire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'bruis',
+                'bruire',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'bruirai',
+                'bruire',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'bruiras',
+                'bruire',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'bruira',
+                'bruire',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+    
+            [
+                'bruirons',
+                'bruire',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'bruirez',
+                'bruire',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'bruiront',
+                'bruire',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+    
+            [
+                'bruisse',
+                'bruire',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'bruisses',
+                'bruire',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'bruisse',
+                'bruire',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'bruissions',
+                'bruire',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'bruissiez',
+                'bruire',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'bruissent',
+                'bruire',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'bruissasse',
+                'bruire',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+    
+            [
+                'bruirais',
+                'bruire',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'bruirais',
+                'bruire',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'bruirait',
+                'bruire',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'bruirions',
+                'bruire',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'bruiriez',
+                'bruire',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'bruiraient',
+                'bruire',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+    
+            [
+                'bruis',
+                'bruire',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'bruissons',
+                'bruire',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'bruissez',
+                'bruire',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }    
     /**
      * @dataProvider VOIR_Provider
      */

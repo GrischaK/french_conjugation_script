@@ -121,57 +121,54 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase
                 'vêtant',
                 'vêtir'
             ],
+            // re            
             [
-                'faisant',
-                'faire'
+                'circoncisant',
+                'circoncire'
             ],
             [
-                'brayant',
-                'braire'
+                'disant',
+                'dire'
             ],
             [
-                'plaisant',
-                'plaire'
+                'maudissant',
+                'maudire'
             ],
             [
-                'taisant',
-                'taire'
+                'suffisant',
+                'suffire'
             ],
             [
-                'vainquant',
-                'vaincre'
+                'confisant',
+                'confire'
             ],
             [
-                'attendant',
-                'attendre'
+                'lisant',
+                'lire'
             ],
             [
-                'prenant',
-                'prendre'
+                'buvant',
+                'boire'
             ],
             [
-                'plaignant',
-                'plaindre'
+                'croyant',
+                'croire'
             ],
             [
-                'joignant',
-                'joindre'
+                'riant',
+                'rire'
             ],
             [
-                'cousant',
-                'coudre'
+                'écrivant',
+                'écrire'
             ],
             [
-                'moulant',
-                'moudre'
+                'cuisant',
+                'cuire'
             ],
             [
-                'absolvant',
-                'absoudre'
-            ],
-            [
-                'résolvant',
-                'résoudre'
+                'bruissant',
+                'bruire'
             ]
         ];
     }
@@ -198,7 +195,59 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase
             [
                 'acquiesçant',
                 'acquiescer'
-            ]
+            ],
+            [
+            'faisant',
+            'faire'
+                ],
+                [
+                    'brayant',
+                    'braire'
+                ],
+                [
+                    'plaisant',
+                    'plaire'
+                ],
+                [
+                    'taisant',
+                    'taire'
+                ],
+                [
+                    'vainquant',
+                    'vaincre'
+                ],
+                [
+                    'attendant',
+                    'attendre'
+                ],
+                [
+                    'prenant',
+                    'prendre'
+                ],
+                [
+                    'plaignant',
+                    'plaindre'
+                ],
+                [
+                    'joignant',
+                    'joindre'
+                ],
+                [
+                    'cousant',
+                    'coudre'
+                ],
+                [
+                    'moulant',
+                    'moudre'
+                ],
+                [
+                    'absolvant',
+                    'absoudre'
+                ],
+                [
+                    'résolvant',
+                    'résoudre'
+                ]            
         ];
     }
 }

@@ -270,6 +270,62 @@ class ExceptionModelTest extends PHPUnit_Framework_TestCase
             [
                 ExceptionModel::RESOUDRE,
                 'résoudre'
+            ],
+            [
+                ExceptionModel::OCCIRE,
+                'occire'
+            ],
+            [
+                ExceptionModel::CIRCONCIRE,
+                'circoncire'
+            ],
+            [
+                ExceptionModel::DIRE,
+                'dire'
+            ],
+            [
+                ExceptionModel::MAUDIRE,
+                'maudire'
+            ],
+            [
+                ExceptionModel::SUFFIRE,
+                'suffire'
+            ],
+            [
+                ExceptionModel::CONFIRE,
+                'confire'
+            ],
+            [
+                ExceptionModel::LIRE,
+                'lire'
+            ],
+            [
+                ExceptionModel::BOIRE,
+                'boire'
+            ],
+            [
+                ExceptionModel::CROIRE,
+                'croire'
+            ],
+            [
+                ExceptionModel::RIRE,
+                'rire'
+            ],
+            [
+                ExceptionModel::CRIRE,
+                'écrire'
+            ],
+            [
+                ExceptionModel::FRIRE,
+                'frire'
+            ],
+            [
+                ExceptionModel::UIRE,
+                'cuire'
+            ],
+            [
+                ExceptionModel::BRUIRE,
+                'bruire'
             ]
         ];
     }
