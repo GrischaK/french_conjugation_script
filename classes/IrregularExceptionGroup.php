@@ -317,6 +317,52 @@ class IrregularExceptionGroup
         'bruire'
     ];
 
+    public static $clore = [
+        'clore'
+    ];
+
+    public static $rompre = [
+        'rompre'
+    ];  
+    public static $aitre = [
+        'paitre',
+        'paître'
+    ];
+   
+    public static $naitre = [
+        'naitre',
+        'naître'
+    ];
+
+    public static $oitre = [
+        'croitre',
+        'croître'
+    ];
+
+    public static $attre = [
+        'battre'
+    ];
+
+    public static $mettre = [
+        'mettre'
+    ];
+
+    public static $foutre = [
+        'foutre'
+    ];
+
+    public static $clure = [
+        'inclure'
+    ];
+
+    public static $suivre = [
+        'suivre'
+    ];
+
+    public static $vivre = [
+        'vivre'
+    ];
+
     public static $ohne_iss;
 
     static function init()
