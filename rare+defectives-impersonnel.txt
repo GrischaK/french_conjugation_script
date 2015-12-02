@@ -71,3 +71,25 @@ $exceptionmodel->isPLEUVOIR
 - all tenses only 3S
 - no Imperatif 
 - no Gérondif
+
+$exceptionmodel->isFOUTRE
+rare
+- Indicatif Passé simple 
+- Subjonctif Imparfait 
+
+$exceptionmodel->isCLORE
+rare
+- Indicatif Présent 1P+2P
+- Indicatif Imparfait  
+défectif
+- Indicatif Passé simple 
+- Subjonctif Imparfait 
+
+$exceptionmodel->isAITRE
+rare
+- Indicatif Passé simple 
+- Subjonctif Imparfait 
+
+
+issir
+- many forms are défectif
