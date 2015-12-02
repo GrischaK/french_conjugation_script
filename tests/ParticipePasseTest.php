@@ -294,6 +294,51 @@ class ParticipePasseTest extends PHPUnit_Framework_TestCase
             [
                 'bruit',
                 'bruire'
+            ],
+            [
+                'clos',
+                'clore'
+            ],
+            [
+                'rompu',
+                'rompre'
+            ],
+            [
+                'pu',
+                'paitre'
+            ],
+            [
+                'né',
+                'naitre'
+            ],
+            [
+                'crû',
+                'croitre'
+            ],
+            [
+                'battu',
+                'battre'
+            ],
+            [
+                'mis',
+                'mettre'
+            ],
+            
+            [
+                'foutu',
+                'foutre'
+            ],
+            [
+                'inclus',
+                'inclure'
+            ],
+            [
+                'suivi',
+                'suivre'
+            ],
+            [
+                'vécu',
+                'vivre'
             ]
         ];
     }

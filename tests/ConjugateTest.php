@@ -13210,15 +13210,19 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
             ]
         ];
     }
+
     /**
      * @dataProvider BOIRE_Provider
      */
-    public function testBOIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testBOIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function BOIRE_Provider() {
+
+    public function BOIRE_Provider()
+    {
         return [
-    
+            
             [
                 'bois',
                 'boire',
@@ -13261,7 +13265,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'buvais',
                 'boire',
@@ -13269,7 +13273,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'bus',
                 'boire',
@@ -13277,7 +13281,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'boirai',
                 'boire',
@@ -13299,7 +13303,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'boirons',
                 'boire',
@@ -13321,7 +13325,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'boive',
                 'boire',
@@ -13371,7 +13375,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'boirais',
                 'boire',
@@ -13414,7 +13418,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'bois',
                 'boire',
@@ -13438,15 +13442,19 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
             ]
         ];
     }
+
     /**
      * @dataProvider CROIRE_Provider
      */
-    public function testCROIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testCROIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function CROIRE_Provider() {
+
+    public function CROIRE_Provider()
+    {
         return [
-    
+            
             [
                 'crois',
                 'croire',
@@ -13489,7 +13497,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'croyais',
                 'croire',
@@ -13497,7 +13505,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'crus',
                 'croire',
@@ -13505,7 +13513,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'croirai',
                 'croire',
@@ -13527,7 +13535,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'croirons',
                 'croire',
@@ -13549,7 +13557,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'croie',
                 'croire',
@@ -13599,7 +13607,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'croirais',
                 'croire',
@@ -13642,7 +13650,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'crois',
                 'croire',
@@ -13665,16 +13673,20 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    } 
+    }
+
     /**
      * @dataProvider RIRE_Provider
      */
-    public function testRIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testRIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function RIRE_Provider() {
+
+    public function RIRE_Provider()
+    {
         return [
-    
+            
             [
                 'ris',
                 'rire',
@@ -13717,7 +13729,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'riais',
                 'rire',
@@ -13725,7 +13737,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'ris',
                 'rire',
@@ -13733,7 +13745,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'rirai',
                 'rire',
@@ -13755,7 +13767,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'rirons',
                 'rire',
@@ -13777,7 +13789,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'rie',
                 'rire',
@@ -13827,7 +13839,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'rirais',
                 'rire',
@@ -13870,7 +13882,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'ris',
                 'rire',
@@ -13893,16 +13905,20 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    }   
+    }
+
     /**
      * @dataProvider CRIRE_Provider
      */
-    public function testCRIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testCRIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function CRIRE_Provider() {
+
+    public function CRIRE_Provider()
+    {
         return [
-    
+            
             [
                 'écris',
                 'écrire',
@@ -13945,7 +13961,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'écrivais',
                 'écrire',
@@ -13953,7 +13969,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'écris',
                 'écrire',
@@ -13961,7 +13977,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'écrirai',
                 'écrire',
@@ -13983,7 +13999,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'écrirons',
                 'écrire',
@@ -14005,7 +14021,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'écrive',
                 'écrire',
@@ -14055,7 +14071,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'écrirais',
                 'écrire',
@@ -14098,7 +14114,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'écris',
                 'écrire',
@@ -14121,16 +14137,20 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    } 
+    }
+
     /**
      * @dataProvider FRIRE_Provider
      */
-    public function testFRIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testFRIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function FRIRE_Provider() {
+
+    public function FRIRE_Provider()
+    {
         return [
-    
+            
             [
                 'fris',
                 'frire',
@@ -14152,7 +14172,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-  
+            
             [
                 'frirai',
                 'frire',
@@ -14174,7 +14194,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'frirons',
                 'frire',
@@ -14196,7 +14216,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'frirais',
                 'frire',
@@ -14239,7 +14259,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'fris',
                 'frire',
@@ -14248,16 +14268,20 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    }  
+    }
+
     /**
      * @dataProvider UIRE_Provider
      */
-    public function testUIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testUIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function UIRE_Provider() {
+
+    public function UIRE_Provider()
+    {
         return [
-    
+            
             [
                 'cuis',
                 'cuire',
@@ -14300,7 +14324,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'cuisais',
                 'cuire',
@@ -14308,7 +14332,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'cuisis',
                 'cuire',
@@ -14316,7 +14340,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'cuirai',
                 'cuire',
@@ -14338,7 +14362,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'cuirons',
                 'cuire',
@@ -14360,7 +14384,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'cuise',
                 'cuire',
@@ -14410,7 +14434,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'cuirais',
                 'cuire',
@@ -14453,7 +14477,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'cuis',
                 'cuire',
@@ -14476,16 +14500,20 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    } 
+    }
+
     /**
      * @dataProvider BRUIRE_Provider
      */
-    public function testBRUIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood) {
-        $this->assertEquals ( $expectedResult, conjugate ( new InfinitiveVerb ( $infinitiveVerb ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+    public function testBRUIRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
     }
-    public function BRUIRE_Provider() {
+
+    public function BRUIRE_Provider()
+    {
         return [
-    
+            
             [
                 'bruis',
                 'bruire',
@@ -14528,7 +14556,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'bruissais',
                 'bruire',
@@ -14536,7 +14564,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'bruis',
                 'bruire',
@@ -14544,7 +14572,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'bruirai',
                 'bruire',
@@ -14566,7 +14594,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonSingular',
                 'Indicatif'
             ],
-    
+            
             [
                 'bruirons',
                 'bruire',
@@ -14588,7 +14616,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Indicatif'
             ],
-    
+            
             [
                 'bruisse',
                 'bruire',
@@ -14638,7 +14666,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'FirstPersonSingular',
                 'Subjonctif'
             ],
-    
+            
             [
                 'bruirais',
                 'bruire',
@@ -14681,7 +14709,7 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'ThirdPersonPlural',
                 'Conditionnel'
             ],
-    
+            
             [
                 'bruis',
                 'bruire',
@@ -14704,7 +14732,2792 @@ class ConjugateFrenchVerbTest extends PHPUnit_Framework_TestCase
                 'Imperatif'
             ]
         ];
-    }    
+    }
+
+    /**
+     * @dataProvider VIVRE_Provider
+     */
+    public function testVIVRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function VIVRE_Provider()
+    {
+        return [
+            
+            [
+                'vis',
+                'vivre',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'vis',
+                'vivre',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'vit',
+                'vivre',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'vivons',
+                'vivre',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'vivez',
+                'vivre',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'vivent',
+                'vivre',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'vivais',
+                'vivre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'vécus',
+                'vivre',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'vivrai',
+                'vivre',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'vivras',
+                'vivre',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'vivra',
+                'vivre',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'vivrons',
+                'vivre',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'vivrez',
+                'vivre',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'vivront',
+                'vivre',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'vive',
+                'vivre',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'vives',
+                'vivre',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'vive',
+                'vivre',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'vivions',
+                'vivre',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'viviez',
+                'vivre',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'vivent',
+                'vivre',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'vécusse',
+                'vivre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'vivrais',
+                'vivre',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'vivrais',
+                'vivre',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'vivrait',
+                'vivre',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'vivrions',
+                'vivre',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'vivriez',
+                'vivre',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'vivraient',
+                'vivre',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'vis',
+                'vivre',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'vivons',
+                'vivre',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'vivez',
+                'vivre',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider SUIVRE_Provider
+     */
+    public function testSUIVRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function SUIVRE_Provider()
+    {
+        return [
+            
+            [
+                'suis',
+                'suivre',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'suis',
+                'suivre',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'suit',
+                'suivre',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'suivons',
+                'suivre',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'suivez',
+                'suivre',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'suivent',
+                'suivre',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'suivais',
+                'suivre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'suivis',
+                'suivre',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'suivrai',
+                'suivre',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'suivras',
+                'suivre',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'suivra',
+                'suivre',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'suivrons',
+                'suivre',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'suivrez',
+                'suivre',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'suivront',
+                'suivre',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'suive',
+                'suivre',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'suives',
+                'suivre',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'suive',
+                'suivre',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'suivions',
+                'suivre',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'suiviez',
+                'suivre',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'suivent',
+                'suivre',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'suivisse',
+                'suivre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'suivrais',
+                'suivre',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'suivrais',
+                'suivre',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'suivrait',
+                'suivre',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'suivrions',
+                'suivre',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'suivriez',
+                'suivre',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'suivraient',
+                'suivre',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'suis',
+                'suivre',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'suivons',
+                'suivre',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'suivez',
+                'suivre',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider CLURE_Provider
+     */
+    public function testCLURE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function CLURE_Provider()
+    {
+        return [
+            
+            [
+                'inclus',
+                'inclure',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'inclus',
+                'inclure',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'inclut',
+                'inclure',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'incluons',
+                'inclure',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'incluez',
+                'inclure',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'incluent',
+                'inclure',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'incluais',
+                'inclure',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'inclus',
+                'inclure',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'inclurai',
+                'inclure',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'incluras',
+                'inclure',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'inclura',
+                'inclure',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'inclurons',
+                'inclure',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'inclurez',
+                'inclure',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'incluront',
+                'inclure',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'inclue',
+                'inclure',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'inclues',
+                'inclure',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'inclue',
+                'inclure',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'incluions',
+                'inclure',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'incluiez',
+                'inclure',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'incluent',
+                'inclure',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'inclusse',
+                'inclure',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'inclurais',
+                'inclure',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'inclurais',
+                'inclure',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'inclurait',
+                'inclure',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'inclurions',
+                'inclure',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'incluriez',
+                'inclure',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'incluraient',
+                'inclure',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'inclus',
+                'inclure',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'incluons',
+                'inclure',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'incluez',
+                'inclure',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider FOUTRE_Provider
+     */
+    public function testFOUTRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function FOUTRE_Provider()
+    {
+        return [
+            
+            [
+                'fous',
+                'foutre',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'fous',
+                'foutre',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'fout',
+                'foutre',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'foutons',
+                'foutre',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'foutez',
+                'foutre',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'foutent',
+                'foutre',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'foutais',
+                'foutre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'foutis',
+                'foutre',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'foutrai',
+                'foutre',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'foutras',
+                'foutre',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'foutra',
+                'foutre',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'foutrons',
+                'foutre',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'foutrez',
+                'foutre',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'foutront',
+                'foutre',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'foute',
+                'foutre',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'foutes',
+                'foutre',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'foute',
+                'foutre',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'foutions',
+                'foutre',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'foutiez',
+                'foutre',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'foutent',
+                'foutre',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'foutisse',
+                'foutre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'foutrais',
+                'foutre',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'foutrais',
+                'foutre',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'foutrait',
+                'foutre',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'foutrions',
+                'foutre',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'foutriez',
+                'foutre',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'foutraient',
+                'foutre',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'fous',
+                'foutre',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'foutons',
+                'foutre',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'foutez',
+                'foutre',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider METTRE_Provider
+     */
+    public function testMETTRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function METTRE_Provider()
+    {
+        return [
+            
+            [
+                'mets',
+                'mettre',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'mets',
+                'mettre',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'met',
+                'mettre',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'mettons',
+                'mettre',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'mettez',
+                'mettre',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'mettent',
+                'mettre',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'mettais',
+                'mettre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'mis',
+                'mettre',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'mettrai',
+                'mettre',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'mettras',
+                'mettre',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'mettra',
+                'mettre',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'mettrons',
+                'mettre',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'mettrez',
+                'mettre',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'mettront',
+                'mettre',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'mette',
+                'mettre',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'mettes',
+                'mettre',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'mette',
+                'mettre',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'mettions',
+                'mettre',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'mettiez',
+                'mettre',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'mettent',
+                'mettre',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'misse',
+                'mettre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'mettrais',
+                'mettre',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'mettrais',
+                'mettre',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'mettrait',
+                'mettre',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'mettrions',
+                'mettre',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'mettriez',
+                'mettre',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'mettraient',
+                'mettre',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'mets',
+                'mettre',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'mettons',
+                'mettre',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'mettez',
+                'mettre',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider ROMPRE_Provider
+     */
+    public function testROMPRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function ROMPRE_Provider()
+    {
+        return [ // all regular
+            
+            [
+                'romps',
+                'rompre',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'romps',
+                'rompre',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'rompt',
+                'rompre',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'rompons',
+                'rompre',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'rompez',
+                'rompre',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'rompent',
+                'rompre',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'rompais',
+                'rompre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'rompis',
+                'rompre',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'romprai',
+                'rompre',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'rompras',
+                'rompre',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'rompra',
+                'rompre',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'romprons',
+                'rompre',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'romprez',
+                'rompre',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'rompront',
+                'rompre',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'rompe',
+                'rompre',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'rompes',
+                'rompre',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'rompe',
+                'rompre',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'rompions',
+                'rompre',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'rompiez',
+                'rompre',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'rompent',
+                'rompre',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'rompisse',
+                'rompre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'romprais',
+                'rompre',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'romprais',
+                'rompre',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'romprait',
+                'rompre',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'romprions',
+                'rompre',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'rompriez',
+                'rompre',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'rompraient',
+                'rompre',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'romps',
+                'rompre',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'rompons',
+                'rompre',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'rompez',
+                'rompre',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider CLORE_Provider
+     */
+    public function testCLORE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function CLORE_Provider()
+    {
+        return [
+            
+            [
+                'clos',
+                'clore',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'clos',
+                'clore',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'clôt',
+                'clore',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'closons',
+                'clore',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'closez',
+                'clore',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'closent',
+                'clore',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'closais',
+                'clore',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'clorai',
+                'clore',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'cloras',
+                'clore',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'clora',
+                'clore',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'clorons',
+                'clore',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'clorez',
+                'clore',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'cloront',
+                'clore',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'close',
+                'clore',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'closes',
+                'clore',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'close',
+                'clore',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'closions',
+                'clore',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'closiez',
+                'clore',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'closent',
+                'clore',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            
+            [
+                'clorais',
+                'clore',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'clorais',
+                'clore',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'clorait',
+                'clore',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'clorions',
+                'clore',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'cloriez',
+                'clore',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'cloraient',
+                'clore',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'clos',
+                'clore',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'closons',
+                'clore',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'closez',
+                'clore',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider AITRE_Provider
+     */
+    public function testAITRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function AITRE_Provider()
+    {
+        return [
+            
+            [
+                'pais',
+                'paitre',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'pais',
+                'paitre',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'pais',
+                'paître',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'pait',
+                'paitre',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle
+                'paît',
+                'paître',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'paissons',
+                'paitre',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'paissons',
+                'paître',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'paissez',
+                'paitre',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'paissent',
+                'paitre',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'paissais',
+                'paitre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'paissais',
+                'paitre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'pus',
+                'paitre',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'pûmes',
+                'paitre',
+                'Passe',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'pus',
+                'paitre',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'paitrai',
+                'paitre',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle
+                'paîtrai',
+                'paître',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'paitras',
+                'paitre',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'paitra',
+                'paitre',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'paitrons',
+                'paitre',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'paitrez',
+                'paitre',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'paitront',
+                'paitre',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'paisse',
+                'paitre',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'paisse',
+                'paître',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'paisses',
+                'paitre',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'paisse',
+                'paitre',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'paissions',
+                'paitre',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'paissiez',
+                'paitre',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'paissent',
+                'paitre',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            
+            [
+                'pusse',
+                'paitre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'pusse',
+                'paître',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'pût',
+                'paitre',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [ // Orthographe traditionnelle
+                'pût',
+                'paître',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'paitrais',
+                'paitre',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [ // Orthographe traditionnelle
+                'paîtrais',
+                'paître',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'paitrais',
+                'paitre',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'paitrait',
+                'paitre',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'paitrions',
+                'paitre',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'paitriez',
+                'paitre',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'paitraient',
+                'paitre',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'pais',
+                'paitre',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'pais',
+                'paître',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'paissons',
+                'paitre',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'paissez',
+                'paitre',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider NAITRE_Provider
+     */
+    public function testNAITRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function NAITRE_Provider()
+    {
+        return [
+            
+            [
+                'nais',
+                'naitre',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'nais',
+                'naitre',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'nais',
+                'naître',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'nait',
+                'naitre',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle
+                'naît',
+                'naître',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'naissons',
+                'naitre',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'naissons',
+                'naître',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'naissez',
+                'naitre',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'naissent',
+                'naitre',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'naissais',
+                'naitre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'naissais',
+                'naître',
+                'Imparfait',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'naquis',
+                'naitre',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'naquîmes',
+                'naitre',
+                'Passe',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'naquis',
+                'naître',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'naquit',
+                'naître',
+                'Passe',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'naquîmes',
+                'naître',
+                'Passe',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'naitrai',
+                'naitre',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle
+                'naîtrai',
+                'naître',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'naitras',
+                'naitre',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'naitra',
+                'naitre',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'naitrons',
+                'naitre',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'naitrez',
+                'naitre',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'naitront',
+                'naitre',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'naisse',
+                'naitre',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'naisse',
+                'naître',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'naisses',
+                'naitre',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'naisse',
+                'naitre',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'naissions',
+                'naitre',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'naissiez',
+                'naitre',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'naissent',
+                'naitre',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'naquisse',
+                'naitre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [ // Orthographe traditionnelle regular
+                'naquisse',
+                'naître',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'naquît',
+                'naitre',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [ // Orthographe traditionnelle
+                'naquît',
+                'naître',
+                'Imparfait',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'naitrais',
+                'naitre',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [ // Orthographe traditionnelle
+                'naîtrais',
+                'naître',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'naitrais',
+                'naitre',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'naitrait',
+                'naitre',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'naitrions',
+                'naitre',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'naitriez',
+                'naitre',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'naitraient',
+                'naitre',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'nais',
+                'naitre',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [ // Orthographe traditionnelle
+                'nais',
+                'naître',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'naissons',
+                'naitre',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'naissez',
+                'naitre',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider OITRE_Provider
+     */
+    public function testOITRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function OITRE_Provider()
+    {
+        return [
+            
+            [
+                'croîs',
+                'croitre',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'croîs',
+                'croitre',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'croît',
+                'croitre',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle
+                'croît',
+                'croître',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'croissons',
+                'croitre',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'croissez',
+                'croitre',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'croissent',
+                'croitre',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'croissais',
+                'croitre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle
+                'croissais',
+                'croître',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'crûs',
+                'croitre',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle
+                'crûs',
+                'croître',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'croitrai',
+                'croitre',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [ // Orthographe traditionnelle
+                'croîtrai',
+                'croître',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'croitras',
+                'croitre',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'croitra',
+                'croitre',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'croitrons',
+                'croitre',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'croitrez',
+                'croitre',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'croitront',
+                'croitre',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'croisse',
+                'croitre',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'croisses',
+                'croitre',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'croisse',
+                'croitre',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'croissions',
+                'croitre',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'croissiez',
+                'croitre',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'croissent',
+                'croitre',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'crûsse',
+                'croitre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'croitrais',
+                'croitre',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'croitrais',
+                'croitre',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'croitrait',
+                'croitre',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [ // Orthographe traditionnelle
+                'croîtrait',
+                'croître',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'croitrions',
+                'croitre',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'croitriez',
+                'croitre',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'croitraient',
+                'croitre',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'croîs',
+                'croitre',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [ // Orthographe traditionnelle
+                'croîs',
+                'croître',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'croissons',
+                'croitre',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [ // Orthographe traditionnelle
+                'croissons',
+                'croître',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'croissez',
+                'croitre',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider ATTRE_Provider
+     */
+    public function testATTRE_Provider($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    {
+        $this->assertEquals($expectedResult, conjugate(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+    }
+
+    public function ATTRE_Provider()
+    {
+        return [
+            
+            [
+                'bats',
+                'battre',
+                'Present',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'bats',
+                'battre',
+                'Present',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'bat',
+                'battre',
+                'Present',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'battons',
+                'battre',
+                'Present',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'battez',
+                'battre',
+                'Present',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'battent',
+                'battre',
+                'Present',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'battais',
+                'battre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'battis',
+                'battre',
+                'Passe',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'battrai',
+                'battre',
+                'Futur',
+                'FirstPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'battras',
+                'battre',
+                'Futur',
+                'SecondPersonSingular',
+                'Indicatif'
+            ],
+            [
+                'battra',
+                'battre',
+                'Futur',
+                'ThirdPersonSingular',
+                'Indicatif'
+            ],
+            
+            [
+                'battrons',
+                'battre',
+                'Futur',
+                'FirstPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'battrez',
+                'battre',
+                'Futur',
+                'SecondPersonPlural',
+                'Indicatif'
+            ],
+            [
+                'battront',
+                'battre',
+                'Futur',
+                'ThirdPersonPlural',
+                'Indicatif'
+            ],
+            
+            [
+                'batte',
+                'battre',
+                'Present',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'battes',
+                'battre',
+                'Present',
+                'SecondPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'batte',
+                'battre',
+                'Present',
+                'ThirdPersonSingular',
+                'Subjonctif'
+            ],
+            [
+                'battions',
+                'battre',
+                'Present',
+                'FirstPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'battiez',
+                'battre',
+                'Present',
+                'SecondPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'battent',
+                'battre',
+                'Present',
+                'ThirdPersonPlural',
+                'Subjonctif'
+            ],
+            [
+                'battisse',
+                'battre',
+                'Imparfait',
+                'FirstPersonSingular',
+                'Subjonctif'
+            ],
+            
+            [
+                'battrais',
+                'battre',
+                'Present',
+                'FirstPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'battrais',
+                'battre',
+                'Present',
+                'SecondPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'battrait',
+                'battre',
+                'Present',
+                'ThirdPersonSingular',
+                'Conditionnel'
+            ],
+            [
+                'battrions',
+                'battre',
+                'Present',
+                'FirstPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'battriez',
+                'battre',
+                'Present',
+                'SecondPersonPlural',
+                'Conditionnel'
+            ],
+            [
+                'battraient',
+                'battre',
+                'Present',
+                'ThirdPersonPlural',
+                'Conditionnel'
+            ],
+            
+            [
+                'bats',
+                'battre',
+                'Present',
+                'SecondPersonSingular',
+                'Imperatif'
+            ],
+            [
+                'battons',
+                'battre',
+                'Present',
+                'FirstPersonPlural',
+                'Imperatif'
+            ],
+            [
+                'battez',
+                'battre',
+                'Present',
+                'SecondPersonPlural',
+                'Imperatif'
+            ]
+        ];
+    }
+
     /**
      * @dataProvider VOIR_Provider
      */

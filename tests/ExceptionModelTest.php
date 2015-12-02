@@ -326,6 +326,63 @@ class ExceptionModelTest extends PHPUnit_Framework_TestCase
             [
                 ExceptionModel::BRUIRE,
                 'bruire'
+            ],
+            
+            [
+                ExceptionModel::CLORE,
+                'clore'
+            ],
+            [
+                ExceptionModel::ROMPRE,
+                'rompre'
+            ],
+            [
+                ExceptionModel::AITRE,
+                'paitre'
+            ],
+            [
+                ExceptionModel::AITRE,
+                'paître'
+            ],
+            [
+                ExceptionModel::NAITRE,
+                'naitre'
+            ],
+            [
+                ExceptionModel::NAITRE,
+                'naître'
+            ],
+            [
+                ExceptionModel::OITRE,
+                'croitre'
+            ],
+            [
+            ExceptionModel::OITRE,
+            'croître'
+                ],
+            [
+                ExceptionModel::ATTRE,
+                'battre'
+            ],
+            [
+                ExceptionModel::METTRE,
+                'mettre'
+            ],  
+            [
+                ExceptionModel::FOUTRE,
+                'foutre'
+            ],
+            [
+                ExceptionModel::CLURE,
+                'inclure'
+            ],
+            [
+                ExceptionModel::SUIVRE,
+                'suivre'
+            ],
+            [
+                ExceptionModel::VIVRE,
+                'vivre'
             ]
         ];
     }

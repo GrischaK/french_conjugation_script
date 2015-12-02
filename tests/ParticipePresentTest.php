@@ -121,7 +121,7 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase
                 'vêtant',
                 'vêtir'
             ],
-            // re            
+            // re
             [
                 'circoncisant',
                 'circoncire'
@@ -169,6 +169,50 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase
             [
                 'bruissant',
                 'bruire'
+            ],
+            [
+                'closant',
+                'clore'
+            ],
+            [
+                'rompant',
+                'rompre'
+            ],
+            [
+                'paissant',
+                'paitre'
+            ],
+            [
+                'naissant',
+                'naitre'
+            ],
+            [
+                'croissant',
+                'croitre'
+            ],
+            [
+                'battant',
+                'battre'
+            ],
+            [
+                'mettant',
+                'mettre'
+            ],
+            [
+                'foutant',
+                'foutre'
+            ],
+            [
+                'incluant',
+                'inclure'
+            ],
+            [
+                'suivant',
+                'suivre'
+            ],
+            [
+                'vivant',
+                'vivre'
             ]
         ];
     }
@@ -197,57 +241,57 @@ class ParticipePresentTest extends PHPUnit_Framework_TestCase
                 'acquiescer'
             ],
             [
-            'faisant',
-            'faire'
-                ],
-                [
-                    'brayant',
-                    'braire'
-                ],
-                [
-                    'plaisant',
-                    'plaire'
-                ],
-                [
-                    'taisant',
-                    'taire'
-                ],
-                [
-                    'vainquant',
-                    'vaincre'
-                ],
-                [
-                    'attendant',
-                    'attendre'
-                ],
-                [
-                    'prenant',
-                    'prendre'
-                ],
-                [
-                    'plaignant',
-                    'plaindre'
-                ],
-                [
-                    'joignant',
-                    'joindre'
-                ],
-                [
-                    'cousant',
-                    'coudre'
-                ],
-                [
-                    'moulant',
-                    'moudre'
-                ],
-                [
-                    'absolvant',
-                    'absoudre'
-                ],
-                [
-                    'résolvant',
-                    'résoudre'
-                ]            
+                'faisant',
+                'faire'
+            ],
+            [
+                'brayant',
+                'braire'
+            ],
+            [
+                'plaisant',
+                'plaire'
+            ],
+            [
+                'taisant',
+                'taire'
+            ],
+            [
+                'vainquant',
+                'vaincre'
+            ],
+            [
+                'attendant',
+                'attendre'
+            ],
+            [
+                'prenant',
+                'prendre'
+            ],
+            [
+                'plaignant',
+                'plaindre'
+            ],
+            [
+                'joignant',
+                'joindre'
+            ],
+            [
+                'cousant',
+                'coudre'
+            ],
+            [
+                'moulant',
+                'moudre'
+            ],
+            [
+                'absolvant',
+                'absoudre'
+            ],
+            [
+                'résolvant',
+                'résoudre'
+            ]
         ];
     }
 }
