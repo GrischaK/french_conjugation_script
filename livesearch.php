@@ -9,8 +9,8 @@
 	$hint="";
 	foreach($infinitiveVerb as $buchstabe){
 		foreach($buchstabe as $$infinitiveVerb){
-			if(preg_match("/^".$_GET['pattern']."/",$$infinitiveVerb)){
-				$hint.="<a class=\"franzoesisch konju\" href='".substr($$infinitiveVerb,0,1)."/".$$infinitiveVerb."/'>".$$infinitiveVerb."</a>";
+			if(preg_match("/^".$_GET['pattern']."/",$infinitiveVerb)){
+				$hint.="<a class=\"franzoesisch konju\" href='".substr($infinitiveVerb,0,1)."/".$infinitiveVerb."/'>".$infinitiveVerb."</a>";
 				$num++;
 			}
 			if($num>10)break;
