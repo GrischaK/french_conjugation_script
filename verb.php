@@ -64,7 +64,7 @@ require_once 'groups/verbes_defectifs.php';
 //$exception == $_GET['verb'].'es' ;
 	translation($_GET['verb'],$fr_de[$_GET['verb']]);  
     include("text.php"); 	
-	print_conjugations_of_verb($_GET['verb']);
+	print_conjugations_of_verb(new InfinitiveVerb($_GET['verb'])); 
 ?>
 <div id="hidden_player"></div>
 <?php		}
