@@ -13,8 +13,8 @@
 <h1>
 <?php echo $h1; ?>
 </h1>
-<? translation('la conjugaison','die Konjugation'); ?>
-<p>Hier finden sie alle Verben, die mit <?=ucfirst($params[0]);?> beginnen. Zu jeder Vokabel finden Sie die Konjugation f�r den Indicatif, Subjonctif, Conditionnel und sowie den Impératif, Infinitif, Gérondif und Participe Modus.</p>
+<?php translation('la conjugaison','die Konjugation'); ?>
+<p>Hier finden sie alle Verben, die mit <?php echo ucfirst($params[0]);?> beginnen. Zu jeder Vokabel finden Sie die Konjugation für den Indicatif, Subjonctif, Conditionnel und sowie den Impératif, Infinitif, Gérondif und Participe Modus.</p>
 <?php
 	$num=0;
 	$start=0;
@@ -24,7 +24,7 @@
 	$start=$page*$per_page;
 ?>
 <table width="100%">
-<?php
+<?
 	$array = array_chunk($array, 4);
 	foreach($array as $chunk){
 		if($num>=$start) echo '<tr>';
@@ -42,6 +42,6 @@
 	if($page>0)
 		echo '<a href="../'.$params[0].$char_split.($page-1).'/">&lt; Vorherige</a>';
 	if($num>$start+$per_page)
-		echo '<a href="../'.$params[0].$char_split.($page+1).'/">N�chste &gt;</a>';
+		echo '<a href="../'.$params[0].$char_split.($page+1).'/">Nächste &gt;</a>';
 	echo '</div>';
 ?>
