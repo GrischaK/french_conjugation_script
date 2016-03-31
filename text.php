@@ -33,7 +33,6 @@ if ((substr ($infinitiveVerb, - 2, 2 ) == 'er') &&  (!in_array($infinitiveVerb,[
   }
     return $gruppe;
 }
-echo finding_group( new InfinitiveVerb($_GET['verb']));
 require_once 'classes/InfinitiveVerb.php';    
 require_once 'verbs.php';
 require_once 'groups/verbes_pronominaux.php';
@@ -60,7 +59,7 @@ require_once 'groups/verbes_defectifs.php';
     echo '<p>'.$infinitiveVerb.' ist ein <b>unpersönliches Verb</b>.</p>';	
   }
 ?> 
-<p><b><?=($_GET['verb']) ?></b> ist in <b><?=$gruppe ?></b>.</p>   
+<p><b><?=($_GET['verb']) ?></b> ist in <b><?=finding_group( new InfinitiveVerb($_GET['verb'])); ?></b>.</p>   
 <h2 class="home">Verzeichnis</h2>
 <ul style="list-style-type:none;">
 	<li><a class="down" href="#indicatif">Indicatif</a></li>
