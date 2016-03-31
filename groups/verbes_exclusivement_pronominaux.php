@@ -1,4 +1,4 @@
-<? 
+<?php 
 $verbes_exclusivement_pronominaux = array  (
 'abrater',
 'abrunchir',

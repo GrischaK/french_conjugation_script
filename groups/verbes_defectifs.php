@@ -1,4 +1,4 @@
-<? 
+<?php 
 $verbes_defectifs = array  (  // defekte Verben
 'absoudre',
 'abstraire',

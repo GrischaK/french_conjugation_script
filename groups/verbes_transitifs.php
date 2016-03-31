@@ -1,4 +1,4 @@
-<?
+<?php
 $verbes_transitifs =  array (
 'abader',
 'abaisser',

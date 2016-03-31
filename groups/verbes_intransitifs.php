@@ -1,4 +1,4 @@
-<?
+<?php
 $verbes_intransitifs =  array (
 'abaïer',
 'abayer',

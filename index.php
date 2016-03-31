@@ -21,7 +21,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/data/before_content.php");
 #content.col-md-7 {width:77%;}
 }
 </style> 
-<?
+<?php
 $kategorien=[
 "erste-gruppe","zweite-gruppe","dritte-gruppe",
 "hifsverb-avoir","hilfsverb-etre","hilfsverb-avoir-etre",
@@ -63,7 +63,7 @@ elseif(isset($_GET['verb'])){
 	    if (event.keyCode == 13) suchen();
 	});
 </script>
-<? 
+<?php
 $trigger_play ='';
 include_once($_SERVER['DOCUMENT_ROOT']."/data/after_content.php"); ?>
 

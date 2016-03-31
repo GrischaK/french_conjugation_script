@@ -1,4 +1,4 @@
-<? 
+<?php
 $verbes_en_ancien = array  (  // Verben aus dem altfranzösischer Sprache
 'aacier',
 'aairier',

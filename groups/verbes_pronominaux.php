@@ -1,4 +1,4 @@
-<? 
+<?php 
 $verbes_pronominaux = array  (
 'à-plat-ventrer',
 'a-sexualiser',
