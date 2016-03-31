@@ -155,12 +155,12 @@ function print_persons($verb, Tense $tense, Mood $mood) {
 			],
 			Mood::Imperatif => [
 					Tense::Present => [
-							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural 
 					],
 					Tense::Passe => [
-							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural 
 					] 
