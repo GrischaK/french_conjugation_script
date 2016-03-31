@@ -41,12 +41,13 @@ require_once 'groups/irregular-verb-groups.php';
 require_once 'groups/verbes_en_ancien.php';  
 require_once 'groups/verbes_defectifs.php';
 //  require_once 'groups/irregular.php';
-?>
 
-<h2 class="home">Die Konjugation von <?php echo($_GET['verb']) ?></h2>
-<p>Das Verb <b><?php echo($_GET['verb']) ?></b> wird <b><?php echo$regelmaessig ?></b> konjugiert und wird in den zusammengesetzten Zeiten mit den Hilfsverb <b><?php echo finding_auxiliaire( new InfinitiveVerb($_GET['verb'])); ?></b> gebildet.</p>
-<p><b><?php echo($_GET['verb']) ?></b> ist ein <b><?php echo $reflexiv ?></b> und <b><?php echo $transitiv ?></b> Verb.</p>
-<?php
+echo '<h2 class="home">Die Konjugation von '.$_GET['verb'].'</h2>
+<p>Das Verb <b>'.$_GET['verb'].'</b> wird <b>'.$regelmaessig.
+'</b> konjugiert und wird in den zusammengesetzten Zeiten mit den Hilfsverb <b>'.
+finding_auxiliaire( new InfinitiveVerb($_GET['verb'])).'</b> gebildet.</p>
+<p><b>'.$_GET['verb'].'</b> ist ein <b>'.$reflexiv.'</b> und <b>'.$transitiv.'</b> Verb.</p>';
+
   if (in_array($infinitiveVerb, $verbes_en_ancien)) {
     echo '<p>'.$infinitiveVerb.' kommt aus der <b>altfranzösischen Sprache</b>.</p>';
   }  
