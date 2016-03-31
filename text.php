@@ -20,18 +20,18 @@ $transitiv = implode(' oder ', $conditions);
 function finding_group(InfinitiveVerb $infinitiveVerb)
 {
 if ((substr ($infinitiveVerb, - 2, 2 ) == 'er') &&  (!in_array($infinitiveVerb,['aller','raller','re-aller','saisir-arrêter','saisir-brandonner','saisir-exécuter','s’en aller','sur-aller']))) {
-    $gruppe = 'der 1. Verbgruppe';
+    $group = 'der 1. Verbgruppe';
   } 
   elseif ((substr ($infinitiveVerb, - 2, 2 ) == 'ir') or (in_array(mb_substr($infinitiveVerb, - 2, 2, "utf-8"), ["ïr"])) && !in_array($infinitiveVerb, $unregel_ir)) {
-    $gruppe = 'der 2. Verbgruppe';
+    $group = 'der 2. Verbgruppe';
   } 
   elseif ($infinitiveVerb == 'saisir-brandonner') {
-    $gruppe = 'keiner Verbgruppe';
+    $group = 'keiner Verbgruppe';
   }   
   else { // aller,....
-    $gruppe = 'der 3. Verbgruppe';
+    $group = 'der 3. Verbgruppe';
   }
-    return $gruppe;
+    return $group;
 }
 require_once 'classes/InfinitiveVerb.php';    
 require_once 'verbs.php';
