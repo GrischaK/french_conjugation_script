@@ -1,4 +1,4 @@
-<?
+<?php
 // https://fr.wiktionary.org/wiki/Annexe:Conjugaison_en_fran%C3%A7ais/f%C3%A9rir
 // http://www.larousse.fr/conjugaison/francais/forfaire/4822 / 
 // reclore,refoutre,rentraire   defect
