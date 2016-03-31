@@ -3,6 +3,16 @@
 Hier findet man alles, was über den Konjugationstabellen steht.
 */ 
 function print_explanatory_text(InfinitiveVerb $infinitiveVerb) {
+	require_once 'classes/InfinitiveVerb.php';
+	require_once 'verbs.php';
+	include 'groups/verbes_pronominaux.php';
+	require_once 'groups/verbes_exclusivement_pronominaux.php';
+	require_once 'groups/verbes_intransitifs.php';
+	require_once 'groups/verbes_transitifs.php';
+	
+	require_once 'groups/verbes_en_ancien.php';
+	require_once 'groups/verbes_defectifs.php';
+	
 $regelmaessig = in_array($infinitiveVerb, $unregelmaessige_verben) ? 'unregelmäßig' : 'regelmäßig'; 
 $reflexiv = in_array($infinitiveVerb, $verbes_pronominaux) ? 'reflexives' : 'nicht reflexives';
 $conditions = [];
@@ -16,9 +26,7 @@ if (!in_array($infinitiveVerb, $verbes_transitifs) and !in_array($infinitiveVerb
   $conditions[] = '???';
 }
 $transitiv = implode(' oder ', $conditions);
-
 //$substr_er = array_filter($infinitiveVerb, function($value) { return substr($value, -2) == 'er'; });
-
 if ((substr ($infinitiveVerb, - 2, 2 ) == 'er') &&  (!in_array($infinitiveVerb,['aller','raller','re-aller','saisir-arrêter','saisir-brandonner','saisir-exécuter','s’en aller','sur-aller']))) {
     $group = 'der 1. Verbgruppe';
   } 
@@ -31,22 +39,13 @@ if ((substr ($infinitiveVerb, - 2, 2 ) == 'er') &&  (!in_array($infinitiveVerb,[
   else { // aller,....
     $group = 'der 3. Verbgruppe';
   }
-require_once 'classes/InfinitiveVerb.php';    
-require_once 'verbs.php';
-require_once 'groups/verbes_pronominaux.php';
-require_once 'groups/verbes_exclusivement_pronominaux.php';
-require_once 'groups/verbes_intransitifs.php';
-require_once 'groups/verbes_transitifs.php';
-require_once 'groups/irregular-verb-groups.php';
-require_once 'groups/verbes_en_ancien.php';  
-require_once 'groups/verbes_defectifs.php';
-//  require_once 'groups/irregular.php';
-?>
 
-<h2 class="home">Die Konjugation von <?php echo($_GET['verb']) ?></h2>
-<p>Das Verb <b><?php echo($_GET['verb']) ?></b> wird <b><?php echo$regelmaessig ?></b> konjugiert und wird in den zusammengesetzten Zeiten mit den Hilfsverb <b><?php echo finding_auxiliaire( new InfinitiveVerb($_GET['verb'])); ?></b> gebildet.</p>
-<p><b><?php echo($_GET['verb']) ?></b> ist ein <b><?php echo $reflexiv ?></b> und <b><?php echo $transitiv ?></b> Verb.</p>
-<?php
+
+echo '<h2 class="home">Die Konjugation von '.$_GET['verb'].'</h2>
+<p>Das Verb <b>'.$_GET['verb'].'</b> wird <b>'.$regelmaessig.
+'</b> konjugiert und wird in den zusammengesetzten Zeiten mit den Hilfsverb <b>'.
+finding_auxiliaire( new InfinitiveVerb($_GET['verb'])).'</b> gebildet.</p>
+<p><b>'.$_GET['verb'].'</b> ist ein <b>'.$reflexiv.'</b> und <b>'.$transitiv.'</b> Verb.</p>';
   if (in_array($infinitiveVerb, $verbes_en_ancien)) {
     echo '<p>'.$infinitiveVerb.' kommt aus der <b>altfranzösischen Sprache</b>.</p>';
   }  
