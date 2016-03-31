@@ -1,4 +1,4 @@
-<?php
+<?
 require_once 'classes/Enum.php';
 require_once 'classes/InfinitiveVerb.php';
 require_once 'classes/ConjugatedVerb.php';
@@ -38,7 +38,7 @@ function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb)
         case 're':
             $endingwith = EndingWith::RE;
             break;
-        case 'Ã¯r':
+        case 'ïr':
             $endingwith = EndingWith::I_TREMA_R;
             break;
     }
@@ -341,10 +341,10 @@ function personal_pronoun(Person $person, Mood $mood)
     $subjonctif_pre_pronouns = [
         Person::FirstPersonSingular => 'que ',
         Person::SecondPersonSingular => 'que ',
-        Person::ThirdPersonSingular => 'quâ€™',
+        Person::ThirdPersonSingular => 'qu’',
         Person::FirstPersonPlural => 'que ',
         Person::SecondPersonPlural => 'que ',
-        Person::ThirdPersonPlural => 'quâ€™'
+        Person::ThirdPersonPlural => 'qu’'
     ];
     
     if ($mood->getValue() === Mood::Subjonctif) {
@@ -406,23 +406,23 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
                         Person::SecondPersonSingular => 'es',
                         Person::ThirdPersonSingular => 'est',
                         Person::FirstPersonPlural => 'sommes',
-                        Person::SecondPersonPlural => 'Ãªtes',
+                        Person::SecondPersonPlural => 'êtes',
                         Person::ThirdPersonPlural => 'sont'
                     ],
                     Tense::Plus_que_parfait => [
-                        Person::FirstPersonSingular => 'Ã©tais',
-                        Person::SecondPersonSingular => 'Ã©tais',
-                        Person::ThirdPersonSingular => 'Ã©tait',
-                        Person::FirstPersonPlural => 'Ã©tiez',
-                        Person::SecondPersonPlural => 'Ã©tiez',
-                        Person::ThirdPersonPlural => 'Ã©taient'
+                        Person::FirstPersonSingular => 'étais',
+                        Person::SecondPersonSingular => 'étais',
+                        Person::ThirdPersonSingular => 'était',
+                        Person::FirstPersonPlural => 'étiez',
+                        Person::SecondPersonPlural => 'étiez',
+                        Person::ThirdPersonPlural => 'étaient'
                     ],
                     Tense::Passe_anterieur => [
                         Person::FirstPersonSingular => 'fus',
                         Person::SecondPersonSingular => 'fus',
                         Person::ThirdPersonSingular => 'fut',
-                        Person::FirstPersonPlural => 'fÃ»mes',
-                        Person::SecondPersonPlural => 'fÃ»tes',
+                        Person::FirstPersonPlural => 'fûmes',
+                        Person::SecondPersonPlural => 'fûtes',
                         Person::ThirdPersonPlural => 'furent'
                     ],
                     Tense::Futur_anterieur => [
@@ -446,7 +446,7 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
                     Tense::Plus_que_parfait => [
                         Person::FirstPersonSingular => 'fusse',
                         Person::SecondPersonSingular => 'fusses',
-                        Person::ThirdPersonSingular => 'fÃ»t',
+                        Person::ThirdPersonSingular => 'fût',
                         Person::FirstPersonPlural => 'fussions',
                         Person::SecondPersonPlural => 'fussiez',
                         Person::ThirdPersonPlural => 'fussent'
@@ -464,7 +464,7 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
                     Tense::Deuxieme_Forme => [
                         Person::FirstPersonSingular => 'fusse',
                         Person::SecondPersonSingular => 'fusses',
-                        Person::ThirdPersonSingular => 'fÃ»t',
+                        Person::ThirdPersonSingular => 'fût',
                         Person::FirstPersonPlural => 'fussions',
                         Person::SecondPersonPlural => 'fussiez',
                         Person::ThirdPersonPlural => 'fussent'
@@ -502,8 +502,8 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
                         Person::FirstPersonSingular => 'eus',
                         Person::SecondPersonSingular => 'eus',
                         Person::ThirdPersonSingular => 'eut',
-                        Person::FirstPersonPlural => 'eÃ»mes',
-                        Person::SecondPersonPlural => 'eÃ»tes',
+                        Person::FirstPersonPlural => 'eûmes',
+                        Person::SecondPersonPlural => 'eûtes',
                         Person::ThirdPersonPlural => 'eurent'
                     ],
                     Tense::Futur_anterieur => [
@@ -527,7 +527,7 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
                     Tense::Plus_que_parfait => [
                         Person::FirstPersonSingular => 'eusse',
                         Person::SecondPersonSingular => 'eusses',
-                        Person::ThirdPersonSingular => 'eÃ»t',
+                        Person::ThirdPersonSingular => 'eût',
                         Person::FirstPersonPlural => 'eussions',
                         Person::SecondPersonPlural => 'eussiez',
                         Person::ThirdPersonPlural => 'eussent'
@@ -545,7 +545,7 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
                     Tense::Deuxieme_Forme => [
                         Person::FirstPersonSingular => 'eusse',
                         Person::SecondPersonSingular => 'eusses',
-                        Person::ThirdPersonSingular => 'eÃ»t',
+                        Person::ThirdPersonSingular => 'eût',
                         Person::FirstPersonPlural => 'eussions',
                         Person::SecondPersonPlural => 'eussiez',
                         Person::ThirdPersonPlural => 'eussent'
@@ -599,14 +599,14 @@ function conjugate(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
     $ending_first_char = mb_substr(ending($person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb), 0, 1);
     $i_variants = [
         'i',
-        'Ã®',
-        'Ã¯'
+        'î',
+        'ï'
     ];
     if (in_array($word_stem_last_char, $i_variants) && in_array($ending_first_char, $i_variants) && ! in_array($infinitiveVerb, [
         'abrier',
         'rocouier',
-        'planchÃ©ier',
-        'paranoÃ¯er',
+        'planchéier',
+        'paranoïer',
         'fleurir'
     ])) // should be replaced with static $ier + $e_akut_ier + $i_trema_er
 { // example used it: $fuir verbs
@@ -679,7 +679,7 @@ function finding_participe_present(InfinitiveVerb $infinitiveVerb)
     if (finding_infinitive_ending($infinitiveVerb)->getValue() === EndingWith::IR)
         $participe_present = participe_present_word_stem($infinitiveVerb) . 'issant';
     if (finding_infinitive_ending($infinitiveVerb)->getValue() === EndingWith::I_TREMA_R)
-        $participe_present = participe_present_word_stem($infinitiveVerb) . 'Ã¯ssant';
+        $participe_present = participe_present_word_stem($infinitiveVerb) . 'ïssant';
     if (in_array(finding_exception_model($infinitiveVerb)->getValue(), [ // + all unregular verbs from EndingWith::IR
         ExceptionModel::COURIR,
         ExceptionModel::MOURIR,
@@ -695,7 +695,7 @@ function finding_participe_present(InfinitiveVerb $infinitiveVerb)
     if ($exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR)
         $participe_present = participe_present_word_stem($infinitiveVerb) . 'ayant';
     if ($exceptionmodel->getValue() === ExceptionModel::ETRE_IRR)
-        $participe_present = participe_present_word_stem($infinitiveVerb) . 'Ã©tant';
+        $participe_present = participe_present_word_stem($infinitiveVerb) . 'étant';
     if ($exceptionmodel->getValue() === ExceptionModel::FLEURIR)
         
         $participe_present = participe_present_word_stem($infinitiveVerb) . 'issant / ' . $word_stem . 'issant';
@@ -707,11 +707,11 @@ function finding_participe_present(InfinitiveVerb $infinitiveVerb)
 function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
 {
     if (finding_infinitive_ending($infinitiveVerb)->getValue() === EndingWith::ER)
-        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'Ã©';
+        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'é';
     if (finding_infinitive_ending($infinitiveVerb)->getValue() === EndingWith::IR)
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'i';
     if (finding_infinitive_ending($infinitiveVerb)->getValue() === EndingWith::I_TREMA_R)
-        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'Ã¯';
+        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'ï';
     if (finding_infinitive_ending($infinitiveVerb)->getValue() === EndingWith::RE)
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'u';
         // beginning unregular
@@ -736,11 +736,11 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
         ExceptionModel::MOUVOIR,
         ExceptionModel::OITRE
     ]))
-        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'Ã»';
+        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'û';
         if ($exceptionmodel->getValue() === ExceptionModel::VIVRE)
-            $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'Ã©cu';
+            $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'écu';
     if ($exceptionmodel->getValue() === ExceptionModel::NAITRE)
-        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'Ã©';
+        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'é';
     if ($exceptionmodel->getValue() === ExceptionModel::RIR)
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'ert';
     if ($exceptionmodel->getValue() === ExceptionModel::MOURIR)
@@ -750,8 +750,8 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
     if ($exceptionmodel->isSEOIR() && (in_array($infinitiveVerb, [
         'assoir',
         'rassoir',
-        'rÃ©assoir',
-        'sâ€™assoir',
+        'réassoir',
+        's’assoir',
         'sursoir'
     ])))
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'sis';
@@ -760,7 +760,7 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
     if ($exceptionmodel->getValue() === ExceptionModel::AVOIR_IRR)
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'eu';
     if ($exceptionmodel->getValue() === ExceptionModel::ETRE_IRR)
-        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'Ã©tÃ©';
+        $participe_passe = participe_passe_word_stem($infinitiveVerb) . 'été';
     if ($exceptionmodel->isSOUDRE() || $exceptionmodel->isOCCIRE() 
         || $exceptionmodel->isCIRCONCIRE() 
         || $exceptionmodel->isCLORE() 
@@ -801,7 +801,7 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
                 ],
                 Tense::Passe => [
                     Mode::Infinitif => Auxiliaire::Etre . ' ' . $participe_passe,
-                    Mode::Gerondif => 'en Ã©tant ' . $participe_passe,
+                    Mode::Gerondif => 'en étant ' . $participe_passe,
                     Mode::Participe => $participe_passe
                 ]
             ];
@@ -828,11 +828,11 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 function apostrophized($pronoun, ConjugatedVerb $conjugatedVerb, & $was_apostrophized = null)
 {
     $h_apire = [
-        'hÃ©risser'
+        'hérisser'
     ]; // example values
-    if (preg_match('~(.*\b[jtms])e$~ui', $pronoun, $m) && (preg_match('~^h?(?:[aÃ¦Ã Ã¢eÃ©Ã¨ÃªÃ«iÃ®Ã¯oÃ´Å“uÃ»Ã¹]|y(?![aÃ¦Ã Ã¢eÃ©Ã¨ÃªÃ«iÃ®Ã¯oÃ´Å“uÃ»Ã¹]))~ui', $conjugatedVerb) && ! in_array($conjugatedVerb->getInfinitive(), $h_apire))) {
+    if (preg_match('~(.*\b[jtms])e$~ui', $pronoun, $m) && (preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $conjugatedVerb) && ! in_array($conjugatedVerb->getInfinitive(), $h_apire))) {
         $was_apostrophized = true;
-        return "{$m[1]}â€™";
+        return "{$m[1]}’";
     }
     $was_apostrophized = false;
     return $pronoun;

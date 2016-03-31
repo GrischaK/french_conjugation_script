@@ -1,4 +1,4 @@
-<?php
+<?
 
 function word_stem_length(InfinitiveVerb $infinitiveVerb, $endingLength)
 {
@@ -128,7 +128,7 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
     }
     
     if (($exceptionmodel->isEler_Ele() || $exceptionmodel->isEter_Ete()) && (($mood->isIndicatif() && $tense->isPresent() && $personIs_1S_2S_3S_3P) || $tense->isFutur() || ($mood->isSubjonctif() && $tense->isPresent() && $personIs_1S_2S_3S_3P) || ($mood->isConditionnel() && $tense->isPresent()) || ($mood->isImperatif() && $tense->isPresent() && $personIs_2S))) {
-        $word_stem = substr_replace($word_stem, 'Ã¨', - 2, 1);
+        $word_stem = substr_replace($word_stem, 'è', - 2, 1);
     }
     if (($exceptionmodel->isEler_Elle() || $exceptionmodel->isEter_Ette()) && (($mood->isIndicatif() && $tense->isPresent() && $personIs_1S_2S_3S_3P) || $tense->isFutur() || ($mood->isSubjonctif() && $tense->isPresent() && $personIs_1S_2S_3S_3P) || ($mood->isConditionnel() && $tense->isPresent()) || ($mood->isImperatif() && $tense->isPresent() && $personIs_2S))) {
         if (substr(word_stem_length($infinitiveVerb, 2), - 1) == 'l') {
@@ -140,7 +140,7 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
     }
     if (($exceptionmodel->isCER() || $exceptionmodel->isGER() || $exceptionmodel->isE_Akut_CER() || $exceptionmodel->isE_Akut_GER()) && (($mood->isIndicatif() && $tense->isPresent() && $personIs_1P) || ($mood->isIndicatif() && $tense->isImparfait() && $personIs_1S_2S_3S_3P) || ($mood->isIndicatif() && $tense->isPasse() && $personIs_1S_2S_3S_1P_2P) || ($mood->isSubjonctif() && $tense->isImparfait()) || ($mood->isConditionnel() && $tense->isPresent()) || ($mood->isImperatif() && $tense->isPresent() && $personIs_1P))) {
         if (substr(word_stem_length($infinitiveVerb, 2), - 1) == 'c') {
-            $word_stem = substr_replace($word_stem, 'Ã§', - 1);
+            $word_stem = substr_replace($word_stem, 'ç', - 1);
         }
         if (substr(word_stem_length($infinitiveVerb, 2), - 1) == 'g') {
             $word_stem = $word_stem . 'e';
@@ -148,11 +148,11 @@ function word_stem(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
     }
     if (($exceptionmodel->isE_Akut_ER() || $exceptionmodel->isE_Akut_CER() || $exceptionmodel->isE_Akut_GER() || $exceptionmodel->isE_Akut_YER()) && ((($mood->isIndicatif() || $mood->isSubjonctif()) && $tense->isPresent() && $personIs_1S_2S_3S_3P) || 
 $tense->isFutur() || ($mood->isConditionnel() && $tense->isPresent()) || ($mood->isImperatif() && $tense->isPresent() && $personIs_2S))) {
-        $word_stem = replace_akut($word_stem, 'Ã©', 'Ã¨');
+        $word_stem = replace_akut($word_stem, 'é', 'è');
     }
     if ($exceptionmodel->isE_Er() && ((($mood->isIndicatif() || $mood->isSubjonctif()) && $tense->isPresent() && $personIs_1S_2S_3S_3P) || 
 $tense->isFutur() || ($mood->isConditionnel() && $tense->isPresent()) || ($mood->isImperatif() && $tense->isPresent() && $personIs_2S))) {
-        $word_stem = replace_akut($word_stem, 'e', 'Ã¨');
+        $word_stem = replace_akut($word_stem, 'e', 'è');
     }
     if ($exceptionmodel->isMOURIR() && ((($mood->isIndicatif() || $mood->isSubjonctif()) && $tense->isPresent() && $personIs_1S_2S_3S_3P) || 
 ($mood->isImperatif() && $tense->isPresent() && $personIs_2S))) {
@@ -182,14 +182,14 @@ $tense->isFutur() || ($mood->isConditionnel() && $tense->isPresent()) || ($mood-
         $word_stem = word_stem_length($infinitiveVerb, 4) . 'ill';
     }
     if ($exceptionmodel->isCEVOIR() && (($mood->isIndicatif() && $tense->isPasse()) || ($mood->isSubjonctif() && $tense->isImparfait()))) {
-        $word_stem = word_stem_length($infinitiveVerb, 6) . 'Ã§';
+        $word_stem = word_stem_length($infinitiveVerb, 6) . 'ç';
     }
     if ($exceptionmodel->isDEVOIR() && (($mood->isIndicatif() && $tense->isPasse()) || ($mood->isSubjonctif() && $tense->isImparfait()))) {
         $word_stem = word_stem_length($infinitiveVerb, 5);
     }
     if ((($mood->isIndicatif()) && $tense->isPresent() && $personIs_1S_2S_3S) || ($mood->isImperatif() && $tense->isPresent() && $personIs_2S)) {
         if ($exceptionmodel->isCEVOIR()) {
-            $word_stem = substr_replace($word_stem, 'Ã§oi', - 3);
+            $word_stem = substr_replace($word_stem, 'çoi', - 3);
         }
         if ($exceptionmodel->isCHOIR()) {
             $word_stem = substr_replace($word_stem, 'oi', 2);
@@ -200,7 +200,7 @@ $tense->isFutur() || ($mood->isConditionnel() && $tense->isPresent()) || ($mood-
     }
     if (($mood->isIndicatif() && $tense->isPresent() && $personIs_3P) || ($mood->isSubjonctif() && $tense->isPresent() && $personIs_1S_2S_3S_3P)) {
         if ($exceptionmodel->isCEVOIR()) {
-            $word_stem = substr_replace($word_stem, 'Ã§oiv', - 3);
+            $word_stem = substr_replace($word_stem, 'çoiv', - 3);
         }
         if ($exceptionmodel->isCHOIR()) {
             $word_stem = substr_replace($word_stem, 'oi', 2);
@@ -247,8 +247,8 @@ $tense->isFutur() || ($mood->isConditionnel() && $tense->isPresent()) || ($mood-
     $soir = [
         'assoir',
         'rassoir',
-        'rÃ©assoir',
-        'sâ€™assoir',
+        'réassoir',
+        's’assoir',
         'sursoir'
     ]; // 5 Verben
     if ((in_array($infinitiveVerb, $soir))) {
@@ -346,7 +346,7 @@ $tense->isPasse() || $tense->isFutur() || ($mood->isSubjonctif() && $tense->isIm
     if ($exceptionmodel->isVOIR() && (($mood->isIndicatif() && $tense->isFutur()) || ($mood->isConditionnel()))) {
         if (in_array($infinitiveVerb, [
             'pourvoir',
-            'prÃ©voir'
+            'prévoir'
         ])) {
             $word_stem = word_stem_length($infinitiveVerb, 3) . 'oi';
         } else
@@ -473,7 +473,7 @@ $tense->isPasse() || $tense->isFutur() || ($mood->isSubjonctif() && $tense->isIm
             }         
         if (($mood->isIndicatif() && $tense->isPasse())
             || ($mood->isSubjonctif() && $tense->isImparfait())) {
-            $word_stem = substr_replace($word_stem, 'Ã©c', -2);
+            $word_stem = substr_replace($word_stem, 'éc', -2);
         }
     } 
     if ($exceptionmodel->isSUIVRE() 
@@ -510,7 +510,7 @@ $tense->isPasse() || $tense->isFutur() || ($mood->isSubjonctif() && $tense->isIm
             }
             if (($mood->isIndicatif() && $tense->isPresent() && $personIs_3S)
                 || ($mood->isSubjonctif() && $tense->isImparfait())) {
-                    $word_stem = word_stem_length($infinitiveVerb, 3).'Ã´';
+                    $word_stem = word_stem_length($infinitiveVerb, 3).'ô';
                 }
     }  
     if ($exceptionmodel->isAITRE()) {
@@ -523,7 +523,7 @@ $tense->isPasse() || $tense->isFutur() || ($mood->isSubjonctif() && $tense->isIm
             || ($mood->isSubjonctif() && $tense->isImparfait())) {
                  $word_stem = word_stem_length($infinitiveVerb, 5);
          }
-        if ((mb_substr($infinitiveVerb, -4, 1)  === 'Ã®') &&
+        if ((mb_substr($infinitiveVerb, -4, 1)  === 'î') &&
              (($mood->isIndicatif() && ($tense->isPresent() && $personIs_1S_2S_1P_2P_3P))
              || ($mood->isIndicatif() && ($tense->isImparfait() || $tense->isPasse()))
              || ($mood->isConditionnel() && $tense->isImparfait())
@@ -541,7 +541,7 @@ $tense->isPasse() || $tense->isFutur() || ($mood->isSubjonctif() && $tense->isIm
             || ($mood->isSubjonctif() && $tense->isImparfait())) {
                  $word_stem = word_stem_length($infinitiveVerb, 5).'aqu';
             }
-        if ((mb_substr($infinitiveVerb, -4, 1)  === 'Ã®') &&
+        if ((mb_substr($infinitiveVerb, -4, 1)  === 'î') &&
                 (($mood->isIndicatif() && ($tense->isPresent() && $personIs_1S_2S_1P_2P_3P))
                     || ($mood->isIndicatif() && $tense->isImparfait())
                     || ($mood->isConditionnel() && $tense->isImparfait())
@@ -549,7 +549,7 @@ $tense->isPasse() || $tense->isFutur() || ($mood->isSubjonctif() && $tense->isIm
                         $word_stem = mb_substr_replace($word_stem, 'i', -1, 1);
             }     
            
-            if ((mb_substr($infinitiveVerb, -4, 1)  === 'Ã®') &&
+            if ((mb_substr($infinitiveVerb, -4, 1)  === 'î') &&
                 ($mood->isIndicatif() && $tense->isPasse())) {
                         $word_stem = mb_substr_replace($word_stem, 'ui', -1, 1);
                     }            
@@ -562,7 +562,7 @@ $tense->isPasse() || $tense->isFutur() || ($mood->isSubjonctif() && $tense->isIm
         }
         if  (($mood->isIndicatif() && $tense->isPresent() && $personIs_1S_2S_3S)
         || ($mood->isImperatif() && $tense->isPresent() && $personIs_2S)) {
-            $word_stem = mb_substr_replace($word_stem, 'Ã®', - 1);
+            $word_stem = mb_substr_replace($word_stem, 'î', - 1);
         }
         if (($mood->isIndicatif() && $tense->isPasse())
             || ($mood->isSubjonctif() && $tense->isImparfait())) {
@@ -581,7 +581,7 @@ function participe_present_word_stem(InfinitiveVerb $infinitiveVerb)
     if ($exceptionmodel->isCER() 
         || $exceptionmodel->isGER()) {
         if (substr(word_stem_length($infinitiveVerb, 2), - 1) == 'c') {
-            $word_stem = substr_replace($word_stem, 'Ã§', - 1);
+            $word_stem = substr_replace($word_stem, 'ç', - 1);
         }
         if (substr(word_stem_length($infinitiveVerb, 2), - 1) == 'g') {
             $word_stem = $word_stem . 'e';
@@ -702,7 +702,7 @@ function participe_passe_word_stem(InfinitiveVerb $infinitiveVerb)
     }
     
     if ($exceptionmodel->isCEVOIR()) {
-        $word_stem = word_stem_length($infinitiveVerb, 6) . 'Ã§';
+        $word_stem = word_stem_length($infinitiveVerb, 6) . 'ç';
     }       
     if ($exceptionmodel->isDEVOIR()
         || $exceptionmodel->isMOURIR() 
