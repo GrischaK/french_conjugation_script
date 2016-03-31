@@ -56,7 +56,7 @@ require_once 'groups/verbes_defectifs.php';
   if (in_array($infinitiveVerb, $impersonnels)) {
     echo '<p>'.$infinitiveVerb.' ist ein <b>unpersönliches Verb</b>.</p>';	
   }
-echo '<p><b>'.$_GET['verb'].'</b> ist in <b>'.finding_group( new InfinitiveVerb($_GET['verb'])).'</b>.</p>  
+echo '<p><b>'.$_GET['verb'].'</b> ist in <b>'.$group.'</b>.</p>  
 <h2 class="home">Verzeichnis</h2>
 <ul style="list-style-type:none;">
 	<li><a class="down" href="#indicatif">Indicatif</a></li>
