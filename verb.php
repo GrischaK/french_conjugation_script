@@ -63,8 +63,10 @@ require_once 'groups/verbes_defectifs.php';
 <?php
 //$exception == $_GET['verb'].'es' ;
 	translation($_GET['verb'],$fr_de[$_GET['verb']]);  
-    include("text.php"); 	
-	print_conjugations_of_verb(new InfinitiveVerb($_GET['verb'])); 
+    include("text.php");
+    $infinitiveVerb = new InfinitiveVerb($_GET['verb']);
+    print_explanatory_text($infinitiveVerb);
+	print_conjugations_of_verb($infinitiveVerb); 
 ?>
 <div id="hidden_player"></div>
 <?php		}

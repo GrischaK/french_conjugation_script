@@ -2,6 +2,7 @@
 /*
 Hier findet man alles, was über den Konjugationstabellen steht.
 */ 
+function print_explanatory_text(InfinitiveVerb $infinitiveVerb) {
 $regelmaessig = in_array($infinitiveVerb, $unregelmaessige_verben) ? 'unregelmäßig' : 'regelmäßig'; 
 $reflexiv = in_array($infinitiveVerb, $verbes_pronominaux) ? 'reflexives' : 'nicht reflexives';
 $conditions = [];
@@ -17,8 +18,7 @@ if (!in_array($infinitiveVerb, $verbes_transitifs) and !in_array($infinitiveVerb
 $transitiv = implode(' oder ', $conditions);
 
 //$substr_er = array_filter($infinitiveVerb, function($value) { return substr($value, -2) == 'er'; });
-function finding_group(InfinitiveVerb $infinitiveVerb)
-{
+
 if ((substr ($infinitiveVerb, - 2, 2 ) == 'er') &&  (!in_array($infinitiveVerb,['aller','raller','re-aller','saisir-arrêter','saisir-brandonner','saisir-exécuter','s’en aller','sur-aller']))) {
     $group = 'der 1. Verbgruppe';
   } 
@@ -31,8 +31,6 @@ if ((substr ($infinitiveVerb, - 2, 2 ) == 'er') &&  (!in_array($infinitiveVerb,[
   else { // aller,....
     $group = 'der 3. Verbgruppe';
   }
-    return $group;
-}
 require_once 'classes/InfinitiveVerb.php';    
 require_once 'verbs.php';
 require_once 'groups/verbes_pronominaux.php';
@@ -58,8 +56,7 @@ require_once 'groups/verbes_defectifs.php';
   if (in_array($infinitiveVerb, $impersonnels)) {
     echo '<p>'.$infinitiveVerb.' ist ein <b>unpersönliches Verb</b>.</p>';	
   }
-?> 
-<p><b><?php echo($_GET['verb']) ?></b> ist in <b><?php echo finding_group( new InfinitiveVerb($_GET['verb'])); ?></b>.</p>  
+echo '<p><b>'.$_GET['verb'].'</b> ist in <b>'.finding_group( new InfinitiveVerb($_GET['verb'])).'</b>.</p>  
 <h2 class="home">Verzeichnis</h2>
 <ul style="list-style-type:none;">
 	<li><a class="down" href="#indicatif">Indicatif</a></li>
@@ -67,4 +64,6 @@ require_once 'groups/verbes_defectifs.php';
 	<li><a class="down" href="#conditionnel">Conditionnel</a></li>
 	<li><a class="down" href="#imperatif">Impératif</a></li>
 	<li><a class="down" href="#modes-impersonnels">Modes impersonnels</a></li>
-</ul>
+</ul>';
+}
+?>
