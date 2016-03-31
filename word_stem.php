@@ -1,4 +1,4 @@
-<?
+<?php
 
 function word_stem_length(InfinitiveVerb $infinitiveVerb, $endingLength)
 {

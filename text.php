@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 Hier findet man alles, was über den Konjugationstabellen steht.
 */ 

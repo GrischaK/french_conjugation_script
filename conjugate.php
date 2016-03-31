@@ -1,4 +1,4 @@
-<?
+<?php
 require_once 'classes/Enum.php';
 require_once 'classes/InfinitiveVerb.php';
 require_once 'classes/ConjugatedVerb.php';
