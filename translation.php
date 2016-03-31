@@ -1,6 +1,5 @@
 <?
-
-$trigger_play2='trigger_play.js';
+$trigger_play='trigger_play.js';
 
 $fr_de = array( 
     'abader' => '',
