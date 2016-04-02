@@ -1,4 +1,20 @@
 <?php
+<<<<<<< HEAD
+=======
+require_once 'classes/InfinitiveVerb.php';
+require_once 'verbs.php';
+require_once 'groups/verbes_pronominaux.php';
+require_once 'groups/verbes_exclusivement_pronominaux.php';
+require_once 'groups/verbes_intransitifs.php';
+require_once 'groups/verbes_transitifs.php';
+require_once 'groups/irregular-verb-groups.php';
+require_once 'groups/verbes_en_ancien.php';
+require_once 'groups/verbes_defectifs.php';
+//  require_once 'groups/irregular.php';
+/*
+Hier findet man alles, was über den Konjugationstabellen steht.
+*/ 
+>>>>>>> origin/master
 function print_explanatory_text(InfinitiveVerb $infinitiveVerb) {
 global $verbes_en_ancien,$verbes_defectifs,$impersonnels,$verbes_transitifs,$verbes_intransitifs,$verbes_pronominaux,$unregelmaessige_verben;
 require_once 'classes/InfinitiveVerb.php';
@@ -37,6 +53,10 @@ if ((substr ($infinitiveVerb, - 2, 2 ) == 'er') &&  (!in_array($infinitiveVerb,[
   else { // aller,....
     $group = 'der 3. Verbgruppe';
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 echo '<h2 class="home">Die Konjugation von '.$_GET['verb'].'</h2>
 <p>Das Verb <b>'.$_GET['verb'].'</b> wird <b>'.$regelmaessig.
 '</b> konjugiert und wird in den zusammengesetzten Zeiten mit den Hilfsverb <b>'.
