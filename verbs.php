@@ -1,4 +1,4 @@
-<?php
+<?
 $infinitiveVerb = [
     'abrater',
     'abréyer',
@@ -104,6 +104,4 @@ $infinitiveVerb = [
     'vivre',
     'vouloir'
 ];
-$verbs1 = call_user_func_array('array_merge', $infinitiveVerb);
-$verbs1 = $infinitiveVerb;
 ?>
