@@ -10,11 +10,9 @@
 		$h1=strtoupper($params[0]);
 	}
 ?>
-<h1>
-<?php echo $h1; ?>
-</h1>
+<h1><?php echo $h1; ?></h1>
 <?php translation('la conjugaison','die Konjugation'); ?>
-<p>Hier finden sie alle Verben, die mit <?php echo ucfirst($params[0]);?> beginnen. Zu jeder Vokabel finden Sie die Konjugation für den Indicatif, Subjonctif, Conditionnel und sowie den Impératif, Infinitif, Gérondif und Participe Modus.</p>
+<p class="well">Hier finden sie alle Verben, die mit <?php echo ucfirst($params[0]);?> beginnen. Zu jeder Vokabel finden Sie die Konjugation für den Indicatif, Subjonctif, Conditionnel und sowie den Impératif, Infinitif, Gérondif und Participe Modus.</p>
 <?php
 	$num=0;
 	$start=0;
@@ -24,8 +22,10 @@
 	$start=$page*$per_page;
 ?>
 <table width="100%">
-<?
+<?php
 	$array = array_chunk($array, 4);
+if (is_array($array) || is_object($array))
+{	
 	foreach($array as $chunk){
 		if($num>=$start) echo '<tr>';
 		foreach($chunk as $val){
@@ -37,6 +37,7 @@
 		if($num>$start+$per_page) break;
 		if($num>$start) '</tr>';
 	}
+}	
 	echo '</table>';
 	echo '<div id="prev_next">';
 	if($page>0)
