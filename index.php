@@ -12,7 +12,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/data/before_content.php");
 <style type="text/css">
 #menu,#right-part  {display:none;}
 #right-part.col-md-2{display:none;}	  
-#content.col-md-7 {width:85%;}
+#content.col-md-7 {width:100%;}
  
 @media 
   (min-device-width: 800px) 
@@ -63,7 +63,7 @@ elseif(isset($_GET['verb'])){
 	    if (event.keyCode == 13) suchen();
 	});
 </script>
-<?php
+<?php 
 $trigger_play ='';
 include_once($_SERVER['DOCUMENT_ROOT']."/data/after_content.php"); ?>
 
