@@ -9,9 +9,10 @@
 	$keywords='Konjugation, Konjugation von französischen Verben, Französische Verben konjugieren';  
 	$letters=range('a','z');
 	$letters_special=["à","â","æ","ç","é","ê","è","ë","î","ï","ô","œ","û","ù"];
+
 ?>                                                          
-<h1> <?=$h1;?></h1>
-<p>Derzeit befindet sich <b><?php echo count($infinitiveVerb, COUNT_RECURSIVE)-count($infinitiveVerb)-1; ?></b> Verben unserer Datenbank. Klicke auf einen Buchstaben, um alle Verben zu finden, die mit diesem Buchstaben anfangen.</p>
+<h1> <?php echo $h1;?></h1>
+<p class="well">Derzeit befindet sich <b><?php echo count($infinitiveVerb, COUNT_RECURSIVE); ?></b> Verben unserer Datenbank. Klicke auf einen Buchstaben, um alle Verben zu finden, die mit diesem Buchstaben anfangen.</p>
 <? translation('la conjugaison','die Konjugation'); ?>
 <?php
 	$str="";
@@ -51,11 +52,11 @@ function suchen(){
 
 </script>
 <br><br>
-<p>Hier kannst du den Infinitiv Form des Verbes eingeben,um die Konjugationsformen für alle französischen Zeiten zu sehen.</p>
+<p class="well">Hier kannst du den Infinitiv Form des Verbes eingeben,um die Konjugationsformen für alle französischen Zeiten zu sehen.</p>
   <input type="text" id="txt" size="27" onkeyup="showResult(this.value)">
   <input id="suchen" type="button" value="Suchen" onclick="suchen()">
 <br> 
-<?php
+<?
 	//special letters menu
 	foreach($letters_special as $letter_special){
 		echo '<input type="button" value="'.$letter_special.'" onclick="'.$letter_special.'()" />';
@@ -85,5 +86,4 @@ $beliebtesten_verben = [['acheter','aller','appeler','apprendre','attendre','avo
 		}
 		echo '</table>';	
 	}
-
 ?>
