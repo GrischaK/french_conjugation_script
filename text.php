@@ -40,7 +40,7 @@ if ((substr ($infinitiveVerb, - 2, 2 ) == 'er') &&  (!in_array($infinitiveVerb,[
 echo '<h2 class="home">Die Konjugation von '.$_GET['verb'].'</h2>
 <p class="well">Das Verb <b>'.$_GET['verb'].'</b> wird <b>'.$regelmaessig.
 '</b> konjugiert und wird in den zusammengesetzten Zeiten mit den Hilfsverb <b>'.
-finding_auxiliaire( new InfinitiveVerb($_GET['verb'])).'</b> gebildet.</p>
+finding_auxiliaire( new InfinitiveVerb($_GET['verb']))->getValue().'</b> gebildet.</p>
 <p class="well"><b>'.$_GET['verb'].'</b> ist ein <b>'.$reflexiv.'</b> und <b>'.$transitiv.'</b> Verb.</p>';
   if (in_array($infinitiveVerb, $verbes_en_ancien)) {
     echo '<p class="well">'.$infinitiveVerb.' kommt aus der <b>altfranzösischen Sprache</b>.</p>';

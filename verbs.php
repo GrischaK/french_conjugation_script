@@ -40,6 +40,7 @@ $infinitiveVerb = [
     'cueillir',
     'cuire',
     'devor',
+	'descendre',
     'dire',
     'dormir',
     'écrire',
