@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" media="screen" href="../../tabs.css" /> 
 <?php 
 require_once 'classes/Auxiliaire.php';
 require_once 'classes/InfinitiveVerb.php';
@@ -60,14 +61,36 @@ require_once 'groups/verbes_defectifs.php';
 ?>
 
 <h1><?php echo $_GET['verb'];?></h1>
-<?php
-//$exception == $_GET['verb'].'es' ;
-	translation($_GET['verb'],$fr_de[$_GET['verb']]);  
+<?php translation($_GET['verb'],$fr_de[$_GET['verb']]); 
+echo '<h2 class="home">Die Konjugation von '.$_GET['verb'].'</h2>'?> 
+<div class="tabreiter">
+    <ul>
+        <li>
+            <input type="radio" name="tabreiter-0" checked="checked" id="tabreiter-0-0" /><label for="tabreiter-0-0">intransitiv (Hilfsverb être)</label>
+            <div>
+                <h3>intransitiv (Hilfsverb être)</h3>
+                <?php
     include("text.php");
     $infinitiveVerb = new InfinitiveVerb($_GET['verb']);
     print_explanatory_text($infinitiveVerb);
 	print_conjugations_of_verb($infinitiveVerb); 
 ?>
+            </div>
+        </li><li>
+            <input type="radio" name="tabreiter-0" id="tabreiter-0-1" /><label for="tabreiter-0-1">transitiv (Hilfsverb avoir)</label>
+            <div>
+                <h3>transitiv (Hilfsverb avoir)</h3>
+                <?php
+    include("text.php");
+    $infinitiveVerb = new InfinitiveVerb($_GET['verb']);
+    print_explanatory_text($infinitiveVerb);
+	print_conjugations_of_verb($infinitiveVerb); 
+?>
+            </div>
+        </li>
+    </ul>
+</div>
+
 <div id="hidden_player"></div>
 <?php		}
 	?>
