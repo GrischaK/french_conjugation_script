@@ -37,8 +37,7 @@ if ((substr ($infinitiveVerb, - 2, 2 ) == 'er') &&  (!in_array($infinitiveVerb,[
   else { // aller,....
     $group = 'der 3. Verbgruppe';
   }
-echo '<h2 class="home">Die Konjugation von '.$_GET['verb'].'</h2>
-<p class="well">Das Verb <b>'.$_GET['verb'].'</b> wird <b>'.$regelmaessig.
+echo '<p class="well">Das Verb <b>'.$_GET['verb'].'</b> wird <b>'.$regelmaessig.
 '</b> konjugiert und wird in den zusammengesetzten Zeiten mit den Hilfsverb <b>'.
 finding_auxiliaire( new InfinitiveVerb($_GET['verb']))->getValue().'</b> gebildet.</p>
 <p class="well"><b>'.$_GET['verb'].'</b> ist ein <b>'.$reflexiv.'</b> und <b>'.$transitiv.'</b> Verb.</p>';
@@ -52,6 +51,7 @@ finding_auxiliaire( new InfinitiveVerb($_GET['verb']))->getValue().'</b> gebilde
     echo '<p class="well">'.$infinitiveVerb.' ist ein <b>unpersönliches Verb</b>.</p>';	
   }
 echo '<p class="well"><b>'.$_GET['verb'].'</b> ist in <b>'.$group.'</b>.</p>  
+
 <h2 class="home">Verzeichnis</h2>
 <ul style="list-style-type:none;">
 	<li><a class="down" href="#indicatif">Indicatif</a></li>
