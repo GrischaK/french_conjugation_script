@@ -575,14 +575,6 @@ function finding_auxiliaire(InfinitiveVerb $infinitiveVerb)
     } else {
         $auxiliaire = Auxiliaire::Avoir;
     }
-
-    if(canBeConjugatedWith($verb, $auxiliaireEtre)) {
-    	$auxiliaire = Auxiliaire::Etre;
-    }
-    if(canBeConjugatedWith($verb,$auxiliaireAvior)) {
-    	$auxiliaire = Auxiliaire::Avoir;
-    }
-    
     return new Auxiliaire($auxiliaire);
 }
 
