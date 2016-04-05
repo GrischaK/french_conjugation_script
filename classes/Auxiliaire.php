@@ -20,9 +20,9 @@ class Auxiliaire extends Enum{
 			'repourrir','rerentrer','rerester','ressortir','ressouvenir','rester','resurvenir','retomber','retrépasser','revenir','sortir',
 			 'souvenir','stationner','sur-aller','suradvenir','survenir','tomber','trépasser','venir'], 	
 		Auxiliaire::AvoirandEtre => ['accourir','ascendre','convenir','déchoir','demeurer','descendre','disparaitre','disparaître','disconvenir',
-			'éclore','enclore','entrer ','monter','paraitre','paraître','passer','ragaillardir','ré-apparaître','réapparaître','reconvenir',
+			'éclore','enclore','entrer ','monter','paraitre','paraître','passer','ragaillardir', 'ré-apparaître','réapparaître','reconvenir',
 			'reparaitre','reparaître','sortir','tomber'],
-		Auxiliaire::Avoir => '$only_with_auxiliaire_avoir'];	
+		Auxiliaire::Avoir => $only_with_auxiliaire_avoir];	
 		return $infinitiveVerb[$auxiliaire->getValue()];
 	}
 }
