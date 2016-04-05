@@ -62,21 +62,8 @@ require_once 'groups/verbes_defectifs.php';
 
 <h1><?php echo $_GET['verb'];?></h1>
 <?php translation($_GET['verb'],$fr_de[$_GET['verb']]); 
-echo '<h2 class="home">Die Konjugation von '.$_GET['verb'].'</h2>'
-if(canBeConjugatedWith($verb, $auxiliaireAVOIR)) { 
-	require_once("text.php");
-	$infinitiveVerb = new InfinitiveVerb($_GET['verb']);
-	print_explanatory_text($infinitiveVerb);
-	print_conjugations_of_verb($infinitiveVerb); 
-}
-if(canBeConjugatedWith($verb, $auxiliaireETRE)) { 
-	require_once("text.php");
-	$infinitiveVerb = new InfinitiveVerb($_GET['verb']);
-	print_explanatory_text($infinitiveVerb);
-	print_conjugations_of_verb($infinitiveVerb); 
-}
+echo '<h2 class="home">Die Konjugation von '.$_GET['verb'].'</h2>';
 if(canBeConjugatedWith($verb, $auxiliaireAvoirandEtre)) { ?> 
-
 <div class="tabreiter">
     <ul>
         <li>
@@ -103,9 +90,21 @@ if(canBeConjugatedWith($verb, $auxiliaireAvoirandEtre)) { ?>
     </ul>
 </div>
 <?php 
+} else {
+	if(canBeConjugatedWith($verb, $auxiliaireAVOIR)) { 
+		require_once("text.php");
+		$infinitiveVerb = new InfinitiveVerb($_GET['verb']);
+		print_explanatory_text($infinitiveVerb);
+		print_conjugations_of_verb($infinitiveVerb); 
+	}
+	if(canBeConjugatedWith($verb, $auxiliaireETRE)) { 
+		require_once("text.php");
+		$infinitiveVerb = new InfinitiveVerb($_GET['verb']);
+		print_explanatory_text($infinitiveVerb);
+		print_conjugations_of_verb($infinitiveVerb); 
+	}
 }
-?> 
-
+?>
 <div id="hidden_player"></div>
 <?php		}
 	?>
