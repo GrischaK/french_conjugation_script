@@ -95,7 +95,7 @@ class IrregularExceptionGroup
     ];
 
     public static $enir = [
-        'tenir'
+        'convenir','venir','tenir'
     ];
 
     public static $fuir = [
