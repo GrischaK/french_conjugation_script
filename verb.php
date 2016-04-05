@@ -71,6 +71,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
             <input type="radio" name="tabreiter-0" checked="checked" id="tabreiter-0-0" /><label for="tabreiter-0-0">intransitiv (Hilfsverb être)</label>
             <div>
                 <?php
+				$css_class = 'green';
 				require_once("text.php");
 				print_explanatory_text($infinitiveVerb);
 				print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)); 
@@ -80,6 +81,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
             <input type="radio" name="tabreiter-0" id="tabreiter-0-1" /><label for="tabreiter-0-1">transitiv (Hilfsverb avoir)</label>
             <div>
                 <?php
+				$css_class = 'light_blue';
 				require_once("text.php");
 				print_explanatory_text($infinitiveVerb);
 				print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)); 
@@ -90,12 +92,70 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
 </div>
 <?php 
 } else {
-	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir))) { 
+	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?> 
+<div class="tabreiter">
+    <ul>
+        <li>
+            <input type="radio" name="tabreiter-0" checked="checked" id="tabreiter-0-0" /><label for="tabreiter-0-0">Konjugation aktiv</label>
+            <div>
+                <?php
+				$css_class = 'light_blue';
+				require_once("text.php");
+				print_explanatory_text($infinitiveVerb);
+				print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)); 
+				?>
+            </div>
+        </li><li>
+            <input type="radio" name="tabreiter-0" id="tabreiter-0-1" /><label for="tabreiter-0-1">Konjugation pronominal</label>
+            <div>
+                <?php
+				$css_class = 'light_blue';
+				require_once("text.php");
+				print_explanatory_text($infinitiveVerb);
+				print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)); 
+				?>
+            </div>
+        </li>
+    </ul>
+</div>
+<?php 
+	}	
+	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && !in_array($infinitiveVerb, $verbes_pronominaux)) { 
+		$css_class = 'light_blue';
 		require_once("text.php");
 		print_explanatory_text($infinitiveVerb);
 		print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)); 
 	}
-	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre))) { 
+	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?> 
+<div class="tabreiter">
+    <ul>
+        <li>
+            <input type="radio" name="tabreiter-0" checked="checked" id="tabreiter-0-0" /><label for="tabreiter-0-0">Konjugation aktiv</label>
+            <div>
+                <?php
+				$css_class = 'green';
+				require_once("text.php");
+				print_explanatory_text($infinitiveVerb);
+				print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)); 
+				?>
+            </div>
+        </li><li>
+            <input type="radio" name="tabreiter-0" id="tabreiter-0-1" /><label for="tabreiter-0-1">Konjugation pronominal</label>
+            <div>
+                <?php
+				$css_class = 'green';
+				require_once("text.php");
+				print_explanatory_text($infinitiveVerb);
+				print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)); 
+				?>
+            </div>
+        </li>
+    </ul>
+</div>
+<?php 
+	}	
+	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && !in_array($infinitiveVerb, $verbes_pronominaux)) { 
+		$css_class = 'green';
 		require_once("text.php");
 		print_explanatory_text($infinitiveVerb);
 		print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)); 
