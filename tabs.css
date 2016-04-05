@@ -1,7 +1,19 @@
+.tab_new{border:1px solid black;line-height:1;border-spacing:2px;background-color:#FFFFFF;width:48%;display:inline-table;}
+.tab_new tr.border{border-bottom:1pt solid black;}
+.titel_new,.tab_new th{font-weight:bold;text-align:center;}
+.tab_new tr:nth-child(even){background:white;}
+.tab_new tr:nth-child(odd){background:#efefef;}
+.tab_new tr td:first-child{width:20%}
+.tab_new tr td:nth-child(2){width:20%}
+.tab_new td{padding-top:5px;padding-left:2px;}
+
+.light_blue,.light_blue th{background-color:#b9c9fe;}
+.green,.green th{background-color:GreenYellow;}
+
 .tabreiter
 {
     width: 100%;
-    height: 3000px;
+    height: 3100px;
 }   
  
 .tabreiter ul,
