@@ -9,19 +9,23 @@ class Auxiliaire extends Enum{
 	}
 	
 	static function getVerbsThatUse(Auxiliaire $auxiliaire) {
-		$infinitiveVerb = [Auxiliaire::Etre => ['accourir','advenir','aller','amuser','apparaitre','apparaître','arriver','ascendre','co-naitre','co-naître','convenir',
-			'débeller','décéder','démourir','descendre','disconvenir','devenir','échoir','entre-venir','entrer','époustoufler','intervenir',
-			'issir','mévenir','monter','mourir','naitre','naître','obvenir','paraitre','paraître','partir','parvenir','pourrir','prémourir',
-			'provenir','ragaillardir','raller','réadvenir','re-aller','réapparaitre','réapparaître','reconvenir','redépartir','redescendre',
-			'redevenir','réentrer','réintervenir','remonter','remourir','renaitre','renaître','rentrer','revenir','reparaitre','reparaître',
-			'repartir','reparvenir','repasser','repourrir','rerentrer','rerester','ressortir','ressouvenir','rester','resurvenir','retomber',
-			'retourner','retrépasser','revenir','s’amuser','se redépartir','se sortir','se souvenir','sortir','souvenir','stationner','sur-aller'
-			,'suradvenir','survenir','tomber','trépasser','venir'], 	
+		$only_with_auxiliaire_avoir = ['acheter','aimer','balader','manger'];
+		$infinitiveVerb = 
+		[Auxiliaire::Etre => ['accourir','advenir','aller','apparaitre','apparaître','arriver','ascendre','co-naitre','co-naître','convenir',
+			'débeller','démourir','descendre','disconvenir','devenir','échoir','entre-venir','emmourir','entrer','époustoufler','intervenir',
+			'issir','mésadvenir','mésavenir','mévenir','monter','moquer','mourir','naitre','naître','obvenir','paraitre','paraître','partir',
+			'parvenir','passer','pourir','pourrir','prémourir','provenir','ragaillardir','raller','réadvenir','re-aller','réapparaitre',
+		    'réapparaître','reconvenir','redépartir','redevenir','réentrer','réintervenir','remourir','renaitre','renaître','rentrer','revenir',
+		    'reparaitre','reparaître','repartir','reparvenir','repasser','ré-apparaître','réaccroupir','réacharner', 'redévergonder','réinsurger','remoquer','reprosterner','resouvenir','retrémousser',
+			'repourrir','rerentrer','rerester','ressortir','ressouvenir','rester','resurvenir','retomber','retrépasser','revenir','sortir',
+			 'souvenir','stationner','sur-aller','suradvenir','survenir','tomber','trépasser','venir'], 	
 		Auxiliaire::AvoirandEtre => ['accourir','ascendre','convenir','déchoir','demeurer','descendre','disparaitre','disparaître','disconvenir',
-			'éclore','enclore','entrer ','monter','paraitre','paraître','passer','ragaillardir', 'ré-apparaître','réapparaître','reconvenir',
+			'éclore','enclore','entrer ','monter','paraitre','paraître','passer','ragaillardir','ré-apparaître','réapparaître','reconvenir',
 			'reparaitre','reparaître','sortir','tomber'],
-		Auxiliaire::Avoir => ['acheter']];	
+		Auxiliaire::Avoir => '$only_with_auxiliaire_avoir'];	
 		return $infinitiveVerb[$auxiliaire->getValue()];
 	}
 }
 ?>
+
+
