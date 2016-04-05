@@ -575,7 +575,21 @@ function finding_auxiliaire(InfinitiveVerb $infinitiveVerb)
     } else {
         $auxiliaire = Auxiliaire::Avoir;
     }
+
+    if(canBeConjugatedWith($verb, $auxiliaireEtre)) {
+    	$auxiliaire = Auxiliaire::Etre;
+    }
+    if(canBeConjugatedWith($verb,$auxiliaireAvior)) {
+    	$auxiliaire = Auxiliaire::Avoir;
+    }
+    
     return new Auxiliaire($auxiliaire);
+}
+
+
+function canBeConjugatedWith(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire)
+{
+ return in_array($infinitiveVerb, Auxiliaire::getVerbsThatUse($auxiliaire)) || in_array($infinitiveVerb, Auxiliaire::getVerbsThatUse(new Auxiliaire(Auxiliaire::AvoirandEtre)));
 }
 
 function isPlural(Person $person)
