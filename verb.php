@@ -62,34 +62,49 @@ require_once 'groups/verbes_defectifs.php';
 
 <h1><?php echo $_GET['verb'];?></h1>
 <?php translation($_GET['verb'],$fr_de[$_GET['verb']]); 
-echo '<h2 class="home">Die Konjugation von '.$_GET['verb'].'</h2>'?> 
+echo '<h2 class="home">Die Konjugation von '.$_GET['verb'].'</h2>'
+if(canBeConjugatedWith($verb, $auxiliaireAVOIR)) { 
+	require_once("text.php");
+	$infinitiveVerb = new InfinitiveVerb($_GET['verb']);
+	print_explanatory_text($infinitiveVerb);
+	print_conjugations_of_verb($infinitiveVerb); 
+}
+if(canBeConjugatedWith($verb, $auxiliaireETRE)) { 
+	require_once("text.php");
+	$infinitiveVerb = new InfinitiveVerb($_GET['verb']);
+	print_explanatory_text($infinitiveVerb);
+	print_conjugations_of_verb($infinitiveVerb); 
+}
+if(canBeConjugatedWith($verb, $auxiliaireAvoirandEtre)) { ?> 
+
 <div class="tabreiter">
     <ul>
         <li>
             <input type="radio" name="tabreiter-0" checked="checked" id="tabreiter-0-0" /><label for="tabreiter-0-0">intransitiv (Hilfsverb être)</label>
             <div>
-                <h3>intransitiv (Hilfsverb être)</h3>
                 <?php
-    include("text.php");
-    $infinitiveVerb = new InfinitiveVerb($_GET['verb']);
-    print_explanatory_text($infinitiveVerb);
-	print_conjugations_of_verb($infinitiveVerb); 
-?>
+				require_once("text.php");
+				$infinitiveVerb = new InfinitiveVerb($_GET['verb']);
+				print_explanatory_text($infinitiveVerb);
+				print_conjugations_of_verb($infinitiveVerb); 
+				?>
             </div>
         </li><li>
             <input type="radio" name="tabreiter-0" id="tabreiter-0-1" /><label for="tabreiter-0-1">transitiv (Hilfsverb avoir)</label>
             <div>
-                <h3>transitiv (Hilfsverb avoir)</h3>
                 <?php
-    include("text.php");
-    $infinitiveVerb = new InfinitiveVerb($_GET['verb']);
-    print_explanatory_text($infinitiveVerb);
-	print_conjugations_of_verb($infinitiveVerb); 
-?>
+				require_once("text.php");
+				$infinitiveVerb = new InfinitiveVerb($_GET['verb']);
+				print_explanatory_text($infinitiveVerb);
+				print_conjugations_of_verb($infinitiveVerb); 
+				?>
             </div>
         </li>
     </ul>
 </div>
+<?php 
+}
+?> 
 
 <div id="hidden_player"></div>
 <?php		}
