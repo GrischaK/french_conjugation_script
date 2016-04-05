@@ -856,15 +856,15 @@ abstract class ConjugationPhrase
 
     abstract function accept(ConjugationPhraseVisitor $visitor);
 
-    static function create(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood)
+    static function create(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood)
     {
         $personal_pronoun = personal_pronoun($person, $mood);
         if (isComposite($mood, $tense)) {
             $participe_passe = finding_participe_passe($infinitiveVerb);
-            if (finding_auxiliaire($infinitiveVerb)->getValue() === Auxiliaire::Etre && (isPlural($person))) {
+            if ($auxiliaire->getValue() === Auxiliaire::Etre && (isPlural($person))) {
                 $participe_passe .= 's';
             }
-            $conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb(finding_auxiliaire($infinitiveVerb), $person, $tense, $mood);
+            $conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb($auxiliaire, $person, $tense, $mood);
             if ($mood->getValue() === Mood::Imperatif) {
                 return new ImperatifPasseTenseConjugationPhrase($conjugated_auxiliaire_verb, $participe_passe);
             }
@@ -1015,9 +1015,9 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor
     }
 }
 
-function conjugation_phrase(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood)
+function conjugation_phrase(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood)
 {
-    $conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, $person, $tense, $mood);
+    $conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, $auxiliaire, $person, $tense, $mood);
     $visitor = new GoogleTTSConjugationPhraseVisitor();
     return $conjugationPhrase->accept($visitor);
 }

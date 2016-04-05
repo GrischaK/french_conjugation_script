@@ -7,9 +7,9 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider ConjugatePhraseTestProvider
      */
-    public function testConjugatePhrase($expectedResult, $infinitiveVerb, $tense, $person, $mood)
+    public function testConjugatePhrase($expectedResult, $infinitiveVerb, $auxiliaire, $tense, $person, $mood)
     {
-        $this->assertEquals($expectedResult, (string) conjugation_phrase(new InfinitiveVerb($infinitiveVerb), new Person($person), new Tense($tense), new Mood($mood)));
+        $this->assertEquals($expectedResult, (string) conjugation_phrase(new InfinitiveVerb($infinitiveVerb), new Auxiliaire($auxiliaire), new Person($person), new Tense($tense), new Mood($mood)));
     }
 
     public function ConjugatePhraseTestProvider()
@@ -19,6 +19,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'j’ai aimé',
                 'aimer',
+		Auxiliaire::Avoir,
                 'Passe_compose',
                 'FirstPersonSingular',
                 'Indicatif'
@@ -26,6 +27,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'je suis amusé',
                 'amuser',
+		Auxiliaire::Etre,
                 'Passe_compose',
                 'FirstPersonSingular',
                 'Indicatif'
@@ -33,6 +35,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'ils sont amusés',
                 'amuser',
+		Auxiliaire::Etre,
                 'Passe_compose',
                 'ThirdPersonPlural',
                 'Indicatif'
@@ -40,6 +43,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'j’aime',
                 'aimer',
+		Auxiliaire::Etre,
                 'Present',
                 'FirstPersonSingular',
                 'Indicatif'
@@ -47,6 +51,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'j’haïs',
                 'haïr',
+		Auxiliaire::Etre,
                 'Present',
                 'FirstPersonSingular',
                 'Indicatif'
@@ -54,6 +59,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'j’habilite',
                 'habiliter',
+		Auxiliaire::Etre,
                 'Present',
                 'FirstPersonSingular',
                 'Indicatif'
@@ -61,6 +67,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'je hérisse',
                 'hérisser',
+		Auxiliaire::Etre,
                 'Present',
                 'FirstPersonSingular',
                 'Indicatif'
@@ -68,6 +75,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'je finis',
                 'finir',
+		Auxiliaire::Etre,
                 'Present',
                 'FirstPersonSingular',
                 'Indicatif'
@@ -75,6 +83,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'que j’aime',
                 'aimer',
+		Auxiliaire::Etre,
                 'Present',
                 'FirstPersonSingular',
                 'Subjonctif'
@@ -82,6 +91,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'aime',
                 'aimer',
+		Auxiliaire::Etre,
                 'Present',
                 'SecondPersonSingular',
                 'Imperatif'
@@ -89,6 +99,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'aimons',
                 'aimer',
+		Auxiliaire::Etre,
                 'Present',
                 'FirstPersonPlural',
                 'Imperatif'
@@ -96,6 +107,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'aimez',
                 'aimer',
+		Auxiliaire::Etre,
                 'Present',
                 'SecondPersonPlural',
                 'Imperatif'
@@ -103,6 +115,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'aie aimé',
                 'aimer',
+		Auxiliaire::Avoir,
                 'Passe',
                 'SecondPersonSingular',
                 'Imperatif'
@@ -110,6 +123,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'ayons aimé',
                 'aimer',
+		Auxiliaire::Avoir,
                 'Passe',
                 'FirstPersonPlural',
                 'Imperatif'
@@ -117,6 +131,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'ayez aimé',
                 'aimer',
+		Auxiliaire::Avoir,
                 'Passe',
                 'SecondPersonPlural',
                 'Imperatif'
@@ -124,6 +139,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'je donne',
                 'donner',
+		Auxiliaire::Etre,
                 'Present',
                 'FirstPersonSingular',
                 'Indicatif'
@@ -131,6 +147,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase
             [
                 'je vais donner',
                 'donner',
+		Auxiliaire::Etre,
                 'Futur_compose',
                 'FirstPersonSingular',
                 'Indicatif'
