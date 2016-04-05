@@ -300,9 +300,9 @@ function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire) {
 			Mode::Participe =>'Participe',
 	];
 	echo "\t\t".'<tr>' . PHP_EOL;
-	echo "\t\t\t".'<th class="titel">Mode</th>' . PHP_EOL;
-	echo "\t\t\t".'<th class="titel">Présent</th>' . PHP_EOL;
-	echo "\t\t\t".'<th class="titel">Passé</th>' . PHP_EOL;
+	echo "\t\t\t".'<th class="titel_new '.$css_class.'">Mode</th>' . PHP_EOL;
+	echo "\t\t\t".'<th class="titel_new '.$css_class.'">Présent</th>' . PHP_EOL;
+	echo "\t\t\t".'<th class="titel_new '.$css_class.'">Passé</th>' . PHP_EOL;
 	echo "\t\t".'</tr>' . PHP_EOL;
 	foreach ( $modes as $mode => $mode_name ) {
 		echo "\t\t".'<tr>' . PHP_EOL;
@@ -315,6 +315,7 @@ function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire) {
 	}
 }
 function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire) {
+	global $css_class;
 	$moods = [
 			Mood::Indicatif,
 			Mood::Subjonctif,
@@ -330,16 +331,16 @@ function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $
 	foreach ( $moods as $mood ) {
 		echo '<h2 class="home"><a id="'.strtolower($h2_of_mood[$mood]).'"></a>'.$h2_of_mood[$mood].'</h2>' . PHP_EOL;
 		echo "\t".'<hr class="linie" />' . PHP_EOL;
-		echo "\t".'<table class="tab">' . PHP_EOL;
+		echo "\t".'<table class="tab_new '.$css_class.'">' . PHP_EOL;
 		print_simple_tenses ( $infinitiveVerb, $auxiliaire, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
-		echo "\t".'<table class="tab">' . PHP_EOL;		
+		echo "\t".'<table class="tab_new '.$css_class.'">' . PHP_EOL;		
 		print_composite_tenses ( $infinitiveVerb, $auxiliaire, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 	}
 	echo '<h2 class="home"><a id="modes-impersonnels"></a>Modes impersonnels</h2>' . PHP_EOL;
 	echo "\t".'<hr class="linie" />' . PHP_EOL;	
-	echo "\t".'<table>' . PHP_EOL;
+	echo "\t".'<table class="tab_new '.$css_class.'">' . PHP_EOL;
 	print_modes ( $infinitiveVerb, $auxiliaire );
 	echo "\t".'</table>' . PHP_EOL;
 }
