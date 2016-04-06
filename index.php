@@ -9,7 +9,7 @@ require_once 'conjugate.php';
 require_once 'print.php';
 include_once($_SERVER['DOCUMENT_ROOT']."/data/before_content.php");
 ?>
-<style type="text/css">
+<style scoped>
 #menu,#right-part  {display:none;}
 #right-part.col-md-2{display:none;}	  
 #content.col-md-7 {width:100%;}
