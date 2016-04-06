@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" media="screen" href="../../tabs.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" property="stylesheet" href="../../tabs.css" /> 
 <?php 
 require_once 'classes/Auxiliaire.php';
 require_once 'classes/InfinitiveVerb.php';
@@ -64,7 +64,8 @@ require_once 'groups/verbes_defectifs.php';
 <?php translation($_GET['verb'],$fr_de[$_GET['verb']]); 
 echo '<h2 class="home">Die Konjugation von '.$_GET['verb'].'</h2>';
 $infinitiveVerb = new InfinitiveVerb($_GET['verb']);
-if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre))) { ?> 
+if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre))) { 
+?> 
 <div class="tabreiter">
     <ul>
         <li>
@@ -82,6 +83,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
             <div>
                 <?php
 				$css_class = 'light_blue';
+				$number = '2';
 				require_once("text.php");
 				print_explanatory_text($infinitiveVerb);
 				print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)); 
@@ -109,7 +111,8 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
             <input type="radio" name="tabreiter-0" id="tabreiter-0-1" /><label for="tabreiter-0-1">Konjugation pronominal</label>
             <div>
                 <?php
-				$css_class = 'light_blue';
+				$css_class = 'goldenrod';
+				$number = '3';
 				require_once("text.php");
 				print_explanatory_text($infinitiveVerb);
 				print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)); 
@@ -143,7 +146,8 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
             <input type="radio" name="tabreiter-0" id="tabreiter-0-1" /><label for="tabreiter-0-1">Konjugation pronominal</label>
             <div>
                 <?php
-				$css_class = 'green';
+				$css_class = 'goldenrod';
+				$number = '3';
 				require_once("text.php");
 				print_explanatory_text($infinitiveVerb);
 				print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)); 

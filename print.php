@@ -290,6 +290,7 @@ function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxi
 	print_tenses ( $infinitiveVerb, $auxiliaire, $mood, $tenses );
 }
 function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire) {
+	global $css_class,$number;	
 	$tenses = [
 			Tense::Present,
 			Tense::Passe 
@@ -315,7 +316,7 @@ function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire) {
 	}
 }
 function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire) {
-	global $css_class;
+	global $css_class,$number;
 	$moods = [
 			Mood::Indicatif,
 			Mood::Subjonctif,
@@ -329,7 +330,7 @@ function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $
 			Mood::Imperatif =>'Imperatif',
 	];
 	foreach ( $moods as $mood ) {
-		echo '<h2 class="home"><a id="'.strtolower($h2_of_mood[$mood]).'"></a>'.$h2_of_mood[$mood].'</h2>' . PHP_EOL;
+		echo '<h2 class="home"><a id="'.strtolower($h2_of_mood[$mood]).$number.'"></a>'.$h2_of_mood[$mood].'</h2>' . PHP_EOL;
 		echo "\t".'<hr class="linie" />' . PHP_EOL;
 		echo "\t".'<table class="tab_new '.$css_class.'">' . PHP_EOL;
 		print_simple_tenses ( $infinitiveVerb, $auxiliaire, new Mood ( $mood ) );
@@ -338,7 +339,7 @@ function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $
 		print_composite_tenses ( $infinitiveVerb, $auxiliaire, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 	}
-	echo '<h2 class="home"><a id="modes-impersonnels"></a>Modes impersonnels</h2>' . PHP_EOL;
+	echo '<h2 class="home"><a id="modes-impersonnels'.$number.'"></a>Modes impersonnels</h2>' . PHP_EOL;
 	echo "\t".'<hr class="linie" />' . PHP_EOL;	
 	echo "\t".'<table class="tab_new '.$css_class.'">' . PHP_EOL;
 	print_modes ( $infinitiveVerb, $auxiliaire );
