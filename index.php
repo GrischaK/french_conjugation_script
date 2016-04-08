@@ -1,9 +1,6 @@
 <?php
 //require_once 'translation.php';
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
+$jquery_head='';
 require_once 'verbs.php';
 require_once 'conjugate.php';
 require_once 'print.php';
@@ -17,8 +14,9 @@ include_once($_SERVER['DOCUMENT_ROOT']."/data/before_content.php");
 @media 
   (min-device-width: 800px) 
   and (max-device-width: 1280px) {
-#menu.col-md-3 {width:23%;}
-#content.col-md-7 {width:77%;}
+#menu,#right-part  {display:none;}
+#right-part.col-md-2{display:none;}	  
+#content.col-md-7 {width:100%;}
 }
 </style> 
 <?php
