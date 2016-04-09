@@ -1,5 +1,4 @@
 <?php
-
 class ExceptionModel extends Enum
 {
 

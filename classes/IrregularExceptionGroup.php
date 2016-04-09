@@ -1,8 +1,6 @@
 <?php
-
 class IrregularExceptionGroup
 {
-
     public static $aller = [
         'aller',
         'raller',
