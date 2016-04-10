@@ -21,8 +21,8 @@ class AuxiliaireTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider AuxiliaireVerbProvider
 	 */
-	public function testAuxiliaireVerb($expectedResult, $auxiliaire, $tense, $person, $mood) {
-		$this->assertEquals ( $expectedResult, conjugated_auxiliaire ( new Auxiliaire ( $auxiliaire ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
+	public function testAuxiliaireVerb($expectedResult, $auxiliaire, $tense, $person, $mood, $voice) {
+		$this->assertEquals ( $expectedResult, conjugated_auxiliaire ( new Auxiliaire ( $auxiliaire ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ), new Voice ( $voice ) ) );
 	}
 	public function AuxiliaireVerbProvider() {
 		return [
@@ -31,84 +31,96 @@ class AuxiliaireTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Etre,
 						'Passe_compose',
 						'FirstPersonSingular',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,							
 				],
 				[
 						"es",
 						Auxiliaire::Etre,
 						'Passe_compose',
 						'SecondPersonSingular',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,	
 				],
 				[
 						"est",
 						Auxiliaire::Etre,
 						'Passe_compose',
 						'ThirdPersonSingular',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,						
 				],
 				[
 						"sommes",
 						Auxiliaire::Etre,
 						'Passe_compose',
 						'FirstPersonPlural',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,
 				],
 				[
 						"êtes",
 						Auxiliaire::Etre,
 						'Passe_compose',
 						'SecondPersonPlural',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,
 				],
 				[
 						"sont",
 						Auxiliaire::Etre,
 						'Passe_compose',
 						'ThirdPersonPlural',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,
 				],
 				[
 						"ai",
 						Auxiliaire::Avoir,
 						'Passe_compose',
 						'FirstPersonSingular',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,
 				],
 				[
 						"as",
 						Auxiliaire::Avoir,
 						'Passe_compose',
 						'SecondPersonSingular',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,
 				],
 				[
 						"a",
 						Auxiliaire::Avoir,
 						'Passe_compose',
 						'ThirdPersonSingular',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,
 				],
 				[
 						"avons",
 						Auxiliaire::Avoir,
 						'Passe_compose',
 						'FirstPersonPlural',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,
 				],
 				[
 						"avez",
 						Auxiliaire::Avoir,
 						'Passe_compose',
 						'SecondPersonPlural',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,
 				],
 				[
 						"ont",
 						Auxiliaire::Avoir,
 						'Passe_compose',
 						'ThirdPersonPlural',
-						'Indicatif'
+						'Indicatif',
+						Voice::Active,
 				]
 		];
 }
