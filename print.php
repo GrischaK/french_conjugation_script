@@ -1,6 +1,6 @@
 <?php
 require_once 'conjugate.php';
-function print_persons(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Tense $tense, Mood $mood) {
+function print_persons(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Tense $tense, Mood $mood) {
 	$persons = [
 			Mood::Indicatif => [
 					Tense::Present => [
@@ -151,7 +151,7 @@ function print_persons(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, T
 	];
 	foreach ( $persons [$mood->getValue ()] [$tense->getValue ()] as $person ) {
 		//$output = conjugation_phrase ( $infinitiveVerb, new Person ( $person ), $tense, $mood );
-		$conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, $auxiliaire, new Person($person), $tense, $mood);
+		$conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, $auxiliaire, $gender, new Person($person), $tense, $mood);
 		$ttsVisitor = new GoogleTTSConjugationPhraseVisitor();
 		$output = $conjugationPhrase->accept($ttsVisitor);
 		$tablePrintVisitor = new OutputConjugationPhraseVisitor();
@@ -224,7 +224,7 @@ function colspan_number($mood, $tense) {
 	}
 	return $colspan;
 }
-function print_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mood $mood, $tenses) {
+function print_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Mood $mood, $tenses) {
 	$th_of_tense = [
 			Tense::Present =>'Présent',
 			Tense::Imparfait =>'Imparfait',
@@ -242,10 +242,10 @@ function print_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mo
 		echo "\t\t".'<tr class="border">' . PHP_EOL;
 		echo "\t\t\t".'<th colspan="'.colspan_number($mood, new Tense($tense)).'">'.$th_of_tense[$tense].'</th>' . PHP_EOL;
 		echo "\t\t".'</tr>' . PHP_EOL;
-		print_persons ( $infinitiveVerb, $auxiliaire, new Tense ( $tense ), new Mood ( $mood ) );
+		print_persons ( $infinitiveVerb, $auxiliaire, $gender, new Tense ( $tense ), new Mood ( $mood ) );
 	}
 }
-function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mood $mood) {
+function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Mood $mood) {
 	$tenses = [
 			Mood::Indicatif => [
 					Tense::Present,
@@ -264,9 +264,9 @@ function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxilia
 					Tense::Present 
 			] 
 	];
-	print_tenses ( $infinitiveVerb, $auxiliaire, $mood, $tenses );
+	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $mood, $tenses );
 }
-function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mood $mood) {
+function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Mood $mood) {
 	$tenses = [
 			Mood::Indicatif => [
 					Tense::Passe_compose,
@@ -287,9 +287,9 @@ function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxi
 					Tense::Passe 
 			] 
 	];
-	print_tenses ( $infinitiveVerb, $auxiliaire, $mood, $tenses );
+	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $mood, $tenses );
 }
-function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire) {
+function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire,Gender $gender) {
 	global $css_class,$number;	
 	$tenses = [
 			Tense::Present,
@@ -309,13 +309,13 @@ function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire) {
 		echo "\t\t".'<tr>' . PHP_EOL;
 		echo "\t\t\t".'<td class="text-center"><b>'.$mode_name.'</b></td>' . PHP_EOL;
 		foreach ( $tenses as $tense ) {
-			$output_modes = modes_impersonnels ( $infinitiveVerb, $auxiliaire, new Mode ( $mode ), new Tense ( $tense ) );
+			$output_modes = modes_impersonnels ( $infinitiveVerb, $auxiliaire, new Mode ( $mode ), new Tense ( $tense ), new Gender ( $gender ) );
 			echo "\t\t\t".'<td><span data-text="' . $output_modes . '" data-lang="fr" class="trigger_play"></span>' . $output_modes . '</td>' . PHP_EOL;
 		}
 		echo "\t\t".'</tr>' . PHP_EOL;
 	}
 }
-function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire) {
+function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender) {
 	global $css_class,$number;
 	$moods = [
 			Mood::Indicatif,
@@ -333,16 +333,16 @@ function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $
 		echo '<h2 class="home"><a id="'.strtolower($h2_of_mood[$mood]).$number.'"></a>'.$h2_of_mood[$mood].'</h2>' . PHP_EOL;
 		echo "\t".'<hr class="linie" />' . PHP_EOL;
 		echo "\t".'<table class="tab_new '.$css_class.'">' . PHP_EOL;
-		print_simple_tenses ( $infinitiveVerb, $auxiliaire, new Mood ( $mood ) );
+		print_simple_tenses ( $infinitiveVerb, $auxiliaire, $gender, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 		echo "\t".'<table class="tab_new '.$css_class.'">' . PHP_EOL;		
-		print_composite_tenses ( $infinitiveVerb, $auxiliaire, new Mood ( $mood ) );
+		print_composite_tenses ( $infinitiveVerb, $auxiliaire, $gender, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 	}
 	echo '<h2 class="home"><a id="modes-impersonnels'.$number.'"></a>Modes impersonnels</h2>' . PHP_EOL;
 	echo "\t".'<hr class="linie" />' . PHP_EOL;	
 	echo "\t".'<table class="tab_new '.$css_class.'">' . PHP_EOL;
-	print_modes ( $infinitiveVerb, $auxiliaire );
+	print_modes ( $infinitiveVerb, $auxiliaire,$gender );
 	echo "\t".'</table>' . PHP_EOL;
 }
 ?>
