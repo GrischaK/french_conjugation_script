@@ -9,7 +9,7 @@ class Auxiliaire extends Enum{
 	}
 	
 	static function getVerbsThatUse(Auxiliaire $auxiliaire) {
-		$only_with_auxiliaire_avoir = ['acheter','aimer','balader','manger'];
+		$only_with_auxiliaire_avoir = ['acheter','aimer','balader','coudre','manger'];
 		$infinitiveVerb = 
 		[Auxiliaire::Etre => ['accourir','advenir','aller','apparaitre','apparaître','arriver','ascendre','co-naitre','co-naître','convenir',
 			'débeller','démourir','descendre','disconvenir','devenir','échoir','entre-venir','emmourir','entrer','époustoufler','intervenir',
@@ -18,7 +18,7 @@ class Auxiliaire extends Enum{
 		    'réapparaître','reconvenir','redépartir','redevenir','réentrer','réintervenir','remourir','renaitre','renaître','rentrer','revenir',
 		    'reparaitre','reparaître','repartir','reparvenir','repasser','ré-apparaître','réaccroupir','réacharner', 'redévergonder','réinsurger','remoquer','reprosterner','resouvenir','retrémousser',
 			'repourrir','rerentrer','rerester','ressortir','ressouvenir','rester','resurvenir','retomber','retrépasser','revenir','sortir',
-			 'souvenir','stationner','sur-aller','suradvenir','survenir','tomber','trépasser','venir'], 	
+			 'souvenir','stationner','sur-aller','suradvenir','survenir','tomber','trépasser','venir'],  // + all pronominal version of verbs	
 		Auxiliaire::AvoirandEtre => ['accourir','ascendre','convenir','déchoir','demeurer','descendre','disparaitre','disparaître','disconvenir',
 			'éclore','enclore','entrer ','monter','paraitre','paraître','passer','ragaillardir', 'ré-apparaître','réapparaître','reconvenir',
 			'reparaitre','reparaître','sortir','tomber'],
