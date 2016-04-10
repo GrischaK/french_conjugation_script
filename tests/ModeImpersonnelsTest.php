@@ -5,8 +5,8 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider modeImpersonnelsTestProvider
 	 */
-	public function testModeImpersonnels($expectedResult, $infinitiveVerb, $auxiliaire, $mode, $tense) {
-		$this->assertEquals ( $expectedResult, modes_impersonnels ( new InfinitiveVerb( $infinitiveVerb), new Auxiliaire ( $auxiliaire ), new Mode ( $mode ), new Tense ( $tense ) ) );
+	public function testModeImpersonnels($expectedResult, $infinitiveVerb, $auxiliaire, $mode, $tense, $gender) {
+		$this->assertEquals ( $expectedResult, modes_impersonnels ( new InfinitiveVerb( $infinitiveVerb), new Auxiliaire ( $auxiliaire ), new Mode ( $mode ), new Tense ( $tense ), new Gender ( $gender ) ) );
 	}
 	public function modeImpersonnelsTestProvider() {
 		;
@@ -17,6 +17,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Avoir,
 						'Infinitif',
 						'Present',
+						Gender::Masculine,						
 				],
 				[
 						'avoir aimé',
@@ -24,6 +25,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Avoir,
 						'Infinitif',
 						'Passe',
+						Gender::Masculine,							
 				],
 				[
 						'en aimant',
@@ -31,6 +33,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Avoir,
 						'Gerondif',
 						'Present',
+						Gender::Masculine,							
 				],
 				[
 						'en ayant aimé',
@@ -38,6 +41,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Avoir,
 						'Gerondif',
 						'Passe',
+						Gender::Masculine,							
 				],
 				[
 						'aimant',
@@ -45,6 +49,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Avoir,
 						'Participe',
 						'Present',
+						Gender::Masculine,							
 				],
 				[
 						'aimé',
@@ -52,6 +57,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Avoir,
 						'Participe',
 						'Passe',
+						Gender::Masculine,							
 				],
 				
 				[
@@ -60,6 +66,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Etre,
 						'Infinitif',
 						'Present',
+						Gender::Masculine,							
 				],
 				[
 						'être amusé',
@@ -67,13 +74,23 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Etre,
 						'Infinitif',
 						'Passe',
+						Gender::Masculine,							
 				],
+				[
+						'être amusée',
+						'amuser',
+						Auxiliaire::Etre,
+						'Infinitif',
+						'Passe',
+						Gender::Feminine,							
+				],				
 				[
 						'en amusant',
 						'amuser',
 						Auxiliaire::Etre,
 						'Gerondif',
 						'Present',
+						Gender::Masculine,							
 				],
 				[
 						'en étant amusé',
@@ -81,13 +98,23 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Etre,
 						'Gerondif',
 						'Passe',
+						Gender::Masculine,							
 				],
+				[
+						'en étant amusée',
+						'amuser',
+						Auxiliaire::Etre,
+						'Gerondif',
+						'Passe',
+						Gender::Feminine,							
+				],				
 				[
 						'amusant',
 						'amuser',
 						Auxiliaire::Etre,
 						'Participe',
 						'Present',
+						Gender::Masculine,							
 				],
 				[
 						'amusé',
@@ -95,7 +122,16 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						Auxiliaire::Etre,
 						'Participe',
 						'Passe',
-				] 
+						Gender::Masculine,							
+				],
+				[
+						'amusée',
+						'amuser',
+						Auxiliaire::Etre,
+						'Participe',
+						'Passe',
+						Gender::Feminine,							
+				]				
 		];
 	}
 }
