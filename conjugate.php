@@ -6,6 +6,7 @@ require_once 'classes/ConjugatedAuxiliaireVerb.php';
 require_once 'classes/EndingWith.php';
 require_once 'classes/Tense.php';
 require_once 'classes/Person.php';
+require_once 'classes/Gender.php';
 require_once 'classes/Mood.php';
 require_once 'classes/Mode.php';
 require_once 'classes/Auxiliaire.php';
@@ -222,8 +223,7 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb)
     }
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$resoudre)) {
         $exceptionmodel = ExceptionModel::RESOUDRE;
-    }
-    
+    }   
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$occire)) {
         $exceptionmodel = ExceptionModel::OCCIRE;
     }
@@ -265,8 +265,7 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb)
     }
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$bruire)) {
         $exceptionmodel = ExceptionModel::BRUIRE;
-    }
-    
+    }   
     if (in_array($infinitiveVerb, IrregularExceptionGroup::$clore)) {
         $exceptionmodel = ExceptionModel::CLORE;
     }
@@ -323,9 +322,10 @@ function finding_conjugation_model(InfinitiveVerb $infinitiveVerb)
     }
     return new ConjugationModel($conjugationmodel);
 }
-function personal_pronoun(Person $person, Mood $mood)
+function personal_pronoun(Person $person, Gender $gender, Mood $mood)
 {
     $finding_person = '"Unknown Person';
+    if ($gender->getValue() === Gender::Masculine) {
     $finding_person = [
         Person::FirstPersonSingular => 'je',
         Person::SecondPersonSingular => 'tu',
@@ -334,6 +334,17 @@ function personal_pronoun(Person $person, Mood $mood)
         Person::SecondPersonPlural => 'vous',
         Person::ThirdPersonPlural => 'ils'
     ];
+    }		
+    if ($gender->getValue() === Gender::Feminine) {
+		$finding_person = [
+			Person::FirstPersonSingular => 'je',
+			Person::SecondPersonSingular => 'tu',
+			Person::ThirdPersonSingular => 'elle',
+			Person::FirstPersonPlural => 'nous',
+			Person::SecondPersonPlural => 'vous',
+			Person::ThirdPersonPlural => 'elles'
+    ];
+    }	
     $subjonctif_pre_pronouns = [
         Person::FirstPersonSingular => 'que ',
         Person::SecondPersonSingular => 'que ',
@@ -361,7 +372,7 @@ function reflexive_pronoun(Person $person, Mood $mood)
     ];
     return $finding_reflexive_pronoun[$person->getValue()];
 }
-function merge_pronoun(Person $person, Mood $mood)
+function merge_pronoun(Person $person, Gender $gender, Mood $mood)
 {
     if ($mood->getValue() === Mood::Subjonctif) {
         return $subjonctif_pre_pronouns[$person->getValue()] . $finding_person[$person->getValue()] . $finding_reflexive_pronoun[$person->getValue()];
@@ -776,11 +787,13 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 't';
     return $participe_passe;
 }
-function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense)
+function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense,Gender $gender)
 {
     $participe_passe = finding_participe_passe($infinitiveVerb);
     $participe_present = finding_participe_present($infinitiveVerb);
-    switch ($auxiliaire->getValue()) {
+		 if ($auxiliaire->getValue() === Auxiliaire::Etre && $gender->getValue() === Gender::Feminine) 	
+			$participe_passe .= 'e';		
+    switch ($auxiliaire->getValue()) {	
         case Auxiliaire::Etre:
             $modes_impersonnels = [
                 Tense::Present => [
@@ -794,7 +807,10 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
                     Mode::Participe => $participe_passe
                 ]
             ];
+	
+		
             break;
+
         case Auxiliaire::Avoir:
             $modes_impersonnels = [
                 Tense::Present => [
@@ -808,9 +824,9 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
                     Mode::Participe => $participe_passe
                 ]
             ];
-            
             break;
     }
+
     return $modes_impersonnels[$tense->getValue()][$mode->getValue()];
 }
 function apostrophized($pronoun, ConjugatedVerb $conjugatedVerb, & $was_apostrophized = null)
@@ -834,14 +850,20 @@ function concatenate_apostrophized($pronoun, ConjugatedVerb $conjugatedVerb)
 abstract class ConjugationPhrase
 {
     abstract function accept(ConjugationPhraseVisitor $visitor);
-    static function create(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood)
+    static function create(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Person $person, Tense $tense, Mood $mood)
     {
-        $personal_pronoun = personal_pronoun($person, $mood);
+        $personal_pronoun = personal_pronoun($person, $gender, $mood);
         if (isComposite($mood, $tense)) {
             $participe_passe = finding_participe_passe($infinitiveVerb);
-            if ($auxiliaire->getValue() === Auxiliaire::Etre && (isPlural($person))) {
+            if ($auxiliaire->getValue() === Auxiliaire::Etre && $gender->getValue() === Gender::Masculine && (isPlural($person))) {
                 $participe_passe .= 's';
             }
+            if ($auxiliaire->getValue() === Auxiliaire::Etre && $gender->getValue() === Gender::Feminine && (!isPlural($person))) {
+                $participe_passe .= 'e';
+            }			
+            if ($auxiliaire->getValue() === Auxiliaire::Etre && $gender->getValue() === Gender::Feminine && (isPlural($person))) {
+                $participe_passe .= 'es';
+            }			
             $conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb($auxiliaire, $person, $tense, $mood);
             if ($mood->getValue() === Mood::Imperatif) {
                 return new ImperatifPasseTenseConjugationPhrase($conjugated_auxiliaire_verb, $participe_passe);
@@ -958,9 +980,9 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor
         return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->infinitiveVerb;
     }
 }
-function conjugation_phrase(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood)
+function conjugation_phrase(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Person $person, Tense $tense, Mood $mood)
 {
-    $conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, $auxiliaire, $person, $tense, $mood);
+    $conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, $auxiliaire, $gender, $person, $tense, $mood);
     $visitor = new GoogleTTSConjugationPhraseVisitor();
     return $conjugationPhrase->accept($visitor);
 }
