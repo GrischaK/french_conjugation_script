@@ -16,8 +16,9 @@ require_once 'classes/ConjugationModel.php';
 require_once 'classes/ExceptionModel.php';
 require_once 'classes/IrregularExceptionGroup.php'; // should be replaced by DB
 require_once 'word_stem.php';
-// require_once 'groups/verbes_pronominaux.php';
-// require_once 'groups/verbes_exclusivement_pronominaux.php';
+require_once 'groups/verbes_pronominaux.php';
+require_once 'groups/verbes_exclusivement_pronominaux.php';
+require_once 'groups/h_apire.php';
 // require_once 'groups/verbes_intransitifs.php';
 // require_once 'groups/verbes_transitifs.php';
 // require_once 'groups/irregular-verb-groups.php';
@@ -305,14 +306,8 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb)
 }
 function finding_conjugation_model(InfinitiveVerb $infinitiveVerb)
 {
-    $verbes_pronominaux = [
-        'aimer',
-        'lever'
-    ];
-    $verbes_exclusivement_pronominaux = [
-        'abrater',
-        'empommer'
-    ];
+	global $verbes_pronominaux,$verbes_exclusivement_pronominaux;
+
     if (! in_array($infinitiveVerb, $verbes_pronominaux)) {
         $conjugationmodel = ConjugationModel::NonReflexive;
     }
@@ -895,10 +890,7 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 					Mode::Gerondif => 'en étant ' . $participe_passe,
                 ]
             ];
-	
-		
             break;
-
         case Auxiliaire::Avoir:
             $modes_impersonnels = [
                 Tense::Present => [
@@ -914,15 +906,12 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
             ];
             break;
     }
-
     return $modes_impersonnels[$tense->getValue()][$mode->getValue()];
 }
 function apostrophized($pronoun, ConjugatedVerb $conjugatedVerb, & $was_apostrophized = null)
-{
-    $h_apire = [
-        'hérisser'
-    ]; // example values
-    if (preg_match('~(.*\b[jtms])e$~ui', $pronoun, $m) && (preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $conjugatedVerb) && ! in_array($conjugatedVerb->getInfinitive(), $h_apire))) {
+{	
+	global $h_apire;
+    if (preg_match('~(.*\b[jtms])e$~ui', $pronoun, $m) && (preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $conjugatedVerb) &&  in_array($conjugatedVerb->getInfinitive(), $h_apire))) {
         $was_apostrophized = true;
         return "{$m[1]}’";
     }
