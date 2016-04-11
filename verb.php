@@ -67,7 +67,7 @@ $infinitiveVerb = new InfinitiveVerb($_GET['verb']);
 if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre))) { 
 ?> 
 <div class="tabbable boxed parentTabs">
-   <ul class="nav nav-tabs">
+   <ul class="nav nav-pills">
       <li class="active"><a href="#auxiliary1" data-toggle="tab">intransitiv (Hilfsverb être)</a>
       </li>
       <li><a href="#auxiliary2" data-toggle="tab">transitiv (Hilfsverb avoir)</a>
@@ -663,10 +663,24 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         </ul>
                         <div class="tab-content">
                            <div class="tab-pane fade active in" id="voice-gender1131">
-                              <p>Tab 1.1.3.1 Aussage pronominal männlich</p>			
+                              <p>Tab 1.1.3.1 Aussage pronominal männlich</p>
+								<?php
+                                $css_class = 'LightSlateGrey';
+								$category ='8';
+								require_once("text.php");
+								print_explanatory_text($infinitiveVerb);
+								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir),new Gender(Gender::Masculine), new Voice(Voice::Pronominal));
+								?>							  
                            </div>
                            <div class="tab-pane fade" id="voice-gender1132">
                               <p>Tab 1.1.3.2 Aussage pronominal weiblich</p>
+							  	<?php
+                                $css_class = 'Silver';
+								$category ='9';
+								require_once("text.php");
+								print_explanatory_text($infinitiveVerb);
+								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir),new Gender(Gender::Feminine), new Voice(Voice::Pronominal));
+								?>
                            </div>
                         </div>
                      </div>
