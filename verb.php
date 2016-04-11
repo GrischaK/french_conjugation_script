@@ -68,20 +68,20 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
 ?> 
 <div class="tabbable boxed parentTabs">
    <ul class="nav nav-tabs">
-      <li class="active"><a href="#auxiliary1">intransitiv (Hilfsverb être)</a>
+      <li class="active"><a href="#auxiliary1" data-toggle="tab">intransitiv (Hilfsverb être)</a>
       </li>
-      <li><a href="#auxiliary2">transitiv (Hilfsverb avoir)</a>
+      <li><a href="#auxiliary2" data-toggle="tab">transitiv (Hilfsverb avoir)</a>
       </li>
    </ul>
    <div class="tab-content">
       <div class="tab-pane fade active in" id="auxiliary1">
          <div class="tabbable">
             <ul class="nav nav-tabs">
-               <li class="active"><a href="#sentence-type11">Aussagesatz</a>
+               <li class="active"><a href="#sentence-type11" data-toggle="tab">Aussagesatz</a>
                </li>
-               <li><a href="#sentence-type12">Fragesatz</a>
+               <li><a href="#sentence-type12" data-toggle="tab">Fragesatz</a>
                </li>
-               <li><a href="#sentence-type13">Verneinung</a>
+               <li><a href="#sentence-type13" data-toggle="tab">Verneinung</a>
                </li>
             </ul>
             <div class="tab-content">
@@ -89,15 +89,15 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tabbable"> 
                      <ul class="nav nav-tabs">
 					 <?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && !in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) { ?>
-                        <li class="active"><a href="#etre-voice111">aktiv</a>
+                        <li class="active"><a href="#etre-voice111" data-toggle="tab">aktiv</a>
                         </li>
 						<?php } ?>
 						<?php if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_transitifs)) { ?>
-						<li><a href="#etre-voice112">passiv</a>
+						<li><a href="#etre-voice112" data-toggle="tab">passiv</a>
                         </li>
 						<?php } ?>	
 						<?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li><a href="#etre-voice113">pronominal</a>
+						<li><a href="#etre-voice113" data-toggle="tab">pronominal</a>
 						</li>
 						<?php } ?>							
                      </ul>
@@ -105,9 +105,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade active in" id="etre-voice111">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#etre-voice-gender1111">männlich</a>
+                                 <li class="active"><a href="#etre-voice-gender1111" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#etre-voice-gender1112">weiblich</a>
+                                 <li><a href="#etre-voice-gender1112" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -134,9 +134,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade" id="etre-voice112">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#etre-voice-gender1121">männlich</a>
+                                 <li class="active"><a href="#etre-voice-gender1121" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#etre-voice-gender1122">weiblich</a>
+                                 <li><a href="#etre-voice-gender1122" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -152,9 +152,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade" id="etre-voice113">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#etre-voice-gender1131">männlich</a>
+                                 <li class="active"><a href="#etre-voice-gender1131" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#etre-voice-gender1132">weiblich</a>
+                                 <li><a href="#etre-voice-gender1132" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -173,12 +173,12 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                <div class="tab-pane fade" id="sentence-type12">
                   <div class="tabbable">
                      <ul class="nav nav-tabs">
-                        <li class="active"><a href="#etre-voice121">aktiv</a>
+                        <li class="active"><a href="#etre-voice121" data-toggle="tab">aktiv</a>
                         </li>
-                        <li><a href="#etre-voice122">passiv</a>
+                        <li><a href="#etre-voice122" data-toggle="tab">passiv</a>
                         </li>
 						<?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li><a href="#etre-voice123">pronominal</a>
+						<li><a href="#etre-voice123" data-toggle="tab">pronominal</a>
 						</li>
 						<?php } ?>						
                      </ul>
@@ -186,9 +186,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade active in" id="etre-voice121">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#etre-voice-gender1211">männlich</a>
+                                 <li class="active"><a href="#etre-voice-gender1211" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#etre-voice-gender1212">weiblich</a>
+                                 <li><a href="#etre-voice-gender1212" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -204,9 +204,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade" id="etre-voice122">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#etre-voice-gender1221">männlich</a>
+                                 <li class="active"><a href="#etre-voice-gender1221" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#etre-voice-gender1222">weiblich</a>
+                                 <li><a href="#etre-voice-gender1222" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -222,9 +222,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade" id="etre-voice132">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#etre-voice-gender1231">männlich</a>
+                                 <li class="active"><a href="#etre-voice-gender1231" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#etre-voice-gender1232">weiblich</a>
+                                 <li><a href="#etre-voice-gender1232" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -243,12 +243,12 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                <div class="tab-pane fade" id="sentence-type13">
                   <div class="tabbable">
                      <ul class="nav nav-tabs">
-                        <li class="active"><a href="#etre-voice131">aktiv</a>
+                        <li class="active"><a href="#etre-voice131" data-toggle="tab">aktiv</a>
                         </li>
-                        <li><a href="#etre-voice132">passiv</a>
+                        <li><a href="#etre-voice132" data-toggle="tab">passiv</a>
                         </li>
 						<?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li><a href="#voice133">pronominal</a>
+						<li><a href="#voice133" data-toggle="tab">pronominal</a>
 						</li>
 						<?php } ?>							
                      </ul>
@@ -256,9 +256,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade active in" id="etre-voice131">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#etre-voice-gender1311">männlich</a>
+                                 <li class="active"><a href="#etre-voice-gender1311" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#etre-voice-gender1312">weiblich</a>
+                                 <li><a href="#etre-voice-gender1312" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -274,9 +274,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade" id="etre-voice132">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#etre-voice-gender1321">männlich</a>
+                                 <li class="active"><a href="#etre-voice-gender1321" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#etre-voice-gender1322">weiblich</a>
+                                 <li><a href="#etre-voice-gender1322" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -292,9 +292,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade" id="etre-voice133">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#etre-voice-gender1331">männlich</a>
+                                 <li class="active"><a href="#etre-voice-gender1331" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#etre-voice-gender1332">weiblich</a>
+                                 <li><a href="#etre-voice-gender1332" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -316,25 +316,25 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
       <div class="tab-pane fade" id="auxiliary2">
          <div class="tabbable">
             <ul class="nav nav-tabs">
-               <li class="active"><a href="#sentence-type21">Aussagesatz</a>
+               <li class="active"><a href="#sentence-type21" data-toggle="tab">Aussagesatz</a>
                </li>
-               <li><a href="#sentence-type22">Fragesatz</a>
+               <li><a href="#sentence-type22" data-toggle="tab">Fragesatz</a>
                </li>
-               <li><a href="#sentence-type23">Verneinung</a>
+               <li><a href="#sentence-type23" data-toggle="tab">Verneinung</a>
                </li>
             </ul>
             <div class="tab-content">
                <div class="tab-pane fade active in" id="sentence-type21">
                   <div class="tabbable">
                      <ul class="nav nav-tabs">
-                        <li class="active"><a href="#avoir-voice211">aktiv</a>
+                        <li class="active"><a href="#avoir-voice211" data-toggle="tab">aktiv</a>
                         </li>
 						<?php if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && in_array($infinitiveVerb, $verbes_transitifs)) { ?>
-                        <li><a href="#avoir-voice212">passiv</a>
+                        <li><a href="#avoir-voice212" data-toggle="tab">passiv</a>
                         </li>
 						<?php } ?>
 						<?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li><a href="#avoir-voice213">pronominal</a>
+						<li><a href="#avoir-voice213" data-toggle="tab">pronominal</a>
 						</li>						
 						<?php } ?>	
                      </ul>
@@ -342,9 +342,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade active in" id="avoir-voice211">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#avoir-voice-gender2111">männlich</a>
+                                 <li class="active"><a href="#avoir-voice-gender2111" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#avoir-voice-gender2112">weiblich</a>
+                                 <li><a href="#avoir-voice-gender2112" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -358,7 +358,13 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
 									?>
                                  </div>
                                  <div class="tab-pane fade" id="avoir-voice-gender2112">
-                                    <p>Tab 2.1.1.2 avoir Aussage aktiv weiblich</p>
+                                    <?php
+									$css_class = 'DeepSkyBlue';
+									$category ='6';
+									require_once("text.php");
+									print_explanatory_text($infinitiveVerb);
+									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir),new Gender(Gender::Feminine), new Voice(Voice::Active));
+									?>
                                  </div>
                               </div>
                            </div>
@@ -366,27 +372,39 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade" id="avoir-voice212">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#avoir-voice-gender2121">männlich</a>
+                                 <li class="active"><a href="#avoir-voice-gender2121" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#avoir-voice-gender2122">weiblich</a>
+                                 <li><a href="#avoir-voice-gender2122" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
                                  <div class="tab-pane fade active in" id="avoir-voice-gender2121">
-                                    <p>Tab 2.1.2.1 avoir Aussage passiv männlich</p>
+                                    <?php
+									$css_class = 'DarkOrange';
+									$category = '5';
+									require_once("text.php");
+									print_explanatory_text($infinitiveVerb);
+									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir), new Gender(Gender::Masculine), new Voice(Voice::Passive)); 
+									?>
                                  </div>
                                  <div class="tab-pane fade" id="avoir-voice-gender2122">
-                                    <p>Tab 2.1.2.2 avoir Aussage passiv weiblich</p>
+                                   <?php
+									$css_class = 'DarkGoldenRod';
+									$category = '8';
+									require_once("text.php");
+									print_explanatory_text($infinitiveVerb);
+									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir), new Gender(Gender::Feminine), new Voice(Voice::Passive)); 
+									?>
                                  </div>
                               </div>
                            </div>
-                        </div>
+                        </div>					
                         <div class="tab-pane fade" id="avoir-voice213">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#avoir-voice-gender2131">männlich</a>
+                                 <li class="active"><a href="#avoir-voice-gender2131" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#avoir-voice-gender2132">weiblich</a>
+                                 <li><a href="#avoir-voice-gender2132" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -405,12 +423,12 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                <div class="tab-pane fade" id="sentence-type22">
                   <div class="tabbable">
                      <ul class="nav nav-tabs">
-                        <li class="active"><a href="#avoir-voice221">aktiv</a>
+                        <li class="active"><a href="#avoir-voice221" data-toggle="tab">aktiv</a>
                         </li>
-                        <li><a href="#avoir-voice222">passiv</a>
+                        <li><a href="#avoir-voice222" data-toggle="tab">passiv</a>
                         </li>
 						<?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li><a href="#avoir-voice223">pronominal</a>
+						<li><a href="#avoir-voice223" data-toggle="tab">pronominal</a>
 						</li>
 						<?php } ?>							
                      </ul>
@@ -418,9 +436,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade active in" id="avoir-voice121">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#avoir-voice-gender2211">männlich</a>
+                                 <li class="active"><a href="#avoir-voice-gender2211" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#avoir-voice-gender2212">weiblich</a>
+                                 <li><a href="#avoir-voice-gender2212" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -436,9 +454,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade" id="avoir-voice222">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#avoir-voice-gender2221">männlich</a>
+                                 <li class="active"><a href="#avoir-voice-gender2221" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#avoir-voice-gender2222">weiblich</a>
+                                 <li><a href="#avoir-voice-gender2222" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -454,9 +472,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade" id="avoir-voice223">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#avoir-voice-gender2231">männlich</a>
+                                 <li class="active"><a href="#avoir-voice-gender2231" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#avoir-voice-gender2232">weiblich</a>
+                                 <li><a href="#avoir-voice-gender2232" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -475,12 +493,12 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                <div class="tab-pane fade" id="sentence-type23">
                   <div class="tabbable">
                      <ul class="nav nav-tabs">
-                        <li class="active"><a href="#avoir-voice231">aktiv</a>
+                        <li class="active"><a href="#avoir-voice231" data-toggle="tab">aktiv</a>
                         </li>
-                        <li><a href="#avoir-voice232">passiv</a>
+                        <li><a href="#avoir-voice232" data-toggle="tab">passiv</a>
                         </li>
 						<?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li><a href="#avoir-voice233">pronominal</a>
+						<li><a href="#avoir-voice233" data-toggle="tab">pronominal</a>
 						</li>
 						<?php } ?>					
                      </ul>
@@ -488,9 +506,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade active in" id="avoir-voice231">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#avoir-voice-gender2311">männlich</a>
+                                 <li class="active"><a href="#avoir-voice-gender2311" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#avoir-voice-gender2312">weiblich</a>
+                                 <li><a href="#avoir-voice-gender2312" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -506,9 +524,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade" id="avoir-voice232">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#avoir-voice-gender2321">männlich</a>
+                                 <li class="active"><a href="#avoir-voice-gender2321" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#avoir-voice-gender2322">weiblich</a>
+                                 <li><a href="#avoir-voice-gender2322" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -524,9 +542,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         <div class="tab-pane fade" id="avoir-voice233">
                            <div class="tabbable">
                               <ul class="nav nav-tabs">
-                                 <li class="active"><a href="#avoir-voice-gender2331">männlich</a>
+                                 <li class="active"><a href="#avoir-voice-gender2331" data-toggle="tab">männlich</a>
                                  </li>
-                                 <li><a href="#avoir-voice-gender2332">weiblich</a>
+                                 <li><a href="#avoir-voice-gender2332" data-toggle="tab">weiblich</a>
                                  </li>
                               </ul>
                               <div class="tab-content">
@@ -552,11 +570,11 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
 	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) ) { ?>	
 <div class="tabbable boxed parentTabs">
    <ul class="nav nav-tabs">
-      <li class="active"><a href="#sentence-type11">Aussagesatz</a>
+      <li class="active"><a href="#sentence-type11" data-toggle="tab">Aussagesatz</a>
       </li>
-      <li><a href="#sentence-type12">Fragesatz</a>
+      <li><a href="#sentence-type12" data-toggle="tab">Fragesatz</a>
       </li>
-      <li><a href="#sentence-type13">Verneinung</a>
+      <li><a href="#sentence-type13" data-toggle="tab">Verneinung</a>
       </li>
    </ul>
    <div class="tab-content">
@@ -564,14 +582,14 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
          <div class="tab-pane fade active in" id="sentence-type11">
             <div class="tabbable">
                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#voice111">aktiv</a>
+                  <li class="active"><a href="#voice111" data-toggle="tab">aktiv</a>
                   </li>
 				  <?php if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && in_array($infinitiveVerb, $verbes_transitifs)) { ?>
-                  <li><a href="#voice112">passiv</a>
+                  <li><a href="#voice112" data-toggle="tab">passiv</a>
                   </li>
 				   <?php } ?>
 				  <?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-                  <li><a href="#voice113">pronominal</a>			  
+                  <li><a href="#voice113" data-toggle="tab">pronominal</a>			  
                   </li>
 				  <?php } ?>
                </ul>
@@ -579,9 +597,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade active in" id="voice111">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1111">männlich</a>
+                           <li class="active"><a href="#voice-gender1111" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1112">weiblich</a>
+                           <li><a href="#voice-gender1112" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -608,9 +626,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice112">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1121">männlich</a>
+                           <li class="active"><a href="#voice-gender1121" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1122">weiblich</a>
+                           <li><a href="#voice-gender1122" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -638,9 +656,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice113">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1131">männlich</a>
+                           <li class="active"><a href="#voice-gender1131" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1132">weiblich</a>
+                           <li><a href="#voice-gender1132" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -659,12 +677,12 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
          <div class="tab-pane fade" id="sentence-type12">
             <div class="tabbable">
                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#voice121">aktiv</a>
+                  <li class="active"><a href="#voice121" data-toggle="tab">aktiv</a>
                   </li>
-                  <li><a href="#voice122">passiv</a>
+                  <li><a href="#voice122" data-toggle="tab">passiv</a>
                   </li>
 				  <?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-                  <li><a href="#voice123">pronominal</a>
+                  <li><a href="#voice123" data-toggle="tab">pronominal</a>
 				  </li>
 				  <?php } ?>
                </ul>
@@ -672,9 +690,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade active in" id="voice121">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1211">männlich</a>
+                           <li class="active"><a href="#voice-gender1211" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1212">weiblich</a>
+                           <li><a href="#voice-gender1212" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -690,9 +708,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice122">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1221">männlich</a>
+                           <li class="active"><a href="#voice-gender1221" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1222">weiblich</a>
+                           <li><a href="#voice-gender1222" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -708,9 +726,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice123">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1231">männlich</a>
+                           <li class="active"><a href="#voice-gender1231" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1232">weiblich</a>
+                           <li><a href="#voice-gender1232" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -729,12 +747,12 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
          <div class="tab-pane fade" id="sentence-type13">
             <div class="tabbable">
                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#voice131">aktiv</a>
+                  <li class="active"><a href="#voice131" data-toggle="tab">aktiv</a>
                   </li>
-                  <li><a href="#voice132">passiv</a>
+                  <li><a href="#voice132" data-toggle="tab">passiv</a>
                   </li>
 				  <?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-                  <li><a href="#voice133">pronominal</a>
+                  <li><a href="#voice133" data-toggle="tab">pronominal</a>
 				  </li>
 				  <?php } ?>
                </ul>
@@ -742,9 +760,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade active in" id="voice131">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1311">männlich</a>
+                           <li class="active"><a href="#voice-gender1311" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1312">weiblich</a>
+                           <li><a href="#voice-gender1312" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -760,9 +778,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice132">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1321">männlich</a>
+                           <li class="active"><a href="#voice-gender1321" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1322">weiblich</a>
+                           <li><a href="#voice-gender1322" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -778,9 +796,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice133">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1331">männlich</a>
+                           <li class="active"><a href="#voice-gender1331" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1332">weiblich</a>
+                           <li><a href="#voice-gender1332" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -805,11 +823,11 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
 	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre))) { ?> 
 <div class="tabbable boxed parentTabs">
    <ul class="nav nav-tabs">
-      <li class="active"><a href="#sentence-type11">Aussagesatz</a>
+      <li class="active"><a href="#sentence-type11" data-toggle="tab">Aussagesatz</a>
       </li>
-      <li><a href="#sentence-type12">Fragesatz</a>
+      <li><a href="#sentence-type12" data-toggle="tab">Fragesatz</a>
       </li>
-      <li><a href="#sentence-type13">Verneinung</a>
+      <li><a href="#sentence-type13" data-toggle="tab">Verneinung</a>
       </li>
    </ul>
    <div class="tab-content">
@@ -818,7 +836,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
             <div class="tabbable">
                <ul class="nav nav-tabs">
 						<?php if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && !in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) { ?>
-                        <li class="active"><a href="#etre-voice111">aktiv</a>
+                        <li class="active"><a href="#etre-voice111" data-toggle="tab">aktiv</a>
                         </li>
 						<?php } ?>
 						<?php if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_transitifs)) { ?>
@@ -834,9 +852,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade active in" id="voice111">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1111">männlich</a>
+                           <li class="active"><a href="#voice-gender1111" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1112">weiblich</a>
+                           <li><a href="#voice-gender1112" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -863,9 +881,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice112">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1121">männlich</a>
+                           <li class="active"><a href="#voice-gender1121" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1122">weiblich</a>
+                           <li><a href="#voice-gender1122" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -893,9 +911,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice113">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1131">männlich</a>
+                           <li class="active"><a href="#voice-gender1131" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1132">weiblich</a>
+                           <li><a href="#voice-gender1132" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -914,12 +932,12 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
          <div class="tab-pane fade" id="sentence-type12">
             <div class="tabbable">
                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#voice121">aktiv</a>
+                  <li class="active"><a href="#voice121" data-toggle="tab">aktiv</a>
                   </li>
-                  <li><a href="#voice122">passiv</a>
+                  <li><a href="#voice122" data-toggle="tab">passiv</a>
                   </li>
 				  <?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-                  <li><a href="#voice123">pronominal</a>
+                  <li><a href="#voice123" data-toggle="tab">pronominal</a>
 				  </li>
 				  <?php } ?>
                </ul>
@@ -927,9 +945,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade active in" id="voice121">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1211">männlich</a>
+                           <li class="active"><a href="#voice-gender1211" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1212">weiblich</a>
+                           <li><a href="#voice-gender1212" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -945,9 +963,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice122">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1221">männlich</a>
+                           <li class="active"><a href="#voice-gender1221" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1222">weiblich</a>
+                           <li><a href="#voice-gender1222" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -963,9 +981,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice123">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1231">männlich</a>
+                           <li class="active"><a href="#voice-gender1231" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1232">weiblich</a>
+                           <li><a href="#voice-gender1232" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -984,12 +1002,12 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
          <div class="tab-pane fade" id="sentence-type13">
             <div class="tabbable">
                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#voice131">aktiv</a>
+                  <li class="active"><a href="#voice131" data-toggle="tab">aktiv</a>
                   </li>
-                  <li><a href="#voice132">passiv</a>
+                  <li><a href="#voice132" data-toggle="tab">passiv</a>
                   </li>
 				  <?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-                  <li><a href="#voice133">pronominal</a>
+                  <li><a href="#voice133" data-toggle="tab">pronominal</a>
 				  </li>
 				  <?php } ?>
                </ul>
@@ -997,9 +1015,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade active in" id="voice131">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1311">männlich</a>
+                           <li class="active"><a href="#voice-gender1311" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1312">weiblich</a>
+                           <li><a href="#voice-gender1312" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -1015,9 +1033,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice132">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1321">männlich</a>
+                           <li class="active"><a href="#voice-gender1321" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1322">weiblich</a>
+                           <li><a href="#voice-gender1322" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -1033,9 +1051,9 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                   <div class="tab-pane fade" id="voice133">
                      <div class="tabbable">
                         <ul class="nav nav-tabs">
-                           <li class="active"><a href="#voice-gender1331">männlich</a>
+                           <li class="active"><a href="#voice-gender1331" data-toggle="tab">männlich</a>
                            </li>
-                           <li><a href="#voice-gender1332">weiblich</a>
+                           <li><a href="#voice-gender1332" data-toggle="tab">weiblich</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -1068,3 +1086,4 @@ $("ul.nav-tabs a").click(function (e) {
   $(this).tab('show');
 });
 </script>
+
