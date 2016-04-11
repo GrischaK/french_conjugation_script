@@ -1,4 +1,4 @@
-<?
+<?php
 $h_apire = ['habiliter',
 'habiller',
 'habiter',
