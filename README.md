@@ -5,7 +5,7 @@
 Conjugation Script for all french verbs for my website.
 
 It isn't finished yet.
-I will add other languages like Spanish and Italian, when the script is ready.
+I will add other languages like Spanish, German and Italian, when the script is ready.
 
 I need help from you, so feel free, to take part.
 
