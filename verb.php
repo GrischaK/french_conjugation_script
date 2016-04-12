@@ -115,6 +115,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
 									<?php
 									$css_class = 'green';
 									require_once("text.php");
+									$category ='-etre-declarative-active-masculine';
 									print_explanatory_text($infinitiveVerb);
 									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre), new Gender(Gender::Masculine), new Voice(Voice::Active)); 
 									?>
@@ -122,7 +123,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                                  <div class="tab-pane fade" id="etre-voice-gender1112">
                                     <?php
 									$css_class = 'ForestGreen';
-									$category = '4';
+									$category ='-etre-declarative-active-feminine';
 									require_once("text.php");
 									print_explanatory_text($infinitiveVerb);
 									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre), new Gender(Gender::Masculine), new Voice(Voice::Active)); 
@@ -141,10 +142,22 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                               </ul>
                               <div class="tab-content">
                                  <div class="tab-pane fade active in" id="etre-voice-gender1121">
-                                    <p>Tab 1.1.2.1 être Aussage passiv männlich</p>
+                                    <?php
+									$css_class = 'DarkOrange DarkGoldenRod';
+									$category ='-etre-declarative-passive-masculine';
+									require_once("text.php");
+									print_explanatory_text($infinitiveVerb);
+									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre), new Gender(Gender::Masculine), new Voice(Voice::Passive)); 
+									?>
                                  </div>
                                  <div class="tab-pane fade" id="etre-voice-gender1122">
-                                    <p>Tab 1.1.2.2 être Aussage passiv weiblich</p>
+                                 <?php
+									$css_class = 'DarkOrange DarkGoldenRod';
+									$category ='-etre-declarative-passive-feminine';
+									require_once("text.php");
+									print_explanatory_text($infinitiveVerb);
+									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre), new Gender(Gender::Masculine), new Voice(Voice::Passive)); 
+									?>
                                  </div>
                               </div>
                            </div>
@@ -159,10 +172,22 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                               </ul>
                               <div class="tab-content">
                                  <div class="tab-pane fade active in" id="etre-voice-gender1131">
-                                    <p>Tab 1.1.3.1 être Aussage pronominal männlich</p>
+								<?php
+                                $css_class = 'LightSlateGrey';
+								$category ='-etre-declarative-pronominal-masculine';
+								require_once("text.php");
+								print_explanatory_text($infinitiveVerb);
+								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre),new Gender(Gender::Masculine), new Voice(Voice::Pronominal)); 
+								?>
                                  </div>
                                  <div class="tab-pane fade" id="etre-voice-gender1132">
-                                    <p>Tab 1.1.3.2 être Aussage pronominal weiblich</p>
+								<?php
+                                $css_class = 'LightSlateGrey';
+								$category ='-etre-declarative-pronominal-feminine';
+								require_once("text.php");
+								print_explanatory_text($infinitiveVerb);
+								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre),new Gender(Gender::Masculine), new Voice(Voice::Pronominal)); 
+								?>
                                  </div>
                               </div>
                            </div>
@@ -329,11 +354,11 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                      <ul class="nav nav-tabs">
                         <li class="active"><a href="#avoir-voice211" data-toggle="tab">aktiv</a>
                         </li>
-						<?php if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && in_array($infinitiveVerb, $verbes_transitifs)) { ?>
+						<?php if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_transitifs)) { ?>
                         <li><a href="#avoir-voice212" data-toggle="tab">passiv</a>
                         </li>
 						<?php } ?>
-						<?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
+						<?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
 						<li><a href="#avoir-voice213" data-toggle="tab">pronominal</a>
 						</li>						
 						<?php } ?>	
@@ -351,7 +376,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                                  <div class="tab-pane fade active in" id="avoir-voice-gender2111">
 									<?php
 									$css_class = 'light_blue';
-									$category = '2';
+									$category ='-avoir-declarative-active-masculine';
 									require_once("text.php");
 									print_explanatory_text($infinitiveVerb);
 									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir), new Gender(Gender::Masculine), new Voice(Voice::Active)); 
@@ -360,7 +385,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                                  <div class="tab-pane fade" id="avoir-voice-gender2112">
                                     <?php
 									$css_class = 'DeepSkyBlue';
-									$category ='6';
+									$category ='-avoir-declarative-active-feminine';
 									require_once("text.php");
 									print_explanatory_text($infinitiveVerb);
 									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir),new Gender(Gender::Feminine), new Voice(Voice::Active));
@@ -381,7 +406,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                                  <div class="tab-pane fade active in" id="avoir-voice-gender2121">
                                     <?php
 									$css_class = 'DarkOrange';
-									$category = '5';
+									$category ='-avoir-declarative-passive-masculine';
 									require_once("text.php");
 									print_explanatory_text($infinitiveVerb);
 									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir), new Gender(Gender::Masculine), new Voice(Voice::Passive)); 
@@ -390,7 +415,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                                  <div class="tab-pane fade" id="avoir-voice-gender2122">
                                    <?php
 									$css_class = 'DarkGoldenRod';
-									$category = '8';
+									$category ='-avoir-declarative-passive-masculine';
 									require_once("text.php");
 									print_explanatory_text($infinitiveVerb);
 									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir), new Gender(Gender::Feminine), new Voice(Voice::Passive)); 
@@ -409,10 +434,22 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                               </ul>
                               <div class="tab-content">
                                  <div class="tab-pane fade active in" id="avoir-voice-gender2131">
-                                    <p>Tab 2.1.3.1 avoir Aussage pronominal männlich</p>
+									<?php
+									$css_class = 'LightSlateGrey';
+									$category ='-avoir-declarative-pronominal-masculine';
+									require_once("text.php");
+									print_explanatory_text($infinitiveVerb);
+									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir),new Gender(Gender::Masculine), new Voice(Voice::Pronominal)); 
+									?>
                                  </div>
                                  <div class="tab-pane fade" id="avoir-voice-gender2132">
-                                    <p>Tab 2.1.3.2 avoir Aussage pronominal weiblich</p>
+									<?php
+									$css_class = 'Silver';
+									$category ='-avoir-declarative-pronominal-feminine';
+									require_once("text.php");
+									print_explanatory_text($infinitiveVerb);
+									print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir),new Gender(Gender::Masculine), new Voice(Voice::Pronominal)); 
+									?>
                                  </div>
                               </div>
                            </div>
@@ -606,6 +643,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                            <div class="tab-pane fade active in" id="voice-gender1111">
 								<?php
                                 $css_class = 'light_blue';
+								$category ='-declarative-active-masculine';
 								require_once("text.php");
 								print_explanatory_text($infinitiveVerb);
 								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir),new Gender(Gender::Masculine), new Voice(Voice::Active)); 
@@ -614,7 +652,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                            <div class="tab-pane fade" id="voice-gender1112">
 								<?php
                                 $css_class = 'DeepSkyBlue';
-								$category ='6';
+								$category ='-declarative-active-feminine';
 								require_once("text.php");
 								print_explanatory_text($infinitiveVerb);
 								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir),new Gender(Gender::Feminine), new Voice(Voice::Active));
@@ -635,7 +673,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                            <div class="tab-pane fade active in" id="voice-gender1121">
 								<?php
                                  $css_class = 'DarkOrange';
-                                 $category = '5';
+                                 $category ='-declarative-passive-masculine';
                                  require_once("text.php");
                                  print_explanatory_text($infinitiveVerb);
                                  print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir), new Gender(Gender::Masculine), new Voice(Voice::Passive)); 
@@ -644,7 +682,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                            <div class="tab-pane fade" id="voice-gender1122">
 								<?php
                                  $css_class = 'DarkGoldenRod';
-                                 $category = '8';
+                                 $category ='-declarative-passive-feminine';
                                  require_once("text.php");
                                  print_explanatory_text($infinitiveVerb);
                                  print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir), new Gender(Gender::Feminine), new Voice(Voice::Passive)); 
@@ -663,23 +701,21 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         </ul>
                         <div class="tab-content">
                            <div class="tab-pane fade active in" id="voice-gender1131">
-                              <p>Tab 1.1.3.1 Aussage pronominal männlich</p>
 								<?php
                                 $css_class = 'LightSlateGrey';
-								$category ='8';
+								$category ='-declarative-pronominal-masculine';
 								require_once("text.php");
 								print_explanatory_text($infinitiveVerb);
-								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir),new Gender(Gender::Masculine), new Voice(Voice::Pronominal));
+								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre),new Gender(Gender::Masculine), new Voice(Voice::Pronominal));
 								?>							  
                            </div>
                            <div class="tab-pane fade" id="voice-gender1132">
-                              <p>Tab 1.1.3.2 Aussage pronominal weiblich</p>
 							  	<?php
                                 $css_class = 'Silver';
-								$category ='9';
+								$category ='-declarative-pronominal-feminine';
 								require_once("text.php");
 								print_explanatory_text($infinitiveVerb);
-								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir),new Gender(Gender::Feminine), new Voice(Voice::Pronominal));
+								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre),new Gender(Gender::Feminine), new Voice(Voice::Pronominal));
 								?>
                            </div>
                         </div>
@@ -854,11 +890,11 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         </li>
 						<?php } ?>
 						<?php if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_transitifs)) { ?>
-                        <li><a href="#etre-voice112">passiv y</a>
+                        <li><a href="#etre-voice112">passiv</a>
                         </li>
 						<?php } ?>	
 				  <?php	if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre)) && in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-                  <li><a href="#voice113">pronominal x</a>
+                  <li><a href="#voice113">pronominal</a>
 				  </li>
 				  <?php } ?>
                </ul>
@@ -875,6 +911,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                            <div class="tab-pane fade active in" id="voice-gender1111">
                                  <?php
                                  $css_class = 'green';
+								 $category ='-declarative-active-masculine';
                                  require_once("text.php");
                                  print_explanatory_text($infinitiveVerb);
                                  print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre), new Gender(Gender::Masculine), new Voice(Voice::Active)); 
@@ -883,7 +920,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                            <div class="tab-pane fade" id="voice-gender1112">
                                 <?php
                                 $css_class = 'DeepSkyBlue';
-								$category ='6';
+								$category ='-declarative-active-feminine';
 								require_once("text.php");
 								print_explanatory_text($infinitiveVerb);
 								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre),new Gender(Gender::Feminine), new Voice(Voice::Active));
@@ -904,7 +941,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                            <div class="tab-pane fade active in" id="voice-gender1121">
                               <?php
                                  $css_class = 'DarkOrange';
-                                 $category = '5';
+                                 $category ='-declarative-passive-masculine';
                                  require_once("text.php");
                                  print_explanatory_text($infinitiveVerb);
                                  print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre), new Gender(Gender::Masculine), new Voice(Voice::Passive)); 
@@ -913,10 +950,10 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                            <div class="tab-pane fade" id="voice-gender1122">
 								<?php
                                  $css_class = 'DarkGoldenRod';
-                                 $category = '8';
+                                 $category ='-declarative-passive-feminine';
                                  require_once("text.php");
                                  print_explanatory_text($infinitiveVerb);
-                                 print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Avoir), new Gender(Gender::Masculine), new Voice(Voice::Passive)); 
+                                 print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre), new Gender(Gender::Feminine), new Voice(Voice::Passive)); 
                                  ?>	
                            </div>
                         </div>
@@ -932,10 +969,22 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                         </ul>
                         <div class="tab-content">
                            <div class="tab-pane fade active in" id="voice-gender1131">
-                              <p>Tab 1.1.3.1 Aussage pronominal männlich</p>
+								<?php
+                                $css_class = 'LightSlateGrey';
+								$category ='-declarative-pronominal-masculine';
+								require_once("text.php");
+								print_explanatory_text($infinitiveVerb);
+								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre),new Gender(Gender::Masculine), new Voice(Voice::Pronominal)); 
+								?>
                            </div>
                            <div class="tab-pane fade" id="voice-gender1132">
-                              <p>Tab 1.1.3.2 Aussage pronominal weiblich</p>
+								<?php
+                                $css_class = 'Silver';
+								$category ='-declarative-pronominal-masculine';
+								require_once("text.php");
+								print_explanatory_text($infinitiveVerb);
+								print_conjugations_of_verb($infinitiveVerb, new Auxiliaire(Auxiliaire::Etre),new Gender(Gender::Masculine), new Voice(Voice::Pronominal)); 
+								?>
                            </div>
                         </div>
                      </div>
