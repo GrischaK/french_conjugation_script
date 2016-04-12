@@ -1,6 +1,4 @@
 <?
-$trigger_play='trigger_play.js';
-
 $fr_de = array( 
     'abader' => '',
     'abaïer' => '',
