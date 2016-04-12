@@ -1,6 +1,6 @@
 <?php
 function print_explanatory_text(InfinitiveVerb $infinitiveVerb) {
-global $verbes_en_ancien,$verbes_defectifs,$impersonnels,$verbes_transitifs,$verbes_intransitifs,$verbes_pronominaux,$unregelmaessige_verben,$number;
+global $verbes_en_ancien,$verbes_defectifs,$impersonnels,$verbes_transitifs,$verbes_intransitifs,$verbes_pronominaux,$unregelmaessige_verben,$category;
 require_once 'classes/InfinitiveVerb.php';
 require_once 'verbs.php';
 require_once 'groups/verbes_pronominaux.php';
@@ -53,10 +53,10 @@ finding_auxiliaire( new InfinitiveVerb($_GET['verb']))->getValue().'</b> gebilde
 echo '<p class="well"><b>'.$_GET['verb'].'</b> ist in <b>'.$group.'</b>.</p>  
 
 <h2 class="home">Verzeichnis</h2>
-<a href="#indicatif'.$number.'">Indicatif</a> -
-<a href="#subjonctif'.$number.'">Subjonctif</a> -
-<a href="#conditionnel'.$number.'">Conditionnel</a> -
-<a href="#imperatif'.$number.'">Impératif</a> -
-<a href="#modes-impersonnels'.$number.'">Modes impersonnels</a>';
+<a href="#indicatif'.$category.'">Indicatif</a> -
+<a href="#subjonctif'.$category.'">Subjonctif</a> -
+<a href="#conditionnel'.$category.'">Conditionnel</a> -
+<a href="#imperatif'.$category.'">Impératif</a> -
+<a href="#modes-impersonnels'.$category.'">Modes impersonnels</a>';
 }
 ?>
