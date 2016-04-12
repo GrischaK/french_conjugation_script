@@ -1,4 +1,4 @@
-<?php 
+<? 
     echo '<h1>Kategorien</h1>';
 		echo '<p>Hier findest du alle Kategorien. Entweder die Gruppe der drei großen Verbgruppen, den zwei Hilfsverben, der Transitivität oder ob das Verb reflexiv oder irreflexiv ist sowie vielen unregelmäßigen Verbgruppen</p>'; 
 		for($a=0;$a<count($kategorien);$a++){		

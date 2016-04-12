@@ -1,4 +1,4 @@
-<?php
+<?
 
 function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb)
 {
