@@ -49,259 +49,102 @@ function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb)
 }
 function finding_exception_model(InfinitiveVerb $infinitiveVerb)
 {
+
     $exceptionmodel = ExceptionModel::NO_EXCEPTIONS;
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$aller)) {
-        $exceptionmodel = ExceptionModel::ALLER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$avoir_irr)) {
-        $exceptionmodel = ExceptionModel::AVOIR_IRR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$etre_irr)) {
-        $exceptionmodel = ExceptionModel::ETRE_IRR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$eler_ele)) {
-        $exceptionmodel = ExceptionModel::Eler_Ele;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$eter_ete)) {
-        $exceptionmodel = ExceptionModel::Eter_Ete;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$eler_elle)) {
-        $exceptionmodel = ExceptionModel::Eler_Elle;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$eter_ette)) {
-        $exceptionmodel = ExceptionModel::Eter_Ette;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$envoyer)) {
-        $exceptionmodel = ExceptionModel::ENVOYER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$cer)) {
-        $exceptionmodel = ExceptionModel::CER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$ger)) {
-        $exceptionmodel = ExceptionModel::GER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$ier)) {
-        $exceptionmodel = ExceptionModel::IER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$yer)) {
-        $exceptionmodel = ExceptionModel::YER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$e_akut_er)) {
-        $exceptionmodel = ExceptionModel::E_Akut_ER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$e_akut_cer)) {
-        $exceptionmodel = ExceptionModel::E_Akut_CER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$e_akut_ger)) {
-        $exceptionmodel = ExceptionModel::E_Akut_GER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$e_akut_ier)) {
-        $exceptionmodel = ExceptionModel::E_Akut_IER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$e_akut_yer)) {
-        $exceptionmodel = ExceptionModel::E_Akut_YER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$i_trema_er)) {
-        $exceptionmodel = ExceptionModel::I_Trema_ER;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$e_er)) {
-        $exceptionmodel = ExceptionModel::E_Er;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$devoir)) {
-        $exceptionmodel = ExceptionModel::DEVOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$mouvoir)) {
-        $exceptionmodel = ExceptionModel::MOUVOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$choir)) {
-        $exceptionmodel = ExceptionModel::CHOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$cevoir)) {
-        $exceptionmodel = ExceptionModel::CEVOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$pleuvoir)) {
-        $exceptionmodel = ExceptionModel::PLEUVOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$falloir)) {
-        $exceptionmodel = ExceptionModel::FALLOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$seoir)) {
-        $exceptionmodel = ExceptionModel::SEOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$vouloir)) {
-        $exceptionmodel = ExceptionModel::VOULOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$pouvoir)) {
-        $exceptionmodel = ExceptionModel::POUVOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$savoir)) {
-        $exceptionmodel = ExceptionModel::SAVOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$rir)) {
-        $exceptionmodel = ExceptionModel::RIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$courir)) {
-        $exceptionmodel = ExceptionModel::COURIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$mourir)) {
-        $exceptionmodel = ExceptionModel::MOURIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$querir)) {
-        $exceptionmodel = ExceptionModel::QUERIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$fleurir)) {
-        $exceptionmodel = ExceptionModel::FLEURIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$enir)) {
-        $exceptionmodel = ExceptionModel::ENIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$fuir)) {
-        $exceptionmodel = ExceptionModel::FUIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$faillir)) {
-        $exceptionmodel = ExceptionModel::FAILLIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$bouillir)) {
-        $exceptionmodel = ExceptionModel::BOUILLIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$saillir)) {
-        $exceptionmodel = ExceptionModel::SAILLIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$valoir)) {
-        $exceptionmodel = ExceptionModel::VALOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$voir)) {
-        $exceptionmodel = ExceptionModel::VOIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$dormir)) {
-        $exceptionmodel = ExceptionModel::DORMIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$tir)) {
-        $exceptionmodel = ExceptionModel::TIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$servir)) {
-        $exceptionmodel = ExceptionModel::SERVIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$cueillir)) {
-        $exceptionmodel = ExceptionModel::CUEILLIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$vetir)) {
-        $exceptionmodel = ExceptionModel::VETIR;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$faire)) {
-        $exceptionmodel = ExceptionModel::FAIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$raire)) {
-        $exceptionmodel = ExceptionModel::RAIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$plaire)) {
-        $exceptionmodel = ExceptionModel::PLAIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$taire)) {
-        $exceptionmodel = ExceptionModel::TAIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$vaincre)) {
-        $exceptionmodel = ExceptionModel::VAINCRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$dre)) {
-        $exceptionmodel = ExceptionModel::DRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$prendre)) {
-        $exceptionmodel = ExceptionModel::PRENDRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$indre)) {
-        $exceptionmodel = ExceptionModel::INDRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$oindre)) {
-        $exceptionmodel = ExceptionModel::OINDRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$coudre)) {
-        $exceptionmodel = ExceptionModel::COUDRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$moudre)) {
-        $exceptionmodel = ExceptionModel::MOUDRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$soudre)) {
-        $exceptionmodel = ExceptionModel::SOUDRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$resoudre)) {
-        $exceptionmodel = ExceptionModel::RESOUDRE;
-    }   
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$occire)) {
-        $exceptionmodel = ExceptionModel::OCCIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$circoncire)) {
-        $exceptionmodel = ExceptionModel::CIRCONCIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$dire)) {
-        $exceptionmodel = ExceptionModel::DIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$maudire)) {
-        $exceptionmodel = ExceptionModel::MAUDIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$suffire)) {
-        $exceptionmodel = ExceptionModel::SUFFIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$confire)) {
-        $exceptionmodel = ExceptionModel::CONFIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$lire)) {
-        $exceptionmodel = ExceptionModel::LIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$boire)) {
-        $exceptionmodel = ExceptionModel::BOIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$croire)) {
-        $exceptionmodel = ExceptionModel::CROIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$rire)) {
-        $exceptionmodel = ExceptionModel::RIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$crire)) {
-        $exceptionmodel = ExceptionModel::CRIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$frire)) {
-        $exceptionmodel = ExceptionModel::FRIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$uire)) {
-        $exceptionmodel = ExceptionModel::UIRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$bruire)) {
-        $exceptionmodel = ExceptionModel::BRUIRE;
-    }   
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$clore)) {
-        $exceptionmodel = ExceptionModel::CLORE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$rompre)) {
-        $exceptionmodel = ExceptionModel::ROMPRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$aitre)) {
-        $exceptionmodel = ExceptionModel::AITRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$naitre)) {
-        $exceptionmodel = ExceptionModel::NAITRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$oitre)) {
-        $exceptionmodel = ExceptionModel::OITRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$attre)) {
-        $exceptionmodel = ExceptionModel::ATTRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$mettre)) {
-        $exceptionmodel = ExceptionModel::METTRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$foutre)) {
-        $exceptionmodel = ExceptionModel::FOUTRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$clure)) {
-        $exceptionmodel = ExceptionModel::CLURE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$suivre)) {
-        $exceptionmodel = ExceptionModel::SUIVRE;
-    }
-    if (in_array($infinitiveVerb, IrregularExceptionGroup::$vivre)) {
-        $exceptionmodel = ExceptionModel::VIVRE;
-    }
+
+    $irregularExceptionGroupArray = [
+            ExceptionModel::ALLER => IrregularExceptionGroup::$aller,
+            ExceptionModel::AVOIR_IRR => IrregularExceptionGroup::$avoir_irr,
+            ExceptionModel::ETRE_IRR => IrregularExceptionGroup::$etre_irr,
+            ExceptionModel::Eler_Ele => IrregularExceptionGroup::$eler_ele,
+            ExceptionModel::Eter_Ete => IrregularExceptionGroup::$eter_ete,
+            ExceptionModel:: Eler_Elle => IrregularExceptionGroup::$eler_elle,
+            ExceptionModel:: Eter_Ette => IrregularExceptionGroup::$eter_ette,
+            ExceptionModel::ENVOYER => IrregularExceptionGroup::$envoyer,
+            ExceptionModel::CER => IrregularExceptionGroup::$cer,
+            ExceptionModel:: GER => IrregularExceptionGroup::$ger,
+            ExceptionModel::IER => IrregularExceptionGroup::$ier,
+            ExceptionModel::YER => IrregularExceptionGroup::$yer,
+            ExceptionModel::E_Akut_ER => IrregularExceptionGroup::$e_akut_er,
+            ExceptionModel::E_Akut_CER => IrregularExceptionGroup::$e_akut_cer,
+            ExceptionModel::E_Akut_GER => IrregularExceptionGroup::$e_akut_ger,
+            ExceptionModel::E_Akut_IER => IrregularExceptionGroup::$e_akut_ier,
+            ExceptionModel::E_Akut_YER => IrregularExceptionGroup::$e_akut_yer,
+            ExceptionModel::E_Er => IrregularExceptionGroup::$e_er,
+            ExceptionModel::I_Trema_ER => IrregularExceptionGroup::$i_trema_er,
+            ExceptionModel::DEVOIR => IrregularExceptionGroup::$devoir,
+            ExceptionModel::FALLOIR => IrregularExceptionGroup::$falloir,
+            ExceptionModel::MOUVOIR => IrregularExceptionGroup::$mouvoir,
+            ExceptionModel::PLEUVOIR => IrregularExceptionGroup::$pleuvoir,
+            ExceptionModel::POUVOIR => IrregularExceptionGroup::$pouvoir,
+            ExceptionModel::SAVOIR => IrregularExceptionGroup::$savoir,
+            ExceptionModel::VALOIR => IrregularExceptionGroup::$valoir,
+            ExceptionModel::VOIR => IrregularExceptionGroup::$voir,
+            ExceptionModel::CHOIR => IrregularExceptionGroup::$choir,
+            ExceptionModel::CEVOIR => IrregularExceptionGroup::$cevoir,
+            ExceptionModel::SEOIR => IrregularExceptionGroup::$seoir,
+            ExceptionModel::VOULOIR => IrregularExceptionGroup::$vouloir,
+            ExceptionModel::RIR => IrregularExceptionGroup::$rir,
+            ExceptionModel::COURIR => IrregularExceptionGroup::$courir,
+            ExceptionModel::FLEURIR => IrregularExceptionGroup::$fleurir,
+            ExceptionModel::MOURIR => IrregularExceptionGroup::$mourir,
+            ExceptionModel::QUERIR => IrregularExceptionGroup::$querir,
+            ExceptionModel::DORMIR => IrregularExceptionGroup::$dormir,
+            ExceptionModel::ENIR => IrregularExceptionGroup::$enir,
+            ExceptionModel::BOUILLIR => IrregularExceptionGroup::$bouillir,
+            ExceptionModel::CUEILLIR => IrregularExceptionGroup::$cueillir,
+            ExceptionModel::FAILLIR => IrregularExceptionGroup::$faillir,
+            ExceptionModel::SAILLIR => IrregularExceptionGroup::$saillir,
+            ExceptionModel::TIR => IrregularExceptionGroup::$tir,
+            ExceptionModel::VETIR => IrregularExceptionGroup::$vetir,
+            ExceptionModel::FUIR => IrregularExceptionGroup::$fuir,
+            ExceptionModel::SERVIR => IrregularExceptionGroup::$servir,
+            ExceptionModel::FAIRE => IrregularExceptionGroup::$faire,
+            ExceptionModel::PLAIRE => IrregularExceptionGroup::$plaire,
+            ExceptionModel::RAIRE => IrregularExceptionGroup::$raire,
+            ExceptionModel::TAIRE => IrregularExceptionGroup::$taire,
+            ExceptionModel::VAINCRE => IrregularExceptionGroup::$vaincre,
+            ExceptionModel::DRE => IrregularExceptionGroup::$dre,
+            ExceptionModel::PRENDRE => IrregularExceptionGroup::$prendre,
+            ExceptionModel::INDRE => IrregularExceptionGroup::$indre,
+            ExceptionModel::OINDRE => IrregularExceptionGroup::$oindre,
+            ExceptionModel::COUDRE => IrregularExceptionGroup::$coudre,
+            ExceptionModel::MOUDRE => IrregularExceptionGroup::$moudre,
+            ExceptionModel::SOUDRE => IrregularExceptionGroup::$soudre,
+            ExceptionModel::RESOUDRE => IrregularExceptionGroup::$resoudre,
+            ExceptionModel::OCCIRE => IrregularExceptionGroup::$occire,
+            ExceptionModel::CIRCONCIRE => IrregularExceptionGroup::$circoncire,
+            ExceptionModel::DIRE => IrregularExceptionGroup::$dire,
+            ExceptionModel::MAUDIRE => IrregularExceptionGroup::$maudire,
+            ExceptionModel::SUFFIRE => IrregularExceptionGroup::$suffire,
+            ExceptionModel::CONFIRE => IrregularExceptionGroup::$confire,
+            ExceptionModel::LIRE => IrregularExceptionGroup::$lire,
+            ExceptionModel::BOIRE => IrregularExceptionGroup::$boire,
+            ExceptionModel::CROIRE => IrregularExceptionGroup::$croire,
+            ExceptionModel::RIRE => IrregularExceptionGroup::$rire,
+            ExceptionModel::CRIRE => IrregularExceptionGroup::$crire,
+            ExceptionModel::FRIRE => IrregularExceptionGroup::$frire,
+            ExceptionModel::UIRE => IrregularExceptionGroup::$uire,
+            ExceptionModel::BRUIRE => IrregularExceptionGroup::$bruire,
+            ExceptionModel::CLORE => IrregularExceptionGroup::$clore,
+            ExceptionModel::ROMPRE => IrregularExceptionGroup::$rompre,
+            ExceptionModel::AITRE => IrregularExceptionGroup::$aitre,
+            ExceptionModel::NAITRE => IrregularExceptionGroup::$naitre,
+            ExceptionModel::OITRE => IrregularExceptionGroup::$oitre,
+            ExceptionModel::ATTRE => IrregularExceptionGroup::$attre,
+            ExceptionModel::METTRE => IrregularExceptionGroup::$mettre,
+            ExceptionModel::FOUTRE => IrregularExceptionGroup::$foutre,
+            ExceptionModel::CLURE => IrregularExceptionGroup::$clure,
+            ExceptionModel::SUIVRE => IrregularExceptionGroup::$suivre,
+            ExceptionModel::VIVRE => IrregularExceptionGroup::$vivre,		
+        ];
+
+    foreach($irregularExceptionGroupArray as $exceptionModel => $irregularExceptionGroup){
+        if(in_array($infinitiveVerb, $irregularExceptionGroup)){
+            $exceptionmodel = $exceptionModel;
+        }
+    }
+
     return new ExceptionModel($exceptionmodel);
 }
 function finding_conjugation_model(InfinitiveVerb $infinitiveVerb)
@@ -470,7 +313,7 @@ function etre_passive(Person $person, Tense $tense, Mood $mood)
     
     return $etre_passive_form[$mood->getValue()][$tense->getValue()][$person->getValue()];
 }
-function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood, Voice $voice)
+function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood, Voice $voice, SentenceType $sentencetype)
 {
     switch ($auxiliaire->getValue()) {
         case Auxiliaire::Etre:
@@ -645,7 +488,7 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
     if ($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Present && $voice->getValue() === Voice::Passive) {	
         return etre_passive($person, $tense, $mood, $voice);
     }		
-    return $conjugated_auxiliaire[$mood->getValue()][$tense->getValue()][$person->getValue()];
+    return $conjugated_auxiliaire[$mood->getValue()][$tense->getValue()][$person->getValue()];// Undefined index: present
 }
 function finding_auxiliaire(InfinitiveVerb $infinitiveVerb)
 {
@@ -864,10 +707,10 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb)
         $participe_passe = participe_passe_word_stem($infinitiveVerb) . 't';
     return $participe_passe;
 }
-function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense, Gender $gender, Voice $voice)
+function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense, Gender $gender, Voice $voice, SentenceType $sentencetype)
 {
+    $participe_present = finding_participe_present($infinitiveVerb);	
     $participe_passe = finding_participe_passe($infinitiveVerb);
-    $participe_present = finding_participe_present($infinitiveVerb);
 	$avoir_participe_present = 'ayant';	
 	$etre_participe_present = 'étant';
 	$etre_participe_passe = 'été';	
@@ -879,19 +722,38 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 	$infinitiveVerb_passe = $auxiliaire->getValue(). ' ' . $participe_passe;
 		 if (($auxiliaire->getValue() === Auxiliaire::Etre || $voice->getValue() === Voice::Passive) && $gender->getValue() === Gender::Feminine) 	
 			$participe_passe .= 'e';		
-		 if ($voice->getValue() === Voice::Passive) {		
+		 if ($voice->getValue() === Voice::Passive && $tense->getValue() === Tense::Present) {		
 			$infinitiveVerb = Auxiliaire::Etre .  ' ' . $participe_passe;
-			$participe_present = $etre_participe_present .' '. $participe_passe;
-		    $participe_passe = $etre_participe_passe .' '. $participe_passe;	
+			$participe_present = $etre_participe_present .' '. $participe_passe;	
+			$gerondif_present = $en  .  ' ' . $participe_present;
 		 }		
+		 if ($voice->getValue() === Voice::Passive && $tense->getValue() === Tense::Passe) {		
+			$infinitiveVerb_passe = $auxiliaire->getValue(). ' '. $etre_participe_passe. ' ' . $participe_passe;
+		    $participe_passe = $etre_participe_passe .' '. $participe_passe;	
+			$gerondif_passe_avoir = $en .' '. $avoir_participe_present  .' '. $participe_passe;
+		 }			 
+		 	 
 		 if ($voice->getValue() === Voice::Pronominal &&  $tense->getValue() === Tense::Present) {		
 			$infinitiveVerb = concatenate_apostrophized('se',$infinitiveVerb);
 			$gerondif_present = $en .' '. concatenate_apostrophized('se',$participe_present);
 		 }	
 		 if ($voice->getValue() === Voice::Pronominal &&  $tense->getValue() === Tense::Passe) {		
 			$infinitiveVerb_passe = concatenate_apostrophized('se',Auxiliaire::Etre) .' '. $infinitiveVerb;
-			$gerondif_passe_etre = $en .' '. concatenate_apostrophized('se',$etre_participe_present) .' '. $participe_passe;			
-		 }			 
+			$gerondif_passe_etre = $en .' '. concatenate_apostrophized('se',$etre_participe_present) .' '. $participe_passe;		
+		 }	
+
+		 if ($sentencetype->getValue() === SentenceType::Negation && $voice->getValue() === Voice::Active &&  $tense->getValue() === Tense::Present) {		
+			$infinitiveVerb = 'ne pas'.' '. $infinitiveVerb;
+			$gerondif_present = $en .' '. concatenate_apostrophized('ne',$participe_present).' '.'pas';			
+			$participe_present = concatenate_apostrophized('ne',$participe_present).' '.'pas';
+		 }	
+		 if ($sentencetype->getValue() === SentenceType::Negation && $voice->getValue() === Voice::Active &&  $tense->getValue() === Tense::Passe) {		
+			$infinitiveVerb_passe = 'ne pas'.' '.$auxiliaire->getValue(). ' ' . $participe_passe;
+			$gerondif_passe_etre = $en .' '. concatenate_apostrophized('ne',$etre_participe_present) .' pas '. $participe_passe;
+			$gerondif_passe_avoir = $en .' '. concatenate_apostrophized('ne',$avoir_participe_present) .' pas '. $participe_passe;	
+			$participe_passe = concatenate_apostrophized('ne',$participe_passe).' '.'pas';
+		 }		 
+	
     switch ($auxiliaire->getValue()) {	
         case Auxiliaire::Etre:
             $modes_impersonnels = [
@@ -910,12 +772,12 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
         case Auxiliaire::Avoir:
             $modes_impersonnels = [
                 Tense::Present => [
-                    Mode::Infinitif => $infinitiveVerb_passe,
+                    Mode::Infinitif => $infinitiveVerb,
                     Mode::Participe => $participe_present,
                     Mode::Gerondif => $gerondif_present					
                 ],
                 Tense::Passe => [
-                    Mode::Infinitif => Auxiliaire::Avoir . ' ' . $participe_passe,
+                    Mode::Infinitif => $infinitiveVerb_passe,
                     Mode::Participe => $participe_passe,
                     Mode::Gerondif => $gerondif_passe_avoir					
                 ]
@@ -927,7 +789,7 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 function apostrophized($pronoun, $verb, & $was_apostrophized = null)
 {	
 	global $h_apire;
-    if ((preg_match('~(.*\b[jtms])e$~ui', $pronoun, $m)) && (preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $verb) && !in_array($verb, $h_apire))) { // should bein_array($conjugatedVerb->getInfinitive(), $h_apire)
+    if ((preg_match('~(.*\b[jtmsn])e$~ui', $pronoun, $m)) && (preg_match('~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $verb) && !in_array($verb, $h_apire))) { // should bein_array($conjugatedVerb->getInfinitive(), $h_apire)
         $was_apostrophized = true;
         return "{$m[1]}’";
     }
@@ -943,17 +805,16 @@ function concatenate_apostrophized($pronoun, $verb)
 abstract class ConjugationPhrase
 {
     abstract function accept(ConjugationPhraseVisitor $visitor);
-    static function create(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, Person $person, Tense $tense, Mood $mood)
+    static function create(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Person $person, Tense $tense, Mood $mood)
     {
         $personal_pronoun = personal_pronoun($person, $gender, $mood);
 		$reflexive_pronoun = reflexive_pronoun($person, $mood);
-		$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb($auxiliaire, $person, $tense, $mood, $voice);
+		$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb($auxiliaire, $person, $tense, $mood, $voice, $sentencetype);
 		$etre_participe_passe = 'été';
 		$etre_infinitive = 'être';			
         if (isComposite($mood, $tense)) {
             $participe_passe = finding_participe_passe($infinitiveVerb);			
-		    if (($auxiliaire->getValue() === Auxiliaire::Etre || $voice->getValue() === Voice::Passive 
-			) && $gender->getValue() === Gender::Masculine && (isPlural($person))) {
+		    if (($auxiliaire->getValue() === Auxiliaire::Etre || $voice->getValue() === Voice::Passive) && $gender->getValue() === Gender::Masculine && (isPlural($person))) {
                 $participe_passe .= 's';
             }
             if (($auxiliaire->getValue() === Auxiliaire::Etre || $voice->getValue() === Voice::Passive) && $gender->getValue() === Gender::Feminine && (!isPlural($person))) {
@@ -962,20 +823,24 @@ abstract class ConjugationPhrase
             if (($auxiliaire->getValue() === Auxiliaire::Etre || $voice->getValue() === Voice::Passive) && $gender->getValue() === Gender::Feminine && (isPlural($person))) {
                 $participe_passe .= 'es';
             }
+            if ($mood->getValue() === Mood::Imperatif && $sentencetype->getValue() === SentenceType::Negation) {
+                return new ImperatifPasseTenseNegationConjugationPhrase($conjugated_auxiliaire_verb, $participe_passe);
+            }			
+            if ($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Passe && $voice->getValue() === Voice::Passive) {
+                return new ImperatifPasseTenseinPassiveVoiceConjugationPhrase($conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe);
+            }				
 			if ($mood->getValue() === Mood::Imperatif  && $voice->getValue() === Voice::Active) {
                 return new ImperatifPasseTenseConjugationPhrase($conjugated_auxiliaire_verb, $participe_passe);
             }		
-            if ($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Passe && $voice->getValue() === Voice::Passive) {
-                return new ImperatifPasseTenseinPassiveVoiceConjugationPhrase($conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe);
-            }	
             if ($mood->getValue() === Mood::Imperatif && $tense->getValue() === Tense::Passe && $voice->getValue() === Voice::Pronominal) {
                 return new ImperatifPasseTensePronominalConjugationPhrase($conjugated_auxiliaire_verb, $participe_passe);
-            }				
+            }					
             if ($voice->getValue() === Voice::Passive && $tense->getValue() != Tense::Futur_compose ) {
                 return new CompositeTenseinPassiveVoiceConjugationPhrase($personal_pronoun, $conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe);
-            }
-            $conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb($auxiliaire, $person, $tense, $mood, $voice);
-		
+            }	
+            if ($tense->getValue() === Tense::Futur_compose && $sentencetype->getValue() === SentenceType::Negation) {			
+                return new FuturComposeTenseNegationConjugationPhrase($personal_pronoun, $conjugated_auxiliaire_verb, $infinitiveVerb);
+            }			
             if ($tense->getValue() === Tense::Futur_compose && $voice->getValue() === Voice::Active) {
                 return new FuturComposeTenseConjugationPhrase($personal_pronoun, $conjugated_auxiliaire_verb, $infinitiveVerb);
             }
@@ -984,26 +849,32 @@ abstract class ConjugationPhrase
             }
             if ($tense->getValue() === Tense::Futur_compose && $voice->getValue() === Voice::Pronominal) {			
                 return new FuturComposeTensePronominalConjugationPhrase($personal_pronoun, $conjugated_auxiliaire_verb, $reflexive_pronoun, $infinitiveVerb);
-            }			
-            if (isComposite($mood, $tense) && $voice->getValue() === Voice::Pronominal) {
+            }					
+            if ($voice->getValue() === Voice::Pronominal) {
                 return new CompositeTensePronominalConjugationPhrase($personal_pronoun, $reflexive_pronoun, $conjugated_auxiliaire_verb, $participe_passe);
+            }		
+            if ($sentencetype->getValue() === SentenceType::Negation) {
+                return new CompositeTenseNegationConjugationPhrase($personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe);
             }			
             return new CompositeTenseConjugationPhrase($personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe);
         } else {
             $conjugated_verb = new ConjugatedVerb($infinitiveVerb, $person, $tense, $mood);
-			$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb($auxiliaire, $person, $tense, $mood, $voice);
+			$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb($auxiliaire, $person, $tense, $mood, $voice, $sentencetype);
 			$participe_passe = finding_participe_passe($infinitiveVerb);				
 		    if (($auxiliaire->getValue() === Auxiliaire::Etre || $voice->getValue() === Voice::Passive 
 			) && $gender->getValue() === Gender::Masculine && (isPlural($person))) {
                 $participe_passe .= 's';
+            }	
+            if ($mood->getValue() === Mood::Imperatif && $sentencetype->getValue() === SentenceType::Negation) {
+                return new ImperatifPresentTenseNegationConjugationPhrase($conjugated_verb);
             }				
             if ($mood->getValue() === Mood::Imperatif && $voice->getValue() === Voice::Active) {
                 return new ImperatifPresentTenseConjugationPhrase($conjugated_verb);
             }		
             if ($mood->getValue() === Mood::Imperatif && $voice->getValue() === Voice::Passive) {
-				$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb($auxiliaire, $person, $tense, $mood, $voice); 
+				$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb($auxiliaire, $person, $tense, $mood, $voice, $sentencetype); 
                 return new ImperatifPresentTenseinPassiveVoiceConjugationPhrase($conjugated_auxiliaire_verb, $conjugated_verb);
-            }
+            }	
             if ($mood->getValue() === Mood::Imperatif && $voice->getValue() === Voice::Pronominal) {
                 return new ImperatifPresentTensePronominalConjugationPhrase($conjugated_verb,$reflexive_pronoun);
             }				
@@ -1012,6 +883,9 @@ abstract class ConjugationPhrase
             }	
             if (!isComposite($mood, $tense) && $voice->getValue() === Voice::Pronominal) {
                 return new SimpleTensePronominalConjugationPhrase($personal_pronoun, $reflexive_pronoun, $conjugated_verb);
+            }
+            if (!isComposite($mood, $tense) && $sentencetype->getValue() === SentenceType::Negation) {
+                return new SimpleTenseNegationConjugationPhrase($personal_pronoun, $conjugated_verb);
             }				
             return new SimpleTenseConjugationPhrase($personal_pronoun, $conjugated_verb);
         }
@@ -1041,6 +915,33 @@ class SimpleTensePronominalConjugationPhrase extends ConjugationPhrase
     {
         $this->personal_pronoun = $personal_pronoun;
 		$this->reflexive_pronoun = $reflexive_pronoun;
+        $this->conjugated_verb = $conjugated_verb;
+    }
+}
+class SimpleTensesPassiveConjugationPhrase extends ConjugationPhrase
+{
+    function accept(ConjugationPhraseVisitor $visitor)
+    {
+        return $visitor->visitSimpleTensesPassive($this);
+    }
+    public $personal_pronoun, $conjugated_auxiliaire_verb, $infinitiveVerb;
+    public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe)
+    {
+        $this->personal_pronoun = $personal_pronoun;
+        $this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+        $this->participe_passe = $participe_passe;
+    }
+}
+class SimpleTenseNegationConjugationPhrase extends ConjugationPhrase
+{
+    function accept(ConjugationPhraseVisitor $visitor)
+    {
+        return $visitor->visitSimpleTenseNegation($this);
+    }
+    public $personal_pronoun, $conjugated_verb;
+    public function __construct($personal_pronoun, ConjugatedVerb $conjugated_verb)
+    {
+        $this->personal_pronoun = $personal_pronoun;
         $this->conjugated_verb = $conjugated_verb;
     }
 }
@@ -1088,81 +989,16 @@ class CompositeTensePronominalConjugationPhrase extends ConjugationPhrase
         $this->participe_passe = $participe_passe;
     }
 }
-class ImperatifPresentTenseConjugationPhrase extends ConjugationPhrase
+class CompositeTenseNegationConjugationPhrase extends ConjugationPhrase
 {
     function accept(ConjugationPhraseVisitor $visitor)
     {
-        return $visitor->visitImperatifPresentTense($this);
+        return $visitor->visitCompositeTenseNegation($this);
     }
-    public $conjugated_verb;
-    public function __construct($conjugated_verb)
+    public $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe;
+    public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe)
     {
-        $this->conjugated_verb = $conjugated_verb;
-    }
-}
-class ImperatifPresentTenseinPassiveVoiceConjugationPhrase extends ConjugationPhrase
-{
-    function accept(ConjugationPhraseVisitor $visitor)
-    {
-        return $visitor->visitImperatifPresentTenseinPassiveVoice($this);
-    }
-    public $conjugated_auxiliaire_verb,$conjugated_verb;
-    public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $conjugated_verb)
-    {
-		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
-        $this->conjugated_verb = $conjugated_verb;
-    }
-}
-class ImperatifPresentTensePronominalConjugationPhrase extends ConjugationPhrase
-{	
-    function accept(ConjugationPhraseVisitor $visitor)
-    {
-        return $visitor->visitImperatifPresentTensePronominal($this);
-    }
-    public $conjugated_verb, $reflexive_pronoun;
-	
-    public function __construct($conjugated_verb, $reflexive_pronoun)
-    {
-        $this->conjugated_verb = $conjugated_verb;
-		$this->reflexive_pronoun = $reflexive_pronoun;
-    }
-}
-class ImperatifPasseTenseConjugationPhrase extends ConjugationPhrase
-{
-    function accept(ConjugationPhraseVisitor $visitor)
-    {
-        return $visitor->visitImperatifPasseTense($this);
-    }
-    public $conjugated_auxiliaire_verb, $participe_passe;
-    public function __construct($conjugated_auxiliaire_verb, $participe_passe)
-    {
-        $this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
-        $this->participe_passe = $participe_passe;
-    }
-}
-class ImperatifPasseTenseinPassiveVoiceConjugationPhrase extends ConjugationPhrase
-{
-    function accept(ConjugationPhraseVisitor $visitor)
-    {
-        return $visitor->visitImperatifPasseTenseinPassiveVoice($this);
-    }
-    public $conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe;
-    public function __construct($conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe)
-    {
-        $this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
-		$this->etre_participe_passe = $etre_participe_passe;
-        $this->participe_passe = $participe_passe;
-    }
-}
-class ImperatifPasseTensePronominalConjugationPhrase extends ConjugationPhrase
-{	// should only print '-'
-    function accept(ConjugationPhraseVisitor $visitor)
-    {
-        return $visitor->visitImperatifPasseTensePronominal($this);
-    }
-    public $conjugated_auxiliaire_verb, $participe_passe;
-    public function __construct($conjugated_auxiliaire_verb, $participe_passe)
-    {
+        $this->personal_pronoun = $personal_pronoun;
         $this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
         $this->participe_passe = $participe_passe;
     }
@@ -1211,17 +1047,120 @@ class FuturComposeTensePronominalConjugationPhrase extends ConjugationPhrase
         $this->infinitiveVerb = $infinitiveVerb;
     }
 }
-
-class SimpleTensesPassiveConjugationPhrase extends ConjugationPhrase
+class FuturComposeTenseNegationConjugationPhrase extends ConjugationPhrase
 {
     function accept(ConjugationPhraseVisitor $visitor)
     {
-        return $visitor->visitSimpleTensesPassive($this);
+        return $visitor->visitFuturComposeNegationTense($this);
     }
     public $personal_pronoun, $conjugated_auxiliaire_verb, $infinitiveVerb;
-    public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe)
+    public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, InfinitiveVerb $infinitiveVerb)
     {
         $this->personal_pronoun = $personal_pronoun;
+        $this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+        $this->infinitiveVerb = $infinitiveVerb;
+    }
+}
+class ImperatifPresentTenseConjugationPhrase extends ConjugationPhrase
+{
+    function accept(ConjugationPhraseVisitor $visitor)
+    {
+        return $visitor->visitImperatifPresentTense($this);
+    }
+    public $conjugated_verb;
+    public function __construct($conjugated_verb)
+    {
+        $this->conjugated_verb = $conjugated_verb;
+    }
+}
+class ImperatifPresentTenseinPassiveVoiceConjugationPhrase extends ConjugationPhrase
+{
+    function accept(ConjugationPhraseVisitor $visitor)
+    {
+        return $visitor->visitImperatifPresentTenseinPassiveVoice($this);
+    }
+    public $conjugated_auxiliaire_verb,$conjugated_verb;
+    public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $conjugated_verb)
+    {
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+        $this->conjugated_verb = $conjugated_verb;
+    }
+}
+class ImperatifPresentTensePronominalConjugationPhrase extends ConjugationPhrase
+{	
+    function accept(ConjugationPhraseVisitor $visitor)
+    {
+        return $visitor->visitImperatifPresentTensePronominal($this);
+    }
+    public $conjugated_verb, $reflexive_pronoun;
+	
+    public function __construct($conjugated_verb, $reflexive_pronoun)
+    {
+        $this->conjugated_verb = $conjugated_verb;
+		$this->reflexive_pronoun = $reflexive_pronoun;
+    }
+}
+class ImperatifPresentTenseNegationConjugationPhrase extends ConjugationPhrase
+{
+    function accept(ConjugationPhraseVisitor $visitor)
+    {
+        return $visitor->visitImperatifPresentTenseNegation($this);
+    }
+    public $conjugated_verb;
+    public function __construct($conjugated_verb)
+    {
+        $this->conjugated_verb = $conjugated_verb;
+    }
+}
+class ImperatifPasseTenseConjugationPhrase extends ConjugationPhrase
+{
+    function accept(ConjugationPhraseVisitor $visitor)
+    {
+        return $visitor->visitImperatifPasseTense($this);
+    }
+    public $conjugated_auxiliaire_verb, $participe_passe;
+    public function __construct($conjugated_auxiliaire_verb, $participe_passe)
+    {
+        $this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+        $this->participe_passe = $participe_passe;
+    }
+}
+class ImperatifPasseTenseinPassiveVoiceConjugationPhrase extends ConjugationPhrase
+{
+    function accept(ConjugationPhraseVisitor $visitor)
+    {
+        return $visitor->visitImperatifPasseTenseinPassiveVoice($this);
+    }
+    public $conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe;
+    public function __construct($conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe)
+    {
+        $this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+		$this->etre_participe_passe = $etre_participe_passe;
+        $this->participe_passe = $participe_passe;
+    }
+}
+class ImperatifPasseTensePronominalConjugationPhrase extends ConjugationPhrase
+{	// should only print '-'
+    function accept(ConjugationPhraseVisitor $visitor)
+    {
+        return $visitor->visitImperatifPasseTensePronominal($this);
+    }
+    public $conjugated_auxiliaire_verb, $participe_passe;
+    public function __construct($conjugated_auxiliaire_verb, $participe_passe)
+    {
+        $this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+        $this->participe_passe = $participe_passe;
+    }
+}
+class ImperatifPasseTenseNegationConjugationPhrase extends ConjugationPhrase
+{
+    function accept(ConjugationPhraseVisitor $visitor)
+    {
+        return $visitor->visitImperatifPasseTenseNegation($this);
+    }
+    public $conjugated_auxiliaire_verb, $participe_passe;
+    public function __construct($conjugated_auxiliaire_verb, $participe_passe)
+    {
         $this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
         $this->participe_passe = $participe_passe;
     }
@@ -1231,18 +1170,23 @@ abstract class ConjugationPhraseVisitor
     abstract function visitSimpleTense(SimpleTenseConjugationPhrase $visitee);
     abstract function visitSimpleTensesPassive(SimpleTensesPassiveConjugationPhrase $visitee);		
 	abstract function visitSimpleTensePronominal(SimpleTensePronominalConjugationPhrase $visitee);
+	abstract function visitSimpleTenseNegation(SimpleTenseNegationConjugationPhrase $visitee);	
     abstract function visitCompositeTense(CompositeTenseConjugationPhrase $visitee);
 	abstract function visitCompositeTensePronominal(CompositeTensePronominalConjugationPhrase $visitee);
-    abstract function visitCompositeTenseinPassiveVoice(CompositeTenseinPassiveVoiceConjugationPhrase $visitee);	
-    abstract function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee);
-    abstract function visitImperatifPresentTenseinPassiveVoice(ImperatifPresentTenseinPassiveVoiceConjugationPhrase $visitee);		
-	abstract function visitImperatifPresentTensePronominal(ImperatifPresentTensePronominalConjugationPhrase $visitee);
-    abstract function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee);
-	abstract function visitImperatifPasseTensePronominal(ImperatifPasseTensePronominalConjugationPhrase $visitee);
-    abstract function visitImperatifPasseTenseinPassiveVoice(ImperatifPasseTenseinPassiveVoiceConjugationPhrase $visitee);	
+    abstract function visitCompositeTenseinPassiveVoice(CompositeTenseinPassiveVoiceConjugationPhrase $visitee);
+    abstract function visitCompositeTenseNegation(CompositeTenseNegationConjugationPhrase $visitee);	
     abstract function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee);
     abstract function visitFuturComposeTenseinPassiveVoice(FuturComposeTenseinPassiveVoiceConjugationPhrase $visitee);
 	abstract function visitFuturComposeTensePronominal(FuturComposeTensePronominalConjugationPhrase $visitee);	
+    abstract function visitFuturComposeNegationTense(FuturComposeTenseNegationConjugationPhrase $visitee);		
+    abstract function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee);
+    abstract function visitImperatifPresentTenseinPassiveVoice(ImperatifPresentTenseinPassiveVoiceConjugationPhrase $visitee);		
+	abstract function visitImperatifPresentTensePronominal(ImperatifPresentTensePronominalConjugationPhrase $visitee);
+    abstract function visitImperatifPresentTenseNegation(ImperatifPresentTenseNegationConjugationPhrase $visitee);	
+    abstract function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee);
+	abstract function visitImperatifPasseTensePronominal(ImperatifPasseTensePronominalConjugationPhrase $visitee);
+    abstract function visitImperatifPasseTenseinPassiveVoice(ImperatifPasseTenseinPassiveVoiceConjugationPhrase $visitee);
+    abstract function visitImperatifPasseTenseNegation(ImperatifPasseTenseNegationConjugationPhrase $visitee);	
 }
 class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor
 {
@@ -1258,6 +1202,10 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor
     {
         return $visitee->personal_pronoun . ' ' .  concatenate_apostrophized($visitee->reflexive_pronoun, $visitee->conjugated_verb);
     }	
+    function visitSimpleTenseNegation(SimpleTenseNegationConjugationPhrase $visitee)
+    {
+        return $visitee->personal_pronoun . ' ' .  concatenate_apostrophized('ne', $visitee->conjugated_verb). ' pas';
+    }			
     function visitCompositeTense(CompositeTenseConjugationPhrase $visitee)
     {
         return concatenate_apostrophized($visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb) . ' ' . $visitee->participe_passe;
@@ -1270,6 +1218,10 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor
     {
         return $visitee->personal_pronoun . ' ' .  concatenate_apostrophized($visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb). ' ' . $visitee->participe_passe;
     }	
+    function visitCompositeTenseNegation(CompositeTenseNegationConjugationPhrase $visitee)
+    {
+        return $visitee->personal_pronoun . ' ' .  concatenate_apostrophized('ne', $visitee->conjugated_auxiliaire_verb). ' pas'. ' ' . $visitee->participe_passe;
+    }				
     function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee)
     {
         return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->infinitiveVerb;
@@ -1281,6 +1233,10 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor
     function visitFuturComposeTensePronominal(FuturComposeTensePronominalConjugationPhrase $visitee)
     {
         return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . concatenate_apostrophized($visitee->reflexive_pronoun, $visitee->infinitiveVerb);
+    }
+    function visitFuturComposeNegationTense(FuturComposeTenseNegationConjugationPhrase $visitee)
+    {
+        return $visitee->personal_pronoun . ' ' .  concatenate_apostrophized('ne', $visitee->conjugated_auxiliaire_verb). ' pas'. ' ' . $visitee->infinitiveVerb;
     }	
     function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee)
     {
@@ -1291,8 +1247,12 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor
         return $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->conjugated_verb;
     }	
     function visitImperatifPresentTensePronominal(ImperatifPresentTensePronominalConjugationPhrase $visitee)
-    {
+    {	
         return $visitee->conjugated_verb . $visitee->reflexive_pronoun;
+    }		
+    function visitImperatifPresentTenseNegation(ImperatifPresentTenseNegationConjugationPhrase $visitee)
+    {
+        return concatenate_apostrophized('ne', $visitee->conjugated_verb). ' pas';
     }		
     function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee)
     {
@@ -1305,11 +1265,15 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor
     function visitImperatifPasseTensePronominal(ImperatifPasseTensePronominalConjugationPhrase $visitee)
     {
         return '-';
-    }			
+    }
+    function visitImperatifPasseTenseNegation(ImperatifPasseTenseNegationConjugationPhrase $visitee)
+    {
+        return concatenate_apostrophized('ne', $visitee->conjugated_auxiliaire_verb). ' ' . $visitee->participe_passe;
+    }	
 } 
-function conjugation_phrase(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, Person $person, Tense $tense, Mood $mood)
+function conjugation_phrase(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Person $person, Tense $tense, Mood $mood)
 {
-    $conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, $auxiliaire, $gender, $voice, $person, $tense, $mood);
+    $conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, $person, $tense, $mood);
     $visitor = new GoogleTTSConjugationPhraseVisitor();
     return $conjugationPhrase->accept($visitor);
 }

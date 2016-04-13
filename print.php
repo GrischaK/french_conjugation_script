@@ -1,6 +1,6 @@
 <?php
 require_once 'conjugate.php';
-function print_persons(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, Tense $tense, Mood $mood) {
+function print_persons(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Tense $tense, Mood $mood) {
 	$persons = [
 			Mood::Indicatif => [
 					Tense::Present => [
@@ -150,8 +150,7 @@ function print_persons(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, G
 			] 
 	];
 	foreach ( $persons [$mood->getValue ()] [$tense->getValue ()] as $person ) {
-		//$output = conjugation_phrase ( $infinitiveVerb, new Person ( $person ), $tense, $mood );
-		$conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, $auxiliaire, $gender,$voice, new Person($person), $tense, $mood);
+		$conjugationPhrase = ConjugationPhrase::create($infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, new Person($person), $tense, $mood);
 		$ttsVisitor = new GoogleTTSConjugationPhraseVisitor();
 		$output = $conjugationPhrase->accept($ttsVisitor);
 		$tablePrintVisitor = new OutputConjugationPhraseVisitor();
@@ -176,6 +175,10 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . PHP_EOL .
 		"\t\t\t".'<td>' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ). '</td>' . PHP_EOL;
 	}	
+	function visitSimpleTenseNegation(SimpleTenseNegationConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . PHP_EOL . 
+			   "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_verb ). ' pas</td>' . PHP_EOL;
+	}	
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
 		return "\t\t\t".'<td class="text-right text-muted">' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . PHP_EOL . 
 		       "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
@@ -188,13 +191,14 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 			   "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
 	}	
 	function visitCompositeTensePronominal(CompositeTensePronominalConjugationPhrase $visitee) {
-		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL .
-			   "\t\t\t".'<td>' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ). '</td>' . PHP_EOL .		
-			   "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;		
-		
 		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . ' ' . apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . PHP_EOL .
 		"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
 		"\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
+	}	
+	function visitCompositeTenseNegation(CompositeTenseNegationConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . PHP_EOL .
+			   "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .
+		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
 	}	
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
 		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . 
@@ -212,6 +216,11 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
 		"\t\t\t".'<td>' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ). '</td>' . PHP_EOL;
 	}	
+	function visitFuturComposeNegationTense(FuturComposeTenseNegationConjugationPhrase $visitee) {   
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . 
+			   "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .
+		       "\t\t\t".'<td>' . $visitee->infinitiveVerb . '</td>' . PHP_EOL;
+	}		
 	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
 		return "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
 	}
@@ -221,6 +230,9 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	}		
 	function visitImperatifPresentTensePronominal(ImperatifPresentTensePronominalConjugationPhrase $visitee) {
 		return "\t\t\t".'<td>' . $visitee->conjugated_verb . $visitee->reflexive_pronoun  . '</td>' . PHP_EOL;
+	}
+	function visitImperatifPresentTenseNegation(ImperatifPresentTenseNegationConjugationPhrase $visitee) {
+		return "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_verb ). ' pas</td>' . PHP_EOL;		
 	}	
 	function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee) {
 		return "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
@@ -234,6 +246,10 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitImperatifPasseTensePronominal(ImperatifPasseTensePronominalConjugationPhrase $visitee) {
 		return "\t\t\t".'<td> - </td>' . PHP_EOL;
 	}
+	function visitImperatifPasseTenseNegation(ImperatifPasseTenseNegationConjugationPhrase $visitee) {
+		return "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .	
+		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;		
+	}	
 }	
 
 function colspan_number($mood, $tense, $voice) {
@@ -262,7 +278,7 @@ function colspan_number($mood, $tense, $voice) {
 	}
 	return $colspan;
 }
-function print_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender,  Voice $voice, Mood $mood, $tenses) {
+function print_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Mood $mood, $tenses) {
 	$th_of_tense = [
 			Tense::Present =>'Présent',
 			Tense::Imparfait =>'Imparfait',
@@ -280,10 +296,10 @@ function print_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Ge
 		echo "\t\t".'<tr class="border">' . PHP_EOL;
 		echo "\t\t\t".'<th colspan="'.colspan_number($mood, new Tense($tense), $voice).'">'.$th_of_tense[$tense].'</th>' . PHP_EOL;
 		echo "\t\t".'</tr>' . PHP_EOL;
-		print_persons ( $infinitiveVerb, $auxiliaire, $gender,$voice, new Tense ( $tense ), new Mood ( $mood ) );
+		print_persons ( $infinitiveVerb, $auxiliaire, $gender,$voice, new SentenceType ( $sentencetype ), new Tense ( $tense ), new Mood ( $mood ) );
 	}
 }
-function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, Mood $mood) {
+function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Mood $mood) {
 	$tenses = [
 			Mood::Indicatif => [
 					Tense::Present,
@@ -302,9 +318,9 @@ function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxilia
 					Tense::Present 
 			] 
 	];
-	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $mood, $tenses );
+	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, $mood, $tenses );
 }
-function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender,  Voice $voice, Mood $mood) {
+function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender,  Voice $voice, SentenceType $sentencetype, Mood $mood) {
 	$tenses = [
 			Mood::Indicatif => [
 					Tense::Passe_compose,
@@ -325,9 +341,9 @@ function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxi
 					Tense::Passe 
 			] 
 	];
-	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $mood, $tenses );
+	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, $mood, $tenses );
 }
-function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender,  Voice $voice) {
+function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype) {
 	global $css_class,$category;	
 	$tenses = [
 			Tense::Present,
@@ -347,13 +363,13 @@ function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gen
 		echo "\t\t".'<tr>' . PHP_EOL;
 		echo "\t\t\t".'<td class="text-center"><b>'.$mode_name.'</b></td>' . PHP_EOL;
 		foreach ( $tenses as $tense ) {
-			$output_modes = modes_impersonnels ( $infinitiveVerb, $auxiliaire, new Mode ( $mode ), new Tense ( $tense ), new Gender ( $gender ), new Voice ( $voice ) );
+			$output_modes = modes_impersonnels ( $infinitiveVerb, $auxiliaire, new Mode ( $mode ), new Tense ( $tense ), new Gender ( $gender ), new Voice ( $voice ),new SentenceType ( $sentencetype )  );
 			echo "\t\t\t".'<td><span data-text="' . $output_modes . '" data-lang="fr" class="trigger_play"></span>' . $output_modes . '</td>' . PHP_EOL;
 		}
 		echo "\t\t".'</tr>' . PHP_EOL;
 	}
 }
-function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender,  Voice $voice) {
+function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender,  Voice $voice, SentenceType $sentencetype) {
 	global $css_class,$category;
 	$moods = [
 			Mood::Indicatif,
@@ -371,16 +387,16 @@ function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $
 		echo '<h2 class="home"><a id="'.strtolower($h2_of_mood[$mood]).$category.'"></a>'.$h2_of_mood[$mood].'</h2>' . PHP_EOL;
 		echo "\t".'<hr class="linie" />' . PHP_EOL;
 		echo "\t".'<table class="tab_new '.$css_class.'">' . PHP_EOL;
-		print_simple_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, new Mood ( $mood ) );
+		print_simple_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 		echo "\t".'<table class="tab_new '.$css_class.'">' . PHP_EOL;		
-		print_composite_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, new Mood ( $mood ) );
+		print_composite_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, new Mood ( $mood ) );
 		echo "\t".'</table>' . PHP_EOL . PHP_EOL;
 	}
 	echo '<h2 class="home"><a id="modes-impersonnels'.$category.'"></a>Modes impersonnels</h2>' . PHP_EOL;
 	echo "\t".'<hr class="linie" />' . PHP_EOL;	
 	echo "\t".'<table class="tab_new '.$css_class.'">' . PHP_EOL;
-	print_modes ( $infinitiveVerb, $auxiliaire,$gender, $voice );
+	print_modes ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype );
 	echo "\t".'</table>' . PHP_EOL;
 }
 ?>
