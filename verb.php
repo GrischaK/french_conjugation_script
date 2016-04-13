@@ -143,7 +143,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                               <div class="tab-content">
                                  <div class="tab-pane fade active in" id="etre-voice-gender1121">
                                     <?php
-                                       $css_class = 'DarkOrange DarkGoldenRod';
+                                       $css_class = 'DarkOrange';
                                        $category ='-etre-declarative-passive-masculine';
                                        require_once("text.php");
                                        print_explanatory_text($infinitiveVerb);
@@ -152,7 +152,7 @@ if(canBeConjugatedWith($infinitiveVerb, new Auxiliaire(Auxiliaire::AvoirandEtre)
                                  </div>
                                  <div class="tab-pane fade" id="etre-voice-gender1122">
                                     <?php
-                                       $css_class = 'DarkOrange DarkGoldenRod';
+                                       $css_class = 'DarkGoldenRod';
                                        $category ='-etre-declarative-passive-feminine';
                                        require_once("text.php");
                                        print_explanatory_text($infinitiveVerb);
