@@ -5,202 +5,233 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider modeImpersonnelsTestProvider
 	 */
-	public function testModeImpersonnels($expectedResult, $infinitiveVerb, $auxiliaire, $mode, $tense, $gender, $voice) {
-		$this->assertEquals ( $expectedResult, modes_impersonnels ( new InfinitiveVerb( $infinitiveVerb), new Auxiliaire ( $auxiliaire ), new Mode ( $mode ), new Tense ( $tense ), new Gender ( $gender ),new Voice ( $voice ) ) );
+	public function testModeImpersonnels($expectedResult, $infinitiveVerb, $auxiliaire, $mode, $tense, $gender, $voice, $sentencetype) {
+		$this->assertEquals ( $expectedResult, modes_impersonnels ( new InfinitiveVerb ( $infinitiveVerb ), new Auxiliaire ( $auxiliaire ), new Mode ( $mode ), new Tense ( $tense ), new Gender ( $gender ), new Voice ( $voice ), new SentenceType ( $sentencetype ) ) );
 	}
 	public function modeImpersonnelsTestProvider() {
 		;
-		return [
-				[
+		return [ 
+				[ 
 						'aimer',
 						'aimer',
 						Auxiliaire::Avoir,
-						'Infinitif',
-						'Present',
+						Mode::Infinitif,
+						Tense::Present,
 						Gender::Masculine,
-						Voice::Active,						
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
+						'ne pas aimer',
+						'aimer',
+						Auxiliaire::Avoir,
+						Mode::Infinitif,
+						Tense::Present,
+						Gender::Masculine,
+						Voice::Active,
+						SentenceType::Negation 
+				],
+				[ 
 						'être aimé',
 						'aimer',
 						Auxiliaire::Avoir,
-						'Infinitif',
-						'Present',
+						Mode::Infinitif,
+						Tense::Present,
 						Gender::Masculine,
-						Voice::Passive,						
-				],				
-				[
+						Voice::Passive,
+						SentenceType::DeclarativeSentence 
+				],
+				[ 
 						'avoir aimé',
 						'aimer',
 						Auxiliaire::Avoir,
-						'Infinitif',
-						'Passe',
+						Mode::Infinitif,
+						Tense::Passe,
 						Gender::Masculine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'avoir été aimé',
 						'aimer',
 						Auxiliaire::Avoir,
-						'Infinitif',
-						'Passe',
+						Mode::Infinitif,
+						Tense::Passe,
 						Gender::Masculine,
-						Voice::Passive,							
-				],				
-				[
+						Voice::Passive,
+						SentenceType::DeclarativeSentence 
+				],
+				[ 
 						'en aimant',
 						'aimer',
 						Auxiliaire::Avoir,
-						'Gerondif',
-						'Present',
+						Mode::Gerondif,
+						Tense::Present,
 						Gender::Masculine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'en ayant aimé',
 						'aimer',
 						Auxiliaire::Avoir,
-						'Gerondif',
-						'Passe',
+						Mode::Gerondif,
+						Tense::Passe,
 						Gender::Masculine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'aimant',
 						'aimer',
 						Auxiliaire::Avoir,
-						'Participe',
-						'Present',
+						Mode::Participe,
+						Tense::Present,
 						Gender::Masculine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'aimé',
 						'aimer',
 						Auxiliaire::Avoir,
-						'Participe',
-						'Passe',
+						Mode::Participe,
+						Tense::Passe,
 						Gender::Masculine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
 				
-				[
+				[ 
 						'amuser',
 						'amuser',
-						Auxiliaire::Etre,
-						'Infinitif',
-						'Present',
+						Auxiliaire::Avoir,
+						Mode::Infinitif,
+						Tense::Present,
 						Gender::Masculine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
-						'être amusé',
+				[ 
+						'avoir amusé',
 						'amuser',
-						Auxiliaire::Etre,
-						'Infinitif',
-						'Passe',
+						Auxiliaire::Avoir,
+						Mode::Infinitif,
+						Tense::Passe,
 						Gender::Masculine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
-						'être amusée',
+				[ 
+						'avoir amusé',
 						'amuser',
-						Auxiliaire::Etre,
-						'Infinitif',
-						'Passe',
+						Auxiliaire::Avoir,
+						Mode::Infinitif,
+						Tense::Passe,
 						Gender::Feminine,
-						Voice::Active,							
-				],				
-				[
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
+				],
+				[ 
 						'en amusant',
 						'amuser',
-						Auxiliaire::Etre,
-						'Gerondif',
-						'Present',
+						Auxiliaire::Avoir,
+						Mode::Gerondif,
+						Tense::Present,
 						Gender::Masculine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
-						'en étant amusé',
+				[ 
+						'en ayant amusé',
 						'amuser',
-						Auxiliaire::Etre,
-						'Gerondif',
-						'Passe',
+						Auxiliaire::Avoir,
+						Mode::Gerondif,
+						Tense::Passe,
 						Gender::Masculine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
-						'en étant amusée',
+				[ 
+						'en ayant amusé',
 						'amuser',
-						Auxiliaire::Etre,
-						'Gerondif',
-						'Passe',
+						Auxiliaire::Avoir,
+						Mode::Gerondif,
+						Tense::Passe,
 						Gender::Feminine,
-						Voice::Active,							
-				],	
-				[
-						'en étant été amusé',
-						'amuser',
-						Auxiliaire::Etre,
-						'Gerondif',
-						'Passe',
-						Gender::Masculine,
-						Voice::Passive,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
-						'en étant été amusée',
+				[ 
+						'en ayant été amusé',
 						'amuser',
-						Auxiliaire::Etre,
-						'Gerondif',
-						'Passe',
+						Auxiliaire::Avoir,
+						Mode::Gerondif,
+						Tense::Passe,
+						Gender::Masculine,
+						Voice::Passive,
+						SentenceType::DeclarativeSentence 
+				],
+				[ 
+						'en ayant été amusée',
+						'amuser',
+						Auxiliaire::Avoir,
+						Mode::Gerondif,
+						Tense::Passe,
 						Gender::Feminine,
 						Voice::Passive,
-				],				
-				[
+						SentenceType::DeclarativeSentence 
+				],
+				[ 
 						'amusant',
 						'amuser',
-						Auxiliaire::Etre,
-						'Participe',
-						'Present',
+						Auxiliaire::Avoir,
+						Mode::Participe,
+						Tense::Present,
 						Gender::Masculine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'amusé',
 						'amuser',
-						Auxiliaire::Etre,
-						'Participe',
-						'Passe',
+						Auxiliaire::Avoir,
+						Mode::Participe,
+						Tense::Passe,
 						Gender::Masculine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
-						'amusée',
+				[ 
+						'amusé',
 						'amuser',
-						Auxiliaire::Etre,
-						'Participe',
-						'Passe',
+						Auxiliaire::Avoir,
+						Mode::Participe,
+						Tense::Passe,
 						Gender::Feminine,
-						Voice::Active,							
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'été amusé',
 						'amuser',
-						Auxiliaire::Etre,
-						'Participe',
-						'Passe',
+						Auxiliaire::Avoir,
+						Mode::Participe,
+						Tense::Passe,
 						Gender::Masculine,
-						Voice::Passive,							
+						Voice::Passive,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'été amusée',
 						'amuser',
-						Auxiliaire::Etre,
-						'Participe',
-						'Passe',
+						Auxiliaire::Avoir,
+						Mode::Participe,
+						Tense::Passe,
 						Gender::Feminine,
-						Voice::Passive,							
-				]				
+						Voice::Passive,
+						SentenceType::DeclarativeSentence 
+				] 
 		];
 	}
 }
