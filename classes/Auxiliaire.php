@@ -9,7 +9,8 @@ class Auxiliaire extends Enum{
 	}
 	
 	static function getVerbsThatUse(Auxiliaire $auxiliaire) {
-		$only_with_auxiliaire_avoir = ['acheter','aimer','balader','coudre','habiller','hérisser','manger'];
+	include '../verbs.php'; // include_once or require_once don't work	
+	$only_with_auxiliaire_avoir = array_diff_key($infinitiveVerb, array_flip([Auxiliaire::Etre]));
 		$infinitiveVerb = 
 		[Auxiliaire::Etre => ['accourir','advenir','aller','apparaitre','apparaître','arriver','ascendre','co-naitre','co-naître','convenir',
 			'débeller','démourir','descendre','disconvenir','devenir','échoir','entre-venir','emmourir','entrer','époustoufler','intervenir',
