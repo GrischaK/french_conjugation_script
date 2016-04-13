@@ -2,17 +2,16 @@
 require_once '../conjugate.php';
 class AuxiliaireTest extends PHPUnit_Framework_TestCase {
 	
-
 	/**
 	 * @dataProvider regularAuxiliaireProvider
 	 */
 	public function testAuxiliaire($expectedResult, $infinitiveVerb) {
-	$this->assertEquals ( new Auxiliaire($expectedResult), finding_auxiliaire (new InfinitiveVerb($infinitiveVerb)));
+		$this->assertEquals ( new Auxiliaire ( $expectedResult ), finding_auxiliaire ( new InfinitiveVerb ( $infinitiveVerb ) ) );
 	}
 	public function regularAuxiliaireProvider() {
-		return [
-				[
-						 'Etre',
+		return [ 
+				[ 
+						'Etre',
 						'accourir' 
 				] 
 		];
@@ -21,110 +20,121 @@ class AuxiliaireTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider AuxiliaireVerbProvider
 	 */
-	public function testAuxiliaireVerb($expectedResult, $auxiliaire, $tense, $person, $mood, $voice) {
-		$this->assertEquals ( $expectedResult, conjugated_auxiliaire ( new Auxiliaire ( $auxiliaire ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ), new Voice ( $voice ) ) );
+	public function testAuxiliaireVerb($expectedResult, $auxiliaire, $tense, $person, $mood, $voice, $sentencetype) {
+		$this->assertEquals ( $expectedResult, conjugated_auxiliaire ( new Auxiliaire ( $auxiliaire ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ), new Voice ( $voice ), new SentenceType ( $sentencetype ) ) );
 	}
 	public function AuxiliaireVerbProvider() {
-		return [
-				[
+		return [ 
+				[ 
 						"suis",
 						Auxiliaire::Etre,
-						'Passe_compose',
-						'FirstPersonSingular',
-						'Indicatif',
-						Voice::Active,							
+						Tense::Passe_compose,
+						Person::FirstPersonSingular,
+						Mood::Indicatif,
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						"es",
 						Auxiliaire::Etre,
-						'Passe_compose',
-						'SecondPersonSingular',
-						'Indicatif',
-						Voice::Active,	
+						Tense::Passe_compose,
+						Person::SecondPersonSingular,
+						Mood::Indicatif,
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						"est",
 						Auxiliaire::Etre,
-						'Passe_compose',
-						'ThirdPersonSingular',
-						'Indicatif',
-						Voice::Active,						
+						Tense::Passe_compose,
+						Person::ThirdPersonSingular,
+						Mood::Indicatif,
+						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						"sommes",
 						Auxiliaire::Etre,
-						'Passe_compose',
-						'FirstPersonPlural',
-						'Indicatif',
+						Tense::Passe_compose,
+						Person::FirstPersonPlural,
+						Mood::Indicatif,
 						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						"êtes",
 						Auxiliaire::Etre,
-						'Passe_compose',
-						'SecondPersonPlural',
-						'Indicatif',
+						Tense::Passe_compose,
+						Person::SecondPersonPlural,
+						Mood::Indicatif,
 						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						"sont",
 						Auxiliaire::Etre,
-						'Passe_compose',
-						'ThirdPersonPlural',
-						'Indicatif',
+						Tense::Passe_compose,
+						Person::ThirdPersonPlural,
+						Mood::Indicatif,
 						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						"ai",
 						Auxiliaire::Avoir,
-						'Passe_compose',
-						'FirstPersonSingular',
-						'Indicatif',
+						Tense::Passe_compose,
+						Person::FirstPersonSingular,
+						Mood::Indicatif,
 						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						"as",
 						Auxiliaire::Avoir,
-						'Passe_compose',
-						'SecondPersonSingular',
-						'Indicatif',
+						Tense::Passe_compose,
+						Person::SecondPersonSingular,
+						Mood::Indicatif,
 						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						"a",
 						Auxiliaire::Avoir,
-						'Passe_compose',
-						'ThirdPersonSingular',
-						'Indicatif',
+						Tense::Passe_compose,
+						Person::ThirdPersonSingular,
+						Mood::Indicatif,
 						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						"avons",
 						Auxiliaire::Avoir,
-						'Passe_compose',
-						'FirstPersonPlural',
-						'Indicatif',
+						Tense::Passe_compose,
+						Person::FirstPersonPlural,
+						Mood::Indicatif,
 						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						"avez",
 						Auxiliaire::Avoir,
-						'Passe_compose',
-						'SecondPersonPlural',
-						'Indicatif',
+						Tense::Passe_compose,
+						Person::SecondPersonPlural,
+						Mood::Indicatif,
 						Voice::Active,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						"ont",
 						Auxiliaire::Avoir,
-						'Passe_compose',
-						'ThirdPersonPlural',
-						'Indicatif',
+						Tense::Passe_compose,
+						Person::ThirdPersonPlural,
+						Mood::Indicatif,
 						Voice::Active,
-				]
+						SentenceType::DeclarativeSentence 
+				] 
 		];
-}
-
+	}
 }
 
 
