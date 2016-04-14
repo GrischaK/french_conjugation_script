@@ -92,7 +92,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						SentenceType::DeclarativeSentence 
 				],
 				[ 
-						'aimé',
+						'ayant aimé',
 						'aimer',
 						Auxiliaire::Avoir,
 						Mode::Participe,
@@ -193,7 +193,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						SentenceType::DeclarativeSentence 
 				],
 				[ 
-						'amusé',
+						'ayant amusé',
 						'amuser',
 						Auxiliaire::Avoir,
 						Mode::Participe,
@@ -203,7 +203,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						SentenceType::DeclarativeSentence 
 				],
 				[ 
-						'amusé',
+						'ayant amusé',
 						'amuser',
 						Auxiliaire::Avoir,
 						Mode::Participe,
@@ -216,7 +216,7 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						'ayant été amusé',
 						'amuser',
 						Auxiliaire::Avoir,
-						'Participe',
+						Mode::Participe,
 						Tense::Passe,
 						Gender::Masculine,
 						Voice::Passive,
