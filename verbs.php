@@ -1,4 +1,4 @@
-<?
+<?php
 $infinitiveVerb = [
     'abrater',
     'abréyer',
