@@ -1,25 +1,11 @@
 <?php
-//require_once 'translation.php';
 $jquery_head='';
+$only_content_css ='';
 require_once 'verbs.php';
 require_once 'conjugate.php';
 require_once 'print.php';
 include_once($_SERVER['DOCUMENT_ROOT']."/data/before_content.php");
-?>
-<style>
-#menu,#right-part  {display:none;}
-#right-part.col-md-2{display:none;}	  
-#content.col-md-7 {width:100%;}
- 
-@media 
-  (min-device-width: 800px) 
-  and (max-device-width: 1280px) {
-#menu,#right-part  {display:none;}
-#right-part.col-md-2{display:none;}	  
-#content.col-md-7 {width:100%;}
-}
-</style> 
-<?php
+
 $kategorien=[
 "erste-gruppe","zweite-gruppe","dritte-gruppe",
 "hifsverb-avoir","hilfsverb-etre","hilfsverb-avoir-etre",
