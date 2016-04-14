@@ -5,7 +5,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider ConjugatePhraseTestProvider
 	 */
-	public function testConjugatePhrase($expectedResult, $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, $tense, $person, $mood) {
+	public function testConjugatePhrase($expectedResult, $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, $person, $tense, $mood) {
 		$this->assertEquals ( $expectedResult, ( string ) conjugation_phrase ( new InfinitiveVerb ( $infinitiveVerb ), new Auxiliaire ( $auxiliaire ), new Gender ( $gender ), new Voice ( $voice ), new SentenceType ( $sentencetype ), new Person ( $person ), new Tense ( $tense ), new Mood ( $mood ) ) );
 	}
 	public function ConjugatePhraseTestProvider() {
@@ -18,8 +18,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Passe_compose,
-						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				],
 				[ 
@@ -29,8 +29,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Plus_que_parfait,
-						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				],
 				[ 
@@ -40,8 +40,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Passe_compose,
-						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				],
 				[ 
@@ -51,8 +51,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::ThirdPersonPlural,						
 						Tense::Passe_compose,
-						Person::ThirdPersonPlural,
 						Mood::Indicatif 
 				],
 				[ 
@@ -62,8 +62,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
-						Tense::Present,
 						Person::FirstPersonSingular,
+						Tense::Present,
 						Mood::Indicatif 
 				],
 				[ 
@@ -73,8 +73,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Present,
-						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				],
 				[ 
@@ -84,8 +84,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Present,
-						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				],
 				[ 
@@ -95,8 +95,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Present,
-						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				],
 				[ 
@@ -106,8 +106,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Imparfait,
-						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				],
 				[ 
@@ -117,8 +117,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Present,
-						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				],
 				[ 
@@ -128,8 +128,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Feminine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::ThirdPersonSingular,						
 						Tense::Present,
-						Person::ThirdPersonSingular,
 						Mood::Indicatif 
 				],
 				[ 
@@ -139,8 +139,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Feminine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::ThirdPersonPlural,						
 						Tense::Present,
-						Person::ThirdPersonPlural,
 						Mood::Indicatif 
 				],
 				[ 
@@ -150,8 +150,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Present,
-						Person::FirstPersonSingular,
 						Mood::Subjonctif 
 				],
 				[ 
@@ -161,8 +161,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::SecondPersonSingular,						
 						Tense::Present,
-						Person::SecondPersonSingular,
 						Mood::Imperatif 
 				],
 				[ 
@@ -172,8 +172,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonPlural,						
 						Tense::Present,
-						Person::FirstPersonPlural,
 						Mood::Imperatif 
 				],
 				[ 
@@ -183,8 +183,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::SecondPersonPlural,						
 						Tense::Present,
-						Person::SecondPersonPlural,
 						Mood::Imperatif 
 				],
 				[ 
@@ -194,8 +194,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::SecondPersonSingular,						
 						Tense::Passe,
-						Person::SecondPersonSingular,
 						Mood::Imperatif 
 				],
 				[ 
@@ -205,8 +205,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonPlural,						
 						Tense::Passe,
-						Person::FirstPersonPlural,
 						Mood::Imperatif 
 				],
 				[ 
@@ -216,8 +216,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::SecondPersonPlural,						
 						Tense::Passe,
-						Person::SecondPersonPlural,
 						Mood::Imperatif 
 				],
 				[ 
@@ -227,8 +227,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Present,
-						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				],
 				[ 
@@ -238,8 +238,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Futur_compose,
-						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				],
 				[ 
@@ -249,8 +249,8 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Gender::Masculine,
 						Voice::Passive,
 						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
 						Tense::Futur_compose,
-						Person::FirstPersonSingular,
 						Mood::Indicatif 
 				] 
 		];
