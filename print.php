@@ -74,7 +74,15 @@ function print_persons(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, G
 							Person::FirstPersonPlural,
 							Person::SecondPersonPlural,
 							Person::ThirdPersonPlural 
-					] 
+					],
+					Tense::Passe_recent => [
+							Person::FirstPersonSingular,
+							Person::SecondPersonSingular,
+							Person::ThirdPersonSingular,
+							Person::FirstPersonPlural,
+							Person::SecondPersonPlural,
+							Person::ThirdPersonPlural 
+					] 					
 			],
 			Mood::Subjonctif => [
 					Tense::Present => [
@@ -168,16 +176,25 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	}
 	function visitSimpleTensesPassive(SimpleTensesPassiveConjugationPhrase $visitee) {
 		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . 
-				"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
+			   "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
 		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
 	}		
 	function visitSimpleTensePronominal(SimpleTensePronominalConjugationPhrase $visitee) {
-		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . PHP_EOL .
-		"\t\t\t".'<td>' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ). '</td>' . PHP_EOL;
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL .
+			   "\t\t\t".'<td>' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ). '</td>' . PHP_EOL;
 	}	
-	function visitSimpleTenseNegation(SimpleTenseNegationConjugationPhrase $visitee) {
-		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . PHP_EOL . 
+	function visitSimpleTenseNegationActive(SimpleTenseNegationActiveConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL .
 			   "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_verb ). ' pas</td>' . PHP_EOL;
+	}	
+	function visitSimpleTenseNegationPassive(SimpleTenseNegationPassiveConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL .
+			   "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL . 
+		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
+	}
+	function visitSimpleTenseNegationPronominal(SimpleTenseNegationPronominalConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL .
+			   "\t\t\t".'<td>ne ' . concatenate_apostrophized ($visitee->reflexive_pronoun, $visitee->conjugated_verb ). ' pas</td>' . PHP_EOL;
 	}	
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
 		return "\t\t\t".'<td class="text-right text-muted">' . apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . '</td>' . PHP_EOL . 
@@ -195,32 +212,62 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
 		"\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
 	}	
-	function visitCompositeTenseNegation(CompositeTenseNegationConjugationPhrase $visitee) {
-		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . PHP_EOL .
+	function visitCompositeTenseNegationActive(CompositeTenseNegationActiveConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL .
 			   "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .
+		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
+	}
+	function visitCompositeTenseNegationPassive(CompositeTenseNegationPassiveConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL .
+			   "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .
+			   "\t\t\t".'<td>' . $visitee->etre_participe_passe . '</td>' . PHP_EOL .
+		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
+	}
+	function visitCompositeTenseNegationPronominal(CompositeTenseNegationPronominalConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL .
+			   "\t\t\t".'<td>ne ' . concatenate_apostrophized ($visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .
 		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
 	}	
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
 		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . 
 			   "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
 		       "\t\t\t".'<td>' . $visitee->infinitiveVerb . '</td>' . PHP_EOL;
-	}
-	function visitFuturComposeTenseinPassiveVoice(FuturComposeTenseinPassiveVoiceConjugationPhrase $visitee) {
-		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL .
-			   "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
-			   "\t\t\t".'<td>' . $visitee->etre_infinitive . '</td>' . PHP_EOL .			   
-		       "\t\t\t".'<td>' . $visitee->infinitiveVerb . '</td>' . PHP_EOL;
 	}	
-	function visitFuturComposeTensePronominal(FuturComposeTensePronominalConjugationPhrase $visitee) {
-		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . PHP_EOL .
+	function visitFuturComposePronominal(FuturComposeTensePronominalConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL .
 		"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL .
 		"\t\t\t".'<td>' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ). '</td>' . PHP_EOL;
 	}	
-	function visitFuturComposeNegationTense(FuturComposeTenseNegationConjugationPhrase $visitee) {   
+	function visitFuturComposeNegationActive(FuturComposeTenseNegationActiveConjugationPhrase $visitee) {   
 		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . 
 			   "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .
 		       "\t\t\t".'<td>' . $visitee->infinitiveVerb . '</td>' . PHP_EOL;
-	}		
+	}
+	function visitFuturComposeNegationPronominal(FuturComposeTenseNegationPronominalConjugationPhrase $visitee) {   
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . 
+			   "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .
+		       "\t\t\t".'<td>' . concatenate_apostrophized($visitee->reflexive_pronoun, $visitee->infinitiveVerb) . '</td>' . PHP_EOL;
+	}	
+	function visitPasseRecent(PasseRecentTenseConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . 
+			   "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
+		       "\t\t\t".'<td>' . concatenate_apostrophized ('de', $visitee->infinitiveVerb ) . '</td>' . PHP_EOL;
+	}	
+	function visitPasseRecentPronominal(PasseRecentTensePronominalConjugationPhrase $visitee) {
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . ' de</td>' . PHP_EOL .
+		"\t\t\t".'<td>' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ). '</td>' . PHP_EOL;
+	}	
+	function visitPasseRecentNegationActive(PasseRecentTenseNegationActiveConjugationPhrase $visitee) {   
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . 
+			   "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .
+		       "\t\t\t".'<td>' . concatenate_apostrophized ('de', $visitee->infinitiveVerb ) . '</td>' . PHP_EOL;
+	}
+	function visitPasseRecentNegationPronominal(PasseRecentTenseNegationPronominalConjugationPhrase $visitee) {   
+		return "\t\t\t".'<td class="text-right text-muted">' . $visitee->personal_pronoun . '</td>' . PHP_EOL . 
+			   "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .
+		       "\t\t\t".'<td>de ' . concatenate_apostrophized ($visitee->reflexive_pronoun, $visitee->infinitiveVerb ) . '</td>' . PHP_EOL;
+	}	
 	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
 		return "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
 	}
@@ -231,24 +278,33 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitImperatifPresentTensePronominal(ImperatifPresentTensePronominalConjugationPhrase $visitee) {
 		return "\t\t\t".'<td>' . $visitee->conjugated_verb . $visitee->reflexive_pronoun  . '</td>' . PHP_EOL;
 	}
-	function visitImperatifPresentTenseNegation(ImperatifPresentTenseNegationConjugationPhrase $visitee) {
+	function visitImperatifPresentNegationActive(ImperatifPresentTenseNegationActiveConjugationPhrase $visitee) {
 		return "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_verb ). ' pas</td>' . PHP_EOL;		
+	}
+	function visitImperatifPresentNegationPassive(ImperatifPresentTenseNegationPassiveConjugationPhrase $visitee) {
+		return "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb). ' pas</td>' . PHP_EOL .
+			   "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
+		
 	}	
-	function visitImperatifPasseTense(ImperatifPasseTenseConjugationPhrase $visitee) {
+	function visitImperatifPresentNegationPronominal(ImperatifPresentTenseNegationPronominalConjugationPhrase $visitee) {
+		return "\t\t\t".'<td>ne ' . concatenate_apostrophized ($visitee->reflexive_pronoun, $visitee->conjugated_verb ). ' pas</td>' . PHP_EOL;		
+	}		
+	function visitImperatifPasse(ImperatifPasseTenseConjugationPhrase $visitee) {
 		return "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
 		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
 	}
-	function visitImperatifPasseTenseinPassiveVoice(ImperatifPasseTenseinPassiveVoiceConjugationPhrase $visitee) {
-		return "\t\t\t".'<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . 
-		       "\t\t\t".'<td>' . $visitee->etre_participe_passe . '</td>' . PHP_EOL .		
+	function visitImperatifPasseNegation(ImperatifPasseTenseNegationConjugationPhrase $visitee) {
+		return "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .
 		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
 	}	
-	function visitImperatifPasseTensePronominal(ImperatifPasseTensePronominalConjugationPhrase $visitee) {
+	function visitNotExisting(NoConjugationPhrase $visitee) {
 		return "\t\t\t".'<td> - </td>' . PHP_EOL;
 	}
-	function visitImperatifPasseTenseNegation(ImperatifPasseTenseNegationConjugationPhrase $visitee) {
-		return "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb ). ' pas</td>' . PHP_EOL .	
-		       "\t\t\t".'<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;		
+	function visitNotExistingwithFiveTDs(NoConjugationwithFiveTDsPhrase $visitee) {
+		return "\t\t\t".'<td></td>' . PHP_EOL .
+			   "\t\t\t".'<td> - </td>' . PHP_EOL .
+			   "\t\t\t".'<td></td>' . PHP_EOL .
+			   "\t\t\t".'<td></td>' . PHP_EOL;			   
 	}	
 }	
 
@@ -258,20 +314,20 @@ function colspan_number($mood, $tense, $voice) {
 		if ($voice->getValue () === Voice::Passive) {
 			$colspan = 5;
 		}		
-		if ($mood->getValue () === Mood::Imperatif) {
+		if ($mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Active) {
 			$colspan = 3;
-		}
-		if ($mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Passive) {
-			$colspan = 4;
+		}	
+		if ($mood->getValue () === Mood::Imperatif && ($voice->getValue () === Voice::Passive || $voice->getValue () === Voice::Pronominal)) {
+			$colspan = 2;
 		}		
 	} else {
 		$colspan = 3;
 		if ($voice->getValue () === Voice::Passive) {
 			$colspan = 4;
 		}			
-		if ($mood->getValue () === Mood::Imperatif) {
+		if ($mood->getValue () === Mood::Imperatif && ($voice->getValue () === Voice::Active || $voice->getValue () === Voice::Pronominal)) {
 			$colspan = 2;
-		}
+		}	
 		if ($mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Passive) {
 			$colspan = 3;
 		}		
@@ -289,6 +345,7 @@ function print_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Ge
 			Tense::Passe_anterieur =>'Passé antérieur',
 			Tense::Futur_anterieur =>'Futur antérieur (Futur II)',
 			Tense::Futur_compose =>'Futur composé (Futur proche)',
+			Tense::Passe_recent =>'Passé récent (Passé proche)',			
 			Tense::Premiere_Forme =>'Passé première forme',
 			Tense::Deuxieme_Forme =>'Passé deuxième forme'
 	];
@@ -327,7 +384,8 @@ function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxi
 					Tense::Plus_que_parfait,
 					Tense::Passe_anterieur,
 					Tense::Futur_anterieur,
-					Tense::Futur_compose 
+					Tense::Futur_compose,
+					Tense::Passe_recent 					
 			],
 			Mood::Subjonctif => [
 					Tense::Passe,
