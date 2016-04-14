@@ -724,7 +724,7 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 	if ($sentencetype->getValue () === SentenceType::DeclarativeSentence) {
 		if ($voice->getValue () === Voice::Active) {
 			if ($tense->getValue () === Tense::Passe) 
-				$participe_passe = $avoir_participe_present . ' ' . participe_passe;
+				$participe_passe = $avoir_participe_present . ' ' . $participe_passe;
 		}		
 		if ($voice->getValue () === Voice::Passive) {
 			if ($tense->getValue () === Tense::Present) {
@@ -831,7 +831,7 @@ abstract class ConjugationPhrase {
 	abstract function accept(ConjugationPhraseVisitor $visitor);
 	static function create(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Person $person, Tense $tense, Mood $mood) {
 		$personal_pronoun = personal_pronoun ( $person, $gender, $mood );
-		$reflexive_pronoun = reflexive_pronoun ( $person, $mood, $sentencetype );
+		$reflexive_pronoun = reflexive_pronoun ( $person, $mood, $sentencetype ); 
 		$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( $auxiliaire, $person, $tense, $mood, $voice, $sentencetype );
 		$etre_participe_passe = 'été';
 		$etre_infinitive = 'être';
