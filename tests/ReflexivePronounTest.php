@@ -4,41 +4,83 @@ class ReflexivePronounTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider ReflexivePronounProvider
 	 */
-	public function testReflexivePronoun($expectedResult, $person, $mood) {
-		$this->assertEquals ( $expectedResult, reflexive_pronoun(new Person($person), new Mood($mood)));
+	public function testReflexivePronoun($expectedResult, $person, $mood, $sentencetype) {
+		$this->assertEquals ( $expectedResult, reflexive_pronoun ( new Person ( $person ), new Mood ( $mood ), new SentenceType ( $sentencetype ) ) );
 	}
 	public function ReflexivePronounProvider() {
-		return [
-				[
+		return [ 
+				[ 
 						'me',
-						'FirstPersonSingular',
-						'Indicatif',
+						Person::FirstPersonSingular,
+						Mood::Indicatif,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'te',
-						'SecondPersonSingular',
-						'Indicatif',
+						Person::SecondPersonSingular,
+						Mood::Indicatif,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'se',
-						'ThirdPersonSingular',
-						'Indicatif',
+						Person::ThirdPersonSingular,
+						Mood::Indicatif,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'nous',
-						'FirstPersonPlural',
-						'Indicatif',
+						Person::FirstPersonPlural,
+						Mood::Indicatif,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'vous',
-						'SecondPersonPlural',
-						'Indicatif',
+						Person::SecondPersonPlural,
+						Mood::Indicatif,
+						SentenceType::DeclarativeSentence 
 				],
-				[
+				[ 
 						'se',
-						'ThirdPersonPlural',
-						'Indicatif',
-				]
+						Person::ThirdPersonPlural,
+						Mood::Indicatif,
+						SentenceType::DeclarativeSentence 
+				],
+				[ 
+						'-toi',
+						Person::SecondPersonSingular,
+						Mood::Imperatif,
+						SentenceType::DeclarativeSentence 
+				],
+				[ 
+						'-nous',
+						Person::FirstPersonPlural,
+						Mood::Imperatif,
+						SentenceType::DeclarativeSentence 
+				],
+				[ 
+						'-vous',
+						Person::SecondPersonPlural,
+						Mood::Imperatif,
+						SentenceType::DeclarativeSentence 
+				],
+				[ 
+						'te',
+						Person::SecondPersonSingular,
+						Mood::Imperatif,
+						SentenceType::Negation 
+				],
+				[ 
+						'nous',
+						Person::FirstPersonPlural,
+						Mood::Imperatif,
+						SentenceType::Negation 
+				],
+				[ 
+						'vous',
+						Person::SecondPersonPlural,
+						Mood::Imperatif,
+						SentenceType::Negation 
+				], 
 		];
 	}
 }

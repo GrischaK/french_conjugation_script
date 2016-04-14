@@ -243,7 +243,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Mood::Indicatif 
 				],
 				[ 
-						'je vais être donner',
+						'-',
 						'donner',
 						Auxiliaire::Etre,
 						Gender::Masculine,

@@ -213,20 +213,20 @@ class ModeImpersonnelsTest extends PHPUnit_Framework_TestCase {
 						SentenceType::DeclarativeSentence 
 				],
 				[ 
-						'été amusé',
+						'ayant été amusé',
 						'amuser',
 						Auxiliaire::Avoir,
-						Mode::Participe,
+						'Participe',
 						Tense::Passe,
 						Gender::Masculine,
 						Voice::Passive,
 						SentenceType::DeclarativeSentence 
 				],
 				[ 
-						'été amusée',
+						'ayant été amusée',
 						'amuser',
 						Auxiliaire::Avoir,
-						Mode::Participe,
+						'Participe',
 						Tense::Passe,
 						Gender::Feminine,
 						Voice::Passive,
