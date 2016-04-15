@@ -343,7 +343,7 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 									Person::FirstPersonSingular => 'étais',
 									Person::SecondPersonSingular => 'étais',
 									Person::ThirdPersonSingular => 'était',
-									Person::FirstPersonPlural => 'étiez',
+									Person::FirstPersonPlural => 'étions',
 									Person::SecondPersonPlural => 'étiez',
 									Person::ThirdPersonPlural => 'étaient' 
 							],
@@ -356,12 +356,12 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 									Person::ThirdPersonPlural => 'furent' 
 							],
 							Tense::Futur_anterieur => [ 
-									Person::FirstPersonSingular => 'serais',
-									Person::SecondPersonSingular => 'serais',
-									Person::ThirdPersonSingular => 'serait',
-									Person::FirstPersonPlural => 'serions',
-									Person::SecondPersonPlural => 'seriez',
-									Person::ThirdPersonPlural => 'seraient' 
+									Person::FirstPersonSingular => 'serai',
+									Person::SecondPersonSingular => 'seras',
+									Person::ThirdPersonSingular => 'sera',
+									Person::FirstPersonPlural => 'serons',
+									Person::SecondPersonPlural => 'serez',
+									Person::ThirdPersonPlural => 'seront' 
 							] 
 					],
 					Mood::Subjonctif => [ 
@@ -721,7 +721,7 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 	$infinitiveVerb_passe = $auxiliaire->getValue () . ' ' . $participe_passe;
 	if (($auxiliaire->getValue () === Auxiliaire::Etre || $voice->getValue () === Voice::Passive) && $gender->getValue () === Gender::Feminine)
 		$participe_passe .= 'e';
-	if ($sentencetype->getValue () === SentenceType::DeclarativeSentence) {
+	if ($sentencetype->getValue () === SentenceType::DeclarativeSentence || $sentencetype->getValue () === SentenceType::InterrogativeSentence) {
 		if ($voice->getValue () === Voice::Active) {
 			if ($tense->getValue () === Tense::Passe) 
 				$participe_passe = $avoir_participe_present . ' ' . $participe_passe;
@@ -827,6 +827,18 @@ function concatenate_apostrophized($pronoun, $verb) {
 	$possiblyApostrophizedPronoun = apostrophized ( $pronoun, $verb, $was_apostrophized );
 	return $was_apostrophized ? $possiblyApostrophizedPronoun . $verb : "$possiblyApostrophizedPronoun $verb";
 }
+function euphonious_change ($verb, $pronoun) {
+	if (in_array ( mb_substr($verb, - 1 ), [ 'e','a','c'] ) and in_array ($pronoun, [ 'il','elle','on','ils','elles'] )) 
+    	return $verb . '-t';
+	else
+    	return $verb;
+}
+function concatenate_euphonious_change ($verb, $pronoun) {
+	if (in_array ( mb_substr($verb, - 1 ), [ 'e','a','c'] ) and in_array ($pronoun, [ 'il','elle','on','ils','elles'] )) 
+    	return $verb.'-t-'.$pronoun;
+	else
+    	return $verb.'-'.$pronoun;
+}
 abstract class ConjugationPhrase {
 	abstract function accept(ConjugationPhraseVisitor $visitor);
 	static function create(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Person $person, Tense $tense, Mood $mood) {
@@ -858,7 +870,10 @@ abstract class ConjugationPhrase {
 			}
 			if ($mood->getValue () === Mood::Imperatif && $tense->getValue () === Tense::Passe) {
 				return new NoConjugationPhrase ();
-			}
+			}		
+			if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Subjonctif) {
+				return new NoConjugationPhrase ();
+			}			
 			if ($sentencetype->getValue () === SentenceType::DeclarativeSentence && $voice->getValue () === Voice::Passive && $tense->getValue () != Tense::Futur_compose && $tense->getValue () != Tense::Passe_recent) {
 				return new CompositeTenseinPassiveVoiceConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe );
 			}
@@ -874,6 +889,17 @@ abstract class ConjugationPhrase {
 						return new FuturComposeTensePronominalConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $reflexive_pronoun, $infinitiveVerb );
 					}
 				}
+				if ($sentencetype->getValue () === SentenceType::InterrogativeSentence) {
+					if ($voice->getValue () === Voice::Active) {
+						return new FuturComposeTenseInterrogativeActiveConjugationPhrase ( $conjugated_auxiliaire_verb, $personal_pronoun, $infinitiveVerb );
+					}
+					if ($voice->getValue () === Voice::Passive) {
+						return new NoConjugationwithFiveTDsPhrase ();
+					}
+					if ($voice->getValue () === Voice::Pronominal) {
+						return new FuturComposeTenseInterrogativePronominalConjugationPhrase ( $conjugated_auxiliaire_verb, $personal_pronoun, $reflexive_pronoun, $infinitiveVerb );
+					}
+				}				
 				if ($sentencetype->getValue () === SentenceType::Negation) {
 					if ($voice->getValue () === Voice::Active) {
 						return new FuturComposeTenseNegationActiveConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $infinitiveVerb );
@@ -898,6 +924,17 @@ abstract class ConjugationPhrase {
 						return new PasseRecentTensePronominalConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $reflexive_pronoun, $infinitiveVerb );
 					}
 				}
+				if ($sentencetype->getValue () === SentenceType::InterrogativeSentence) {				
+					if ($voice->getValue () === Voice::Active) {
+						return new PasseRecentTenseInterrogativeActiveConjugationPhrase ( $conjugated_auxiliaire_verb, $personal_pronoun, $infinitiveVerb );
+					}
+					if ($voice->getValue () === Voice::Passive) {
+						return new NoConjugationwithFiveTDsPhrase ();
+					}
+					if ($voice->getValue () === Voice::Pronominal) {
+						return new PasseRecentTenseInterrogativePronominalConjugationPhrase ( $conjugated_auxiliaire_verb, $personal_pronoun, $reflexive_pronoun, $infinitiveVerb );
+					}
+				}				
 				if ($sentencetype->getValue () === SentenceType::Negation) {
 					if ($voice->getValue () === Voice::Active) {
 						return new PasseRecentTenseNegationActiveConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $infinitiveVerb );
@@ -913,6 +950,17 @@ abstract class ConjugationPhrase {
 			if ($sentencetype->getValue () === SentenceType::DeclarativeSentence && $voice->getValue () === Voice::Pronominal) {
 				return new CompositeTensePronominalConjugationPhrase ( $personal_pronoun, $reflexive_pronoun, $conjugated_auxiliaire_verb, $participe_passe );
 			}
+			if ($sentencetype->getValue () === SentenceType::InterrogativeSentence) {
+				if ($voice->getValue () === Voice::Active) {
+					return new CompositeTenseInterrogativeActiceConjugationPhrase ( $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe );
+				}              
+				if ($voice->getValue () === Voice::Passive) {
+					return new CompositeTenseInterrogativePassiveConjugationPhrase ( $conjugated_auxiliaire_verb, $personal_pronoun, $etre_participe_passe, $participe_passe );
+				}
+				if ($voice->getValue () === Voice::Pronominal) {
+					return new CompositeTenseInterrogativePronominalConjugationPhrase ( $reflexive_pronoun, $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe );
+				}
+			}			
 			if ($sentencetype->getValue () === SentenceType::Negation) {
 				if ($voice->getValue () === Voice::Active) {
 					return new CompositeTenseNegationActiveConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe );
@@ -944,6 +992,9 @@ abstract class ConjugationPhrase {
 						return new ImperatifPresentTenseNegationPronominalConjugationPhrase ( $reflexive_pronoun, $conjugated_verb );
 					}
 				}
+			if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Imperatif && $tense->getValue () === Tense::Present) {
+				return new NoConjugationPhrase ();
+			}	
 				if ($sentencetype->getValue () === SentenceType::DeclarativeSentence) {
 					if ($voice->getValue () === Voice::Active) {
 						return new ImperatifPresentTenseConjugationPhrase ( $conjugated_verb );
@@ -957,6 +1008,9 @@ abstract class ConjugationPhrase {
 					}
 				}
 			}
+			if (! isComposite ( $mood, $tense ) && $sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Subjonctif) {
+				return new NoConjugationPhrase ();
+			}			
 			if (! isComposite ( $mood, $tense ) && $sentencetype->getValue () === SentenceType::DeclarativeSentence) {
 				if ($voice->getValue () === Voice::Passive) {
 					return new SimpleTensesPassiveConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe );
@@ -965,12 +1019,24 @@ abstract class ConjugationPhrase {
 					return new SimpleTensePronominalConjugationPhrase ( $personal_pronoun, $reflexive_pronoun, $conjugated_verb );
 				}
 			}
+			if (! isComposite ( $mood, $tense ) && $sentencetype->getValue () === SentenceType::InterrogativeSentence) {
+				if ($voice->getValue () === Voice::Active) {
+					return new SimpleTenseInterrogativeActiceConjugationPhrase ( $conjugated_verb, $personal_pronoun );
+				}
+				if ($voice->getValue () === Voice::Passive) {
+					return new SimpleTenseInterrogativePassiveConjugationPhrase ( $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe);
+				}				
+				if ($voice->getValue () === Voice::Pronominal) {
+					return new SimpleTenseInterrogativePronominalConjugationPhrase ( $reflexive_pronoun, $conjugated_verb, $personal_pronoun );
+				}				
+			}			
+			
 			if (! isComposite ( $mood, $tense ) && $sentencetype->getValue () === SentenceType::Negation) {
 				if ($voice->getValue () === Voice::Active) {
 					return new SimpleTenseNegationActiveConjugationPhrase ( $personal_pronoun, $conjugated_verb );
 				}
 				if ($voice->getValue () === Voice::Passive) {
-					return new SimpleTenseNegationPassiveConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $conjugated_verb );
+					return new SimpleTenseNegationPassiveConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe );
 				}
 				if ($voice->getValue () === Voice::Pronominal) {
 					return new SimpleTenseNegationPronominalConjugationPhrase ( $personal_pronoun, $reflexive_pronoun, $conjugated_verb );
@@ -1010,6 +1076,38 @@ class SimpleTensesPassiveConjugationPhrase extends ConjugationPhrase {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->participe_passe = $participe_passe;
+	}
+}
+class SimpleTenseInterrogativeActiceConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor) {
+		return $visitor->visitSimpleTenseInterrogativeActice ( $this );
+	}
+	public $conjugated_verb, $personal_pronoun;
+	public function __construct(ConjugatedVerb $conjugated_verb, $personal_pronoun) {
+		$this->conjugated_verb = $conjugated_verb;		
+		$this->personal_pronoun = $personal_pronoun;
+	}
+}
+class SimpleTenseInterrogativePassiveConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor) {
+		return $visitor->visitSimpleTenseInterrogativePassive ( $this );
+	}
+	public  $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe;
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe) {
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;	
+		$this->personal_pronoun = $personal_pronoun;
+		$this->participe_passe = $participe_passe;			
+	}
+}
+class SimpleTenseInterrogativePronominalConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor) {
+		return $visitor->visitSimpleTenseInterrogativePronominal( $this );
+	}
+	public $reflexive_pronoun,$conjugated_verb, $personal_pronoun;
+	public function __construct($reflexive_pronoun, ConjugatedVerb $conjugated_verb, $personal_pronoun) {
+		$this->reflexive_pronoun = $reflexive_pronoun;		
+		$this->conjugated_verb = $conjugated_verb;		
+		$this->personal_pronoun = $personal_pronoun;
 	}
 }
 class SimpleTenseNegationActiveConjugationPhrase extends ConjugationPhrase {
@@ -1079,6 +1177,41 @@ class CompositeTensePronominalConjugationPhrase extends ConjugationPhrase {
 		$this->participe_passe = $participe_passe;
 	}
 }
+class CompositeTenseInterrogativeActiceConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor) {
+		return $visitor->visitCompositeTenseInterrogativeActice ( $this );
+	}
+	public $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe;
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe) {
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+		$this->personal_pronoun = $personal_pronoun;		
+		$this->participe_passe = $participe_passe;
+	}
+}
+class CompositeTenseInterrogativePassiveConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor) {
+		return $visitor->visitCompositeTenseInterrogativePassive ( $this );
+	}
+	public $conjugated_auxiliaire_verb, $personal_pronoun, $etre_participe_passe, $participe_passe;
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $etre_participe_passe, $participe_passe) {
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+		$this->personal_pronoun = $personal_pronoun;		
+		$this->etre_participe_passe = $etre_participe_passe;
+		$this->participe_passe = $participe_passe;		
+	} 
+}
+class CompositeTenseInterrogativePronominalConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor) {
+		return $visitor->visitCompositeTenseInterrogativePronominal ( $this );
+	} // me suis-je aimé
+	public $reflexive_pronoun, $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe;
+	public function __construct($reflexive_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe) {
+		$this->reflexive_pronoun = $reflexive_pronoun;
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;		
+		$this->personal_pronoun = $personal_pronoun;
+		$this->participe_passe = $participe_passe;		
+	}
+}
 class CompositeTenseNegationActiveConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
 		return $visitor->visitCompositeTenseNegationActive ( $this );
@@ -1137,6 +1270,29 @@ class FuturComposeTensePronominalConjugationPhrase extends ConjugationPhrase {
 		$this->infinitiveVerb = $infinitiveVerb;
 	}
 }
+class FuturComposeTenseInterrogativeActiveConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor) {
+		return $visitor->visitFuturComposeInterrogativeActive ( $this );
+	}
+	public $conjugated_auxiliaire_verb, $personal_pronoun, $infinitiveVerb;
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, InfinitiveVerb $infinitiveVerb) {
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+		$this->personal_pronoun = $personal_pronoun;		
+		$this->infinitiveVerb = $infinitiveVerb;
+	}
+}
+class FuturComposeTenseInterrogativePronominalConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor) {
+		return $visitor->visitFuturComposeInterrogativePronominal ( $this );
+	}
+	public $conjugated_auxiliaire_verb, $personal_pronoun, $reflexive_pronoun, $infinitiveVerb;
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+		$this->personal_pronoun = $personal_pronoun;	
+		$this->reflexive_pronoun = $reflexive_pronoun;		
+		$this->infinitiveVerb = $infinitiveVerb;
+	} 
+}
 class FuturComposeTenseNegationActiveConjugationPhrase extends ConjugationPhrase {
 	function accept(ConjugationPhraseVisitor $visitor) {
 		return $visitor->visitFuturComposeNegationActive ( $this );
@@ -1181,6 +1337,29 @@ class PasseRecentTensePronominalConjugationPhrase extends ConjugationPhrase {
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->reflexive_pronoun = $reflexive_pronoun;
 		$this->infinitiveVerb = $infinitiveVerb;
+	}
+}
+class PasseRecentTenseInterrogativeActiveConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor) {
+		return $visitor->visitPasseRecentInterrogativeActive ( $this );
+	}
+	public $conjugated_auxiliaire_verb, $personal_pronoun, $infinitiveVerb;
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, InfinitiveVerb $infinitiveVerb) {
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+		$this->personal_pronoun = $personal_pronoun;		
+		$this->infinitiveVerb = $infinitiveVerb;
+	}
+}
+class PasseRecentTenseInterrogativePronominalConjugationPhrase extends ConjugationPhrase {
+	function accept(ConjugationPhraseVisitor $visitor) {
+		return $visitor->visitPasseRecentInterrogativePronominal ( $this );
+	}
+	public $conjugated_auxiliaire_verb, $personal_pronoun, $reflexive_pronoun, $infinitiveVerb;
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
+		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
+		$this->personal_pronoun = $personal_pronoun; 	
+		$this->reflexive_pronoun = $reflexive_pronoun;		
+		$this->infinitiveVerb = $infinitiveVerb; // vient-il de s'aimer ?
 	}
 }
 class PasseRecentTenseNegationActiveConjugationPhrase extends ConjugationPhrase {
@@ -1298,21 +1477,31 @@ abstract class ConjugationPhraseVisitor {
 	abstract function visitSimpleTense(SimpleTenseConjugationPhrase $visitee);
 	abstract function visitSimpleTensesPassive(SimpleTensesPassiveConjugationPhrase $visitee);
 	abstract function visitSimpleTensePronominal(SimpleTensePronominalConjugationPhrase $visitee);
+	abstract function visitSimpleTenseInterrogativeActice(SimpleTenseInterrogativeActiceConjugationPhrase $visitee);	
+	abstract function visitSimpleTenseInterrogativePassive(SimpleTenseInterrogativePassiveConjugationPhrase $visitee);
+	abstract function visitSimpleTenseInterrogativePronominal(SimpleTenseInterrogativePronominalConjugationPhrase $visitee);	
 	abstract function visitSimpleTenseNegationActive(SimpleTenseNegationActiveConjugationPhrase $visitee);
 	abstract function visitSimpleTenseNegationPassive(SimpleTenseNegationPassiveConjugationPhrase $visitee);
 	abstract function visitSimpleTenseNegationPronominal(SimpleTenseNegationPronominalConjugationPhrase $visitee);
 	abstract function visitCompositeTense(CompositeTenseConjugationPhrase $visitee);
 	abstract function visitCompositeTensePronominal(CompositeTensePronominalConjugationPhrase $visitee);
 	abstract function visitCompositeTenseinPassiveVoice(CompositeTenseinPassiveVoiceConjugationPhrase $visitee);
+	abstract function visitCompositeTenseInterrogativeActice(CompositeTenseInterrogativeActiceConjugationPhrase $visitee);	
+	abstract function visitCompositeTenseInterrogativePassive(CompositeTenseInterrogativePassiveConjugationPhrase $visitee);
+	abstract function visitCompositeTenseInterrogativePronominal(CompositeTenseInterrogativePronominalConjugationPhrase $visitee);	
 	abstract function visitCompositeTenseNegationActive(CompositeTenseNegationActiveConjugationPhrase $visitee);
 	abstract function visitCompositeTenseNegationPassive(CompositeTenseNegationPassiveConjugationPhrase $visitee);
 	abstract function visitCompositeTenseNegationPronominal(CompositeTenseNegationPronominalConjugationPhrase $visitee);
 	abstract function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee);
 	abstract function visitFuturComposePronominal(FuturComposeTensePronominalConjugationPhrase $visitee);
+	abstract function visitFuturComposeInterrogativeActive(FuturComposeTenseInterrogativeActiveConjugationPhrase $visitee);	
+	abstract function visitFuturComposeInterrogativePronominal(FuturComposeTenseInterrogativePronominalConjugationPhrase $visitee);			
 	abstract function visitFuturComposeNegationActive(FuturComposeTenseNegationActiveConjugationPhrase $visitee);
 	abstract function visitFuturComposeNegationPronominal(FuturComposeTenseNegationPronominalConjugationPhrase $visitee);
 	abstract function visitPasseRecent(PasseRecentTenseConjugationPhrase $visitee);
 	abstract function visitPasseRecentPronominal(PasseRecentTensePronominalConjugationPhrase $visitee);
+	abstract function visitPasseRecentInterrogativeActive(PasseRecentTenseInterrogativeActiveConjugationPhrase $visitee);	
+	abstract function visitPasseRecentInterrogativePronominal(PasseRecentTenseInterrogativePronominalConjugationPhrase $visitee);	
 	abstract function visitPasseRecentNegationActive(PasseRecentTenseNegationActiveConjugationPhrase $visitee);
 	abstract function visitPasseRecentNegationPronominal(PasseRecentTenseNegationPronominalConjugationPhrase $visitee);
 	abstract function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee);
@@ -1336,9 +1525,18 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitSimpleTensePronominal(SimpleTensePronominalConjugationPhrase $visitee) {
 		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb );
 	}
+	function visitSimpleTenseInterrogativeActice(SimpleTenseInterrogativeActiceConjugationPhrase $visitee) {
+		return concatenate_euphonious_change($visitee->conjugated_verb,$visitee->personal_pronoun). ' ?'; 
+	}
+	function visitSimpleTenseInterrogativePassive(SimpleTenseInterrogativePassiveConjugationPhrase $visitee) {
+		return concatenate_euphonious_change($visitee->conjugated_auxiliaire_verb,$visitee->personal_pronoun). ' '. $visitee->participe_passe . ' ?'; 
+	}
+	function visitSimpleTenseInterrogativePronominal(SimpleTenseInterrogativePronominalConjugationPhrase $visitee) {
+		return apostrophized($visitee->reflexive_pronoun,$visitee->conjugated_verb) . ' ' .concatenate_euphonious_change($visitee->conjugated_verb,$visitee->personal_pronoun).' ?'; 
+	}	
 	function visitSimpleTenseNegationActive(SimpleTenseNegationActiveConjugationPhrase $visitee) {
 		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_verb ) . ' pas';
-	}
+	} 
 	function visitSimpleTenseNegationPassive(SimpleTenseNegationPassiveConjugationPhrase $visitee) {
 		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas ' . $visitee->participe_passe;
 	}
@@ -1354,6 +1552,15 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitCompositeTensePronominal(CompositeTensePronominalConjugationPhrase $visitee) {
 		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->participe_passe;
 	}
+	function visitCompositeTenseInterrogativeActice(CompositeTenseInterrogativeActiceConjugationPhrase $visitee) {
+		return concatenate_euphonious_change($visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun) . ' ' . $visitee->participe_passe .' ?'; 		
+	}	
+	function visitCompositeTenseInterrogativePassive(CompositeTenseInterrogativePassiveConjugationPhrase $visitee) {
+		return concatenate_euphonious_change($visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun) . ' ' . $visitee->etre_participe_passe . ' ' . $visitee->participe_passe .' ?'; 		
+	} // a-t-il 
+	function visitCompositeTenseInterrogativePronominal(CompositeTenseInterrogativePronominalConjugationPhrase $visitee) {
+		return apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ) .' '. concatenate_euphonious_change($visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun) . ' ' . $visitee->participe_passe .' ?'; 		
+	} // se sera-t-il 	
 	function visitCompositeTenseNegationActive(CompositeTenseNegationActiveConjugationPhrase $visitee) {
 		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->participe_passe;
 	}
@@ -1369,6 +1576,12 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitFuturComposePronominal(FuturComposeTensePronominalConjugationPhrase $visitee) {
 		return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb );
 	}
+	function visitFuturComposeInterrogativeActive(FuturComposeTenseInterrogativeActiveConjugationPhrase $visitee) {
+		return concatenate_euphonious_change($visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun) . ' ' . $visitee->infinitiveVerb .' ?';
+	}	
+	function visitFuturComposeInterrogativePronominal(FuturComposeTenseInterrogativePronominalConjugationPhrase $visitee) {
+		return concatenate_euphonious_change($visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun) . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ) .' ?';
+	}	 
 	function visitFuturComposeNegationActive(FuturComposeTenseNegationActiveConjugationPhrase $visitee) {
 		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->infinitiveVerb;
 	}
@@ -1380,6 +1593,12 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	}
 	function visitPasseRecentPronominal(PasseRecentTensePronominalConjugationPhrase $visitee) {
 		return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' de ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb );
+	}
+	function visitPasseRecentInterrogativeActive(PasseRecentTenseInterrogativeActiveConjugationPhrase $visitee) {
+		return concatenate_euphonious_change($visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun) . ' '. concatenate_apostrophized ( 'de', $visitee->infinitiveVerb ) . ' ?';
+	}
+	function visitPasseRecentInterrogativePronominal(PasseRecentTenseInterrogativePronominalConjugationPhrase $visitee) {
+		return concatenate_euphonious_change($visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun) . ' de '. concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ) . ' ?'; 
 	}
 	function visitPasseRecentNegationActive(PasseRecentTenseNegationActiveConjugationPhrase $visitee) {
 		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . concatenate_apostrophized ( 'de', $visitee->infinitiveVerb );

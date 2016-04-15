@@ -273,10 +273,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 										<div class="tab-content">
 											<div class="tab-pane fade active in"
 												id="etre-voice-gender1211">
-												<p>Tab 1.2.1.1 être Frage aktiv männlich</p>
+                                    <?php
+		$css_class = 'OliveDrab';
+		$category = '-etre-interrogative-active-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>												
 											</div>
 											<div class="tab-pane fade" id="etre-voice-gender1212">
-												<p>Tab 1.2.1.2 être Frage aktiv weiblich</p>
+                                    <?php
+		$css_class = 'Olive';
+		$category = '-etre-interrogative-active-feminine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>												
 											</div>
 										</div>
 									</div>
@@ -292,10 +304,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 										<div class="tab-content">
 											<div class="tab-pane fade active in"
 												id="etre-voice-gender1221">
-												<p>Tab 1.2.2.1 être Frage passiv männlich</p>
+                                    <?php
+		$css_class = 'Plum';
+		$category = '-etre-interrogative-passive-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 											</div>
 											<div class="tab-pane fade" id="etre-voice-gender1222">
-												<p>Tab 1.2.2.2 être Frage passiv weiblich</p>
+                                    <?php
+		$css_class = 'Pink';
+		$category = '-etre-interrogative-passive-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 											</div>
 										</div>
 									</div>
@@ -311,10 +335,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 										<div class="tab-content">
 											<div class="tab-pane fade active in"
 												id="etre-voice-gender1231">
-												<p>Tab 1.2.3.1 être Frage pronominal männlich</p>
+                                    <?php
+		$css_class = 'Cyan';
+		$category = '-etre-interrogative-pronominal-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 											</div>
 											<div class="tab-pane fade" id="etre-voice-gender1232">
-												<p>Tab 1.2.3.2 être Frage pronominal weiblich</p>
+                                    <?php
+		$css_class = 'CornflowerBlue';
+		$category = '-etre-interrogative-pronominal-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 											</div>
 										</div>
 									</div>
@@ -582,10 +618,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 										<div class="tab-content">
 											<div class="tab-pane fade active in"
 												id="avoir-voice-gender2211">
-												<p>Tab 2.1.1.1 avoir Frage aktiv männlich</p>
+                                    <?php
+		$css_class = 'OliveDrab';
+		$category = '-avoir-interrogative-active-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Masculine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 											</div>
 											<div class="tab-pane fade" id="avoir-voice-gender2212">
-												<p>Tab 2.1.1.2 avoir Frage aktiv weiblich</p>
+                                    <?php
+		$css_class = 'Olive';
+		$category = '-avoir-interrogative-active-feminine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Feminine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 											</div>
 										</div>
 									</div>
@@ -601,10 +649,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 										<div class="tab-content">
 											<div class="tab-pane fade active in"
 												id="avoir-voice-gender2221">
-												<p>Tab 2.2.2.1 avoir Frage passiv männlich</p>
+                                    <?php
+		$css_class = 'Plum';
+		$category = '-avoir-interrogative-passive-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Masculine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 											</div>
 											<div class="tab-pane fade" id="avoir-voice-gender2222">
-												<p>Tab 2.2.2.2 avoir Frage passiv weiblich</p>
+                                    <?php
+		$css_class = 'Pink';
+		$category = '-avoir-interrogative-passive-feminine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Feminine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 											</div>
 										</div>
 									</div>
@@ -620,10 +680,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 										<div class="tab-content">
 											<div class="tab-pane fade active in"
 												id="avoir-voice-gender2231">
-												<p>Tab 2.2.3.1 avoir Frage pronominal männlich</p>
+                                    <?php
+		$css_class = 'Cyan';
+		$category = '-avoir-interrogative-pronominal-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 											</div>
 											<div class="tab-pane fade" id="avoir-voice-gender2232">
-												<p>Tab 2.2.3.2 avoir Frage pronominal weiblich</p>
+                                    <?php
+		$css_class = 'CornflowerBlue';
+		$category = '-avoir-interrogative-pronominal-feminine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 											</div>
 										</div>
 									</div>
@@ -892,10 +964,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane fade active in" id="voice-gender1211">
-										<p>Tab 1.2.1.1 Frage aktiv männlich</p>
+                                    <?php
+		$css_class = 'OliveDrab';
+		$category = '-interrogative-active-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Masculine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 									<div class="tab-pane fade" id="voice-gender1212">
-										<p>Tab 1.2.1.2 Frage aktiv weiblich</p>
+                                    <?php
+		$css_class = 'Olive';
+		$category = '-interrogative-active-feminine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Feminine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 								</div>
 							</div>
@@ -910,10 +994,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane fade active in" id="voice-gender1221">
-										<p>Tab 1.2.2.1 Frage passiv männlich</p>
+                                    <?php
+		$css_class = 'Plum';
+		$category = '-interrogative-passive-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Masculine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 									<div class="tab-pane fade" id="voice-gender1222">
-										<p>Tab 1.2.2.2 Frage passiv weiblich</p>
+                                    <?php
+		$css_class = 'Pink';
+		$category = '-interrogative-passive-feminine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Feminine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 								</div>
 							</div>
@@ -928,10 +1024,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane fade active in" id="voice-gender1231">
-										<p>Tab 1.2.3.1 Frage pronominal männlich</p>
+                                    <?php
+		$css_class = 'Cyan';
+		$category = '-interrogative-pronominal-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 									<div class="tab-pane fade" id="voice-gender1232">
-										<p>Tab 1.2.3.2 Frage pronominal weiblich</p>
+                                    <?php
+		$css_class = 'CornflowerBlue';
+		$category = '-interrogative-pronominal-feminine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 								</div>
 							</div>
@@ -1196,10 +1304,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane fade active in" id="voice-gender1211">
-										<p>Tab 1.2.1.1 Frage aktiv männlich</p>
+                                    <?php
+		$css_class = 'OliveDrab';
+		$category = '-interrogative-active-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 									<div class="tab-pane fade" id="voice-gender1212">
-										<p>Tab 1.2.1.2 Frage aktiv weiblich</p>
+                                    <?php
+		$css_class = 'Olive';
+		$category = '-interrogative-active-feminine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 								</div>
 							</div>
@@ -1214,10 +1334,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane fade active in" id="voice-gender1221">
-										<p>Tab 1.2.2.1 Frage passiv männlich</p>
+                                    <?php
+		$css_class = 'Plum';
+		$category = '-interrogative-passive-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 									<div class="tab-pane fade" id="voice-gender1222">
-										<p>Tab 1.2.2.2 Frage passiv weiblich</p>
+                                    <?php
+		$css_class = 'Pink';
+		$category = '-interrogative-pronominal-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 								</div>
 							</div>
@@ -1232,10 +1364,22 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane fade active in" id="voice-gender1231">
-										<p>Tab 1.2.3.1 Frage pronominal männlich</p>
+                                    <?php
+		$css_class = 'Cyan';
+		$category = '-interrogative-pronominal-masculine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 									<div class="tab-pane fade" id="voice-gender1232">
-										<p>Tab 1.2.3.2 Frage pronominal weiblich</p>
+                                    <?php
+		$css_class = 'CornflowerBlue';
+		$category = '-interrogative-pronominal-feminine';
+		require_once ("text.php");
+		print_explanatory_text ( $infinitiveVerb );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		?>
 									</div>
 								</div>
 							</div>
