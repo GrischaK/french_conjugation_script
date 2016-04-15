@@ -101,7 +101,7 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 	
 	switch ($endingwith->getValue ()) {
 		case EndingWith::ER :
-			return ending_er ( $person, $tense, $mood, $endingwith, $exceptionModel );
+			return ending_er ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 		case EndingWith::IR :
 			return ending_ir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 		case EndingWith::I_TREMA_R :
@@ -113,7 +113,7 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 	}
 	return null;
 }
-function ending_er(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel) {
+function ending_er(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
 	$ending = [ 
 			EndingWith::ER => [  // standard endings for verbs ending with -er
 					Mood::Indicatif => [ 
