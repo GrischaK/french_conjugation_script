@@ -332,8 +332,7 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	}
 	function visitImperatifPresentNegationPassive(ImperatifPresentTenseNegationPassiveConjugationPhrase $visitee) {
 		return "\t\t\t".'<td>' . concatenate_apostrophized ('ne', $visitee->conjugated_auxiliaire_verb). ' pas</td>' . PHP_EOL .
-			   "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
-		
+			   "\t\t\t".'<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;		
 	}	
 	function visitImperatifPresentNegationPronominal(ImperatifPresentTenseNegationPronominalConjugationPhrase $visitee) {
 		return "\t\t\t".'<td>ne ' . concatenate_apostrophized ($visitee->reflexive_pronoun, $visitee->conjugated_verb ). ' pas</td>' . PHP_EOL;		
@@ -365,7 +364,10 @@ function colspan_number($mood, $tense, $voice, $sentencetype) {
 		}		
 		if ($mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Active) {
 			$colspan = 3;
-		}	
+		}
+		if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Active) {
+			$colspan = 2;
+		}			
 		if ($mood->getValue () === Mood::Imperatif && ($voice->getValue () === Voice::Passive || $voice->getValue () === Voice::Pronominal)) {
 			$colspan = 2;
 		}
@@ -383,6 +385,9 @@ function colspan_number($mood, $tense, $voice, $sentencetype) {
 		if ($mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Passive) {
 			$colspan = 3;
 		}	
+		if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Passive) {
+			$colspan = 2;
+		}			
 		if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Subjonctif) {
 			$colspan = 2;
 		}		

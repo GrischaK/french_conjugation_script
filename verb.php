@@ -315,10 +315,10 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<div class="tab-pane fade" id="etre-voice-gender1222">
                                     <?php
 		$css_class = 'Pink';
-		$category = '-etre-interrogative-passive-masculine';
+		$category = '-etre-interrogative-passive-feminine';
 		require_once ("text.php");
 		print_explanatory_text ( $infinitiveVerb );
-		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::InterrogativeSentence ) );
 		?>
 											</div>
 										</div>
@@ -346,10 +346,10 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<div class="tab-pane fade" id="etre-voice-gender1232">
                                     <?php
 		$css_class = 'CornflowerBlue';
-		$category = '-etre-interrogative-pronominal-masculine';
+		$category = '-etre-interrogative-pronominal-feminine';
 		require_once ("text.php");
 		print_explanatory_text ( $infinitiveVerb );
-		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
 		?>
 											</div>
 										</div>
@@ -1345,10 +1345,10 @@ if ($_GET ["buchstabe"] == "kategorien") {
 									<div class="tab-pane fade" id="voice-gender1222">
                                     <?php
 		$css_class = 'Pink';
-		$category = '-interrogative-pronominal-masculine';
+		$category = '-interrogative-passive-feminine';
 		require_once ("text.php");
 		print_explanatory_text ( $infinitiveVerb );
-		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Pronominal ), new SentenceType ( SentenceType::InterrogativeSentence ) );
+		print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::InterrogativeSentence ) );
 		?>
 									</div>
 								</div>
