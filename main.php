@@ -12,8 +12,8 @@
 
 ?>                                                          
 <h1> <?php echo $h1;?></h1>
-<p class="well">Derzeit befindet sich <b><?php echo count($infinitiveVerb, COUNT_RECURSIVE); ?></b> Verben unserer Datenbank. Klicke auf einen Buchstaben, um alle Verben zu finden, die mit diesem Buchstaben anfangen.</p>
 <? translation('la conjugaison','die Konjugation'); ?>
+<p class="well">Derzeit befindet sich <b><?php echo count($infinitiveVerb, COUNT_RECURSIVE); ?></b> Verben unserer Datenbank. Klicke auf einen Buchstaben, um alle Verben zu finden, die mit diesem Buchstaben anfangen.</p>
 <?php
 	$str="";
 	//letter menu
@@ -87,3 +87,4 @@ $beliebtesten_verben = [['acheter','aller','appeler','apprendre','attendre','avo
 		echo '</table>';	
 	}
 ?>
+<p class="well">Alle Verben sind in verschiedene <a class="franzoesisch"href="kategorien/">Kategorien</a> geordnet.</p>
