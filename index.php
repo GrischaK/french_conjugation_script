@@ -8,8 +8,8 @@ include_once($_SERVER['DOCUMENT_ROOT']."/data/before_content.php");
 
 $kategorien=[
 "erste-gruppe","zweite-gruppe","dritte-gruppe",
-"hifsverb-avoir","hilfsverb-etre","hilfsverb-avoir-etre",
-"reflexiv","irreflexiv","ausschließlich-reflexiven-Verben","transitiv","intransitiv",'altfrannzösische-Sprache','defekte Verben','unpersönliche Verben',
+"hifsverb-avoir","hilfsverb-etre","hilfsverb-avoir-und-etre",
+"reflexiv","irreflexiv","ausschließlich-reflexiven-verben","transitiv","intransitiv",'altfrannzösische-sprache','defekte-verben','unpersönliche-verben',
 
 "endung-cer","endung-ier","endung-ger","endung-eler_ele","endung-eler_elle","endung-eter_ete","endung-eter_ette","endung-yer_ie","endung-é_er","endung-écer","endung-éger","endung-éyer","endung-envoyer",
 "endung-vouloir","endung-avoir_ravoir","endung-voir","endung-cevoir","endung-devoir","endung-mouvoir","endung-pleuvoir","endung-pouvoir","endung-savoir","endung-falloir","endung-seoir","endung-valoir","endung-haïr",
@@ -50,4 +50,3 @@ elseif(isset($_GET['verb'])){
 <?php 
 $trigger_play ='';
 include_once($_SERVER['DOCUMENT_ROOT']."/data/after_content.php"); ?>
-
