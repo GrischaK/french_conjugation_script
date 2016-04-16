@@ -977,8 +977,16 @@ abstract class ConjugationPhrase {
 			$conjugated_verb = new ConjugatedVerb ( $infinitiveVerb, $person, $tense, $mood );
 			$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( $auxiliaire, $person, $tense, $mood, $voice, $sentencetype );
 			$participe_passe = finding_participe_passe ( $infinitiveVerb );
-			if (($auxiliaire->getValue () === Auxiliaire::Etre || $voice->getValue () === Voice::Passive) && $gender->getValue () === Gender::Masculine && (isPlural ( $person ))) {
-				$participe_passe .= 's';
+			if ($auxiliaire->getValue () === Auxiliaire::Etre || $voice->getValue () === Voice::Passive) {
+				if ($gender->getValue () === Gender::Masculine && (isPlural ( $person ))) {
+					$participe_passe .= 's';
+				}
+				if ($gender->getValue () === Gender::Feminine && (! isPlural ( $person ))) {
+					$participe_passe .= 'e';
+				}
+				if ($gender->getValue () === Gender::Feminine && (isPlural ( $person ))) {
+					$participe_passe .= 'es';
+				}
 			}
 			if ($mood->getValue () === Mood::Imperatif) {
 				if ($sentencetype->getValue () === SentenceType::Negation) {
