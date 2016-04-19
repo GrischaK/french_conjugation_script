@@ -844,10 +844,10 @@ abstract class ConjugationPhrase {
 	static function create(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Person $person, Tense $tense, Mood $mood) {
 		$personal_pronoun = personal_pronoun ( $person, $gender, $mood );
 		$reflexive_pronoun = reflexive_pronoun ( $person, $mood, $sentencetype ); 
-		$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( $auxiliaire, $person, $tense, $mood, $voice, $sentencetype );
 		$etre_participe_passe = 'été';
 		$etre_infinitive = 'être';
 		if (isComposite ( $mood, $tense )) {
+			$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( $auxiliaire, $person, $tense, $mood, $voice, $sentencetype );
 			$participe_passe = finding_participe_passe ( $infinitiveVerb );
 			if ($auxiliaire->getValue () === Auxiliaire::Etre || $voice->getValue () === Voice::Passive) {
 				if ($gender->getValue () === Gender::Masculine && (isPlural ( $person ))) {
@@ -975,7 +975,6 @@ abstract class ConjugationPhrase {
 			return new CompositeTenseConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe );
 		} else {
 			$conjugated_verb = new ConjugatedVerb ( $infinitiveVerb, $person, $tense, $mood );
-			$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( $auxiliaire, $person, $tense, $mood, $voice, $sentencetype );
 			$participe_passe = finding_participe_passe ( $infinitiveVerb );
 			if ($auxiliaire->getValue () === Auxiliaire::Etre || $voice->getValue () === Voice::Passive) {
 				if ($gender->getValue () === Gender::Masculine && (isPlural ( $person ))) {
@@ -994,6 +993,7 @@ abstract class ConjugationPhrase {
 						return new ImperatifPresentTenseNegationActiveConjugationPhrase ( $conjugated_verb );
 					}
 					if ($voice->getValue () === Voice::Passive) {
+						$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( $auxiliaire, $person, $tense, $mood, $voice, $sentencetype );
 						return new ImperatifPresentTenseNegationPassiveConjugationPhrase ( $conjugated_auxiliaire_verb, $conjugated_verb );
 					}
 					if ($voice->getValue () === Voice::Pronominal) {
@@ -1021,6 +1021,7 @@ abstract class ConjugationPhrase {
 			}			
 			if (! isComposite ( $mood, $tense ) && $sentencetype->getValue () === SentenceType::DeclarativeSentence) {
 				if ($voice->getValue () === Voice::Passive) {
+					$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( $auxiliaire, $person, $tense, $mood, $voice, $sentencetype );
 					return new SimpleTensesPassiveConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe );
 				}
 				if ($voice->getValue () === Voice::Pronominal) {
@@ -1032,6 +1033,7 @@ abstract class ConjugationPhrase {
 					return new SimpleTenseInterrogativeActiceConjugationPhrase ( $conjugated_verb, $personal_pronoun );
 				}
 				if ($voice->getValue () === Voice::Passive) {
+					$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( $auxiliaire, $person, $tense, $mood, $voice, $sentencetype );
 					return new SimpleTenseInterrogativePassiveConjugationPhrase ( $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe);
 				}				
 				if ($voice->getValue () === Voice::Pronominal) {
@@ -1044,6 +1046,7 @@ abstract class ConjugationPhrase {
 					return new SimpleTenseNegationActiveConjugationPhrase ( $personal_pronoun, $conjugated_verb );
 				}
 				if ($voice->getValue () === Voice::Passive) {
+					$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( $auxiliaire, $person, $tense, $mood, $voice, $sentencetype );
 					return new SimpleTenseNegationPassiveConjugationPhrase ( $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe );
 				}
 				if ($voice->getValue () === Voice::Pronominal) {
