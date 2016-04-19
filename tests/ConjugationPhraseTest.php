@@ -100,7 +100,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Mood::Indicatif 
 				],
 				[ 
-						'hérissé-je',
+						'hérissé-je ?',
 						'hérisser',
 						Auxiliaire::Etre,
 						Gender::Masculine,
