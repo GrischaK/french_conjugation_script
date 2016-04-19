@@ -100,6 +100,17 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Mood::Indicatif 
 				],
 				[ 
+						'hérissé-je',
+						'hérisser',
+						Auxiliaire::Etre,
+						Gender::Masculine,
+						Voice::Active,
+						SentenceType::InterrogativeSentence,
+						Person::FirstPersonSingular,						
+						Tense::Present,
+						Mood::Indicatif 
+				],				
+				[ 
 						'je hérissais',
 						'hérisser',
 						Auxiliaire::Etre,
