@@ -815,7 +815,7 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 }
 function apostrophized($pronoun, $verb, & $was_apostrophized = null) {
 	global $h_apire;
-	if ((preg_match ( '~(.*\b[jtmsnd])e$~ui', $pronoun, $m )) && (preg_match ( '~^h?(?:[aæàâeéèêëiîïoôœuûù]|y(?![aæàâeéèêëiîïoôœuûù]))~ui', $verb ) && in_array ( $verb, $h_apire ))) { // should bein_array($conjugatedVerb->getInfinitive(), $h_apire)
+	if ((preg_match ( '~(.*\b[jtmsnd])e$~ui', $pronoun, $m )) && (preg_match ( 'y(?![aæàâeéèêëiîïoôœuûù]))~ui', $verb ) && !in_array ( $verb, $h_apire ))) { // should bein_array($conjugatedVerb->getInfinitive(), $h_apire)
 		$was_apostrophized = true;
 		return "{$m[1]}’";
 	}
