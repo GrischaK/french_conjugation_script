@@ -78,7 +78,7 @@ class StartVowelTest extends PHPUnit_Framework_TestCase {
 				[
 						true,
 						'héberger',				
-				],	
+				],				
 				[
 						true,
 						'highlighter',				
@@ -110,7 +110,10 @@ class StartVowelTest extends PHPUnit_Framework_TestCase {
 						false,
 						'halter',				
 				],					
-				
+				[
+						false,
+						'hérisser',				
+				],				
 
 				[
 						true,
@@ -123,7 +126,7 @@ class StartVowelTest extends PHPUnit_Framework_TestCase {
 				
 				[
 						false,
-						'yoler',				
+						'youyouter',				
 				],					
 		];
 	}
