@@ -67,8 +67,19 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Mood::Indicatif 
 				],
 				[ 
-						'j’haïs',
+						'je haïs',
 						'haïr',
+						Auxiliaire::Etre,
+						Gender::Masculine,
+						Voice::Active,
+						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,
+						Tense::Present,
+						Mood::Indicatif 
+				],
+				[ 
+						'je halte',
+						'halter',
 						Auxiliaire::Etre,
 						Gender::Masculine,
 						Voice::Active,
@@ -76,7 +87,40 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Person::FirstPersonSingular,						
 						Tense::Present,
 						Mood::Indicatif 
-				],
+				],				
+				[ 
+						'j’ypérite',
+						'ypériter',
+						Auxiliaire::Avoir,
+						Gender::Masculine,
+						Voice::Active,
+						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
+						Tense::Present,
+						Mood::Indicatif 
+				],				
+				[ 
+						'je yole',
+						'yoler',
+						Auxiliaire::Avoir,
+						Gender::Masculine,
+						Voice::Active,
+						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
+						Tense::Present,
+						Mood::Indicatif 
+				],	
+				[ 
+						'je youyoute',
+						'youyouter',
+						Auxiliaire::Avoir,
+						Gender::Masculine,
+						Voice::Active,
+						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
+						Tense::Present,
+						Mood::Indicatif 
+				],				
 				[ 
 						'j’habilite',
 						'habiliter',
@@ -89,9 +133,20 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Mood::Indicatif 
 				],
 				[ 
+						'j’héberger',
+						'héberger',
+						Auxiliaire::Etre,
+						Gender::Masculine,
+						Voice::Active,
+						SentenceType::DeclarativeSentence,
+						Person::FirstPersonSingular,						
+						Tense::Present,
+						Mood::Indicatif 
+				],
+				[ 
 						'je hérisse',
 						'hérisser',
-						Auxiliaire::Etre,
+						Auxiliaire::Avoir,
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
@@ -102,7 +157,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 				[ 
 						'hérissé-je ?',
 						'hérisser',
-						Auxiliaire::Etre,
+						Auxiliaire::Avoir,
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::InterrogativeSentence,
@@ -113,7 +168,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 				[ 
 						'je hérissais',
 						'hérisser',
-						Auxiliaire::Etre,
+						Auxiliaire::Avoir,
 						Gender::Masculine,
 						Voice::Active,
 						SentenceType::DeclarativeSentence,
