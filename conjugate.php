@@ -804,16 +804,10 @@ function starts_with_vowel($verb) {
 	global $h_apire; 
 	$french_vowels = ['a','æ','à','â','e','é','è','ê','ë','i','î','ï','o','ô','œ','u','û','ù'];
 	$infinitiveVerb = ($verb instanceof ConjugatedVerb) ? $verb->getInfinitive() : $verb;
-	$firstLetter = mb_substr ( $infinitiveVerb, 0, 1 );
-	if (!in_array ($firstLetter, $french_vowels )) {
-		if ((in_array ( $infinitiveVerb, $h_apire )) or $infinitiveVerb == 'ypériter') { // should be in_array($conjugatedVerb->getInfinitive(), $h_apire)
-			return true;
-		} else {
-			return false; // starting with vowel (a,e,i,o,u + all french variants like é...)
-		}
-	} else {
-		return true;
-	}
+	$firstLetter = mb_substr ( $verb, 0, 1 );
+	$startsWithTrueVowel = in_array ($firstLetter, $french_vowels);
+	$startsWithPronouncedVowel = ((in_array ( $infinitiveVerb, $h_apire )) or $infinitiveVerb == 'ypériter'); 
+	return $startsWithTrueVowel or $startsWithPronouncedVowel;
 }
 function apostrophized($pronoun, $verb, & $was_apostrophized = null) { 
 	if ((preg_match ( '~(.*\b[jtmsnd])e$~ui', $pronoun, $m )) && (starts_with_vowel($verb))) { // should bein_array($conjugatedVerb->getInfinitive(), $h_apire) )	
