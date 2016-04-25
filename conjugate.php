@@ -803,9 +803,10 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 function starts_with_vowel($verb) {
 	global $h_apire; 
 	$french_vowels = ['a','æ','à','â','e','é','è','ê','ë','i','î','ï','o','ô','œ','u','û','ù'];
-	$consonant = array_diff(range('a', 'z'), $french_vowels);
-	if (in_array ( mb_substr ( $verb, 0, 1 ), $consonant )) {
-		if ((in_array ( $verb, $h_apire )) or $verb == 'ypériter') { // should be in_array($conjugatedVerb->getInfinitive(), $h_apire) 
+	$infinitiveVerb = ($verb instanceof ConjugatedVerb) ? $verb->getInfinitive() : $verb;
+	$firstLetter = mb_substr ( $infinitiveVerb, 0, 1 );
+	if (!in_array ($firstLetter, $french_vowels )) {
+		if ((in_array ( $infinitiveVerb, $h_apire )) or $infinitiveVerb == 'ypériter') { // should be in_array($conjugatedVerb->getInfinitive(), $h_apire)
 			return true;
 		} else {
 			return false; // starting with vowel (a,e,i,o,u + all french variants like é...)
