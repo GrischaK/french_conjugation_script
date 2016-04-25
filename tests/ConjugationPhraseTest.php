@@ -133,7 +133,7 @@ class ConjugatePhraseTest extends PHPUnit_Framework_TestCase {
 						Mood::Indicatif 
 				],
 				[ 
-						'j’héberger',
+						'j’héberge',
 						'héberger',
 						Auxiliaire::Etre,
 						Gender::Masculine,
