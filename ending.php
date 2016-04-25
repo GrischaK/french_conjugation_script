@@ -1,6 +1,9 @@
 <?php
 function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
-	call_user_func('ending_'.$exceptionModel->getValue (), $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);	
+	$result = call_user_func('ending_'.$exceptionModel->getValue (), $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
+	if(!($result === false)) {
+		return $result;
+	}
 	switch ($endingwith->getValue ()) {
 		case EndingWith::ER :
 			return ending_er ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
