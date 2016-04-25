@@ -17921,6 +17921,7 @@ $verbes_transitifs =  array (
 'shampooiner',
 'shampooingner',
 'shampouiner',
+'shangaïer',
 'shazamer',
 'shérardiser',
 'shift-cliquer',
