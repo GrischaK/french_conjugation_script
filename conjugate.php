@@ -803,16 +803,11 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 function starts_with_vowel($verb) {
 	global $h_apire; 
 	$french_vowels = ['a','æ','à','â','e','é','è','ê','ë','i','î','ï','o','ô','œ','u','û','ù'];
-	$consonant = array_diff(range('a', 'z'), $french_vowels);
-	if (in_array ( mb_substr ( $verb, 0, 1 ), $consonant )) {
-		if ((in_array ( $verb, $h_apire )) or $verb == 'ypériter') { // should be in_array($conjugatedVerb->getInfinitive(), $h_apire) 
-			return true;
-		} else {
-			return false; // starting with vowel (a,e,i,o,u + all french variants like é...)
-		}
-	} else {
-		return true;
-	}
+	$infinitiveVerb = ($verb instanceof ConjugatedVerb) ? $verb->getInfinitive() : $verb;
+	$firstLetter = mb_substr ( $verb, 0, 1 );
+	$startsWithTrueVowel = in_array ($firstLetter, $french_vowels);
+	$startsWithPronouncedVowel = ((in_array ( $infinitiveVerb, $h_apire )) or $infinitiveVerb == 'ypériter'); 
+	return $startsWithTrueVowel or $startsWithPronouncedVowel;
 }
 function apostrophized($pronoun, $verb, & $was_apostrophized = null) { 
 	if ((preg_match ( '~(.*\b[jtmsnd])e$~ui', $pronoun, $m )) && (starts_with_vowel($verb))) { // should bein_array($conjugatedVerb->getInfinitive(), $h_apire) )	
@@ -849,11 +844,11 @@ function concatenate_euphonious_change($verb, $pronoun) {
 	else
 		return $verb . '-' . $pronoun;
 }
-
 abstract class ConjugationPhrase {
 	abstract function accept(ConjugationPhraseVisitor $visitor);
-	static function participe_ending_suffix_passive_etre(Auxiliaire $auxiliaire, Voice $voice, Gender $gender, Person $person, $participe_passe) {
+	static function participe_ending_suffix_passive_etre(Auxiliaire $auxiliaire, Voice $voice, Gender $gender, Person $person, &$participe_passe) {
 		if ($auxiliaire->getValue () === Auxiliaire::Etre || $voice->getValue () === Voice::Passive) {
+			
 			if ($gender->getValue () === Gender::Masculine && (isPlural ( $person ))) {
 				$participe_passe .= 's';
 			}
@@ -864,7 +859,7 @@ abstract class ConjugationPhrase {
 				$participe_passe .= 'es';
 			}
 		}
-	}
+	}	
 	static function create(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Person $person, Tense $tense, Mood $mood) {
 		$personal_pronoun = personal_pronoun ( $person, $gender, $mood );
 		$reflexive_pronoun = reflexive_pronoun ( $person, $mood, $sentencetype );
@@ -873,7 +868,7 @@ abstract class ConjugationPhrase {
 		if (isComposite ( $mood, $tense )) {
 			$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( $auxiliaire, $person, $tense, $mood, $voice, $sentencetype );
 			$participe_passe = finding_participe_passe ( $infinitiveVerb );
-			participe_ending_suffix_passive_etre( $auxiliaire,  $voice,  $gender,  $person, $participe_passe);
+			ConjugationPhrase::participe_ending_suffix_passive_etre( $auxiliaire, $voice, $gender, $person, $participe_passe);
 			if ($mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Active) {
 				if ($sentencetype->getValue () === SentenceType::DeclarativeSentence) {
 					return new ImperatifPasseTenseConjugationPhrase ( $conjugated_auxiliaire_verb, $participe_passe );
@@ -990,17 +985,7 @@ abstract class ConjugationPhrase {
 		} else {
 			$conjugated_verb = new ConjugatedVerb ( $infinitiveVerb, $person, $tense, $mood );
 			$participe_passe = finding_participe_passe ( $infinitiveVerb );
-			if ($auxiliaire->getValue () === Auxiliaire::Etre || $voice->getValue () === Voice::Passive) {
-				if ($gender->getValue () === Gender::Masculine && (isPlural ( $person ))) {
-					$participe_passe .= 's';
-				}
-				if ($gender->getValue () === Gender::Feminine && (! isPlural ( $person ))) {
-					$participe_passe .= 'e';
-				}
-				if ($gender->getValue () === Gender::Feminine && (isPlural ( $person ))) {
-					$participe_passe .= 'es';
-				}
-			}
+			ConjugationPhrase::participe_ending_suffix_passive_etre( $auxiliaire, $voice, $gender, $person, $participe_passe);
 			if ($mood->getValue () === Mood::Imperatif) {
 				if ($sentencetype->getValue () === SentenceType::Negation) {
 					if ($voice->getValue () === Voice::Active) {
