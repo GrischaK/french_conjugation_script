@@ -1,4 +1,7 @@
 <?php
+$time = microtime(TRUE);
+$mem = memory_get_usage();
+
 $jquery_head='';
 $only_content_css ='';
 require_once 'verbs.php';
@@ -48,5 +51,10 @@ elseif(isset($_GET['verb'])){
 	});
 </script>
 <?php 
+
+print_r(array(
+  'memory' => (memory_get_usage() - $mem) / (1024 * 1024),
+  'seconds' => microtime(TRUE) - $time
+));
 $trigger_play ='';
 include_once($_SERVER['DOCUMENT_ROOT']."/data/after_content.php"); ?>
