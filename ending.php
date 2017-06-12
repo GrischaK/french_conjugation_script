@@ -1,6 +1,5 @@
 <?php
 function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
-	$functionName = 'ending_'.$exceptionModel->getValue ();
 	switch ($exceptionModel->getValue ()) {
 		case ExceptionModel::ALLER :
 			return ending_aller ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
@@ -96,9 +95,10 @@ function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith
 			return ending_aitre ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 		case ExceptionModel::NAITRE :
 			return ending_ire_with_iss ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
-		case ExceptionModel::OITRE : // same like ending_ire_with_iss + ending_resoudre (but not u-> Ã»)
+		case ExceptionModel::OITRE : // same like ending_ire_with_iss + ending_resoudre (but not u-> û)
 			return ending_oitre ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 	}
+	
 	switch ($endingwith->getValue ()) {
 		case EndingWith::ER :
 			return ending_er ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
@@ -452,7 +452,7 @@ function ending_envoyer(Person $person, Tense $tense, Mood $mood, EndingWith $en
 	}
 	return ending_er ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 }
-function ending_aller_irr(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
+function ending_aller(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
 	assert ( $exceptionModel->getValue () === ExceptionModel::ALLER );
 	assert ( $endingwith->getValue () === EndingWith::ER );
 	$endings = [ 
@@ -520,7 +520,7 @@ function ending_aller_irr(Person $person, Tense $tense, Mood $mood, EndingWith $
 	}
 	return ending_er ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 }
-function ending_etre_irr(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
+function ending_etre(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
 	assert ( $exceptionModel->getValue () === ExceptionModel::ETRE_IRR );
 	assert ( $endingwith->getValue () === EndingWith::RE );
 	$endings = [ 
@@ -2150,8 +2150,8 @@ function ending_vouloir(Person $person, Tense $tense, Mood $mood, EndingWith $en
 	return ending_oir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 }
 function ending_faillir(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
-	assert ( $exceptionModel->getValue () === ExceptionModel::FAILLIR );
-	assert ( $endingwith->getValue () === EndingWith::IR );
+	assert ( $exceptionModel->getValue () === ExceptionModel::FAILLIR ); // http://bescherelle.com/conjugueur.php?term=faillir
+	assert ( $endingwith->getValue () === EndingWith::IR ); // https://fr.wiktionary.org/wiki/Annexe:Conjugaison_en_fran%C3%A7ais/faillir 3 conjugations forms ...
 	$endings = [ 
 			
 			Mood::Indicatif => [ 
@@ -2380,33 +2380,5 @@ function ending_fuir(Person $person, Tense $tense, Mood $mood, EndingWith $endin
 		return $endings [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
 	}
 	return ending_ir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
-}
-
-function ending_circoncire($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb) {
-	return ending_ire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
-}
-function ending_confire($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb) {
-	return ending_ire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
-}
-function ending_dire($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb) {
-	return ending_ire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
-}
-function ending_suffire($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb) {
-	return ending_ire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
-}
-
-
-function ending_vivre($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb) {
-	return ending_passe_subjonctif_changes_re ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
-}
-function ending_clure($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb) {
-	return ending_passe_subjonctif_changes_re ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
-}
-
-function ending_maudire($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb) {
-	return ending_ire_with_iss ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
-}
-function ending_naite($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb) {
-	return ending_ire_with_iss ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 }
 ?>
