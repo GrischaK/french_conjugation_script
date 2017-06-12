@@ -1,8 +1,103 @@
 <?php
 function ending(Person $person, Tense $tense, Mood $mood, EndingWith $endingwith, ExceptionModel $exceptionModel, InfinitiveVerb $infinitiveVerb) {
 	$functionName = 'ending_'.$exceptionModel->getValue ();
-	if(is_callable($functionName)) {
-		return $functionName($person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb);
+	switch ($exceptionModel->getValue ()) {
+		case ExceptionModel::ALLER :
+			return ending_aller ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::AVOIR_IRR :
+			return ending_avoir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::ETRE_IRR :
+			return ending_etre ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::YER :
+			return ending_yer ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::ENIR :
+			return ending_enir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::VOIR :
+			return ending_voir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::VALOIR :
+			return ending_valoir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::FUIR :
+			return ending_fuir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::SAILLIR : // also regular form like -ir with iss is availaible (not implemented yet)
+			return ending_saillir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::BOUILLIR :
+			return ending_bouillir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::ENVOYER : // same like ending_oir, but ended with -er
+			return ending_envoyer ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::COURIR : // same like ending_oir
+			return ending_courir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::MOURIR : // same like ending_oir
+			return ending_mourir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::FLEURIR :
+			return ending_fleurir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::RIR :
+			return ending_rir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::SEOIR :
+			return ending_seoir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::VOULOIR :
+			return ending_vouloir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::FALLOIR :
+			return ending_falloir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::QUERIR :
+			return ending_querir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::CUEILLIR :
+			return ending_cueillir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::FAILLIR :
+			return ending_faillir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::MOUVOIR :
+			return ending_mouvoir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::POUVOIR :
+			return ending_pouvoir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::SAVOIR :
+			return ending_savoir ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::FAIRE :
+			return ending_faire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::PLAIRE :
+			return ending_plaire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::TAIRE :
+			return ending_taire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::RAIRE :
+			return ending_raire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::MOUDRE : // sam like taire
+			return ending_moudre ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::SOUDRE : // sam like taire
+			return ending_soudre ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::RESOUDRE : // sam like taire
+			return ending_resoudre ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::CIRCONCIRE :
+			return ending_ire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::SUFFIRE :
+			return ending_ire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::CONFIRE :
+			return ending_ire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::UIRE :
+			return ending_uire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::BRUIRE :
+			return ending_bruire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::BOIRE :
+			return ending_boire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::VIVRE :
+			return ending_passe_subjonctif_changes_re ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::CLURE :
+			return ending_passe_subjonctif_changes_re ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::CRIRE :
+			return ending_crire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::CROIRE :
+			return ending_croire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::RIRE :
+			return ending_rire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::LIRE :
+			return ending_lire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb ); // same like ending_ire + ending_resoudre
+		case ExceptionModel::DIRE :
+			return ending_ire ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::MAUDIRE :
+			return ending_ire_with_iss ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::AITRE : // same like ending_ire_with_iss + ending_resoudre
+			return ending_aitre ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::NAITRE :
+			return ending_ire_with_iss ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
+		case ExceptionModel::OITRE : // same like ending_ire_with_iss + ending_resoudre (but not u-> Ã»)
+			return ending_oitre ( $person, $tense, $mood, $endingwith, $exceptionModel, $infinitiveVerb );
 	}
 	switch ($endingwith->getValue ()) {
 		case EndingWith::ER :
