@@ -13,7 +13,7 @@
 ?>                                                          
 <h1> <?php echo $h1;?></h1>
 <? translation('la conjugaison','die Konjugation'); ?>
-<p class="well">Derzeit befinden sich <b><?php echo count($infinitiveVerb, COUNT_RECURSIVE); ?></b> Verben in unserer Datenbank. Klicke auf einen Buchstaben, um alle Verben zu finden, die mit diesem Buchstaben anfangen.</p>
+<p class="well">Derzeit befindet sich <b><?php echo count($infinitiveVerb, COUNT_RECURSIVE); ?></b> Verben unserer Datenbank. Klicke auf einen Buchstaben, um alle Verben zu finden, die mit diesem Buchstaben anfangen.</p>
 <?php
 	$str="";
 	//letter menu

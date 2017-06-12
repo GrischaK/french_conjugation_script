@@ -136,10 +136,7 @@ class IrregularExceptionGroup
     public static $vetir = [
         'dévêtir','redévêtir','revêtir','se dévêtir','se redévêtir','se sous-vêtir','se vêtir','sous-vêtir','survêtir','vêtir'
     ]; // 10 verbs
-    public static $fleurir = [
-        'fleurir'
-    ];
-
+    public static $fleurir = ['fleurir']; // 1 verb
     public static $pleuvoir = [
         'pleuvoir','repleuvoir'
     ];	// 10 verbs
@@ -168,7 +165,6 @@ class IrregularExceptionGroup
     public static $prendre = [
         'apprendre','auto-apprendre','autoapprendre','comprendre ','déprendre','désapprendre','entr’apprendre ','entreprendre','entre-surprendre','éprendre','mécomprendre','méprendre','prendre','rapprendre','réapprendre','recomprendre','redéprendre','redésapprendre','reprendre','resurprendre','réentreprendre','rééprendre','surprendre','se méprendre','se prendre','se redéprendre ','se rééprendre'
     ]; // 27 verbs
-
     public static $indre = [
         'abstreindre','astreindre','atteindre','auto-astreindre','autocontraindre','auto-contraindre','aveindre','ceindre','chanfreindre','complaindre','contraindre','craindre','déceindre','dépeindre','déteindre','empreindre','enceindre','enfreindre','entrecraindre','entre-craindre','épreindre','éteindre','étreindre','feindre','fraindre','freindre','geindre','peindre','plaindre','précontraindre','preindre','ratteindre','réastreindre','réatteindre','receindre','recontraindre','recraindre','redépeindre','redéteindre','réenfreindre','rééteindre','regeindre','repeindre','replaindre','rerestreindre','restreindre','reteindre','réteindre','retreindre','rétreindre','s’astreindre','s’auto-astreindre','s’autocontraindre','s’auto-contraindre','s’entre-craindre','s’entrecraindre','s’éteindre','se ceindre','se complaindre','se contraindre','se peindre','se plaindre','se réastreindre','se rééteindre','se restreindre','se teindre','surteindre','teindre'
     ];// 68 verbs
