@@ -24675,7 +24675,6 @@ $infinitiveVerb = [
 				's’agglutiner',
 				's’aggraver',
 				's’agir',
-				's’agir',
 				's’agiter',
 				's’aglétir',
 				's’agnatiser',
