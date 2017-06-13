@@ -1,4 +1,5 @@
 <?php
+require_once  'verbs.php';
 class Auxiliaire extends Enum{
 	const Avoir = 'avoir';
 	const AvoirandEtre = 'avoir and être';		
@@ -9,8 +10,6 @@ class Auxiliaire extends Enum{
 	}
 	
 	static function getVerbsThatUse(Auxiliaire $auxiliaire) {
-	//include 'verbs.php'; // include_once or require_once don't work	
-	//$only_with_auxiliaire_avoir = array_diff_key($infinitiveVerb, array_flip([Auxiliaire::Etre])); // not working for example aller would be avoir and etre
 	$only_with_auxiliaire_avoir = ['avoir','acheter','aimer','balader','coudre','habiller','hérisser','manger','tenir','attenir','paraitre','paraître','asseoir','assoir','déshaïr','paranoïer','shangaïer','abaïer','fleurir','faillir'];
 		$infinitiveVerb = 
 		[Auxiliaire::Etre => ['accourir','advenir','aller','apparaitre','apparaître','arriver','ascendre','co-naitre','co-naître','convenir',
@@ -18,8 +17,7 @@ class Auxiliaire extends Enum{
 			'issir','mésadvenir','mésavenir','mévenir','monter','moquer','mourir','naitre','naître','obvenir','paraitre','paraître','partir',
 			'parvenir','passer','pourir','pourrir','prémourir','provenir','ragaillardir','raller','réadvenir','re-aller','réapparaitre',
 		    'réapparaître','reconvenir','redépartir','redevenir','réentrer','réintervenir','remourir','renaitre','renaître','rentrer','revenir',
-		    'reparaitre','reparaître','repartir','reparvenir','repasser','ré-apparaître','réaccroupir','réacharner', 'redévergonder','réinsurger','remoquer','reprosterner','resouvenir','retrémousser',
-			'repourrir','rerentrer','rerester','ressortir','ressouvenir','rester','resurvenir','retomber','retrépasser','revenir','sortir',
+		    'reparaitre','reparaître','repartir','reparvenir','repasser','ré-apparaître','réaccroupir','réacharner', 'redévergonder','réinsurger','remoquer','reprosterner','resouvenir','retrémousser','repourrir','rerentrer','rerester','ressortir','ressouvenir','rester','resurvenir','retomber','retrépasser','revenir','sortir',
 			 'souvenir','stationner','sur-aller','suradvenir','survenir','tomber','trépasser','venir'],  // + all pronominal version of verbs	
 		Auxiliaire::AvoirandEtre => ['accourir','ascendre','convenir','déchoir','demeurer','descendre','disparaitre','disparaître','disconvenir',
 			'éclore','enclore','entrer ','monter','paraitre','paraître','passer','ragaillardir', 'ré-apparaître','réapparaître','reconvenir',
