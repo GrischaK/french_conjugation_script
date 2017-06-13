@@ -591,7 +591,7 @@ function finding_participe_present(InfinitiveVerb $infinitiveVerb) {
 	if (in_array ( $participe_present->getValue (), [ 
 			EndingWith::ER,
 			EndingWith::RE,
-			EndingWith::OIR 
+			EndingWith::OIR			
 	] )) // + all unregular verbs from EndingWith::IR
 		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'ant';
 	if (finding_infinitive_ending ( $infinitiveVerb )->getValue () === EndingWith::IR)
@@ -604,7 +604,8 @@ function finding_participe_present(InfinitiveVerb $infinitiveVerb) {
 			ExceptionModel::QUERIR,
 			ExceptionModel::FAILLIR,
 			ExceptionModel::FUIR,
-			ExceptionModel::VETIR 
+			ExceptionModel::VETIR,
+			ExceptionModel::ENIR			
 	] ))
 		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'ant';
 	$word_stem = word_stem_length ( $infinitiveVerb, 5 ) . 'or';
@@ -710,9 +711,11 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 		$participe_passe .= 'e';
 	if ($sentencetype->getValue () === SentenceType::DeclarativeSentence || $sentencetype->getValue () === SentenceType::InterrogativeSentence) {
 		if ($voice->getValue () === Voice::Active) {
-			if ($tense->getValue () === Tense::Passe)
+			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Avoir)
 				$participe_passe = $avoir_participe_present . ' ' . $participe_passe;
-		}
+			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Etre)
+				$participe_passe = $etre_participe_present . ' ' . $participe_passe;
+		}		
 		if ($voice->getValue () === Voice::Passive) {
 			if ($tense->getValue () === Tense::Present) {
 				$infinitiveVerb = Auxiliaire::Etre . ' ' . $participe_passe;
@@ -740,10 +743,14 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 				$infinitiveVerb = 'ne pas ' . $infinitiveVerb;
 				$participe_present = concatenate_apostrophized ( 'ne', $participe_present ) . ' ' . 'pas';
 			}
-			if ($tense->getValue () === Tense::Passe) {
-				$infinitiveVerb_passe = 'ne pas ' . $auxiliaire->getValue () . ' ' . $participe_passe;
+			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Avoir) {
+				$infinitiveVerb_passe = 'ne pas ' . Auxiliaire::Avoir . ' ' . $participe_passe;
 				$participe_passe = concatenate_apostrophized ( 'ne', $avoir_participe_present ) . ' pas ' . $participe_passe;
 			}
+			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Etre ) { // not working, because SentenceType::Negation find only Auxiliaire::Avoir
+				$infinitiveVerb_passe = 'ne pas ' . Auxiliaire::Etre . ' ' . $participe_passe;
+				$participe_passe = concatenate_apostrophized ( 'ne', $etre_participe_present ) . ' pas ' . $participe_passe;
+			}			
 		}
 		if ($voice->getValue () === Voice::Passive) {
 			if ($tense->getValue () === Tense::Present) {
