@@ -710,7 +710,7 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 	if (($auxiliaire->getValue () === Auxiliaire::Etre || $voice->getValue () === Voice::Passive) && $gender->getValue () === Gender::Feminine)
 		$participe_passe .= 'e';
 	if ($sentencetype->getValue () === SentenceType::DeclarativeSentence || $sentencetype->getValue () === SentenceType::InterrogativeSentence) {
-		if ($voice->getValue () === Voice::Active) {
+		if ($voice->getValue () === Voice::Active) {		
 			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Avoir)
 				$participe_passe = $avoir_participe_present . ' ' . $participe_passe;
 			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Etre)
