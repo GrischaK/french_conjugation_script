@@ -12,7 +12,7 @@ require_once 'groups/verbes_en_ancien.php';
 require_once 'groups/verbes_impersonnels.php';
 require_once 'groups/verbes_defectifs.php';
 $func_array = [ 
-		preg_grep ( $infinitiveVerb, "/.*er$/" ),
+		preg_grep ( "/.*er$/", $infinitiveVerb ),
 		preg_grep ( "/.*[iï]r$/", $infinitiveVerb ),
 		preg_grep ( "/.*re$/", $infinitiveVerb ),
 		array_diff ( $infinitiveVerb, Auxiliaire::getVerbsThatUse ( new Auxiliaire ( Auxiliaire::Etre ) ) ),
