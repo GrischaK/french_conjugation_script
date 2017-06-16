@@ -407,7 +407,7 @@ function ending_re(Person $person, Tense $tense, Mood $mood, EndingWith $endingw
 	if ($ending !== null) {
 		return $ending;
 	}
-	return ending_re ( $person, $tense, $mood, new EndingWith ( EndingWith::I_TREMA_R ), $exceptionModel );
+	return ending_re ( $person, $tense, $mood, new EndingWith ( EndingWith::RE ), $exceptionModel );
 }
 function ending_array_defines($array_mood_tense_person, Person $person, Tense $tense, Mood $mood) {
 	if (key_exists ( $mood->getValue (), $array_mood_tense_person )) {
