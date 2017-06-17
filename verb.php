@@ -114,8 +114,8 @@ if ($_GET ["buchstabe"] == "kategorien") {
 		?>
 <div class="tabbable boxed parentTabs">
 	<ul class="nav nav-pills">
-		<li class="active"><a href="#auxiliary1" data-toggle="tab">intransitiv (Hilfsverb être)</a></li>
-		<li><a href="#auxiliary2" data-toggle="tab">transitiv (Hilfsverb avoir)</a></li>
+		<li class="active"><a href="#auxiliary1" data-toggle="tab"> Hilfsverb être</a></li>
+		<li><a href="#auxiliary2" data-toggle="tab">Hilfsverb avoir</a></li>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane fade active in" id="auxiliary1">
