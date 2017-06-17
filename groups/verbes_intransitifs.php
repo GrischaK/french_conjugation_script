@@ -2089,7 +2089,6 @@ $verbes_intransitifs =  array (
 'fraîchir',
 'françafricaniser',
 'francetélécomer',
-'franchir le pas',
 'franchouiller',
 'frangliser',
 'fransquillonner',
