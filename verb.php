@@ -161,7 +161,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 			$category = '-etre-declarative-active-feminine';
 			require_once ("text.php");
 			print_explanatory_text ( $infinitiveVerb );
-			print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::DeclarativeSentence ) );
+			print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::DeclarativeSentence ) );
 			?>
 											</div>
 										</div>
@@ -191,7 +191,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 			$category = '-etre-declarative-passive-feminine';
 			require_once ("text.php");
 			print_explanatory_text ( $infinitiveVerb );
-			print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::DeclarativeSentence ) );
+			print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::DeclarativeSentence ) );
 			?>
 											</div>
 										</div>
