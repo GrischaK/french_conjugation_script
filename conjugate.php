@@ -125,6 +125,7 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb) {
 			ExceptionModel::BRUIRE => IrregularExceptionGroup::$bruire,
 			ExceptionModel::CLORE => IrregularExceptionGroup::$clore,
 			ExceptionModel::ROMPRE => IrregularExceptionGroup::$rompre,
+			
 			ExceptionModel::AITRE => IrregularExceptionGroup::$aitre,
 			ExceptionModel::NAITRE => IrregularExceptionGroup::$naitre,
 			ExceptionModel::OITRE => IrregularExceptionGroup::$oitre,
@@ -587,7 +588,7 @@ function isComposite(Mood $mood, Tense $tense) {
 	return in_array ( $tense->getValue (), $composite_tenses [$mood->getValue ()] );
 }
 function finding_participe_present(InfinitiveVerb $infinitiveVerb) {
-	$participe_present = finding_infinitive_ending ( $infinitiveVerb ); // without this line Undefined variable
+$participe_present = finding_infinitive_ending ( $infinitiveVerb ); // without this line Undefined variable
 	if (in_array ( $participe_present->getValue (), [ 
 			EndingWith::ER,
 			EndingWith::RE,
@@ -598,6 +599,9 @@ function finding_participe_present(InfinitiveVerb $infinitiveVerb) {
 		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'issant';
 	if (finding_infinitive_ending ( $infinitiveVerb )->getValue () === EndingWith::I_TREMA_R)
 		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'ïssant';
+	
+	// BEGIN unregular
+$exceptionmodel = finding_exception_model ( $infinitiveVerb ); // without this line Undefined variable	
 	if (in_array ( finding_exception_model ( $infinitiveVerb )->getValue (), [  // + all unregular verbs from EndingWith::IR
 			ExceptionModel::COURIR,
 			ExceptionModel::MOURIR,
@@ -608,18 +612,15 @@ function finding_participe_present(InfinitiveVerb $infinitiveVerb) {
 			ExceptionModel::ENIR			
 	] ))
 		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'ant';
-	$word_stem = word_stem_length ( $infinitiveVerb, 5 ) . 'or';
-	// beginning unregular
-	$exceptionmodel = finding_exception_model ( $infinitiveVerb ); // without this line Undefined variable
-	if ($exceptionmodel->getValue () === ExceptionModel::AVOIR_IRR)
+	if ($exceptionmodel->getValue () === ExceptionModel::AVOIR_IRR)	
 		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'ayant';
 	if ($exceptionmodel->getValue () === ExceptionModel::ETRE_IRR)
 		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'étant';
-	if ($exceptionmodel->getValue () === ExceptionModel::FLEURIR)
-		
-		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'issant / ' . $word_stem . 'issant';
+	if ($exceptionmodel->getValue () === ExceptionModel::FLEURIR)		
+		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'issant / ' . word_stem_length ( $infinitiveVerb, 5 ) . 'or' . 'issant';
 	if ($exceptionmodel->isNAITRE () || $exceptionmodel->isOITRE () || $exceptionmodel->isAITRE ())
 		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'issant';
+	// END unregular	
 	return $participe_present;
 }
 function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
