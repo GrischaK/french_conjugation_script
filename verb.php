@@ -134,7 +134,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
                         <?php } if(in_array($infinitiveVerb, $verbes_transitifs) && (!canBeConjugatedWith ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ) ))) { ?>
                         <li><a href="#etre-voice112" data-toggle="tab">passiv</a></li>
                         <?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-                        <li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#etre-voice113" data-toggle="tab">pronominal</a></li>
+                        <li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#etre-voice113" data-toggle="tab">reflexiv</a></li>
                         <?php } ?>							
                      </ul>
 							<div class="tab-content">
@@ -199,7 +199,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								</div>
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
 								<div
-									class="tab-pane fadefade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
+									class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
 									id="etre-voice113">
 									<div class="tabbable">
 										<ul class="nav nav-tabs">
@@ -241,7 +241,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								<?php } if(in_array($infinitiveVerb, $verbes_transitifs)) { ?>
 								<li><a href="#etre-voice122" data-toggle="tab">passiv</a></li>
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-								<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#etre-voice123" data-toggle="tab">pronominal</a></li>
+								<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#etre-voice123" data-toggle="tab">reflexiv</a></li>
 								<?php } ?>						
 							</ul>
 							<div class="tab-content">
@@ -349,7 +349,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								 <?php } if(in_array($infinitiveVerb, $verbes_transitifs)) { ?>
 								<li><a href="#etre-voice132" data-toggle="tab">passiv</a></li>
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-								<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#etre-voice133" data-toggle="tab">pronominal</a></li>
+								<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#etre-voice133" data-toggle="tab">reflexiv</a></li>
 								<?php } ?>							
 							</ul>
 							<div class="tab-content">
@@ -468,7 +468,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								<?php } if(in_array($infinitiveVerb, $verbes_transitifs)) { ?>
 								<li><a href="#avoir-voice212" data-toggle="tab">passiv</a></li>
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-								<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#avoir-voice213" data-toggle="tab">pronominal</a></li>
+								<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#avoir-voice213" data-toggle="tab">reflexiv</a></li>
 								<?php } ?>	
 							</ul>
 							<div class="tab-content">
@@ -576,7 +576,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								<?php } if(in_array($infinitiveVerb, $verbes_transitifs)) { ?>
 								<li><a href="#avoir-voice222" data-toggle="tab">passiv</a></li>
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-								<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#avoir-voice223" data-toggle="tab">pronominal</a></li>
+								<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#avoir-voice223" data-toggle="tab">reflexiv</a></li>
 								<?php } ?>							
 							</ul>
 							<div class="tab-content">
@@ -684,7 +684,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								<?php } if(in_array($infinitiveVerb, $verbes_transitifs)) { ?>
 								<li><a href="#avoir-voice232" data-toggle="tab">passiv</a></li>
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-								<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#avoir-voice233" data-toggle="tab">pronominal</a></li>
+								<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#avoir-voice233" data-toggle="tab">reflexiv</a></li>
 								<?php } ?>					
 							</ul>
 							<div class="tab-content">
@@ -733,7 +733,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 			$category = 'avoir-negation-passive-masculine';
 			require_once ("text.php");
 			print_explanatory_text ( $infinitiveVerb );
-			print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::Negation ) );
+			print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Masculine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::Negation ) );
 			?>
 											</div>
 											<div class="tab-pane fade" id="avoir-voice-gender2322">
@@ -742,7 +742,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 			$category = 'avoir-negation-passive-feminine';
 			require_once ("text.php");
 			print_explanatory_text ( $infinitiveVerb );
-			print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::Negation ) );
+			print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Feminine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::Negation ) );
 			?>
 											</div>
 										</div>
@@ -806,7 +806,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 						<?php } if(in_array($infinitiveVerb, $verbes_transitifs)) { ?>
 						<li><a href="#voice112" data-toggle="tab">passiv</a></li>
 						<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#voice113" data-toggle="tab">pronominal</a></li>
+						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#voice113" data-toggle="tab">reflexiv</a></li>
 						<?php } ?>
 					</ul>
 					<div class="tab-content">
@@ -911,7 +911,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 						<?php } if(in_array($infinitiveVerb, $verbes_transitifs)) { ?>
                         <li><a href="#voice122" data-toggle="tab">passiv</a></li>
                         <?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#voice123" data-toggle="tab">pronominal</a></li>
+						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#voice123" data-toggle="tab">reflexiv</a></li>
 						<?php } ?>
 					</ul>
 					<div class="tab-content">
@@ -1016,7 +1016,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
                         <?php } if(in_array($infinitiveVerb, $verbes_transitifs)) { ?>
                         <li><a href="#voice132" data-toggle="tab">passiv</a></li>
                         <?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#voice133" data-toggle="tab">pronominal</a></li>
+						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#voice133" data-toggle="tab">reflexiv</a></li>
 						<?php } ?>
 					</ul>
 					<div class="tab-content">
@@ -1133,7 +1133,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 						<?php } if(in_array($infinitiveVerb, $verbes_transitifs)) { ?>
 						<li><a href="#voice112">passiv</a></li>
 						<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#voice113">pronominal</a></li>
+						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#voice113">reflexiv</a></li>
 						<?php } ?>
 					</ul>
 					<div class="tab-content">
@@ -1238,7 +1238,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 						<?php } if(in_array($infinitiveVerb, $verbes_transitifs)) { ?>
                         <li><a href="#voice122" data-toggle="tab">passiv</a></li>
 						<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>class="active" <?php } ?>><a href="#voice123" data-toggle="tab">pronominal</a></li>
+						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>class="active" <?php } ?>><a href="#voice123" data-toggle="tab">reflexiv</a></li>
 						<?php } ?>
 					</ul>
 					<div class="tab-content">
@@ -1344,7 +1344,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 						<?php } if(in_array($infinitiveVerb, $verbes_transitifs)) { ?>
                         <li><a href="#voice132" data-toggle="tab">passiv</a></li>
                         <?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#voice133" data-toggle="tab">pronominal</a></li>
+						<li <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?> class="active" <?php } ?>><a href="#voice133" data-toggle="tab">reflexiv</a></li>
 						<?php } ?>
 					</ul>
 					<div class="tab-content">
@@ -1362,7 +1362,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 				$category = '-negation-active-masculine';
 				require_once ("text.php");
 				print_explanatory_text ( $infinitiveVerb );
-				print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Masculine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::Negation ) );
+				print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::Negation ) );
 				?>
 									</div>
 									<div class="tab-pane fade" id="voice-gender1312">
@@ -1371,7 +1371,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 				$category = '-negation-active-feminine';
 				require_once ("text.php");
 				print_explanatory_text ( $infinitiveVerb );
-				print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Feminine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::Negation ) );
+				print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::Negation ) );
 				?>  
 									</div>
 								</div>
@@ -1391,7 +1391,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 				$category = '-negation-passive-masculine';
 				require_once ("text.php");
 				print_explanatory_text ( $infinitiveVerb );
-				print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Masculine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::Negation ) );
+				print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::Negation ) );
 				?>
 									</div>
 									<div class="tab-pane fade" id="voice-gender1322">
@@ -1400,7 +1400,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 				$category = '-negation-passive-feminine';
 				require_once ("text.php");
 				print_explanatory_text ( $infinitiveVerb );
-				print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ), new Gender ( Gender::Feminine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::Negation ) );
+				print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Passive ), new SentenceType ( SentenceType::Negation ) );
 				?>
 									</div>
 								</div>
