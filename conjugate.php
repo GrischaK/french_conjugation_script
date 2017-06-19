@@ -748,7 +748,7 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 				$infinitiveVerb_passe = 'ne pas ' . Auxiliaire::Avoir . ' ' . $participe_passe;
 				$participe_passe = concatenate_apostrophized ( 'ne', $avoir_participe_present ) . ' pas ' . $participe_passe;
 			}
-			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Etre ) { // not working, because SentenceType::Negation find only Auxiliaire::Avoir
+			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Etre ) { 
 				$infinitiveVerb_passe = 'ne pas ' . Auxiliaire::Etre . ' ' . $participe_passe;
 				$participe_passe = concatenate_apostrophized ( 'ne', $etre_participe_present ) . ' pas ' . $participe_passe;
 			}			
