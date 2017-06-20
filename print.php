@@ -177,7 +177,7 @@ function print_persons(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, G
 		recursiveRemoval ( $persons, Person::SecondPersonSingular );
 		recursiveRemoval ( $persons, Person::FirstPersonPlural );
 		recursiveRemoval ( $persons, Person::SecondPersonPlural );
-		unset ( $persons [Mood::Imperatif] );
+		unset ( $persons [Mood::Imperatif] ); // Warning: Invalid argument supplied for foreach() in print.php on line 370
 	}
 	
 	foreach ( $persons [$mood->getValue ()] [$tense->getValue ()] as $person ) {
@@ -395,7 +395,7 @@ function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxilia
 			] 
 	];
 	if (in_array ( $infinitiveVerb, $verbes_impersonnels ))
-		unset ( $tenses [Mood::Imperatif] );
+		unset ( $tenses [Mood::Imperatif] ); // Warning: Invalid argument supplied for foreach() in print.php on line 370
 	
 	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, $mood, $tenses );
 }
@@ -423,7 +423,7 @@ function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxi
 			] 
 	];
 	if (in_array ( $infinitiveVerb, $verbes_impersonnels ))
-		unset ( $tenses [Mood::Imperatif] );
+		unset ( $tenses [Mood::Imperatif] ); // Warning: Invalid argument supplied for foreach() in print.php on line 370
 	
 	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, $mood, $tenses );
 }
@@ -465,11 +465,11 @@ function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $
 			Mood::Indicatif => 'Indicatif',
 			Mood::Subjonctif => 'Subjonctif',
 			Mood::Conditionnel => 'Conditionnel',
-			Mood::Imperatif => 'Imperatif' 
+			Mood::Imperatif => 'Impératif' 
 	];
 	
 	if (in_array ( $infinitiveVerb, $verbes_impersonnels ))
-		unset ( $moods [Mood::Imperatif], $h2_of_mood [Mood::Imperatif] );
+		unset ( $moods [Mood::Imperatif], $h2_of_mood [Mood::Imperatif]);  // Warning: Invalid argument supplied for foreach() in print.php on line 370
 	
 	foreach ( $moods as $mood ) {
 		echo '<h2 class="home"><a id="' . strtolower ( $h2_of_mood [$mood] ) . $category . '"></a>' . $h2_of_mood [$mood] . '</h2>' . PHP_EOL;
