@@ -2,11 +2,17 @@
 	$per_page=200;
 	$params=explode($char_split,$_GET["buchstabe"]);
 
+function filter_factory($letter) {
+    return function ($input) use ($letter) {
+        return is_string($input) && $input[0] === $letter;
+    };
+}		
+	
 	if(strlen($params[0])>1){
-		$array = preg_grep("/^".$params[0].".*/",$infinitiveVerb[substr($params[0],0,1)]);
+		$array = preg_grep("/^".$params[0].".*/",substr($infinitiveVerb,0,1));	
 		$h1='Suchergebnisse für '.$params[0];
 	}else{
-		$array = $infinitiveVerb[$params[0]];
+		$array = array_filter($infinitiveVerb, filter_factory($params[0])); 
 		$h1=strtoupper($params[0]);
 	}
 ?>

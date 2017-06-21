@@ -7,15 +7,11 @@ require_once 'verbs.php';
 <?php
 $num = 0;
 $hint = "";
-foreach ( $infinitiveVerb as $buchstabe ) {
-	foreach ( $buchstabe as $infinitiveVerb ) {
-		if (preg_match ( "/^" . $_GET ['pattern'] . "/", $infinitiveVerb )) {
-			$hint .= "<a class=\"franzoesisch konju\" href='" . substr ( $infinitiveVerb, 0, 1 ) . "/" . $infinitiveVerb . "/'>" . $infinitiveVerb . "</a>";
+foreach ( $infinitiveVerb as $output ) {
+		if (preg_match ( "/^" . $_GET ['pattern'] . "/", $output )) {
+			$hint .= "<a class=\"franzoesisch konju\" href='" . substr ( $test, 0, 1 ) . "/" . $output . "/'>" . $output . "</a>";
 			$num ++;
 		}
-		if ($num > 10)
-			break;
-	}
 	if ($num > 10)
 		break;
 }
