@@ -1,16 +1,12 @@
 <?php
-function word_stem_length(InfinitiveVerb $infinitiveVerb, $endingLength)
-{
+function word_stem_length(InfinitiveVerb $infinitiveVerb, $endingLength) {
     return mb_substr($infinitiveVerb->getInfinitiveVerb(), 0, - $endingLength);
 }
-
-function word_stem_only_first_letter(InfinitiveVerb $infinitiveVerb)
-{
+function word_stem_only_first_letter(InfinitiveVerb $infinitiveVerb) {
     $word_stem = word_stem_length($infinitiveVerb, 2);
     $word_stem = mb_substr($word_stem, 0, 1);
     return $word_stem;
 }
-
 function mb_substr_replace($string, $replacement, $start, $length=NULL) { 
     if (is_array($string)) {
         $num = count($string);
