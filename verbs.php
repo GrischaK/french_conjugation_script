@@ -1,6 +1,5 @@
 <?php
 $infinitiveVerb = [ 
-		'a' => [ 
 				'abader',
 				'abaïer',
 				'abaisser',
@@ -2707,9 +2706,7 @@ $infinitiveVerb = [
 				'azoter',
 				'azotiser',
 				'azurer',
-				'azuriser' 
-		],
-		'b' => [ 
+				'azuriser',
 				'baa’thiser',
 				'baasiser',
 				'baathiser',
@@ -3814,9 +3811,7 @@ $infinitiveVerb = [
 				'buzzer',
 				'bypasser',
 				'by-passer',
-				'byzantiniser' 
-		],
-		'c' => [ 
+				'byzantiniser',
 				'cabaler',
 				'cabaliser',
 				'cabaner',
@@ -6003,9 +5998,7 @@ $infinitiveVerb = [
 				'cymbaler',
 				'cyniciser',
 				'cypriotiser',        
-				'cyrilliser'
-		],
-		'd' => [ 
+				'cyrilliser',
 				'dabber',
 				'daciser',
 				'dactyliser',
@@ -8983,9 +8976,7 @@ $infinitiveVerb = [
 				'dys-stimuler',
 				'dyssymétriser',
 				'dystopiser',
-				'dystrophiser' 
-		],
-		'e' => [ 
+				'dystrophiser',
 				'eaubéniter',
 				'ébahir',
 				'ébalourdir',
@@ -11434,9 +11425,7 @@ $infinitiveVerb = [
 				'exulcérer',
 				'exuler',
 				'exulter',
-				'exuvier'              
-		],
-		'f' => [ 
+				'exuvier',
 				'fabricoter',
 				'fabriquer',
 				'fabuler',
@@ -12120,9 +12109,7 @@ $infinitiveVerb = [
 				'futiliser',
 				'futuriser',        
 				'fuyasser',
-				'fuzzifier' 
-		],
-		'g' => [ 
+				'fuzzifier',
 				'gabarer',
 				'gabarier',
 				'gabariser',
@@ -12781,9 +12768,7 @@ $infinitiveVerb = [
 				'gyrer',
 				'gyrobroyer',
 				'gysser',        
-				'gzipper' 
-		],
-		'h' => [ 
+				'gzipper',
 				'habiliter',
 				'habiller',
 				'habitabiliser',
@@ -13188,9 +13173,7 @@ $infinitiveVerb = [
 				'hypothétiser',
 				'hypotoniser',
 				'hystériciser',
-				'hystériser' 
-		],
-		'i' => [ 
+				'hystériser',
 				'ibériser',
 				'iconifier',
 				'icônifier',
@@ -13748,9 +13731,7 @@ $infinitiveVerb = [
 				'ivrer',
 				'ivrogner',
 				'ivrogniser',        
-				'ixer' 
-		],
-		'j' => [ 
+				'ixer',
 				'jaber',
 				'jabler',
 				'jaboter',
@@ -13889,9 +13870,7 @@ $infinitiveVerb = [
 				'juter',
 				'juvénaliser',
 				'juvéniliser',
-				'juxtaposer' 
-		],
-		'k' => [ 
+				'juxtaposer',
 				'kabouliser',
 				'kabyliser',
 				'kachériser',
@@ -13958,9 +13937,7 @@ $infinitiveVerb = [
 				'kurdiser',
 				'kutcher',
 				'kutscher',        
-				'kystiser' 
-		],
-		'l' => [ 
+				'kystiser',
 				'labeliser',
 				'labéliser',
 				'labelliser',
@@ -14316,9 +14293,7 @@ $infinitiveVerb = [
 				'lyophiliser',
 				'lyrer',
 				'lyriser',
-				'lyser' 
-		],
-		'm' => [ 
+				'lyser',
 				'mabouliser',
 				'macadamiser',
 				'mac-adamiser',
@@ -15125,9 +15100,7 @@ $infinitiveVerb = [
 				'mythifier',
 				'mythologiser',
 				'mythoner',      
-				'mythonner' 
-		],
-		'n' => [ 
+				'mythonner',
 				'nablater',
 				'nacrer',
 				'nageoter',
@@ -15333,9 +15306,7 @@ $infinitiveVerb = [
 				'numéroter',
 				'nurser',
 				'nymphaliser',        
-				'nymphoser' 
-		],
-		'o' => [ 
+				'nymphoser',
 				'2′-O-méthyler',
 				'obéir',
 				'obérer',
@@ -15545,9 +15516,7 @@ $infinitiveVerb = [
 				'oxygéner',
 				'oxytoniser',
 				'ozoner',
-				'ozoniser' 
-		],
-		'p' => [ 
+				'ozoniser',
 				'pacager',
 				'pacifier',
 				'packager',
@@ -17003,9 +16972,7 @@ $infinitiveVerb = [
 				'pyroliser',        
 				'pyrolyser',
 				'pyrrhoniser',
-				'pythagoriser' 
-		],
-		'q' => [ 
+				'pythagoriser',
 				'qater',
 				'quadrer',
 				'quadricarrer',
@@ -17059,9 +17026,7 @@ $infinitiveVerb = [
 				'quoailler',
 				'quolibéter',
 				'quoter',
-				'quotter' 
-		],
-		'r' => [ 
+				'quotter',
 				'r’endormir',
 				'r’être',
 				'r’ouvrir',
@@ -24510,10 +24475,8 @@ $infinitiveVerb = [
 				'rustiquer',
 				'rutiler',
 				'rwandiser',
-				'rythmer' 
-		],
-		's' => [ 
- 				'se décarcasser',
+				'rythmer',
+				'se décarcasser',
 				's’abader',
 				's’abaisser',
 				's’abander',
@@ -31297,9 +31260,7 @@ $infinitiveVerb = [
 				'syrianiser',
 				'sysoper',
 				'systématiser',        
-				'systémiser'
-		],
-		't' => [ 
+				'systémiser',
 				'tabarnacquer',
 				'tabarnaker',
 				'tabarnaquer',
@@ -32126,9 +32087,7 @@ $infinitiveVerb = [
 				'typiquiser',
 				'typiser',
 				'typographier',
-				'tyranniser' 
-		],
-		'u' => [ 
+				'tyranniser',
 				'uberifier',
 				'uberiser',
 				'ubériser',
@@ -32180,9 +32139,7 @@ $infinitiveVerb = [
 				'usufruiter',
 				'usurer',
 				'usurper',
-				'utiliser' 
-		],
-		'v' => [ 
+				'utiliser',
 				'vacciner',
 				'vacharder',
 				'vacher',
@@ -32495,9 +32452,7 @@ $infinitiveVerb = [
 				'vulcaniser',
 				'vulgariser',
 				'vulnérabiliser',
-				'vulnérer' 
-		],
-		'w' => [ 
+				'vulnérer',
 				'wahabiser',
 				'wahhabiser',
 				'waller',
@@ -32525,16 +32480,12 @@ $infinitiveVerb = [
 				'winteriser',
 				'wolofiser',
 				'wordiser',        
-				'wiper' 
-		],
-		'x' => [ 
+				'wiper',
 				'xénophobiser',        
 				'xérographier',
 				'xorer',
 				'xyloglotter',
-				'xylographier' 
-		],
-		'y' => [ 
+				'xylographier',
 				'yaourter',
 				'yasser',
 				'yiddishiser',
@@ -32549,9 +32500,7 @@ $infinitiveVerb = [
 				'yoyoter',
 				'yo-yoter',
 				'yoyotter',
-				'ypériter' 
-		],
-		'z' => [ 
+				'ypériter',
 				'zader',
 				'zaguer',
 				'zaïrianiser',
@@ -32612,7 +32561,6 @@ $infinitiveVerb = [
 				'zozoter',
 				'zwanzer',
 				'zyeuter',
-				'z’yeuter',         
-		] 
+				'z’yeuter',
 ];
 ?>

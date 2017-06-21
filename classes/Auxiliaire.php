@@ -22,9 +22,7 @@ class Auxiliaire extends Enum{
 			Auxiliaire::AvoirandEtre => ['accourir','ascendre','convenir','déchoir','demeurer','descendre','disparaitre','disparaître','disconvenir',
 				'éclore','enclore','entrer ','monter','paraitre','paraître','passer','ragaillardir', 'ré-apparaître','réapparaître','reconvenir',
 				'reparaitre','reparaître','sortir','tomber']];
-		// $infinitiveVerb is not a simple array but an array of verrb for each start character so we have to flatten it first
-		$flattenedListOfInfinitiveVerbs = call_user_func_array("array_merge", $infinitiveVerb);
-		$verbByAuxiliaire[Auxiliaire::Avoir] = array_diff($flattenedListOfInfinitiveVerbs, 
+		$verbByAuxiliaire[Auxiliaire::Avoir] = array_diff($infinitiveVerb, 
 								  array_merge($verbByAuxiliaire[Auxiliaire::Etre],
 									     $verbByAuxiliaire[Auxiliaire::AvoirandEtre]));
 		return $verbByAuxiliaire[$auxiliaire->getValue()];
