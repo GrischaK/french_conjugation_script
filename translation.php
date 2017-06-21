@@ -2,7 +2,7 @@
 $fr_de = array(   
     'abader' => 'eine Herde in die Freiheit stellen (regional)',
     'abaïer' => 'bellen (Variante aus dem Zentrum Frankreichs)',
-    'abaisser' => 'senken',
+    'abaisser' => 'abaissieren (ausrollen, auswellen)',
     'abaler' => 'umstoßen, umwerfen (Frankreichs Zentrum)',
     'abaliéner' => 'entfremden, trennen, entfernen (Geistesstörung) (Antikes Rom)',
     'abaloger' => 'umstoßen, umwerfen  (Frankreichs Zentrum)',
