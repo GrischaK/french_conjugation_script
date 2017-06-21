@@ -10,7 +10,6 @@ require_once 'groups/irregular-verb-groups.php';
 require_once 'groups/verbes_defectifs.php';
 require_once 'groups/verbes_en_ancien.php';
 require_once 'groups/verbes_impersonnels.php';
-require_once 'groups/verbes_defectifs.php';
 $func_array = [ 
 		preg_grep ( "/.*er$/", $infinitiveVerb ),
 		preg_grep ( "/.*[iï]r$/", $infinitiveVerb ),
@@ -148,7 +147,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 										<div class="tab-content">
 											<div class="tab-pane fade active in" id="etre-voice-gender1111">
 											<?php
-			$css_class = 'green';
+			$css_class = 'light_blue';
 			require_once ("text.php");
 			$category = '-etre-declarative-active-masculine';
 			print_explanatory_text ( $infinitiveVerb );
@@ -175,8 +174,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<li><a href="#etre-voice-gender1122" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="etre-voice-gender1121">
+											<div class="tab-pane fade active in" id="etre-voice-gender1121">
 											<?php
 			$css_class = 'DarkOrange';
 			$category = '-etre-declarative-passive-masculine';
@@ -198,17 +196,14 @@ if ($_GET ["buchstabe"] == "kategorien") {
 									</div>
 								</div>
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-								<div
-									class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
-									id="etre-voice113">
+								<div class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>" id="etre-voice113">
 									<div class="tabbable">
 										<ul class="nav nav-tabs">
 											<li class="active"><a href="#etre-voice-gender1131" data-toggle="tab">männlich</a></li>
 											<li><a href="#etre-voice-gender1132" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="etre-voice-gender1131">
+											<div class="tab-pane fade active in" id="etre-voice-gender1131">
 											<?php
 			$css_class = 'LightSlateGrey';
 			$category = '-etre-declarative-pronominal-masculine';
@@ -253,15 +248,14 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<li><a href="#etre-voice-gender1212" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="etre-voice-gender1211">
+											<div class="tab-pane fade active in" id="etre-voice-gender1211">
 											<?php
 			$css_class = 'OliveDrab';
 			$category = '-etre-interrogative-active-masculine';
 			require_once ("text.php");
 			print_explanatory_text ( $infinitiveVerb );
 			print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Masculine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::InterrogativeSentence ) );
-			?>												
+			?>
 											</div>
 											<div class="tab-pane fade" id="etre-voice-gender1212">
 											<?php
@@ -270,7 +264,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 			require_once ("text.php");
 			print_explanatory_text ( $infinitiveVerb );
 			print_conjugations_of_verb ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Etre ), new Gender ( Gender::Feminine ), new Voice ( Voice::Active ), new SentenceType ( SentenceType::InterrogativeSentence ) );
-			?>												
+			?>
 											</div>
 										</div>
 									</div>
@@ -283,8 +277,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<li><a href="#etre-voice-gender1222" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="etre-voice-gender1221">
+											<div class="tab-pane fade active in" id="etre-voice-gender1221">
 											<?php
 			$css_class = 'Plum';
 			$category = '-etre-interrogative-passive-masculine';
@@ -306,17 +299,14 @@ if ($_GET ["buchstabe"] == "kategorien") {
 									</div>
 								</div>
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>	
-								<div
-									class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
-									id="etre-voice123">
+								<div class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>" id="etre-voice123">
 									<div class="tabbable">
 										<ul class="nav nav-tabs">
 											<li class="active"><a href="#etre-voice-gender1231" data-toggle="tab">männlich</a></li>
 											<li><a href="#etre-voice-gender1232" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="etre-voice-gender1231">
+											<div class="tab-pane fade active in" id="etre-voice-gender1231">
 											<?php
 			$css_class = 'Cyan';
 			$category = '-etre-interrogative-pronominal-masculine';
@@ -390,8 +380,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<li><a href="#etre-voice-gender1322" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="etre-voice-gender1321">
+											<div class="tab-pane fade active in" id="etre-voice-gender1321">
 											<?php
 			$css_class = 'Teal';
 			$category = 'etre-negation-passive-masculine';
@@ -413,18 +402,14 @@ if ($_GET ["buchstabe"] == "kategorien") {
 									</div>
 								</div>
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-								<div
-									class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
-									id="etre-voice133">
+								<div class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>" id="etre-voice133">
 									<div class="tabbable">
 										<ul class="nav nav-tabs">
-											<li class="active"><a href="#etre-voice-gender1331"
-												data-toggle="tab">männlich</a></li>
+											<li class="active"><a href="#etre-voice-gender1331" data-toggle="tab">männlich</a></li>
 											<li><a href="#etre-voice-gender1332" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="etre-voice-gender1331">
+											<div class="tab-pane fade active in" id="etre-voice-gender1331">
 											<?php
 			$css_class = 'MediumSeaGreen';
 			$category = 'etre-negation-pronominal-masculine';
@@ -480,8 +465,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<li><a href="#avoir-voice-gender2112" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="avoir-voice-gender2111">
+											<div class="tab-pane fade active in" id="avoir-voice-gender2111">
 											<?php
 			$css_class = 'light_blue';
 			$category = '-avoir-declarative-active-masculine';
@@ -510,8 +494,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<li><a href="#avoir-voice-gender2122" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="avoir-voice-gender2121">
+											<div class="tab-pane fade active in" id="avoir-voice-gender2121">
 											<?php
 			$css_class = 'DarkOrange';
 			$category = '-avoir-declarative-passive-masculine';
@@ -533,17 +516,14 @@ if ($_GET ["buchstabe"] == "kategorien") {
 									</div>
 								</div>
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-								<div
-									class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
-									id="avoir-voice213">
+								<div class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>" id="avoir-voice213">
 									<div class="tabbable">
 										<ul class="nav nav-tabs">
 											<li class="active"><a href="#avoir-voice-gender2131" data-toggle="tab">männlich</a></li>
 											<li><a href="#avoir-voice-gender2132" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="avoir-voice-gender2131">
+											<div class="tab-pane fade active in" id="avoir-voice-gender2131">
 											<?php
 			$css_class = 'LightSlateGrey';
 			$category = '-avoir-declarative-pronominal-masculine';
@@ -588,8 +568,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<li><a href="#avoir-voice-gender2212" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="avoir-voice-gender2211">
+											<div class="tab-pane fade active in" id="avoir-voice-gender2211">
 											<?php
 			$css_class = 'OliveDrab';
 			$category = '-avoir-interrogative-active-masculine';
@@ -618,8 +597,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<li><a href="#avoir-voice-gender2222" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="avoir-voice-gender2221">
+											<div class="tab-pane fade active in" id="avoir-voice-gender2221">
 											<?php
 			$css_class = 'Plum';
 			$category = '-avoir-interrogative-passive-masculine';
@@ -641,17 +619,14 @@ if ($_GET ["buchstabe"] == "kategorien") {
 									</div>
 								</div>
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>	
-								<div
-									class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
-									id="avoir-voice223">
+								<div class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>" id="avoir-voice223">
 									<div class="tabbable">
 										<ul class="nav nav-tabs">
 											<li class="active"><a href="#avoir-voice-gender2231" data-toggle="tab">männlich</a></li>
 											<li><a href="#avoir-voice-gender2232" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="avoir-voice-gender2231">
+											<div class="tab-pane fade active in" id="avoir-voice-gender2231">
 											<?php
 			$css_class = 'Cyan';
 			$category = '-avoir-interrogative-pronominal-masculine';
@@ -696,8 +671,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<li><a href="#avoir-voice-gender2312" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="avoir-voice-gender2311">
+											<div class="tab-pane fade active in" id="avoir-voice-gender2311">
 											<?php
 			$css_class = 'Peru';
 			$category = 'avoir-negation-active-masculine';
@@ -726,8 +700,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											<li><a href="#avoir-voice-gender2322" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="avoir-voice-gender2321">
+											<div class="tab-pane fade active in" id="avoir-voice-gender2321">
 											<?php
 			$css_class = 'Teal';
 			$category = 'avoir-negation-passive-masculine';
@@ -747,19 +720,16 @@ if ($_GET ["buchstabe"] == "kategorien") {
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> 
 								<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-								<div
-									class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
-									id="avoir-voice233">
+								<div class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>" id="avoir-voice233">
 									<div class="tabbable">
 										<ul class="nav nav-tabs">
 											<li class="active"><a href="#avoir-voice-gender2331" data-toggle="tab">männlich</a></li>
 											<li><a href="#avoir-voice-gender2332" data-toggle="tab">weiblich</a></li>
 										</ul>
 										<div class="tab-content">
-											<div class="tab-pane fade active in"
-												id="avoir-voice-gender2331">
+											<div class="tab-pane fade active in" id="avoir-voice-gender2331">
 											<?php
 			$css_class = 'MediumSeaGreen';
 			$category = 'avoir-negation-pronominal-masculine';
@@ -869,9 +839,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 							</div>
 						</div>						
 						<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<div
-							class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
-							id="voice113">
+						<div class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>" id="voice113">
 							<div class="tabbable">
 								<ul class="nav nav-tabs">
 									<li class="active"><a href="#voice-gender1131" data-toggle="tab">männlich</a></li>
@@ -974,9 +942,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 							</div>
 						</div>
 						<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>					
-						<div
-							class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
-							id="voice123">
+						<div class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>" id="voice123">
 							<div class="tabbable">
 								<ul class="nav nav-tabs">
 									<li class="active"><a href="#voice-gender1231" data-toggle="tab">männlich</a></li>
@@ -1079,9 +1045,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 							</div>
 						</div>
 						<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>
-						<div
-							class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
-							id="voice133">
+						<div class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>" id="voice133">
 							<div class="tabbable">
 								<ul class="nav nav-tabs">
 									<li class="active"><a href="#voice-gender1331" data-toggle="tab">männlich</a></li>
@@ -1147,7 +1111,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 								<div class="tab-content">
 									<div class="tab-pane fade active in" id="voice-gender1111">
                                     <?php
-				$css_class = 'green';
+				$css_class = 'light_blue';
 				$category = '-declarative-active-masculine';
 				require_once ("text.php");
 				print_explanatory_text ( $infinitiveVerb );
@@ -1196,9 +1160,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 							</div>
 						</div>
 			<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>			
-						<div
-							class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>"
-							id="voice113">
+						<div class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in<?php } ?>" id="voice113">
 							<div class="tabbable">
 								<ul class="nav nav-tabs">
 									<li class="active"><a href="#voice-gender1131" data-toggle="tab">männlich</a></li>
