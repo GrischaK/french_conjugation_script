@@ -235,7 +235,7 @@ function aller(Person $person, Tense $tense, Mood $mood, Voice $voice) {
 					] 
 			] 
 	];
-	return $aller_form [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+	return '<i>'.$aller_form [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()].'</i>';
 }
 function venir(Person $person, Tense $tense, Mood $mood, Voice $voice) {
 	$venir_form = [ 
@@ -250,7 +250,7 @@ function venir(Person $person, Tense $tense, Mood $mood, Voice $voice) {
 					] 
 			] 
 	];
-	return $venir_form [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+	return '<i>'.$venir_form [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()].'</i>';
 }
 function etre_passive(Person $person, Tense $tense, Mood $mood) {
 	$etre_passive_form = [ 
@@ -324,8 +324,7 @@ function etre_passive(Person $person, Tense $tense, Mood $mood) {
 					] 
 			] 
 	];
-	
-	return $etre_passive_form [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+	return '<i>'.$etre_passive_form [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()].'</i>';	
 }
 function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $tense, Mood $mood, Voice $voice, SentenceType $sentencetype) {
 	switch ($auxiliaire->getValue ()) {
@@ -504,7 +503,7 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 	if ($mood->getValue () === Mood::Imperatif && $tense->getValue () === Tense::Present && $voice->getValue () === Voice::Passive) {
 		return etre_passive ( $person, $tense, $mood, $voice );
 	}
-	return $conjugated_auxiliaire [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];
+	return '<i>'.$conjugated_auxiliaire [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()].'</i>';
 }
 function finding_auxiliaire(InfinitiveVerb $infinitiveVerb) {
 	if (in_array ( $infinitiveVerb, Auxiliaire::getVerbsThatUse ( new Auxiliaire ( Auxiliaire::Etre ) ) )) {
@@ -528,7 +527,7 @@ function isPlural(Person $person) {
 function conjugate(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense, Mood $mood) {
 	$endingwith = finding_infinitive_ending ( $infinitiveVerb );
 	$exceptionmodel = finding_exception_model ( $infinitiveVerb );
-	$conjugated_verb = word_stem ( $infinitiveVerb, $person, $tense, $mood ) . ending ( $person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb );
+	$conjugated_verb = word_stem ( $infinitiveVerb, $person, $tense, $mood ) . '<span class="ending">'. ending ( $person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb ).'</span>';
 	
 	$word_stem_last_char = mb_substr ( word_stem ( $infinitiveVerb, $person, $tense, $mood ), - 1 );
 	$word_stem_last_2chars = mb_substr ( word_stem ( $infinitiveVerb, $person, $tense, $mood ), - 2 );
@@ -594,11 +593,11 @@ $participe_present = finding_infinitive_ending ( $infinitiveVerb ); // without t
 			EndingWith::RE,
 			EndingWith::OIR			
 	] )) // + all unregular verbs from EndingWith::IR
-		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'ant';
+		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . '<span class="ending">ant</span>';
 	if (finding_infinitive_ending ( $infinitiveVerb )->getValue () === EndingWith::IR)
-		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'issant';
+		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . '<span class="ending">issant</span>';
 	if (finding_infinitive_ending ( $infinitiveVerb )->getValue () === EndingWith::I_TREMA_R)
-		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'ïssant';
+		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . '<span class="ending">ïssant</span>';
 	
 	// BEGIN unregular
 $exceptionmodel = finding_exception_model ( $infinitiveVerb ); // without this line Undefined variable	
@@ -611,27 +610,27 @@ $exceptionmodel = finding_exception_model ( $infinitiveVerb ); // without this l
 			ExceptionModel::VETIR,
 			ExceptionModel::ENIR			
 	] ))
-		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'ant';
+		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . '<span class="ending">ant</span>';
 	if ($exceptionmodel->getValue () === ExceptionModel::AVOIR_IRR)	
-		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'ayant';
+		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . '<span class="ending">ayant</span>';
 	if ($exceptionmodel->getValue () === ExceptionModel::ETRE_IRR)
-		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'étant';
+		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . '<span class="ending">étant</span>';
 	if ($exceptionmodel->getValue () === ExceptionModel::FLEURIR)		
-		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'issant / ' . word_stem_length ( $infinitiveVerb, 5 ) . 'or' . 'issant';
+		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . '<span class="ending">issant</span> / ' . word_stem_length ( $infinitiveVerb, 5 ) . '<span class="unregel">or</span>' . '<span class="ending">issant</span>';
 	if ($exceptionmodel->isNAITRE () || $exceptionmodel->isOITRE () || $exceptionmodel->isAITRE ())
-		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . 'issant';
+		$participe_present = participe_present_word_stem ( $infinitiveVerb ) . '<span class="ending">issant</span>';
 	// END unregular	
 	return $participe_present;
 }
 function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 	if (finding_infinitive_ending ( $infinitiveVerb )->getValue () === EndingWith::ER)
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'é';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">é</span>';
 	if (finding_infinitive_ending ( $infinitiveVerb )->getValue () === EndingWith::IR)
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'i';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">i</span>';
 	if (finding_infinitive_ending ( $infinitiveVerb )->getValue () === EndingWith::I_TREMA_R)
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'ï';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">ï</span>';
 	if (finding_infinitive_ending ( $infinitiveVerb )->getValue () === EndingWith::RE)
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'u';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">u</span>';
 		// beginning unregular
 	$exceptionmodel = finding_exception_model ( $infinitiveVerb ); // without this line Undefined variable
 	if (in_array ( finding_exception_model ( $infinitiveVerb )->getValue (), [ 
@@ -648,23 +647,23 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 			ExceptionModel::FALLOIR,
 			ExceptionModel::PLEUVOIR 
 	] ))
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'u';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">u</span>';
 	if (in_array ( $exceptionmodel->getValue (), [ 
 			ExceptionModel::DEVOIR,
 			ExceptionModel::MOUVOIR,
 			ExceptionModel::OITRE 
 	] ))
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'û';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">û</span>';
 	if ($exceptionmodel->getValue () === ExceptionModel::VIVRE)
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'écu';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">écu</span>';
 	if ($exceptionmodel->getValue () === ExceptionModel::NAITRE)
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'é';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">é</span>';
 	if ($exceptionmodel->getValue () === ExceptionModel::RIR)
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'ert';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">ert</span>';
 	if ($exceptionmodel->getValue () === ExceptionModel::MOURIR)
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'ort';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">ort</span>';
 	if ($exceptionmodel->isQUERIR () || $exceptionmodel->isSEOIR () || $exceptionmodel->isPRENDRE () || $exceptionmodel->isMETTRE ())
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'is';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">is</span>';
 	if ($exceptionmodel->isSEOIR () && (in_array ( $infinitiveVerb, [ 
 			'assoir',
 			'rassoir',
@@ -672,17 +671,17 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 			's’assoir',
 			'sursoir' 
 	] )))
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'sis';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">sis</span>';
 	if ($exceptionmodel->getValue () === ExceptionModel::DEVOIR && substr ( $infinitiveVerb, - 8 ) == 'redevoir')
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'u';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">u</span>';
 	if ($exceptionmodel->getValue () === ExceptionModel::AVOIR_IRR)
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'eu';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">eu</span>';
 	if ($exceptionmodel->getValue () === ExceptionModel::ETRE_IRR)
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'été';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">été</span>';
 	if ($exceptionmodel->isSOUDRE () || $exceptionmodel->isOCCIRE () || $exceptionmodel->isCIRCONCIRE () || $exceptionmodel->isCLORE () || $exceptionmodel->isCLURE ())
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 's';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">s</span>';
 	if ($exceptionmodel->isRIRE () || $exceptionmodel->isSUFFIRE () || $exceptionmodel->isSUIVRE ())
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 'i';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">i</span>';
 	if (in_array ( finding_exception_model ( $infinitiveVerb )->getValue (), [ 
 			ExceptionModel::FAIRE,
 			ExceptionModel::RAIRE,
@@ -696,7 +695,7 @@ function finding_participe_passe(InfinitiveVerb $infinitiveVerb) {
 			ExceptionModel::UIRE,
 			ExceptionModel::BRUIRE 
 	] ))
-		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . 't';
+		$participe_passe = participe_passe_word_stem ( $infinitiveVerb ) . '<span class="ending">t</span>';
 	return $participe_passe;
 }
 function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Mode $mode, Tense $tense, Gender $gender, Voice $voice, SentenceType $sentencetype) {
@@ -707,24 +706,17 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 	$etre_participe_passe = 'été';
 	$etre_infinitive = 'être';
 	$en = 'en';
-	$infinitiveVerb_passe = $auxiliaire->getValue () . ' ' . $participe_passe;
+	$infinitiveVerb_passe = '<i>'.$auxiliaire->getValue () . '</i> ' . $participe_passe;
 	if (($auxiliaire->getValue () === Auxiliaire::Etre || $voice->getValue () === Voice::Passive) && $gender->getValue () === Gender::Feminine)
 		$participe_passe .= 'e';
-	if ($sentencetype->getValue () === SentenceType::DeclarativeSentence || $sentencetype->getValue () === SentenceType::InterrogativeSentence) {
-		if ($voice->getValue () === Voice::Active) {		
-			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Avoir)
-				$participe_passe = $avoir_participe_present . ' ' . $participe_passe;
-			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Etre)
-				$participe_passe = $etre_participe_present . ' ' . $participe_passe;
-		}		
+	if ($sentencetype->getValue () === SentenceType::DeclarativeSentence || $sentencetype->getValue () === SentenceType::InterrogativeSentence) {		
 		if ($voice->getValue () === Voice::Passive) {
 			if ($tense->getValue () === Tense::Present) {
-				$infinitiveVerb = Auxiliaire::Etre . ' ' . $participe_passe;
+				$infinitiveVerb = '<i>'.Auxiliaire::Etre . '</i> ' . $participe_passe;
 				$participe_present = $etre_participe_present . ' ' . $participe_passe;
 			}
 			if ($tense->getValue () === Tense::Passe) {
-				$infinitiveVerb_passe = $auxiliaire->getValue () . ' ' . $etre_participe_passe . ' ' . $participe_passe;
-				$participe_passe = $avoir_participe_present . ' ' . $etre_participe_passe . ' ' . $participe_passe;
+				$infinitiveVerb_passe = '<i>'.$auxiliaire->getValue () . '</i> ' . $etre_participe_passe . ' ' . $participe_passe;
 			}
 		}
 		if ($voice->getValue () === Voice::Pronominal) {
@@ -734,7 +726,6 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 			}
 			if ($tense->getValue () === Tense::Passe) {
 				$infinitiveVerb_passe = concatenate_apostrophized ( 'se', Auxiliaire::Etre ) . ' ' . $participe_passe;
-				$participe_passe = concatenate_apostrophized ( 'se', $etre_participe_present ) . ' ' . $participe_passe;
 			}
 		}
 	}
@@ -745,11 +736,11 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 				$participe_present = concatenate_apostrophized ( 'ne', $participe_present ) . ' ' . 'pas';
 			}
 			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Avoir) {
-				$infinitiveVerb_passe = 'ne pas ' . Auxiliaire::Avoir . ' ' . $participe_passe;
+				$infinitiveVerb_passe = 'ne pas ' . '<i>'.Auxiliaire::Avoir . '</i> ' .$participe_passe;
 				$participe_passe = concatenate_apostrophized ( 'ne', $avoir_participe_present ) . ' pas ' . $participe_passe;
 			}
 			if ($tense->getValue () === Tense::Passe AND $auxiliaire->getValue () === Auxiliaire::Etre ) { 
-				$infinitiveVerb_passe = 'ne pas ' . Auxiliaire::Etre . ' ' . $participe_passe;
+				$infinitiveVerb_passe = 'ne pas ' . '<i>'.Auxiliaire::Etre . '</i> ' .$participe_passe;
 				$participe_passe = concatenate_apostrophized ( 'ne', $etre_participe_present ) . ' pas ' . $participe_passe;
 			}			
 		}
@@ -759,7 +750,7 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 				$participe_present = concatenate_apostrophized ( 'ne', $etre_participe_present ) . ' pas ' . $participe_passe;
 			}
 			if ($tense->getValue () === Tense::Passe) {
-				$infinitiveVerb_passe = 'ne pas' . ' ' . $auxiliaire->getValue () . ' ' . $etre_participe_passe . ' ' . $participe_passe;
+				$infinitiveVerb_passe = 'ne pas' . ' ' . '<i>'.$auxiliaire->getValue () . '</i> ' .$etre_participe_passe . ' ' . $participe_passe;
 				$participe_passe = concatenate_apostrophized ( 'ne', $avoir_participe_present ) . ' pas ' . $etre_participe_passe . ' ' . $participe_passe;
 			}
 		}
@@ -1535,118 +1526,118 @@ abstract class ConjugationPhraseVisitor {
 }
 class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 	function visitSimpleTense(SimpleTenseConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb );
+		return strip_tags( concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_verb ));
 	}
 	function visitSimpleTensesPassive(SimpleTensesPassiveConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->participe_passe;
+		return strip_tags( concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->participe_passe);
 	}
 	function visitSimpleTensePronominal(SimpleTensePronominalConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb );
+		return strip_tags( $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ));
 	}
 	function visitSimpleTenseInterrogativeActice(SimpleTenseInterrogativeActiceConjugationPhrase $visitee) {
-		return concatenate_euphonious_change ( $visitee->conjugated_verb, $visitee->personal_pronoun ) . ' ?';
+		return strip_tags( concatenate_euphonious_change ( $visitee->conjugated_verb, $visitee->personal_pronoun ) . ' ?');
 	}
 	function visitSimpleTenseInterrogativePassive(SimpleTenseInterrogativePassiveConjugationPhrase $visitee) {
-		return concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . $visitee->participe_passe . ' ?';
+		return strip_tags( concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . $visitee->participe_passe . ' ?');
 	}
 	function visitSimpleTenseInterrogativePronominal(SimpleTenseInterrogativePronominalConjugationPhrase $visitee) {
-		return apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ) . ' ' . concatenate_euphonious_change ( $visitee->conjugated_verb, $visitee->personal_pronoun ) . ' ?';
+		return strip_tags( apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ) . ' ' . concatenate_euphonious_change ( $visitee->conjugated_verb, $visitee->personal_pronoun ) . ' ?');
 	}
 	function visitSimpleTenseNegationActive(SimpleTenseNegationActiveConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_verb ) . ' pas';
+		return strip_tags( $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_verb ) . ' pas');
 	}
 	function visitSimpleTenseNegationPassive(SimpleTenseNegationPassiveConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas ' . $visitee->participe_passe;
+		return strip_tags( $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas ' . $visitee->participe_passe);
 	}
 	function visitSimpleTenseNegationPronominal(SimpleTenseNegationPronominalConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ne ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ) . ' pas';
+		return strip_tags( $visitee->personal_pronoun . ' ne ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ) . ' pas');
 	}
 	function visitCompositeTense(CompositeTenseConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->participe_passe;
+		return strip_tags( concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->participe_passe);
 	}
 	function visitCompositeTenseinPassiveVoice(CompositeTenseinPassiveVoiceConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->etre_participe_passe . ' ' . $visitee->participe_passe;
+		return strip_tags( concatenate_apostrophized ( $visitee->personal_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->etre_participe_passe . ' ' . $visitee->participe_passe);
 	}
 	function visitCompositeTensePronominal(CompositeTensePronominalConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->participe_passe;
+		return strip_tags( $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . $visitee->participe_passe);
 	}
 	function visitCompositeTenseInterrogativeActice(CompositeTenseInterrogativeActiceConjugationPhrase $visitee) {
-		return concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . $visitee->participe_passe . ' ?';
+		return strip_tags( concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . $visitee->participe_passe . ' ?');
 	}
 	function visitCompositeTenseInterrogativePassive(CompositeTenseInterrogativePassiveConjugationPhrase $visitee) {
-		return concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . $visitee->etre_participe_passe . ' ' . $visitee->participe_passe . ' ?';
+		return strip_tags( concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . $visitee->etre_participe_passe . ' ' . $visitee->participe_passe . ' ?');
 	} // a-t-il
 	function visitCompositeTenseInterrogativePronominal(CompositeTenseInterrogativePronominalConjugationPhrase $visitee) {
-		return apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . $visitee->participe_passe . ' ?';
+		return strip_tags( apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' ' . concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . $visitee->participe_passe . ' ?');
 	} // se sera-t-il
 	function visitCompositeTenseNegationActive(CompositeTenseNegationActiveConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->participe_passe;
+		return strip_tags( $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->participe_passe);
 	}
 	function visitCompositeTenseNegationPassive(CompositeTenseNegationPassiveConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->etre_participe_passe . ' ' . $visitee->participe_passe;
+		return strip_tags( $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->etre_participe_passe . ' ' . $visitee->participe_passe);
 	}
 	function visitCompositeTenseNegationPronominal(CompositeTenseNegationPronominalConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ne ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->participe_passe;
+		return strip_tags( $visitee->personal_pronoun . ' ne ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->participe_passe);
 	}
 	function visitFuturComposeTense(FuturComposeTenseConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->infinitiveVerb;
+		return strip_tags( $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->infinitiveVerb);
 	}
 	function visitFuturComposePronominal(FuturComposeTensePronominalConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb );
+		return strip_tags( $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ));
 	}
 	function visitFuturComposeInterrogativeActive(FuturComposeTenseInterrogativeActiveConjugationPhrase $visitee) {
-		return concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . $visitee->infinitiveVerb . ' ?';
+		return strip_tags( concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . $visitee->infinitiveVerb . ' ?');
 	}
 	function visitFuturComposeInterrogativePronominal(FuturComposeTenseInterrogativePronominalConjugationPhrase $visitee) {
-		return concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ) . ' ?';
+		return strip_tags( concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ) . ' ?');
 	}
 	function visitFuturComposeNegationActive(FuturComposeTenseNegationActiveConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->infinitiveVerb;
+		return strip_tags( $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->infinitiveVerb);
 	}
 	function visitFuturComposeNegationPronominal(FuturComposeTenseNegationPronominalConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb );
+		return strip_tags( $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ));
 	}
 	function visitPasseRecent(PasseRecentTenseConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . concatenate_apostrophized ( 'de', $visitee->infinitiveVerb );
+		return strip_tags( $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' ' . concatenate_apostrophized ( 'de', $visitee->infinitiveVerb ));
 	}
 	function visitPasseRecentPronominal(PasseRecentTensePronominalConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' de ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb );
+		return strip_tags( $visitee->personal_pronoun . ' ' . $visitee->conjugated_auxiliaire_verb . ' de ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ));
 	}
 	function visitPasseRecentInterrogativeActive(PasseRecentTenseInterrogativeActiveConjugationPhrase $visitee) {
-		return concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . concatenate_apostrophized ( 'de', $visitee->infinitiveVerb ) . ' ?';
+		return strip_tags( concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' ' . concatenate_apostrophized ( 'de', $visitee->infinitiveVerb ) . ' ?');
 	}
 	function visitPasseRecentInterrogativePronominal(PasseRecentTenseInterrogativePronominalConjugationPhrase $visitee) {
-		return concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' de ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ) . ' ?';
+		return strip_tags( concatenate_euphonious_change ( $visitee->conjugated_auxiliaire_verb, $visitee->personal_pronoun ) . ' de ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ) . ' ?');
 	}
 	function visitPasseRecentNegationActive(PasseRecentTenseNegationActiveConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . concatenate_apostrophized ( 'de', $visitee->infinitiveVerb );
+		return strip_tags( $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . concatenate_apostrophized ( 'de', $visitee->infinitiveVerb ));
 	}
 	function visitPasseRecentNegationPronominal(PasseRecentTenseNegationPronominalConjugationPhrase $visitee) {
-		return $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas de ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb );
+		return strip_tags( $visitee->personal_pronoun . ' ' . concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas de ' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->infinitiveVerb ));
 	}
 	function visitImperatifPresentTense(ImperatifPresentTenseConjugationPhrase $visitee) {
-		return $visitee->conjugated_verb;
+		return strip_tags( $visitee->conjugated_verb);
 	}
 	function visitImperatifPresentTenseinPassiveVoice(ImperatifPresentTenseinPassiveVoiceConjugationPhrase $visitee) {
-		return $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->conjugated_verb;
+		return strip_tags( $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->conjugated_verb);
 	}
 	function visitImperatifPresentTensePronominal(ImperatifPresentTensePronominalConjugationPhrase $visitee) {
-		return $visitee->conjugated_verb . $visitee->reflexive_pronoun;
+		return strip_tags( $visitee->conjugated_verb . $visitee->reflexive_pronoun);
 	}
 	function visitImperatifPresentNegationActive(ImperatifPresentTenseNegationActiveConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas';
+		return strip_tags( concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas');
 	}
 	function visitImperatifPresentNegationPassive(ImperatifPresentTenseNegationPassiveConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->conjugated_verb;
+		return strip_tags( concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas' . ' ' . $visitee->conjugated_verb);
 	}
 	function visitImperatifPresentNegationPronominal(ImperatifPresentTenseNegationPronominalConjugationPhrase $visitee) {
-		return 'ne' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ) . ' pas';
+		return strip_tags( 'ne' . concatenate_apostrophized ( $visitee->reflexive_pronoun, $visitee->conjugated_verb ) . ' pas');
 	}
 	function visitImperatifPasse(ImperatifPasseTenseConjugationPhrase $visitee) {
-		return $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->participe_passe;
+		return strip_tags( $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->participe_passe);
 	}
 	function visitImperatifPasseNegation(ImperatifPasseTenseNegationConjugationPhrase $visitee) {
-		return concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas ' . $visitee->participe_passe;
+		return strip_tags( concatenate_apostrophized ( 'ne', $visitee->conjugated_auxiliaire_verb ) . ' pas ' . $visitee->participe_passe);
 	}
 	function visitNotExisting(NoConjugationPhrase $visitee) {
 		return '-';

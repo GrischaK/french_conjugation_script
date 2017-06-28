@@ -435,8 +435,8 @@ function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gen
 	];
 	$modes = [ 
 			Mode::Infinitif => 'Infinitif',
-			Mode::Participe => 'Participe',
-			Mode::Gerondif => 'Gérondif' 
+			Mode::Gerondif => 'Gérondif',			
+			Mode::Participe => 'Participe' 
 	];
 	echo "\t\t" . '<tr>' . PHP_EOL;
 	echo "\t\t\t" . '<th class="titel_new ' . $css_class . '">Mode</th>' . PHP_EOL;
@@ -448,7 +448,7 @@ function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gen
 		echo "\t\t\t" . '<td class="text-center"><b>' . $mode_name . '</b></td>' . PHP_EOL;
 		foreach ( $tenses as $tense ) {
 			$output_modes = modes_impersonnels ( $infinitiveVerb, $auxiliaire, new Mode ( $mode ), new Tense ( $tense ), new Gender ( $gender ), new Voice ( $voice ), new SentenceType ( $sentencetype ) );
-			echo "\t\t\t" . '<td><span data-text="' . $output_modes . '" data-lang="fr" class="trigger_play"></span>' . $output_modes . '</td>' . PHP_EOL;
+			echo "\t\t\t" . '<td><span data-text="' .  strip_tags($$output_modes) . '" data-lang="fr" class="trigger_play"></span>' . $output_modes . '</td>' . PHP_EOL;
 		}
 		echo "\t\t" . '</tr>' . PHP_EOL;
 	}
