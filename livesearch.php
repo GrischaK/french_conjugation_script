@@ -9,7 +9,7 @@ $num = 0;
 $hint = "";
 foreach ( $infinitiveVerb as $output ) {
 		if (preg_match ( "/^" . $_GET ['pattern'] . "/", $output )) {
-			$hint .= "<a class=\"franzoesisch konju\" href='" . substr ( $test, 0, 1 ) . "/" . $output . "/'>" . $output . "</a>";
+			$hint .= "<a class=\"franzoesisch konju\" href='" . substr ( $output, 0, 1 ) . "/" . $output . "/'>" . $output . "</a>";
 			$num ++;
 		}
 	if ($num > 10)
