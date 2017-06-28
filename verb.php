@@ -10,6 +10,7 @@ require_once 'groups/irregular-verb-groups.php';
 require_once 'groups/verbes_defectifs.php';
 require_once 'groups/verbes_en_ancien.php';
 require_once 'groups/verbes_impersonnels.php';
+require_once 'groups/translation.php';
 $func_array = [ 
 		preg_grep ( "/.*er$/", $infinitiveVerb ),
 		preg_grep ( "/.*[iï]r$/", $infinitiveVerb ),
