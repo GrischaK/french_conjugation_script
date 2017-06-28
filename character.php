@@ -6,10 +6,9 @@ function filter_factory($letter) {
     return function ($input) use ($letter) {
         return is_string($input) && $input[0] === $letter;
     };
-}		
-	
+}
 	if(strlen($params[0])>1){
-		$array = preg_grep("/^".$params[0].".*/",substr($infinitiveVerb,0,1));	
+		$array = preg_grep("/^".$params[0].".*/",$infinitiveVerb);	
 		$h1='Suchergebnisse für '.$params[0];
 	}else{
 		$array = array_filter($infinitiveVerb, filter_factory($params[0])); 
@@ -18,7 +17,7 @@ function filter_factory($letter) {
 ?>
 <h1><?php echo $h1; ?></h1>
 <?php translation('la conjugaison','die Konjugation'); ?>
-<p class="well">Hier finden sie alle Verben, die mit <?php echo ucfirst($params[0]);?> beginnen. Zu jeder Vokabel finden Sie die Konjugation für den Indicatif, Subjonctif, Conditionnel und sowie den Impératif, Infinitif, Gérondif und Participe Modus.</p>
+<p class="well">Hier finden sie alle Verben, die mit <?php echo ($params[0]);?> beginnen. Zu jeder Vokabel finden Sie die Konjugation für den Indicatif, Subjonctif, Conditionnel und sowie den Impératif, Infinitif, Gérondif und Participe Modus.</p>
 <?php
 	$num=0;
 	$start=0;
