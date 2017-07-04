@@ -287,7 +287,7 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return "\t\t\t" . '<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
 	}
 	function visitImperatifPresentTenseinPassiveVoice(ImperatifPresentTenseinPassiveVoiceConjugationPhrase $visitee) {
-		return "\t\t\t" . '<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . "\t\t\t" . '<td>' . $visitee->conjugated_verb . '</td>' . PHP_EOL;
+		return "\t\t\t" . '<td>' . $visitee->conjugated_auxiliaire_verb . '</td>' . PHP_EOL . "\t\t\t" . '<td>' . $visitee->participe_passe . '</td>' . PHP_EOL;
 	}
 	function visitImperatifPresentTensePronominal(ImperatifPresentTensePronominalConjugationPhrase $visitee) {
 		return "\t\t\t" . '<td>' . $visitee->conjugated_verb . $visitee->reflexive_pronoun . '</td>' . PHP_EOL;

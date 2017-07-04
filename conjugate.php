@@ -1007,7 +1007,7 @@ abstract class ConjugationPhrase {
 					}
 					if ($voice->getValue () === Voice::Passive) {
 						$conjugated_auxiliaire_verb = new ConjugatedAuxiliaireVerb ( $auxiliaire, $person, $tense, $mood, $voice, $sentencetype );
-						return new ImperatifPresentTenseinPassiveVoiceConjugationPhrase ( $conjugated_auxiliaire_verb, $conjugated_verb );
+						return new ImperatifPresentTenseinPassiveVoiceConjugationPhrase ( $conjugated_auxiliaire_verb, $participe_passe );
 					}
 					if ($voice->getValue () === Voice::Pronominal) {
 						return new ImperatifPresentTensePronominalConjugationPhrase ( $conjugated_verb, $reflexive_pronoun );
@@ -1407,10 +1407,10 @@ class ImperatifPresentTenseinPassiveVoiceConjugationPhrase extends ConjugationPh
 	function accept(ConjugationPhraseVisitor $visitor) {
 		return $visitor->visitImperatifPresentTenseinPassiveVoice ( $this );
 	}
-	public $conjugated_auxiliaire_verb, $conjugated_verb;
-	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, ConjugatedVerb $conjugated_verb) {
+	public $conjugated_auxiliaire_verb, $participe_passe;
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
-		$this->conjugated_verb = $conjugated_verb;
+		$this->participe_passe = $participe_passe;
 	}
 }
 class ImperatifPresentTensePronominalConjugationPhrase extends ConjugationPhrase {
@@ -1619,7 +1619,7 @@ class GoogleTTSConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 		return strip_tags( $visitee->conjugated_verb);
 	}
 	function visitImperatifPresentTenseinPassiveVoice(ImperatifPresentTenseinPassiveVoiceConjugationPhrase $visitee) {
-		return strip_tags( $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->conjugated_verb);
+		return strip_tags( $visitee->conjugated_auxiliaire_verb . ' ' . $visitee->participe_passe);
 	}
 	function visitImperatifPresentTensePronominal(ImperatifPresentTensePronominalConjugationPhrase $visitee) {
 		return strip_tags( $visitee->conjugated_verb . $visitee->reflexive_pronoun);
