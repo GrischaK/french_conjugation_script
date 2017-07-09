@@ -4,12 +4,11 @@ require_once 'groups/verbes_impersonnels.php';
 function recursiveRemoval(&$array, $val) {
 	if (is_array ( $array )) {
 		foreach ( $array as $key => &$arrayElement ) {
-			if (is_array ( $arrayElement )) {
+			if (is_array ( $arrayElement ))
 				recursiveRemoval ( $arrayElement, $val );
-			} else {
-				if ($arrayElement == $val) {
+			else {
+				if ($arrayElement == $val)
 					unset ( $array [$key] );
-				}
 			}
 		}
 	}
@@ -357,15 +356,14 @@ function print_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Ge
 			Tense::Premiere_Forme => 'Passé première forme',
 			Tense::Deuxieme_Forme => 'Passé deuxième forme' 
 	];
-if (is_array($tenses [$mood->getValue ()]) || is_object($tenses [$mood->getValue ()]))
-{	
-	foreach ( $tenses [$mood->getValue ()] as $tense ) {
-		echo "\t\t" . '<tr class="border">' . PHP_EOL;
-		echo "\t\t\t" . '<th colspan="' . colspan_number ( $mood, new Tense ( $tense ), $voice, $sentencetype ) . '">' . $th_of_tense [$tense] . '</th>' . PHP_EOL;
-		echo "\t\t" . '</tr>' . PHP_EOL;
-		print_persons ( $infinitiveVerb, $auxiliaire, $gender, $voice, new SentenceType ( $sentencetype ), new Tense ( $tense ), new Mood ( $mood ) );
-	}
-}	
+	if (is_array($tenses [$mood->getValue ()]) || is_object($tenses [$mood->getValue ()])) {	
+		foreach ( $tenses [$mood->getValue ()] as $tense ) {
+			echo "\t\t" . '<tr class="border">' . PHP_EOL;
+			echo "\t\t\t" . '<th colspan="' . colspan_number ( $mood, new Tense ( $tense ), $voice, $sentencetype ) . '">' . $th_of_tense [$tense] . '</th>' . PHP_EOL;
+			echo "\t\t" . '</tr>' . PHP_EOL;
+			print_persons ( $infinitiveVerb, $auxiliaire, $gender, $voice, new SentenceType ( $sentencetype ), new Tense ( $tense ), new Mood ( $mood ) );
+		}
+	}	
 }
 function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Mood $mood) {
 	global $verbes_impersonnels;
@@ -388,8 +386,7 @@ function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxilia
 			] 
 	];
 	if (in_array ( $infinitiveVerb, $verbes_impersonnels ))
-		unset ( $tenses [Mood::Imperatif] );
-	
+		unset ( $tenses [Mood::Imperatif] );	
 	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, $mood, $tenses );
 }
 function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Mood $mood) {
@@ -416,8 +413,7 @@ function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxi
 			] 
 	];
 	if (in_array ( $infinitiveVerb, $verbes_impersonnels ))
-		unset ( $tenses [Mood::Imperatif] );
-	
+		unset ( $tenses [Mood::Imperatif] );	
 	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, $mood, $tenses );
 }
 function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype) {
@@ -462,8 +458,7 @@ function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $
 	];
 	
 	if (in_array ( $infinitiveVerb, $verbes_impersonnels ))
-		unset ( $moods [Mood::Imperatif], $h2_of_mood [Mood::Imperatif]); 
-	
+		unset ( $moods [Mood::Imperatif], $h2_of_mood [Mood::Imperatif]); 	
 	foreach ( $moods as $mood ) {
 		echo '<h2 class="home"><a id="' . strtolower ( $h2_of_mood [$mood] ) . $category . '"></a>' . $h2_of_mood [$mood] . '</h2>' . PHP_EOL;
 		echo "\t" . '<hr class="linie " />' . PHP_EOL;

@@ -483,26 +483,21 @@ function conjugated_auxiliaire(Auxiliaire $auxiliaire, Person $person, Tense $te
 			];
 			break;
 	}
-	if ($tense->getValue () === Tense::Futur_compose) {
+	if ($tense->getValue () === Tense::Futur_compose)
 		return aller ( $person, $tense, $mood, $voice );
-	}
-	if ($tense->getValue () === Tense::Passe_recent) {
+	if ($tense->getValue () === Tense::Passe_recent)
 		return venir ( $person, $tense, $mood, $voice );
-	}
-	if (! isComposite ( $mood, $tense ) && $voice->getValue () === Voice::Passive) {
+	if (! isComposite ( $mood, $tense ) && $voice->getValue () === Voice::Passive) 
 		return etre_passive ( $person, $tense, $mood, $voice );
-	}
-	if ($mood->getValue () === Mood::Imperatif && $tense->getValue () === Tense::Present && $voice->getValue () === Voice::Passive) {
+	if ($mood->getValue () === Mood::Imperatif && $tense->getValue () === Tense::Present && $voice->getValue () === Voice::Passive)
 		return etre_passive ( $person, $tense, $mood, $voice );
-	}
-	return '<i>'.$conjugated_auxiliaire [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()].'</i>';
+	return $conjugated_auxiliaire [$mood->getValue ()] [$tense->getValue ()] [$person->getValue ()];		
 }
 function finding_auxiliaire(InfinitiveVerb $infinitiveVerb) {
-	if (in_array ( $infinitiveVerb, Auxiliaire::getVerbsThatUse ( new Auxiliaire ( Auxiliaire::Etre ) ) )) {
+	if (in_array ( $infinitiveVerb, Auxiliaire::getVerbsThatUse ( new Auxiliaire ( Auxiliaire::Etre ) ) ))
 		$auxiliaire = Auxiliaire::Etre;
-	} else {
+	else 
 		$auxiliaire = Auxiliaire::Avoir;
-	}
 	return new Auxiliaire ( $auxiliaire );
 }
 function canBeConjugatedWith(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire) {
@@ -531,27 +526,20 @@ function conjugate(InfinitiveVerb $infinitiveVerb, Person $person, Tense $tense,
 			'planchéier',
 			'paranoïer',
 			'fleurir' 
-	] )) // should be replaced with static $ier + $e_akut_ier + $i_trema_er
-{ // example used it: $fuir verbs
+	] )) // should be replaced with static $ier + $e_akut_ier + $i_trema_er // example used it: $fuir verbs
 		return mb_substr ( word_stem ( $infinitiveVerb, $person, $tense, $mood ), 0, - 1 ) . ending ( $person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb ); // delete last char in word_stem
-	}
-	if (in_array ( $word_stem_last_2chars, [ 'oi' ] ) && in_array ( $ending_first_char, [ 'u' ] )) // should be replaced with static $boire
-{ // example used it: $boire verbs for Indicative Passe+Subjontif Imparfait
+	if (in_array ( $word_stem_last_2chars, [ 'oi' ] ) && in_array ( $ending_first_char, [ 'u' ] )) // should be replaced with static $boire // example used it: $boire verbs for Indicative Passe+Subjontif Imparfait
 		return mb_substr ( word_stem ( $infinitiveVerb, $person, $tense, $mood ), 0, - 2 ) . ending ( $person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb ); // delete last char i
-	}
-	if (in_array ( $word_stem_last_char, [ 'i' ] ) && in_array ( $ending_first_char, [ 'u','y' ] )) // should be replaced with static $lire
-{ // example used it: $lire verbs for Indicative Passe+Subjontif Imparfait
+	if (in_array ( $word_stem_last_char, [ 'i' ] ) && in_array ( $ending_first_char, [ 'u','y' ] )) // should be replaced with static $lire // example used it: $lire verbs for Indicative Passe+Subjontif Imparfait
 		return mb_substr ( word_stem ( $infinitiveVerb, $person, $tense, $mood ), 0, - 1 ) . ending ( $person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb ); // delete last char in word_stem
-	}
-	
 	if (in_array ( $word_stem_last_char, [ 
 			'c', // used in VAINCRE
 			'd', // used in COUDRE + DRE,
 			't' 
 	] ) && // used in VETIR
-$ending_first_char == 't') {
+$ending_first_char == 't')
 		return word_stem ( $infinitiveVerb, $person, $tense, $mood ) . mb_substr ( ending ( $person, $tense, $mood, $endingwith, $exceptionmodel, $infinitiveVerb ), 0, - 1 ); // delete ending string
-	} else
+	else
 		return $conjugated_verb;
 }
 function isComposite(Mood $mood, Tense $tense) {
