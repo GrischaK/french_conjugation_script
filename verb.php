@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" media="screen" property="stylesheet" href="../../tabs.css" />
+<script type="text/javascript" src="../../tooltip.js"></script>
 <?php
 require_once 'classes/Auxiliaire.php';
 require_once 'classes/InfinitiveVerb.php';
