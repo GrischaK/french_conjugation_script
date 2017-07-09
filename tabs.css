@@ -1,8 +1,8 @@
-.tab_new{line-height:1;border-spacing:1px;width:48%;display:inline-table;}
+.tab_new{line-height:1;width:48%;display:inline-table;}
 .titel_new,.tab_new th{font-weight:bold;text-align:center;}
 .tab_new tr td:first-child{width:20%}
 .tab_new tr td:nth-child(2){width:20%}
-.tab_new td{padding-top:5px;padding-left:1px;padding-right:1px;}
+.tab_new td{padding:5px 1px 1px 0px;}
 
 .light_blue th{background-color:#b9c9fe;}
 .green th{background-color:GreenYellow;}
