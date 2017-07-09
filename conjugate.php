@@ -1,6 +1,8 @@
 <?php
 require_once 'classes/Enum.php';
 require_once 'classes/InfinitiveVerb.php';
+require_once 'classes/PersonalPronoun.php';
+require_once 'classes/ReflexivePronoun.php';
 require_once 'classes/ConjugatedVerb.php';
 require_once 'classes/ConjugatedAuxiliaireVerb.php';
 require_once 'classes/EndingWith.php';
@@ -19,11 +21,7 @@ require_once 'word_stem.php';
 require_once 'groups/verbes_pronominaux.php';
 require_once 'groups/verbes_exclusivement_pronominaux.php';
 require_once 'groups/h_apire.php';
-// require_once 'groups/verbes_intransitifs.php';
-// require_once 'groups/verbes_transitifs.php';
 // require_once 'groups/irregular-verb-groups.php';
-// require_once 'groups/verbes_defectifs.php';
-// require_once 'groups/verbes_en_ancien.php';
 function finding_infinitive_ending(InfinitiveVerb $infinitiveVerb) {
 	switch (mb_substr ( $infinitiveVerb->getInfinitiveVerb (), - 2, 2 )) {
 		case 'er' :
@@ -124,8 +122,7 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb) {
 			ExceptionModel::UIRE => IrregularExceptionGroup::$uire,
 			ExceptionModel::BRUIRE => IrregularExceptionGroup::$bruire,
 			ExceptionModel::CLORE => IrregularExceptionGroup::$clore,
-			ExceptionModel::ROMPRE => IrregularExceptionGroup::$rompre,
-			
+			ExceptionModel::ROMPRE => IrregularExceptionGroup::$rompre,			
 			ExceptionModel::AITRE => IrregularExceptionGroup::$aitre,
 			ExceptionModel::NAITRE => IrregularExceptionGroup::$naitre,
 			ExceptionModel::OITRE => IrregularExceptionGroup::$oitre,
@@ -141,8 +138,7 @@ function finding_exception_model(InfinitiveVerb $infinitiveVerb) {
 		if (in_array ( $infinitiveVerb, $irregularExceptionGroup )) {
 			$exceptionmodel = $exceptionModel;
 		}
-	}
-	
+	}	
 	return new ExceptionModel ( $exceptionmodel );
 }
 function finding_conjugation_model(InfinitiveVerb $infinitiveVerb) {
@@ -192,7 +188,7 @@ function personal_pronoun(Person $person, Gender $gender, Mood $mood) {
 	
 	if ($mood->getValue () === Mood::Subjonctif) {
 		return $subjonctif_pre_pronouns [$person->getValue ()] . $finding_person [$person->getValue ()];
-	} else {
+	} else {	
 		return $finding_person [$person->getValue ()];
 	}
 }
@@ -1060,7 +1056,7 @@ class SimpleTenseConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitSimpleTense ( $this );
 	}
 	public $personal_pronoun, $conjugated_verb;
-	public function __construct($personal_pronoun, ConjugatedVerb $conjugated_verb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedVerb $conjugated_verb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_verb = $conjugated_verb;
 	}
@@ -1070,7 +1066,7 @@ class SimpleTensePronominalConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitSimpleTensePronominal ( $this );
 	}
 	public $personal_pronoun, $reflexive_pronoun, $conjugated_verb;
-	public function __construct($personal_pronoun, $reflexive_pronoun, ConjugatedVerb $conjugated_verb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ReflexivePronoun $reflexive_pronoun, ConjugatedVerb $conjugated_verb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->reflexive_pronoun = $reflexive_pronoun;
 		$this->conjugated_verb = $conjugated_verb;
@@ -1081,7 +1077,7 @@ class SimpleTensesPassiveConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitSimpleTensesPassive ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->participe_passe = $participe_passe;
@@ -1092,7 +1088,7 @@ class SimpleTenseInterrogativeActiceConjugationPhrase extends ConjugationPhrase 
 		return $visitor->visitSimpleTenseInterrogativeActice ( $this );
 	}
 	public $conjugated_verb, $personal_pronoun;
-	public function __construct(ConjugatedVerb $conjugated_verb, $personal_pronoun) {
+	public function __construct(ConjugatedVerb $conjugated_verb, PersonalPronoun $personal_pronoun) {
 		$this->conjugated_verb = $conjugated_verb;
 		$this->personal_pronoun = $personal_pronoun;
 	}
@@ -1102,7 +1098,7 @@ class SimpleTenseInterrogativePassiveConjugationPhrase extends ConjugationPhrase
 		return $visitor->visitSimpleTenseInterrogativePassive ( $this );
 	}
 	public $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe;
-	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe) {
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, PersonalPronoun $personal_pronoun, $participe_passe) {
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->personal_pronoun = $personal_pronoun;
 		$this->participe_passe = $participe_passe;
@@ -1113,7 +1109,7 @@ class SimpleTenseInterrogativePronominalConjugationPhrase extends ConjugationPhr
 		return $visitor->visitSimpleTenseInterrogativePronominal ( $this );
 	}
 	public $reflexive_pronoun, $conjugated_verb, $personal_pronoun;
-	public function __construct($reflexive_pronoun, ConjugatedVerb $conjugated_verb, $personal_pronoun) {
+	public function __construct($reflexive_pronoun, ConjugatedVerb $conjugated_verb, PersonalPronoun $personal_pronoun) {
 		$this->reflexive_pronoun = $reflexive_pronoun;
 		$this->conjugated_verb = $conjugated_verb;
 		$this->personal_pronoun = $personal_pronoun;
@@ -1124,7 +1120,7 @@ class SimpleTenseNegationActiveConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitSimpleTenseNegationActive ( $this );
 	}
 	public $personal_pronoun, $conjugated_verb;
-	public function __construct($personal_pronoun, ConjugatedVerb $conjugated_verb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedVerb $conjugated_verb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_verb = $conjugated_verb;
 	}
@@ -1134,7 +1130,7 @@ class SimpleTenseNegationPassiveConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitSimpleTenseNegationPassive ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->participe_passe = $participe_passe;
@@ -1145,7 +1141,7 @@ class SimpleTenseNegationPronominalConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitSimpleTenseNegationPronominal ( $this );
 	}
 	public $personal_pronoun, $reflexive_pronoun, $conjugated_verb;
-	public function __construct($personal_pronoun, $reflexive_pronoun, ConjugatedVerb $conjugated_verb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ReflexivePronoun $reflexive_pronoun, ConjugatedVerb $conjugated_verb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->reflexive_pronoun = $reflexive_pronoun;
 		$this->conjugated_verb = $conjugated_verb;
@@ -1156,7 +1152,7 @@ class CompositeTenseConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitCompositeTense ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->participe_passe = $participe_passe;
@@ -1167,7 +1163,7 @@ class CompositeTenseinPassiveVoiceConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitCompositeTenseinPassiveVoice ( $this );
 	}
 	public $personal_pronoun, $etre_participe_passe, $conjugated_auxiliaire_verb, $participe_passe;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->etre_participe_passe = $etre_participe_passe;
@@ -1179,7 +1175,7 @@ class CompositeTensePronominalConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitCompositeTensePronominal ( $this );
 	}
 	public $personal_pronoun, $reflexive_pronoun, $conjugated_auxiliaire_verb, $participe_passe;
-	public function __construct($personal_pronoun, $reflexive_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
+	public function __construct(PersonalPronoun $personal_pronoun, ReflexivePronoun $reflexive_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->reflexive_pronoun = $reflexive_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
@@ -1191,7 +1187,7 @@ class CompositeTenseInterrogativeActiceConjugationPhrase extends ConjugationPhra
 		return $visitor->visitCompositeTenseInterrogativeActice ( $this );
 	}
 	public $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe;
-	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe) {
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, PersonalPronoun $personal_pronoun, $participe_passe) {
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->personal_pronoun = $personal_pronoun;
 		$this->participe_passe = $participe_passe;
@@ -1202,7 +1198,7 @@ class CompositeTenseInterrogativePassiveConjugationPhrase extends ConjugationPhr
 		return $visitor->visitCompositeTenseInterrogativePassive ( $this );
 	}
 	public $conjugated_auxiliaire_verb, $personal_pronoun, $etre_participe_passe, $participe_passe;
-	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $etre_participe_passe, $participe_passe) {
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, PersonalPronoun $personal_pronoun, $etre_participe_passe, $participe_passe) {
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->personal_pronoun = $personal_pronoun;
 		$this->etre_participe_passe = $etre_participe_passe;
@@ -1214,7 +1210,7 @@ class CompositeTenseInterrogativePronominalConjugationPhrase extends Conjugation
 		return $visitor->visitCompositeTenseInterrogativePronominal ( $this );
 	} // me suis-je aimé
 	public $reflexive_pronoun, $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe;
-	public function __construct($reflexive_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $participe_passe) {
+	public function __construct($reflexive_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, PersonalPronoun $personal_pronoun, $participe_passe) {
 		$this->reflexive_pronoun = $reflexive_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->personal_pronoun = $personal_pronoun;
@@ -1226,7 +1222,7 @@ class CompositeTenseNegationActiveConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitCompositeTenseNegationActive ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $participe_passe;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->participe_passe = $participe_passe;
@@ -1237,7 +1233,7 @@ class CompositeTenseNegationPassiveConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitCompositeTenseNegationPassive ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $etre_participe_passe, $participe_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->etre_participe_passe = $etre_participe_passe;
@@ -1249,7 +1245,7 @@ class CompositeTenseNegationPronominalConjugationPhrase extends ConjugationPhras
 		return $visitor->visitCompositeTenseNegationPronominal ( $this );
 	}
 	public $personal_pronoun, $reflexive_pronoun, $conjugated_auxiliaire_verb, $participe_passe;
-	public function __construct($personal_pronoun, $reflexive_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
+	public function __construct(PersonalPronoun $personal_pronoun, ReflexivePronoun $reflexive_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $participe_passe) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->reflexive_pronoun = $reflexive_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
@@ -1261,7 +1257,7 @@ class FuturComposeTenseConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitFuturComposeTense ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $infinitiveVerb;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, InfinitiveVerb $infinitiveVerb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->infinitiveVerb = $infinitiveVerb;
@@ -1272,7 +1268,7 @@ class FuturComposeTensePronominalConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitFuturComposePronominal ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $reflexive_pronoun, $infinitiveVerb;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->reflexive_pronoun = $reflexive_pronoun;
@@ -1284,7 +1280,7 @@ class FuturComposeTenseInterrogativeActiveConjugationPhrase extends ConjugationP
 		return $visitor->visitFuturComposeInterrogativeActive ( $this );
 	}
 	public $conjugated_auxiliaire_verb, $personal_pronoun, $infinitiveVerb;
-	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, PersonalPronoun $personal_pronoun, InfinitiveVerb $infinitiveVerb) {
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->personal_pronoun = $personal_pronoun;
 		$this->infinitiveVerb = $infinitiveVerb;
@@ -1295,7 +1291,7 @@ class FuturComposeTenseInterrogativePronominalConjugationPhrase extends Conjugat
 		return $visitor->visitFuturComposeInterrogativePronominal ( $this );
 	}
 	public $conjugated_auxiliaire_verb, $personal_pronoun, $reflexive_pronoun, $infinitiveVerb;
-	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, PersonalPronoun $personal_pronoun, ReflexivePronoun $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->personal_pronoun = $personal_pronoun;
 		$this->reflexive_pronoun = $reflexive_pronoun;
@@ -1307,7 +1303,7 @@ class FuturComposeTenseNegationActiveConjugationPhrase extends ConjugationPhrase
 		return $visitor->visitFuturComposeNegationActive ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $infinitiveVerb;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, InfinitiveVerb $infinitiveVerb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->infinitiveVerb = $infinitiveVerb;
@@ -1318,7 +1314,7 @@ class FuturComposeTenseNegationPronominalConjugationPhrase extends ConjugationPh
 		return $visitor->visitFuturComposeNegationPronominal ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $reflexive_pronoun, $infinitiveVerb;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, ReflexivePronoun $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->reflexive_pronoun = $reflexive_pronoun;
@@ -1330,7 +1326,7 @@ class PasseRecentTenseConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitPasseRecent ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $infinitiveVerb;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, InfinitiveVerb $infinitiveVerb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->infinitiveVerb = $infinitiveVerb;
@@ -1341,7 +1337,7 @@ class PasseRecentTensePronominalConjugationPhrase extends ConjugationPhrase {
 		return $visitor->visitPasseRecentPronominal ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $reflexive_pronoun, $infinitiveVerb;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, ReflexivePronoun $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->reflexive_pronoun = $reflexive_pronoun;
@@ -1353,7 +1349,7 @@ class PasseRecentTenseInterrogativeActiveConjugationPhrase extends ConjugationPh
 		return $visitor->visitPasseRecentInterrogativeActive ( $this );
 	}
 	public $conjugated_auxiliaire_verb, $personal_pronoun, $infinitiveVerb;
-	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb,PersonalPronoun $personal_pronoun, InfinitiveVerb $infinitiveVerb) {
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->personal_pronoun = $personal_pronoun;
 		$this->infinitiveVerb = $infinitiveVerb;
@@ -1364,7 +1360,7 @@ class PasseRecentTenseInterrogativePronominalConjugationPhrase extends Conjugati
 		return $visitor->visitPasseRecentInterrogativePronominal ( $this );
 	}
 	public $conjugated_auxiliaire_verb, $personal_pronoun, $reflexive_pronoun, $infinitiveVerb;
-	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $personal_pronoun, $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb,PersonalPronoun $personal_pronoun, ReflexivePronoun $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->personal_pronoun = $personal_pronoun;
 		$this->reflexive_pronoun = $reflexive_pronoun;
@@ -1376,7 +1372,7 @@ class PasseRecentTenseNegationActiveConjugationPhrase extends ConjugationPhrase 
 		return $visitor->visitPasseRecentNegationActive ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $infinitiveVerb;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, InfinitiveVerb $infinitiveVerb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->infinitiveVerb = $infinitiveVerb;
@@ -1387,7 +1383,7 @@ class PasseRecentTenseNegationPronominalConjugationPhrase extends ConjugationPhr
 		return $visitor->visitPasseRecentNegationPronominal ( $this );
 	}
 	public $personal_pronoun, $conjugated_auxiliaire_verb, $reflexive_pronoun, $infinitiveVerb;
-	public function __construct($personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
+	public function __construct(PersonalPronoun $personal_pronoun, ConjugatedAuxiliaireVerb $conjugated_auxiliaire_verb, ReflexivePronoun $reflexive_pronoun, InfinitiveVerb $infinitiveVerb) {
 		$this->personal_pronoun = $personal_pronoun;
 		$this->conjugated_auxiliaire_verb = $conjugated_auxiliaire_verb;
 		$this->reflexive_pronoun = $reflexive_pronoun;
@@ -1418,7 +1414,7 @@ class ImperatifPresentTensePronominalConjugationPhrase extends ConjugationPhrase
 		return $visitor->visitImperatifPresentTensePronominal ( $this );
 	}
 	public $conjugated_verb, $reflexive_pronoun;
-	public function __construct(ConjugatedVerb $conjugated_verb, $reflexive_pronoun) {
+	public function __construct(ConjugatedVerb $conjugated_verb, ReflexivePronoun $reflexive_pronoun) {
 		$this->conjugated_verb = $conjugated_verb;
 		$this->reflexive_pronoun = $reflexive_pronoun;
 	}
@@ -1447,7 +1443,7 @@ class ImperatifPresentTenseNegationPronominalConjugationPhrase extends Conjugati
 		return $visitor->visitImperatifPresentNegationPronominal ( $this );
 	}
 	public $reflexive_pronoun, $conjugated_verb;
-	public function __construct($reflexive_pronoun, ConjugatedVerb $conjugated_verb) {
+	public function __construct(ReflexivePronoun $reflexive_pronoun, ConjugatedVerb $conjugated_verb) {
 		$this->reflexive_pronoun = $reflexive_pronoun;
 		$this->conjugated_verb = $conjugated_verb;
 	}
