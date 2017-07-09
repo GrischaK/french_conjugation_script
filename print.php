@@ -356,10 +356,24 @@ function print_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Ge
 			Tense::Premiere_Forme => 'Passé première forme',
 			Tense::Deuxieme_Forme => 'Passé deuxième forme' 
 	];
+	$tooltip_of_tense = [ 
+			Tense::Present => 'Präsens',
+			Tense::Imparfait => 'Imperfekt',
+			Tense::Passe => ($mood->getValue () == Mood::Indicatif ? 'Präteritum' : 'Präteritum'),
+			Tense::Futur => 'Futur I',
+			Tense::Passe_compose => 'Perfekt',
+			Tense::Plus_que_parfait => 'Plusquamperfekt',
+			Tense::Passe_anterieur => 'Präteritumperfekt',
+			Tense::Futur_anterieur => 'Futur II',
+			Tense::Futur_compose => 'modales Futur',
+			Tense::Passe_recent => 'unmittelbare Vergangenheit',
+			Tense::Premiere_Forme => 'Konditional II 1. Form',
+			Tense::Deuxieme_Forme => 'Konditional II 2. Form' 
+	];	
 	if (is_array($tenses [$mood->getValue ()]) || is_object($tenses [$mood->getValue ()])) {	
 		foreach ( $tenses [$mood->getValue ()] as $tense ) {
-			echo "\t\t" . '<tr class="border">' . PHP_EOL;
-			echo "\t\t\t" . '<th colspan="' . colspan_number ( $mood, new Tense ( $tense ), $voice, $sentencetype ) . '">' . $th_of_tense [$tense] . '</th>' . PHP_EOL;
+			echo "\t\t" . '<tr class="border">' . PHP_EOL; 
+			echo "\t\t\t" . '<th data-toggle="tooltip" data-placement="top" title="' . $tooltip_of_tense [$tense] . '" colspan="' . colspan_number ( $mood, new Tense ( $tense ), $voice, $sentencetype ) . '">' . $th_of_tense [$tense] . '</th>' . PHP_EOL;
 			echo "\t\t" . '</tr>' . PHP_EOL;
 			print_persons ( $infinitiveVerb, $auxiliaire, $gender, $voice, new SentenceType ( $sentencetype ), new Tense ( $tense ), new Mood ( $mood ) );
 		}
@@ -426,7 +440,7 @@ function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gen
 			Mode::Infinitif => 'Infinitif',
 			Mode::Gerondif => 'Gérondif',			
 			Mode::Participe => 'Participe' 
-	];
+	];	
 	echo "\t\t" . '<tr>' . PHP_EOL;
 	echo "\t\t\t" . '<th class="titel_new ' . $css_class . '">Mode</th>' . PHP_EOL;
 	echo "\t\t\t" . '<th class="titel_new ' . $css_class . '">Présent</th>' . PHP_EOL;
@@ -456,11 +470,16 @@ function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $
 			Mood::Conditionnel => 'Conditionnel',
 			Mood::Imperatif => 'Impératif' 
 	];
-	
+	$tooltip_of_mood = [ 
+			Mood::Indicatif => 'Indikativ',
+			Mood::Subjonctif => 'Subjunktiv',
+			Mood::Conditionnel => 'Konditional',
+			Mood::Imperatif => 'Imperativ' 
+	];	
 	if (in_array ( $infinitiveVerb, $verbes_impersonnels ))
 		unset ( $moods [Mood::Imperatif], $h2_of_mood [Mood::Imperatif]); 	
 	foreach ( $moods as $mood ) {
-		echo '<h2 class="home"><a id="' . strtolower ( $h2_of_mood [$mood] ) . $category . '"></a>' . $h2_of_mood [$mood] . '</h2>' . PHP_EOL;
+		echo '<h2 class="home"><span data-toggle="tooltip" data-placement="top" title="' . $tooltip_of_mood [$mood] . '"><a id="' . strtolower ( $h2_of_mood [$mood] ) . $category . '"></a>' . $h2_of_mood [$mood] . '</span></h2>' . PHP_EOL;
 		echo "\t" . '<hr class="linie " />' . PHP_EOL;
 		echo "\t" . '<table class="table table-condensed table-hover table-striped table-responsive tab_new ' . $css_class . '">' . PHP_EOL;
 		print_simple_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, new Mood ( $mood ) );
@@ -469,7 +488,7 @@ function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $
 		print_composite_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, new Mood ( $mood ) );
 		echo "\t" . '</table>' . PHP_EOL . PHP_EOL;
 	}
-	echo '<h2 class="home"><a id="modes-impersonnels' . $category . '"></a>Modes impersonnels</h2>' . PHP_EOL;
+	echo '<h2 class="home"><span data-toggle="tooltip" data-placement="top" title="Impersonelle Formen"><a id="modes-impersonnels' . $category . '"></a>Modes impersonnels</span></h2>' . PHP_EOL;
 	echo "\t" . '<hr class="linie" />' . PHP_EOL;
 	echo "\t" . '<table class="table table-condensed table-hover table-striped table-responsive tab_new ' . $css_class . '">' . PHP_EOL;
 	print_modes ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype );
