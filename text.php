@@ -64,7 +64,7 @@ function print_explanatory_text(InfinitiveVerb $infinitiveVerb) {
 <a href="#conditionnel<?php echo $category ?>">Conditionnel</a>
 -
 <?php if(!in_array($infinitiveVerb, $verbes_impersonnels)) {	?>
-<a href="#imperatif<?php echo $category ?>">Impératif</a>
+<a href="#impératif<?php echo $category ?>">Impératif</a>
 - 
 <?php } ?>
 <a href="#modes-impersonnels<?php echo $category ?>">Modes impersonnels</a>
