@@ -12,16 +12,8 @@ class Auxiliaire extends Enum{
 	static function getVerbsThatUse(Auxiliaire $auxiliaire) {
 	include  'verbs.php';				
 		$verbByAuxiliaire = 
-			[Auxiliaire::Etre => ['accourir','advenir','aller','apparaitre','apparaître','arriver','ascendre','co-naitre','co-naître','convenir',
-				'débeller','démourir','descendre','disconvenir','devenir','échoir','entre-venir','emmourir','entrer','époustoufler','intervenir',
-				'issir','mésadvenir','mésavenir','mévenir','monter','moquer','mourir','naitre','naître','obvenir','paraitre','paraître','partir',
-				'parvenir','passer','pourir','pourrir','prémourir','provenir','ragaillardir','raller','réadvenir','re-aller','réapparaitre',
-			    'réapparaître','reconvenir','redépartir','redevenir','réentrer','réintervenir','remourir','renaitre','renaître','rentrer','revenir',
-			    'reparaitre','reparaître','repartir','reparvenir','repasser','ré-apparaître','réaccroupir','réacharner', 'redévergonder','réinsurger','remoquer','reprosterner','resouvenir','retrémousser','repourrir','rerentrer','rerester','ressortir','ressouvenir','rester','resurvenir','retomber','retrépasser','revenir','sortir',
-				 'souvenir','stationner','sur-aller','suradvenir','survenir','tomber','trépasser','venir'],  // + all pronominal version of verbs	
-			Auxiliaire::AvoirandEtre => ['accourir','ascendre','convenir','déchoir','demeurer','descendre','disparaitre','disparaître','disconvenir',
-				'éclore','enclore','entrer ','monter','paraitre','paraître','passer','ragaillardir', 'ré-apparaître','réapparaître','reconvenir',
-				'reparaitre','reparaître','sortir','tomber']];
+			[Auxiliaire::Etre => ['advenir','aller','allier','allier','arriver','arroger','co-naitre','co-naître','devenir','débeller','décéder','démourir','emmourir','entre-venir','entrer','échoir','époustoufler','intervenir','issir','moquer','mourir','mésadvenir','mésavenir','mévenir','naitre','naître','obvenir','partir','parvenir','provenir','prémourir','raller','re-aller','redevenir','redépartir','redévergonder','remoquer','remourir','renaitre','renaître','rentrer','reparaitre','reparaître','repartir','reparvenir','repasser','repourrir','reprosterner','rerentrer','rerester','resouvenir','ressortir','ressouvenir','rester','resurvenir','retomber','retrémousser','retrépasser','revenir','réaccroupir','réacharner','réadvenir','réentrer','réinsurger','réintervenir','souvenir','stationner','sur-aller','suradvenir','survenir','trépasser','venir'],  // + all pronominal version of verbs	
+			Auxiliaire::AvoirandEtre => ['accourir','alunir','amerrir','apparaitre','apparaître','ascendre','atterrir','changer','convenir','crever','croupir','demeurer','descendre','disconvenir','disparaitre','disparaître','divorcer','déchoir','décroître','dégeler','dégénérer','déménager','embellir','enclore','grandir','grossir','maigrir','monter','paraitre','paraître','passer','pourir','pourrir','ragaillardir','rajeunir','reconvenir','redescendre','reparaitre','reparaître','ré-apparaître','réapparaitre','réapparaître','sortir','tomber','viellir','éclore']];
 		$verbByAuxiliaire[Auxiliaire::Avoir] = array_diff($infinitiveVerb, 
 								  array_merge($verbByAuxiliaire[Auxiliaire::Etre],
 									     $verbByAuxiliaire[Auxiliaire::AvoirandEtre]));
@@ -33,3 +25,4 @@ class Auxiliaire extends Enum{
 		// mourir,redépartir,resouvenir,ressouvenir,sortir  +pronominal 
 		// -> souvenir not active, but passive+pronominal tab should be active
 ?>
+
