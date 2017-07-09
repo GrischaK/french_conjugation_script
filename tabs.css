@@ -1,34 +1,30 @@
-.tab_new{border:1px solid black;line-height:1;border-spacing:1px;background-color:#FFFFFF;width:48%;display:inline-table;}
-.tab_new tr.border{border-bottom:1pt solid black;}
+.tab_new{line-height:1;border-spacing:1px;width:48%;display:inline-table;}
 .titel_new,.tab_new th{font-weight:bold;text-align:center;}
-.tab_new tr:nth-child(even){background:white;}
-.tab_new tr:nth-child(odd){background:#efefef;}
 .tab_new tr td:first-child{width:20%}
 .tab_new tr td:nth-child(2){width:20%}
 .tab_new td{padding-top:5px;padding-left:1px;padding-right:1px;}
 
-.light_blue,.light_blue th{background-color:#b9c9fe;}
-.green,.green th{background-color:GreenYellow;}
-.GoldenRod,.GoldenRod th{background-color:GoldenRod;}
-.ForestGreen,.ForestGreen th{background-color:ForestGreen;}
-.DarkOrange,.DarkOrange th{background-color:DarkOrange;}
-.DeepSkyBlue,.DeepSkyBlue th{background-color:DeepSkyBlue;}
-.DarkGoldenRod,.DarkGoldenRod th{background-color:DarkGoldenRod ;}
-.Silver,.Silver th{background-color:Silver;}
-.LightSlateGrey ,.LightSlateGrey  th{background-color:LightSlateGrey;}
-.SandyBrown,.SandyBrown th{background-color:SandyBrown;}
-.Peru,.Peru th{background-color:Peru;}
-.Teal,.Teal th{background-color:Teal;}
-.Turquoise,.Turquoise th{background-color:Turquoise;}
-.MediumSeaGreen,.MediumSeaGreen th{background-color:MediumSeaGreen;}
-.MediumSpringGreen,.MediumSpringGreen th{background-color:MediumSpringGreen;}
-
-.OliveDrab,.OliveDrab th{background-color:OliveDrab;}
-.Olive,.Olive th{background-color:Olive;}
-.Plum,.Plum th{background-color:Plum;}
-.Pink,.Pink th{background-color:Pink;}
-.Cyan,.Cyan th{background-color:Cyan;}
-.CornflowerBlue,.CornflowerBlue th{background-color:CornflowerBlue;}
+.light_blue th{background-color:#b9c9fe;}
+.green th{background-color:GreenYellow;}
+.GoldenRod th{background-color:GoldenRod;}
+.ForestGreen th{background-color:ForestGreen;}
+.DarkOrange th{background-color:DarkOrange;}
+.DeepSkyBlue th{background-color:DeepSkyBlue;}
+.DarkGoldenRod th{background-color:DarkGoldenRod ;}
+.Silver th{background-color:Silver;}
+.LightSlateGrey  th{background-color:LightSlateGrey;}
+.SandyBrown th{background-color:SandyBrown;}
+.Peru th{background-color:Peru;}
+.Teal th{background-color:Teal;}
+.Turquoise th{background-color:Turquoise;}
+.MediumSeaGreen th{background-color:MediumSeaGreen;}
+.MediumSpringGreen th{background-color:MediumSpringGreen;}
+.OliveDrab th{background-color:OliveDrab;}
+.Olive th{background-color:Olive;}
+.Plum th{background-color:Plum;}
+.Pink th{background-color:Pink;}
+.Cyan th{background-color:Cyan;}
+.CornflowerBlue th{background-color:CornflowerBlue;}
 
 .unregel{color:blue;}
 .ending{color:green;}

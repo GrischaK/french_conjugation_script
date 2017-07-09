@@ -317,38 +317,28 @@ class OutputConjugationPhraseVisitor extends ConjugationPhraseVisitor {
 function colspan_number($mood, $tense, $voice, $sentencetype) {
 	if (isComposite ( $mood, $tense )) {
 		$colspan = 4;
-		if ($voice->getValue () === Voice::Passive) {
+		if ($voice->getValue () === Voice::Passive)
 			$colspan = 5;
-		}
-		if ($mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Active) {
+		if ($mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Active)
 			$colspan = 3;
-		}
-		if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Active) {
+		if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Active)
 			$colspan = 2;
-		}
-		if ($mood->getValue () === Mood::Imperatif && ($voice->getValue () === Voice::Passive || $voice->getValue () === Voice::Pronominal)) {
+		if ($mood->getValue () === Mood::Imperatif && ($voice->getValue () === Voice::Passive || $voice->getValue () === Voice::Pronominal))
 			$colspan = 2;
-		}
-		if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Subjonctif) {
+		if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Subjonctif)
 			$colspan = 2;
-		}
 	} else {
 		$colspan = 3;
-		if ($voice->getValue () === Voice::Passive) {
+		if ($voice->getValue () === Voice::Passive)
 			$colspan = 4;
-		}
-		if ($mood->getValue () === Mood::Imperatif && ($voice->getValue () === Voice::Active || $voice->getValue () === Voice::Pronominal)) {
+		if ($mood->getValue () === Mood::Imperatif && ($voice->getValue () === Voice::Active || $voice->getValue () === Voice::Pronominal))
 			$colspan = 2;
-		}
-		if ($mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Passive) {
+		if ($mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Passive)
 			$colspan = 3;
-		}
-		if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Passive) {
+		if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Imperatif && $voice->getValue () === Voice::Passive)
 			$colspan = 2;
-		}
-		if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Subjonctif) {
+		if ($sentencetype->getValue () === SentenceType::InterrogativeSentence && $mood->getValue () === Mood::Subjonctif)
 			$colspan = 2;
-		}
 	}
 	return $colspan;
 }
@@ -477,16 +467,16 @@ function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $
 	foreach ( $moods as $mood ) {
 		echo '<h2 class="home"><a id="' . strtolower ( $h2_of_mood [$mood] ) . $category . '"></a>' . $h2_of_mood [$mood] . '</h2>' . PHP_EOL;
 		echo "\t" . '<hr class="linie " />' . PHP_EOL;
-		echo "\t" . '<table class="tab_new ' . $css_class . '">' . PHP_EOL;
+		echo "\t" . '<table class="table table-condensed table-hover table-striped table-responsive tab_new ' . $css_class . '">' . PHP_EOL;
 		print_simple_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, new Mood ( $mood ) );
 		echo "\t" . '</table>' . PHP_EOL . PHP_EOL;
-		echo "\t" . '<table class="tab_new ' . $css_class . '">' . PHP_EOL;
+		echo "\t" . '<table class="table table-condensed table-hover table-striped table-responsive tab_new ' . $css_class . '">' . PHP_EOL;
 		print_composite_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, new Mood ( $mood ) );
 		echo "\t" . '</table>' . PHP_EOL . PHP_EOL;
 	}
 	echo '<h2 class="home"><a id="modes-impersonnels' . $category . '"></a>Modes impersonnels</h2>' . PHP_EOL;
 	echo "\t" . '<hr class="linie" />' . PHP_EOL;
-	echo "\t" . '<table class="tab_new ' . $css_class . '">' . PHP_EOL;
+	echo "\t" . '<table class="table table-condensed table-hover table-striped table-responsive tab_new ' . $css_class . '">' . PHP_EOL;
 	print_modes ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype );
 	echo "\t" . '</table>' . PHP_EOL;
 }
