@@ -707,18 +707,16 @@ function modes_impersonnels(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliai
 				$infinitiveVerb = '<i>'.Auxiliaire::Etre . '</i> ' . $participe_passe;
 				$participe_present = $etre_participe_present . ' ' . $participe_passe;
 			}
-			if ($tense->getValue () === Tense::Passe) {
+			if ($tense->getValue () === Tense::Passe)
 				$infinitiveVerb_passe = '<i>'.$auxiliaire->getValue () . '</i> ' . $etre_participe_passe . ' ' . $participe_passe;
-			}
 		}
 		if ($voice->getValue () === Voice::Pronominal) {
 			if ($tense->getValue () === Tense::Present) {
 				$infinitiveVerb = concatenate_apostrophized ( 'se', $infinitiveVerb );
 				$participe_present = concatenate_apostrophized ( 'se', $participe_present );
 			}
-			if ($tense->getValue () === Tense::Passe) {
+			if ($tense->getValue () === Tense::Passe)
 				$infinitiveVerb_passe = concatenate_apostrophized ( 'se', Auxiliaire::Etre ) . ' ' . $participe_passe;
-			}
 		}
 	}
 	if ($sentencetype->getValue () === SentenceType::Negation) {
@@ -814,17 +812,7 @@ function concatenate_apostrophized($pronoun, $verb) {
 	return $was_apostrophized ? $possiblyApostrophizedPronoun . $verb : "$possiblyApostrophizedPronoun $verb";
 }
 function euphonious_change($verb, $pronoun) {
-	if (in_array ( mb_substr ( $verb, - 1 ), [ 
-			'e',
-			'a',
-			'c' 
-	] ) and in_array ( $pronoun, [ 
-			'il',
-			'elle',
-			'on',
-			'ils',
-			'elles' 
-	] ))
+	if (in_array ( mb_substr ( $verb, - 1 ), [ 'e','a','c' ] ) and in_array ( $pronoun, [ 'il','elle','on','ils','elles' ] ))
 		return $verb . '-t';
 	else
 		return $verb;
@@ -840,15 +828,12 @@ abstract class ConjugationPhrase {
 	static function participe_ending_suffix_passive_etre(Auxiliaire $auxiliaire, Voice $voice, Gender $gender, Person $person, &$participe_passe) {
 		if ($auxiliaire->getValue () === Auxiliaire::Etre || $voice->getValue () === Voice::Passive) {
 			
-			if ($gender->getValue () === Gender::Masculine && (isPlural ( $person ))) {
+			if ($gender->getValue () === Gender::Masculine && (isPlural ( $person )))
 				$participe_passe .= 's';
-			}
-			if ($gender->getValue () === Gender::Feminine && (! isPlural ( $person ))) {
+			if ($gender->getValue () === Gender::Feminine && (! isPlural ( $person )))
 				$participe_passe .= 'e';
-			}
-			if ($gender->getValue () === Gender::Feminine && (isPlural ( $person ))) {
+			if ($gender->getValue () === Gender::Feminine && (isPlural ( $person )))
 				$participe_passe .= 'es';
-			}
 		}
 	}	
 	static function create(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype, Person $person, Tense $tense, Mood $mood) {
