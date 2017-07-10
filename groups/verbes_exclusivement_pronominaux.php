@@ -1,5 +1,5 @@
 <?php 
-$verbes_exclusivement_pronominaux = array  (
+$verbes_exclusivement_pronominaux = [
 'à-plat-ventrer',
 'abrater',
 'abrunchir',
@@ -1798,5 +1798,5 @@ $verbes_exclusivement_pronominaux = array  (
 'vermouler',
 'verticiller',
 'vésiculiser'
-);
+];
 ?>

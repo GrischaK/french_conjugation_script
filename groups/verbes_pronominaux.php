@@ -1,5 +1,5 @@
 <?php 
-$verbes_pronominaux = array  (
+$verbes_pronominaux = [
 'a-sexualiser',
 'abader',
 'abaisser',
@@ -4721,5 +4721,5 @@ $verbes_pronominaux = array  (
 'zlatanifier',
 'zombifier',
 'zoner'
-);
+];
 ?>

@@ -1,5 +1,5 @@
 <?php
-$verbes_en_ancien = array  (  // Verben aus dem altfranzösischer Sprache
+$verbes_en_ancien = [  // Verben aus dem altfranzösischer Sprache
 'aacier',
 'aairier',
 'aaisier',
@@ -3337,5 +3337,5 @@ $verbes_en_ancien = array  (  // Verben aus dem altfranzösischer Sprache
 'wihoter',
 'winder',
 'ymaginer'
-);
+];
 ?>
