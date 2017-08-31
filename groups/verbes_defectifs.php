@@ -76,6 +76,6 @@ $verbes_defectifs = [  // defekte Verben
 'tonner',
 'valoir',
 'venter',
-'viendre'
+'viendre',
 ];
 ?>
