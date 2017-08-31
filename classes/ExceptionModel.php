@@ -14,7 +14,9 @@ class ExceptionModel extends Enum
     const CER = 'cer';
     const GER = 'ger';
     const IER = 'ier';
-    const YER = 'yer';
+    const YER_YE_IE = 'yer_ye_ie';
+    const YER_YE = 'yer_ye';
+    const YER_IE = 'yer_ie';	
     const E_Akut_ER = 'e_akut_er';
     const E_Akut_CER = 'e_akut_cer';
     const E_Akut_GER = 'e_akut_ger';
@@ -31,7 +33,9 @@ class ExceptionModel extends Enum
     const SAVOIR = 'savoir';
     const VALOIR = 'valoir';
     const VOIR = 'voir';
+    const RAMENTEVOIR = 'ramentevoir';
     const CHOIR = 'choir';
+    const CHOIR2 = 'choir2';	
     const CEVOIR = 'cevoir';
     const SEOIR = 'seoir';
     const VOULOIR = 'vouloir';    
