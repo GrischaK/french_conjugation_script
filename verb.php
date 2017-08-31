@@ -1371,8 +1371,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 							</div>
 						</div>
 						<?php } if(in_array($infinitiveVerb, $verbes_pronominaux)) { ?>	
-						<div
-							class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in <?php } ?>"
+						<div class="tab-pane fade <?php if(in_array($infinitiveVerb, $verbes_exclusivement_pronominaux)) {?>active in <?php } ?>"
 							id="voice133">
 							<div class="tabbable">
 								<ul class="nav nav-tabs">
