@@ -11,19 +11,24 @@ class ExceptionModel extends Enum
     const Eler_Elle = 'appeler';
     const Eter_Ette = 'jeter';
     const ENVOYER = 'envoyer';
+    const ARGUER = 'arguer';
     const CER = 'cer';
+    const ECER = 'ecer';	
+    const ESCER = 'escer';	
     const GER = 'ger';
     const IER = 'ier';
     const YER_YE_IE = 'yer_ye_ie';
     const YER_YE = 'yer_ye';
     const YER_IE = 'yer_ie';	
     const E_Akut_ER = 'e_akut_er';
+    const E_Akut_ER2 = 'e_akut_er2'; // regular
     const E_Akut_CER = 'e_akut_cer';
     const E_Akut_GER = 'e_akut_ger';
-    const E_Akut_IER = 'e_akut_ier';
+    const E_Akut_IER = 'e_akut_ier'; // regular
+	const E_Akut_IIER = 'e_akut_iier';
     const E_Akut_YER = 'e_akut_yer';
     const E_Er = 'e_er';
-    const I_Trema_ER = 'i_trema_er';
+    const I_Trema_ER = 'i_trema_er'; // regular
     // OIR
     const DEVOIR = 'devoir';
     const FALLOIR = 'falloir';

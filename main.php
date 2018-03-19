@@ -4,22 +4,19 @@
 	elseif(isset($_GET['buchstabe'])){
 		$keywords='';
 	}
-
 	$description='Hier findest du die Übersicht aller französischen Verben mit ihrer Konjugation.';
 	$keywords='Konjugation, Konjugation von französischen Verben, Französische Verben konjugieren';  
 	$letters=range('a','z');
 	$letters_special=["à","â","æ","ç","é","ê","è","ë","î","ï","ô","œ","û","ù"];
-
 ?>                                                          
-<h1> <?php echo $h1;?></h1>
+<h1 class="h1-responsive"> <?php echo $h1;?></h1>
 <? translation('la conjugaison','die Konjugation'); ?>
-<p class="well">Derzeit befinden sich <b><?php echo count($infinitiveVerb, COUNT_RECURSIVE); ?></b> Verben in unserer Datenbank. Klicke auf einen Buchstaben, um alle Verben zu finden, die mit diesem Buchstaben anfangen.</p>
+<p class="card card-body bg-light">Derzeit befinden sich <strong><?php echo count($infinitiveVerb, COUNT_RECURSIVE); ?></strong> Verben in unserer Datenbank. Klicke auf einen Buchstaben, um alle Verben zu finden, die mit diesem Buchstaben anfangen.</p>
 <?php
 	$str="";
 	//letter menu
-	for($a=0;$a<count($letters);$a++){
+	for($a=0;$a<count($letters);$a++)
 		$str .= '<a href="'.(isset($_GET['buchstabe'])?'../':'').$letters[$a].'/"> '.strtoupper($letters[$a]).'</a> &nbsp;| &nbsp;';
-	}
 	echo substr($str,0,count($str)-2);
 ?>
 	  
@@ -49,10 +46,9 @@ function suchen(){
 	var val = window.location.protocol + "//" + window.location.host + window.location.pathname+document.getElementById("txt").value+"/";
 	document.location.href=val;
 }
-
 </script>
 <br><br>
-<p class="well">Hier kannst du den Infinitiv Form des Verbes eingeben,um die Konjugationsformen für alle französischen Zeiten zu sehen.</p>
+<p class="card card-body bg-light">Hier kannst du den Infinitiv Form des Verbes eingeben,um die Konjugationsformen für alle französischen Zeiten zu sehen.</p>
   <input type="text" id="txt" size="27" onkeyup="showResult(this.value)">
   <input id="suchen" type="button" value="Suchen" onclick="suchen()">
 <br> 
@@ -73,10 +69,9 @@ function suchen(){
 <p>Hier finden Sie die meistgesuchten Verben:</p>
 <?php
 $beliebtesten_verben = [['acheter','aller','appeler','apprendre','attendre','avoir','balayer','battre','boire','choisir','comprendre','connaître','courir','devenir','devoir','dormir','dire','envoyer','être','écrire','étudier','faire','falloir','finir','fuir','gagner','grandir','grossir','guerir','habiller','habiter','inviter','jeter','joindre','jouer','jouir','laver','laisser','lever','lire','manger','mettre','monter','mourir','nager','naître','nettoyer','nuire','obtenir','offrir','oublier','ouvrir','parler','partir','prendre','pouvoir','quitter','recevoir','rendre','rester','réussir','savoir','sentir','servir','sortir','tenir','travailler','trouver','utiliser','venir','vivre','vouloir','voir']];    
-
 	//verbs in groups
 	foreach($beliebtesten_verben as $bel_verben){
-		echo '<h2 class="home"><a id="'.mb_substr($bel_verben[0],0,1,"utf-8").'"></a>Meistgesuchten Verben:</h2><hr class="linie"><table width="100%">';
+		echo '<h2 class="home h2-responsive"><a id="'.mb_substr($bel_verben[0],0,1,"utf-8").'"></a>Meistgesuchten Verben:</h2><hr class="linie"><table width="100%">';
 		$chunks = array_chunk($bel_verben, 4);
 		foreach($chunks as $chunk){
 			echo '<tr>';
@@ -87,4 +82,4 @@ $beliebtesten_verben = [['acheter','aller','appeler','apprendre','attendre','avo
 		echo '</table>';	
 	}
 ?>
-<p class="well">Alle Verben sind in verschiedene <a class="franzoesisch"href="kategorien/">Kategorien</a> geordnet.</p>
+<p class="card card-body bg-light">Alle Verben sind in verschiedene <a class="franzoesisch"href="kategorien/">Kategorien</a> geordnet.</p>

@@ -178,6 +178,8 @@ function print_persons(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, G
 		recursiveRemoval ( $persons, Person::SecondPersonPlural );
 		unset ( $persons [Mood::Imperatif] );
 	}
+	if (in_array(finding_exception_model($infinitiveVerb)->getValue(), [ExceptionModel::POUVOIR]))
+		unset ( $persons [Mood::Imperatif] );		
 	
 	foreach ( $persons [$mood->getValue ()] [$tense->getValue ()] as $person ) {
 		$conjugationPhrase = ConjugationPhrase::create ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, new Person ( $person ), $tense, $mood );
@@ -399,7 +401,7 @@ function print_simple_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxilia
 					Tense::Present 
 			] 
 	];
-	if (in_array ( $infinitiveVerb, $verbes_impersonnels ))
+	if (in_array ( $infinitiveVerb, $verbes_impersonnels ) || (in_array(finding_exception_model($infinitiveVerb)->getValue(), [ExceptionModel::POUVOIR])))
 		unset ( $tenses [Mood::Imperatif] );	
 	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, $mood, $tenses );
 }
@@ -426,8 +428,9 @@ function print_composite_tenses(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxi
 					Tense::Passe 
 			] 
 	];
-	if (in_array ( $infinitiveVerb, $verbes_impersonnels ))
+	if (in_array ( $infinitiveVerb, $verbes_impersonnels ) || (in_array(finding_exception_model($infinitiveVerb)->getValue(), [ExceptionModel::POUVOIR])))
 		unset ( $tenses [Mood::Imperatif] );	
+	
 	print_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, $mood, $tenses );
 }
 function print_modes(InfinitiveVerb $infinitiveVerb, Auxiliaire $auxiliaire, Gender $gender, Voice $voice, SentenceType $sentencetype) {
@@ -476,22 +479,26 @@ function print_conjugations_of_verb(InfinitiveVerb $infinitiveVerb, Auxiliaire $
 			Mood::Conditionnel => 'Konditional',
 			Mood::Imperatif => 'Imperativ' 
 	];	
-	if (in_array ( $infinitiveVerb, $verbes_impersonnels ))
+	if (in_array ( $infinitiveVerb, $verbes_impersonnels ) || (in_array(finding_exception_model($infinitiveVerb)->getValue(), [ExceptionModel::POUVOIR])))
 		unset ( $moods [Mood::Imperatif], $h2_of_mood [Mood::Imperatif]); 	
 	foreach ( $moods as $mood ) {
-		echo '<h2 class="home"><span data-toggle="tooltip" data-placement="top" title="' . $tooltip_of_mood [$mood] . '"><a id="' . strtolower ( $h2_of_mood [$mood] ) . $category . '"></a>' . $h2_of_mood [$mood] . '</span></h2>' . PHP_EOL;
+		echo '<h2 class="home h2-responsive"><span data-toggle="tooltip" data-placement="top" title="' . $tooltip_of_mood [$mood] . '"><a id="' . strtolower ( $h2_of_mood [$mood] ) . $category . '"></a>' . $h2_of_mood [$mood] . '</span></h2>' . PHP_EOL;
 		echo "\t" . '<hr class="linie " />' . PHP_EOL;
-		echo "\t" . '<table class="table table-condensed table-hover table-striped table-responsive tab_new ' . $css_class . '">' . PHP_EOL;
+		echo "\t" . '<div class="table-responsive">' . PHP_EOL;		
+		echo "\t" . '<table class="table table-condensed table-hover table-striped tab_new ' . $css_class . '">' . PHP_EOL;
 		print_simple_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, new Mood ( $mood ) );
 		echo "\t" . '</table>' . PHP_EOL . PHP_EOL;
-		echo "\t" . '<table class="table table-condensed table-hover table-striped table-responsive tab_new ' . $css_class . '">' . PHP_EOL;
+		echo "\t" . '<table class="table table-condensed table-hover table-striped tab_new ' . $css_class . '">' . PHP_EOL;
 		print_composite_tenses ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype, new Mood ( $mood ) );
 		echo "\t" . '</table>' . PHP_EOL . PHP_EOL;
+		echo "\t" . '</div>' . PHP_EOL . PHP_EOL;		
 	}
-	echo '<h2 class="home"><span data-toggle="tooltip" data-placement="top" title="Impersonelle Formen"><a id="modes-impersonnels' . $category . '"></a>Modes impersonnels</span></h2>' . PHP_EOL;
+	echo '<h2 class="home h2-responsive"><span data-toggle="tooltip" data-placement="top" title="Impersonelle Formen"><a id="modes-impersonnels' . $category . '"></a>Modes impersonnels</span></h2>' . PHP_EOL;
 	echo "\t" . '<hr class="linie" />' . PHP_EOL;
-	echo "\t" . '<table class="table table-condensed table-hover table-striped table-responsive tab_new ' . $css_class . '">' . PHP_EOL;
+	echo "\t" . '<div class="table-responsive">' . PHP_EOL;	
+	echo "\t" . '<table class="table table-condensed table-hover table-striped tab_new ' . $css_class . '">' . PHP_EOL;
 	print_modes ( $infinitiveVerb, $auxiliaire, $gender, $voice, $sentencetype );
 	echo "\t" . '</table>' . PHP_EOL;
+		echo "\t" . '</div>' . PHP_EOL . PHP_EOL;	
 }
 ?>

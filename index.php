@@ -1,19 +1,15 @@
 <?php
 $time = microtime(TRUE);
 $mem = memory_get_usage();
-
 $jquery_head='';
-$only_content_css ='';
 require_once 'verbs.php';
 require_once 'conjugate.php';
 require_once 'print.php';
 include_once($_SERVER['DOCUMENT_ROOT']."/data/before_content.php");
-
 $kategorien=[
 "erste-gruppe","zweite-gruppe","dritte-gruppe",
 "hifsverb-avoir","hilfsverb-etre","hilfsverb-avoir-und-etre",
 "reflexiv","irreflexiv","ausschließlich-reflexiven-verben","transitiv","intransitiv",'altfrannzösische-sprache','defekte-verben','unpersönliche-verben',
-
 "endung-cer","endung-ier","endung-ger","endung-eler_ele","endung-eler_elle","endung-eter_ete","endung-eter_ette","endung-yer_ie","endung-é_er","endung-écer","endung-éger","endung-éyer","endung-envoyer",
 "endung-vouloir","endung-avoir_ravoir","endung-voir","endung-cevoir","endung-devoir","endung-mouvoir","endung-pleuvoir","endung-pouvoir","endung-savoir","endung-falloir","endung-seoir","endung-valoir","endung-haïr",
 "endung-indre","endung-battre","endung-crire","endung-mettre","endung-prendre","endung-rompre","endung-être","endung-aire","endung-faire"];
@@ -32,7 +28,6 @@ for($a=0;$a<count($kategorien);$a++){
 		$titles[$a]=implode(" -",explode("-",ucwords($kategorien[$a]),2));
 }
 $char_split='!';
-
 //index.php (no parameters / main page)
 if(!isset($_GET['verb'])&&(!isset($_GET['buchstabe']) || preg_match('/^'.$char_split.'.*/',$_GET['buchstabe']))){
 	require "main.php";	
@@ -51,7 +46,6 @@ elseif(isset($_GET['verb'])){
 	});
 </script>
 <?php 
-
 print_r(array(
   'memory' => (memory_get_usage() - $mem) / (1024 * 1024),
   'seconds' => microtime(TRUE) - $time

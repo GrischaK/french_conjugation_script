@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" media="screen" property="stylesheet" href="../../tabs.css" />
+<link rel="stylesheet" type="text/css" media="screen" property="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 <script type="text/javascript" src="../../tooltip.js"></script>
 <?php
 require_once 'classes/Auxiliaire.php';
@@ -7,7 +8,6 @@ require_once 'groups/verbes_pronominaux.php';
 require_once 'groups/verbes_exclusivement_pronominaux.php';
 require_once 'groups/verbes_intransitifs.php';
 require_once 'groups/verbes_transitifs.php';
-require_once 'groups/irregular-verb-groups.php';
 require_once 'groups/verbes_defectifs.php';
 require_once 'groups/verbes_en_ancien.php';
 require_once 'groups/verbes_impersonnels.php';
@@ -78,7 +78,7 @@ if ($_GET ["buchstabe"] == "kategorien") {
 			$h1 = $titles [$a];
 			break;
 		}
-	echo '<h1>Kategorie: ' . $h1 . '</h1>';
+	echo '<h1 class="h1-responsive">Kategorie: ' . $h1 . '</h1>';
 	echo '<table width="100%">';
 	$array = array_chunk ( $array, 4 );
 	foreach ( $array as $chunk ) {
@@ -106,13 +106,13 @@ if ($_GET ["buchstabe"] == "kategorien") {
 	echo '</div>';
 } else {
 	?>
-<h1><?php echo $_GET['verb'];?></h1>
+<h1 class="h1-responsive"><?php echo $_GET['verb'];?></h1>
 <?php
 	translation ( $_GET ['verb'], $fr_de [$_GET ['verb']] );
-	echo '<h2 class="home">Die Konjugation von ' . $_GET ['verb'] . '</h2>';
+	echo '<h2 class="home h2-responsive">Die Konjugation von ' . $_GET ['verb'] . '</h2>';
 	$infinitiveVerb = new InfinitiveVerb ( $_GET ['verb'] );
 	if (canBeConjugatedWith ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::AvoirandEtre ) )) {
-		?>
+		?>		
 <div class="tabbable boxed parentTabs">
 	<ul class="nav nav-pills">
 		<li class="active"><a href="#auxiliary1" data-toggle="tab"> Hilfsverb être</a></li>
@@ -762,6 +762,45 @@ if ($_GET ["buchstabe"] == "kategorien") {
 	</div>
 </div>
 <?php } else { if (canBeConjugatedWith ( $infinitiveVerb, new Auxiliaire ( Auxiliaire::Avoir ) )) { ?>
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" href="#sentence-type11" role="tab" data-toggle="tab">Aussagesatz</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#sentence-type12" role="tab" data-toggle="tab">Fragesatz</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#sentence-type13" role="tab" data-toggle="tab">Verneinung</a>
+  </li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="sentence-type11">
+    
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" href="#nest1" role="tab" data-toggle="tab">nest1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#nest2" role="tab" data-toggle="tab">nest2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#nest3" role="tab" data-toggle="tab">nest3</a>
+      </li>
+    </ul>
+    
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="nest1">
+          nest1
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="nest2">nest2</div>
+      <div role="tabpanel" class="tab-pane fade" id="nest3">nest3</div> 
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="sentence-type12">bbb</div>
+  <div role="tabpanel" class="tab-pane fade" id="sentence-type13">ccc</div>
+</div>
+
 <div class="tabbable boxed parentTabs">
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#sentence-type11" data-toggle="tab">Aussagesatz</a></li>
@@ -1298,7 +1337,6 @@ if ($_GET ["buchstabe"] == "kategorien") {
 						<?php } ?>
 					</div>
 				</div>
-
 			</div>
 			<div class="tab-pane fade" id="sentence-type13">
 				<div class="tabbable">

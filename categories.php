@@ -1,6 +1,6 @@
 <?php
-echo '<h1>Kategorien</h1>';
-echo '<p class="well">Hier findest du alle Kategorien. Entweder die Gruppe der drei großen Verbgruppen, den zwei Hilfsverben, der Transitivität oder ob das Verb reflexiv oder irreflexiv ist sowie vielen unregelmäßigen Verbgruppen</p>';
+echo '<h1 class="h1-responsive">Kategorien</h1><?include_once($_SERVER['DOCUMENT_ROOT']."/data/ads/adexchange-retangle.php");?>';
+echo '<p class="card card-body bg-light">Hier findest du alle Kategorien. Entweder die Gruppe der drei großen Verbgruppen, den zwei Hilfsverben, der Transitivität oder ob das Verb reflexiv oder irreflexiv ist sowie vielen unregelmäßigen Verbgruppen</p>';
 for($a = 0; $a < count ( $kategorien ); $a ++) {
 	if ($a == 0)
 		echo '<h3 class="home">Verbgruppen</h3>';

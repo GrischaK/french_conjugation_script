@@ -1,7 +1,6 @@
 $exceptionmodel->isCHOIR()
  défectif means don't show like PHP unset function or "-"
 rare -> italic and gre
-
 défectif 
 - Indicatif Imparfait
 - Impératif Présent
@@ -10,7 +9,6 @@ défectif
 rare
 - Indicatif Présent 1P+2P
 - Subjonctif Présent
-
 $exceptionmodel->isFAILLIR()
 - Indicatif Présent
 - Indicatif Imparfait
@@ -24,17 +22,12 @@ $exceptionmodel->isFAILLIR()
  - faire faillite », 2e groupe
 -----------------
 $exceptionmodel->isPOUVOIR
-
 défectif
 - Impératif  Présent
-
-
 // 2 forms
 $red_slash = '/';
-
 $exceptionmodel->isSEOIR
 all forms, but Subjonctif Imparfait and Indicatif Passé simple same
-
 $exceptionmodel->isPOUVOIR
  - Indicatif Présent 1S
  
@@ -51,14 +44,12 @@ $exceptionmodel->isYER
 $exceptionmodel->isRAIRE()
 - Indicatif Imparfait
 - Subjonctif Imparfait
-
 $exceptionmodel->isSOUDRE()
 - Indicatif Passé
 - Subjonctif Imparfait
  
 $exceptionmodel->isRESOUDRE -> 2 more variants
 $exceptionmodel->isBRUIRE  --> 1 more variant
-
 $exceptionmodel->isOCCIRE()
 - most forms are  défectif
  
@@ -71,12 +62,10 @@ $exceptionmodel->isPLEUVOIR
 - all tenses only 3S
 - no Imperatif 
 - no Gérondif
-
 $exceptionmodel->isFOUTRE
 rare
 - Indicatif Passé simple 
 - Subjonctif Imparfait 
-
 $exceptionmodel->isCLORE
 rare
 - Indicatif Présent 1P+2P
@@ -84,20 +73,12 @@ rare
 défectif
 - Indicatif Passé simple 
 - Subjonctif Imparfait 
-
 $exceptionmodel->isAITRE
 rare
 - Indicatif Passé simple 
 - Subjonctif Imparfait 
-
-
 issir
 - many forms are défectif
-
-
-
-
-
 balnave
 bédave
 béton

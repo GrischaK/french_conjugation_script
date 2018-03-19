@@ -1,7 +1,6 @@
 <?php 
 	$per_page=200;
 	$params=explode($char_split,$_GET["buchstabe"]);
-
 function filter_factory($letter) {
     return function ($input) use ($letter) {
         return is_string($input) && $input[0] === $letter;
@@ -15,9 +14,9 @@ function filter_factory($letter) {
 		$h1=strtoupper($params[0]);
 	}
 ?>
-<h1><?php echo $h1; ?></h1>
+<h1 class="h1-responsive"><?php echo $h1; ?></h1><?include_once($_SERVER['DOCUMENT_ROOT']."/data/ads/adexchange-retangle.php");?>
 <?php translation('la conjugaison','die Konjugation'); ?>
-<p class="well">Hier finden sie alle Verben, die mit <?php echo ($params[0]);?> beginnen. Zu jeder Vokabel finden Sie die Konjugation für den Indicatif, Subjonctif, Conditionnel und sowie den Impératif, Infinitif, Gérondif und Participe Modus.</p>
+<p class="card card-body bg-light">Hier finden sie alle Verben, die mit <?php echo ($params[0]);?> beginnen. Zu jeder Vokabel finden Sie die Konjugation für den Indicatif, Subjonctif, Conditionnel und sowie den Impératif, Infinitif, Gérondif und Participe Modus.</p>
 <?php
 	$num=0;
 	$start=0;

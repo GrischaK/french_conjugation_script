@@ -3,7 +3,6 @@
 .tab_new tr td:first-child{width:20%}
 .tab_new tr td:nth-child(2){width:20%}
 .tab_new td{padding:5px 1px 1px 0px;}
-
 .light_blue th{background-color:#b9c9fe;}
 .green th{background-color:GreenYellow;}
 .GoldenRod th{background-color:GoldenRod;}
@@ -25,6 +24,5 @@
 .Pink th{background-color:Pink;}
 .Cyan th{background-color:Cyan;}
 .CornflowerBlue th{background-color:CornflowerBlue;}
-
 .unregel{color:blue;}
 .ending{color:green;}

@@ -3025,7 +3025,6 @@ $infinitiveVerb = [
 'becquer',
 'becqueter',
 'becter',
-
 'bédaver',
 'beder',
 'béder',
@@ -4607,7 +4606,6 @@ $infinitiveVerb = [
 'chouiller',
 'chouiner',
 'chouler',
-
 'chouraver',
 'chourer',
 'chouriner',
@@ -18397,6 +18395,7 @@ $infinitiveVerb = [
 'réappairer',
 'réapparaitre',
 'réapparaître',
+'ré-apparaitre',
 'ré-apparaître',
 'réappareiller',
 'réapparenter',
