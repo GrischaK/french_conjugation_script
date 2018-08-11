@@ -13,8 +13,3 @@ I need a solution to change all my long arrays, where are all verbs, another arr
 This should all be in a database.
 
 **Fork, pull request and contribute!**
-
-Old french conjugator on Lern-Online.net
-======
-I had earlier done a simpler version of this work and it works, but I will change it with this new version, if it is ready:
-http://www.lern-online.net/franzoesisch/grammatik/konjugation/
